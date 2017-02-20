@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="15G31" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <fetchRequest name="nameMatch" entity="User" predicateString="name CONTAINS &quot;郭晓倩&quot;"/>
+    <elements>
+        <element name="User" positionX="-54" positionY="-9" width="128" height="60"/>
+    </elements>
+</model>
