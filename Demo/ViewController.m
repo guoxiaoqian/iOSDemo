@@ -10,6 +10,7 @@
 #import "CoreDataVC.h"
 #import "FMDBVC.h"
 #import "FileManagerVC.h"
+#import "NetworkVC.h"
 
 @interface EntryModel : NSObject
 
@@ -44,6 +45,7 @@
                        [EntryModel modelWithName:@"Core Data" class:[CoreDataVC class]],
                        [EntryModel modelWithName:@"FMDB" class:[FMDBVC class]],
                        [EntryModel modelWithName:@"File Manager" class:[FileManagerVC class]],
+                       [EntryModel modelWithName:@"Network" class:[NetworkVC class]],
                        nil];
 
 }

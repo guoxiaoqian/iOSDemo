@@ -30,6 +30,9 @@
 		88A6182D1E5ABE9200EF8AFC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A6182C1E5ABE9200EF8AFC /* Security.framework */; };
 		88A618311E5ACAA700EF8AFC /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A618301E5ACAA700EF8AFC /* UICKeyChainStore.m */; };
 		88A618331E5ADB0F00EF8AFC /* student.xml in Resources */ = {isa = PBXBuildFile; fileRef = 88A618321E5ADB0F00EF8AFC /* student.xml */; };
+		88D03B9B1E61BB18009DBEAC /* NetworkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D03B991E61BB18009DBEAC /* NetworkVC.m */; };
+		88D03B9C1E61BB18009DBEAC /* NetworkVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D03B9A1E61BB18009DBEAC /* NetworkVC.xib */; };
+		88D03B9F1E62B8A2009DBEAC /* file.png in Resources */ = {isa = PBXBuildFile; fileRef = 88D03B9E1E62B8A2009DBEAC /* file.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +94,10 @@
 		88A6182F1E5ACAA700EF8AFC /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
 		88A618301E5ACAA700EF8AFC /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStore.m; sourceTree = "<group>"; };
 		88A618321E5ADB0F00EF8AFC /* student.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = student.xml; sourceTree = "<group>"; };
+		88D03B981E61BB18009DBEAC /* NetworkVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkVC.h; sourceTree = "<group>"; };
+		88D03B991E61BB18009DBEAC /* NetworkVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkVC.m; sourceTree = "<group>"; };
+		88D03B9A1E61BB18009DBEAC /* NetworkVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NetworkVC.xib; sourceTree = "<group>"; };
+		88D03B9E1E62B8A2009DBEAC /* file.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = file.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +152,7 @@
 		88A6173A1E53100C00EF8AFC /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				88D03B971E61BAEC009DBEAC /* Network */,
 				88A618261E5ABCD400EF8AFC /* FileManager */,
 				88A6179B1E5409C800EF8AFC /* FMDB */,
 				88A6178B1E5402FE00EF8AFC /* CoreData */,
@@ -254,6 +262,17 @@
 				88A618301E5ACAA700EF8AFC /* UICKeyChainStore.m */,
 			);
 			path = UICKeyChainStore;
+			sourceTree = "<group>";
+		};
+		88D03B971E61BAEC009DBEAC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				88D03B9E1E62B8A2009DBEAC /* file.png */,
+				88D03B981E61BB18009DBEAC /* NetworkVC.h */,
+				88D03B991E61BB18009DBEAC /* NetworkVC.m */,
+				88D03B9A1E61BB18009DBEAC /* NetworkVC.xib */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,6 +387,8 @@
 				88A6182B1E5ABCEC00EF8AFC /* FileManagerVC.xib in Resources */,
 				88A617461E53100C00EF8AFC /* Main.storyboard in Resources */,
 				88A618331E5ADB0F00EF8AFC /* student.xml in Resources */,
+				88D03B9C1E61BB18009DBEAC /* NetworkVC.xib in Resources */,
+				88D03B9F1E62B8A2009DBEAC /* file.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +426,7 @@
 				88A617A91E540BFD00EF8AFC /* FMDatabaseAdditions.m in Sources */,
 				88A617921E54033800EF8AFC /* Model.xcdatamodeld in Sources */,
 				88A617AB1E540BFD00EF8AFC /* FMDatabaseQueue.m in Sources */,
+				88D03B9B1E61BB18009DBEAC /* NetworkVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +577,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gxq.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -570,6 +593,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gxq.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
