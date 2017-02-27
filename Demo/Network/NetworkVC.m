@@ -22,9 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-//    [self sessionGeneralRequest];
+    //    [self sessionGeneralRequest];
     
-//    [self sessionDownload];
+    //    [self sessionDownload];
     
     [self sessionUpload];
 }
@@ -54,7 +54,7 @@
     urlRequest.HTTPShouldHandleCookies = YES;
     [urlRequest setValue:@"text/plain,text/html" forHTTPHeaderField:@"Accept"];
     [urlRequest setValue:@"utf-8" forHTTPHeaderField:@"Accept-Charset"];
-
+    
     NSURLSessionTask* task = [[NSURLSession sharedSession] dataTaskWithRequest:urlRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSString* responseBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"%s responseBody = %@",__FUNCTION__,responseBody);
@@ -87,42 +87,45 @@
 
 //上传文件
 -(void)sessionUpload{
-    NSMutableURLRequest* urlRequest = [NSMutableURLRequest requestWithURL:[self url]];
-    urlRequest.HTTPMethod = @"POST";
-    urlRequest.timeoutInterval = 10;
-    urlRequest.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
 
-    [urlRequest setValue:[NSString stringWithFormat:@"multipart/form-data;charsert=utf-8;boundary=%@",Kboundary] forHTTPHeaderField:@"Content-Type"];
-
+    //构建报文体
     NSString* fileName = @"file.png";
     NSData* bodyData = [self createUploadBodyWithFileName:fileName fileData:UIImagePNGRepresentation([UIImage imageNamed:fileName])];
-
-    NSURLSessionUploadTask* task = [[self session] uploadTaskWithRequest:urlRequest fromData:bodyData completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        
-    }];
+    
+    //构建HTTP请求
+    NSMutableURLRequest* urlRequest = [NSMutableURLRequest requestWithURL:[self url]];
+    urlRequest.HTTPMethod = @"POST";
+    urlRequest.timeoutInterval = 60;
+    urlRequest.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
+    [urlRequest setValue:[NSString stringWithFormat:@"multipart/form-data;charsert=utf-8;boundary=%@",Kboundary] forHTTPHeaderField:@"Content-Type"];
+    [urlRequest setValue:[NSString stringWithFormat:@"%tu", [bodyData length]] forHTTPHeaderField:@"Content-Length"];
+    
+    
+    NSURLSessionUploadTask* task = [[self session] uploadTaskWithRequest:urlRequest fromData:bodyData];
     [task resume];
 }
 
 -(NSData*)createUploadBodyWithFileName:(NSString*)fileName fileData:(NSData*)fileData{
     //    HTTP请求体：
-    //    --AaB03x （边界到下一行用了换行，在oc里面 用 \r\n 来定义换一行 所以下面不要奇怪它的用法）
+    //    --boundary （边界到下一行用了换行，在oc里面 用 \r\n 来定义换一行 所以下面不要奇怪它的用法）
     //    Content-Disposition: form-data; name="key1"（这行到 value1 换了2行，所以，自然而然 \r\n\r\n ）
     //
     //    value1
-    //    --AaB03x
+    //    --boundary
     //    Content-disposition: form-data; name="key2"; filename="file"
     //    Content-Type: application/octet-stream
     //
     //    图片数据...//NSData
-    //    --AaB03x--（结束的分割线也不要落下）
+    //    --boundary--（结束的分割线也不要落下）
     NSMutableString* bodyStr = [NSMutableString new];
-    [bodyStr appendFormat:@"%@\r\n",Kboundary];
+    [bodyStr appendFormat:@"--%@\r\n",Kboundary];
     [bodyStr appendFormat:@"Content-disposition:form-data;name=\"file\";filename=\"%@\"\r\n",fileName];
     [bodyStr appendFormat:@"Content-Type:application/octet-stream\r\n\r\n"];
-
+    
     NSMutableData* bodyData = [NSMutableData new];
     [bodyData appendData:[bodyStr dataUsingEncoding:NSUTF8StringEncoding]];
     [bodyData appendData:fileData];
+    [bodyData appendData:[[NSString stringWithFormat:@"--%@--",Kboundary] dataUsingEncoding:NSUTF8StringEncoding]];
     return fileData;
 }
 
@@ -149,6 +152,12 @@
     if (error) {
         self.resumeDownloadData = [[error userInfo] objectForKey:NSURLSessionDownloadTaskResumeData];
     }
+}
+
+#pragma mark - AFNetworking
+
+- (void)afNetworkGeneralRequest{
+
 }
 
 @end
