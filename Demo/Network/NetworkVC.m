@@ -7,6 +7,7 @@
 //
 
 #import "NetworkVC.h"
+#import "AFNetworking.h"
 
 #define Kboundary @"----WebKitFormBoundaryjv0UfA04ED44AhWx"
 
@@ -22,11 +23,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    //    [self sessionGeneralRequest];
+//    [self sessionGeneralRequest];
+//    
+//    [self sessionDownload];
+//    
+//    [self sessionUpload];
+//    
+    [self afNetworkGeneralRequest];
     
-    //    [self sessionDownload];
-    
-    [self sessionUpload];
+    [self afNetworkingMultiPartFormRequest];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,7 +92,7 @@
 
 //上传文件
 -(void)sessionUpload{
-
+    
     //构建报文体
     NSString* fileName = @"file.png";
     NSData* bodyData = [self createUploadBodyWithFileName:fileName fileData:UIImagePNGRepresentation([UIImage imageNamed:fileName])];
@@ -157,7 +162,30 @@
 #pragma mark - AFNetworking
 
 - (void)afNetworkGeneralRequest{
+    [[AFHTTPSessionManager manager] GET:[[self url] absoluteString]
+                             parameters:nil
+                                success:^(NSURLSessionDataTask *task, id responseObject) {
+                                    NSLog(@"%s responseObject = %@",__FUNCTION__,responseObject);
+                                }
+                                failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                    
+                                }];
+}
 
+- (void)afNetworkingMultiPartFormRequest{
+    NSString* fileName = @"file.png";
+    NSURL* fileURL = [[NSBundle mainBundle] URLForResource:@"file" withExtension:@"png"];
+    [[AFHTTPSessionManager manager] POST:[[self url] absoluteString]
+                              parameters:nil
+               constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+                   [formData appendPartWithFileURL:fileURL name:fileName error:nil];
+               }
+                                 success:^(NSURLSessionDataTask *task, id responseObject) {
+                                     NSLog(@"%s responseObject = %@",__FUNCTION__,responseObject);
+                                 }
+                                 failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                     
+                                 }];
 }
 
 @end
