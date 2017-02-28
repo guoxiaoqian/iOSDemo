@@ -52,10 +52,14 @@
 @end
 
 
-@interface FileManagerVC () <NSXMLParserDelegate>
+@interface FileManagerVC () <NSXMLParserDelegate,NSStreamDelegate>
 
 @property (strong,nonatomic) NSMutableArray* studentArray;
 @property (strong,nonatomic) NSString* currentElement;
+
+@property (strong,nonatomic) NSInputStream* inputStream;
+@property (strong,nonatomic) NSOutputStream *outputStream;
+
 
 @end
 
@@ -75,7 +79,9 @@
     
     [self fileManage];
     
-    [self stream];
+    [self fileHandle];
+    
+    [self openStream];
     
     [self xml];
     
@@ -163,8 +169,64 @@
     }
 }
 
--(void)stream{
-    //TODO-GUO:
+-(void)fileHandle{
+    NSFileHandle* wirteHandle = [NSFileHandle fileHandleForWritingAtPath:[[self filePath] stringByAppendingPathComponent:@"fileHandle"]];
+    [wirteHandle seekToEndOfFile];
+    [wirteHandle writeData:[@"郭晓倩" dataUsingEncoding:NSUTF8StringEncoding]];
+    [wirteHandle closeFile];
+    
+    NSFileHandle* readHandle = [NSFileHandle fileHandleForWritingAtPath:[[self filePath] stringByAppendingPathComponent:@"fileHandle"]];
+    [readHandle seekToFileOffset:0];
+    NSData* data = [readHandle readDataToEndOfFile];
+    [readHandle closeFile];
+    NSLog(@"FileHandle  read: %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+}
+
+-(void)openStream{
+    NSOutputStream* outputSream = [NSOutputStream outputStreamToFileAtPath:[[self filePath] stringByAppendingPathComponent:@"stream"] append:NO];
+    outputSream.delegate = self;
+    [outputSream scheduleInRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+    [outputSream open];
+    
+    NSInputStream* inputStream = [NSInputStream inputStreamWithFileAtPath:[[self filePath] stringByAppendingPathComponent:@"stream"]];
+    inputStream.delegate = self;
+    [inputStream scheduleInRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+    [inputStream open];
+    
+    self.outputStream = outputSream;
+    self.inputStream = inputStream;
+}
+
+-(void)closeOutputStream{
+    [self.outputStream close];
+    [self.outputStream removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+}
+
+-(void)closeInputStream{
+    [self.inputStream close];
+    [self.inputStream removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+}
+
+-(BOOL)writeOutputStream{
+    NSData* message = [@"郭晓倩" dataUsingEncoding:NSUTF8StringEncoding];
+    NSInteger length = [self.outputStream write:[message bytes] maxLength:message.length];
+    if (length >= message.length) {
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
+-(BOOL)readInputStream{
+    uint8_t buffer[1024];
+    NSInteger length = [self.inputStream read:buffer maxLength:1024];
+    NSData* message = [NSData dataWithBytes:buffer length:length];
+    NSLog(@"NSStream read: %@",[[NSString alloc] initWithData:message encoding:NSUTF8StringEncoding]);
+    if (length < 1024) {
+        return YES;
+    }else{
+        return NO;
+    }
 }
 
 -(void)xml{
@@ -180,6 +242,79 @@
         NSData* data = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
         NSDictionary* dic2 = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         NSLog(@"json dic=%@",dic2);
+    }
+}
+
+#pragma mark - NSStreamDelegate
+
+- (void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode{
+//    NSStreamEventNone = 0,
+//    NSStreamEventOpenCompleted = 1UL << 0,
+//    NSStreamEventHasBytesAvailable = 1UL << 1,
+//    NSStreamEventHasSpaceAvailable = 1UL << 2,
+//    NSStreamEventErrorOccurred = 1UL << 3,
+//    NSStreamEventEndEncountered = 1UL << 4
+    if ([aStream isKindOfClass:[NSOutputStream class]]) {
+        switch (eventCode) {
+            case NSStreamEventOpenCompleted:{
+            
+            }
+                break;
+            case NSStreamEventHasBytesAvailable:{
+                
+            }
+                break;
+            case NSStreamEventHasSpaceAvailable:{
+                if([self writeOutputStream]){
+                    [self closeOutputStream];
+                }
+            }
+                break;
+            case NSStreamEventErrorOccurred:{
+                [self closeOutputStream];
+                [self closeInputStream];
+            }
+                break;
+            case NSStreamEventEndEncountered:{
+                [self closeOutputStream];
+            }
+                break;
+            default:{
+            
+            }
+                break;
+        }
+    }else if([aStream isKindOfClass:[NSInputStream class]]){
+        switch (eventCode) {
+            case NSStreamEventOpenCompleted:{
+                
+            }
+                break;
+            case NSStreamEventHasBytesAvailable:{
+                if([self readInputStream]){
+                    NSLog(@"inputStream hasAvailable : %d",self.inputStream.hasBytesAvailable);
+                    [self closeInputStream];
+                }
+            }
+                break;
+            case NSStreamEventHasSpaceAvailable:{
+                
+            }
+                break;
+            case NSStreamEventErrorOccurred:{
+                [self closeOutputStream];
+                [self closeInputStream];
+            }
+                break;
+            case NSStreamEventEndEncountered:{
+                [self closeInputStream];
+            }
+                break;
+            default:{
+                
+            }
+                break;
+        }
     }
 }
 
