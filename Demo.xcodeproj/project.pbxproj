@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		889DBA391E6BFBA200520C77 /* CoreLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889DBA371E6BFBA200520C77 /* CoreLocationVC.m */; };
+		889DBA3A1E6BFBA200520C77 /* CoreLocationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889DBA381E6BFBA200520C77 /* CoreLocationVC.xib */; };
+		889DBA3C1E6BFC4200520C77 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889DBA3B1E6BFC4200520C77 /* CoreLocation.framework */; };
+		889DBA3E1E6BFC4D00520C77 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889DBA3D1E6BFC4D00520C77 /* MapKit.framework */; };
 		88A6173D1E53100C00EF8AFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A6173C1E53100C00EF8AFC /* main.m */; };
 		88A617401E53100C00EF8AFC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A6173F1E53100C00EF8AFC /* AppDelegate.m */; };
 		88A617431E53100C00EF8AFC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A617421E53100C00EF8AFC /* ViewController.m */; };
@@ -72,6 +76,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		889DBA361E6BFBA200520C77 /* CoreLocationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreLocationVC.h; path = Demo/Network/CoreLocationVC.h; sourceTree = SOURCE_ROOT; };
+		889DBA371E6BFBA200520C77 /* CoreLocationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreLocationVC.m; path = Demo/Network/CoreLocationVC.m; sourceTree = SOURCE_ROOT; };
+		889DBA381E6BFBA200520C77 /* CoreLocationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CoreLocationVC.xib; path = Demo/Network/CoreLocationVC.xib; sourceTree = SOURCE_ROOT; };
+		889DBA3B1E6BFC4200520C77 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		889DBA3D1E6BFC4D00520C77 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		88A617381E53100C00EF8AFC /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A6173C1E53100C00EF8AFC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		88A6173E1E53100C00EF8AFC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -162,6 +171,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				889DBA3E1E6BFC4D00520C77 /* MapKit.framework in Frameworks */,
+				889DBA3C1E6BFC4200520C77 /* CoreLocation.framework in Frameworks */,
 				88A6182D1E5ABE9200EF8AFC /* Security.framework in Frameworks */,
 				88A6180A1E5466F200EF8AFC /* libsqlite3.0.tbd in Frameworks */,
 				88A6177B1E53EED000EF8AFC /* CoreData.framework in Frameworks */,
@@ -259,6 +270,8 @@
 		88A617791E53EED000EF8AFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				889DBA3D1E6BFC4D00520C77 /* MapKit.framework */,
+				889DBA3B1E6BFC4200520C77 /* CoreLocation.framework */,
 				88A6182C1E5ABE9200EF8AFC /* Security.framework */,
 				88A618091E5466F200EF8AFC /* libsqlite3.0.tbd */,
 				88A6177A1E53EED000EF8AFC /* CoreData.framework */,
@@ -433,6 +446,9 @@
 		88C32E801E66BFF1002753FC /* 系统功能（定位+推送+音视频+录音+相机+app跳转+通讯录+日历） */ = {
 			isa = PBXGroup;
 			children = (
+				889DBA361E6BFBA200520C77 /* CoreLocationVC.h */,
+				889DBA371E6BFBA200520C77 /* CoreLocationVC.m */,
+				889DBA381E6BFBA200520C77 /* CoreLocationVC.xib */,
 			);
 			name = "系统功能（定位+推送+音视频+录音+相机+app跳转+通讯录+日历）";
 			path = "系统功能（定位+音视频+录音+播放+app跳转+通讯录+日历）";
@@ -528,6 +544,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					88A617501E53100C00EF8AFC = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -574,6 +595,7 @@
 				88A617461E53100C00EF8AFC /* Main.storyboard in Resources */,
 				88C32E881E66BFF1002753FC /* student.xml in Resources */,
 				88C32EA31E66BFF1002753FC /* file.png in Resources */,
+				889DBA3A1E6BFBA200520C77 /* CoreLocationVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,6 +646,7 @@
 				88C32E981E66BFF1002753FC /* AFURLSessionManager.m in Sources */,
 				88C32E891E66BFF1002753FC /* UICKeyChainStore.m in Sources */,
 				88C32E8C1E66BFF1002753FC /* FMDatabasePool.m in Sources */,
+				889DBA391E6BFBA200520C77 /* CoreLocationVC.m in Sources */,
 				88C32E8D1E66BFF1002753FC /* FMDatabaseQueue.m in Sources */,
 				88C32E9B1E66BFF1002753FC /* AFNetworkActivityIndicatorManager.m in Sources */,
 				88C32E841E66BFF1002753FC /* CoreDataVC.m in Sources */,
