@@ -7,6 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		885960AF1E701FA300760090 /* Demo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8859608C1E701FA300760090 /* Demo.png */; };
+		885960B01E701FA300760090 /* Quartz.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8859608D1E701FA300760090 /* Quartz.pdf */; };
+		885960B11E701FA300760090 /* QuartzBlending.m in Sources */ = {isa = PBXBuildFile; fileRef = 8859608F1E701FA300760090 /* QuartzBlending.m */; };
+		885960B21E701FA300760090 /* QuartzBlendingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960911E701FA300760090 /* QuartzBlendingViewController.m */; };
+		885960B31E701FA300760090 /* QuartzClipping.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960931E701FA300760090 /* QuartzClipping.m */; };
+		885960B41E701FA300760090 /* QuartzCurves.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960951E701FA300760090 /* QuartzCurves.m */; };
+		885960B51E701FA300760090 /* QuartzDashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960971E701FA300760090 /* QuartzDashViewController.m */; };
+		885960B61E701FA300760090 /* QuartzDemo-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 885960981E701FA300760090 /* QuartzDemo-Info.plist */; };
+		885960B71E701FA300760090 /* QuartzDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8859609B1E701FA300760090 /* QuartzDemoVC.m */; };
+		885960B81E701FA300760090 /* QuartzGradientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8859609D1E701FA300760090 /* QuartzGradientViewController.m */; };
+		885960B91E701FA300760090 /* QuartzImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 8859609F1E701FA300760090 /* QuartzImages.m */; };
+		885960BA1E701FA300760090 /* QuartzLines.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960A11E701FA300760090 /* QuartzLines.m */; };
+		885960BB1E701FA300760090 /* QuartzLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960A31E701FA300760090 /* QuartzLineViewController.m */; };
+		885960BC1E701FA300760090 /* QuartzPolygons.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960A51E701FA300760090 /* QuartzPolygons.m */; };
+		885960BD1E701FA300760090 /* QuartzPolyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960A71E701FA300760090 /* QuartzPolyViewController.m */; };
+		885960BE1E701FA300760090 /* QuartzRendering.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960A91E701FA300760090 /* QuartzRendering.m */; };
+		885960BF1E701FA300760090 /* QuartzStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 885960AA1E701FA300760090 /* QuartzStoryboard.storyboard */; };
+		885960C01E701FA300760090 /* QuartzView.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960AC1E701FA300760090 /* QuartzView.m */; };
+		885960C11E701FA300760090 /* Ship.png in Resources */ = {isa = PBXBuildFile; fileRef = 885960AD1E701FA300760090 /* Ship.png */; };
+		885960C61E7020DD00760090 /* TestGeneralAnimationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960C41E7020DD00760090 /* TestGeneralAnimationVC.m */; };
+		885960C71E7020DD00760090 /* TestGeneralAnimationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885960C51E7020DD00760090 /* TestGeneralAnimationVC.xib */; };
+		885960C91E70211C00760090 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885960C81E70211C00760090 /* QuartzCore.framework */; };
+		885960E11E70222000760090 /* UIView+AnimationUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960CD1E70222000760090 /* UIView+AnimationUtility.m */; };
+		885960E21E70222000760090 /* PresentAnimationNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960D21E70222000760090 /* PresentAnimationNavigationController.m */; };
+		885960E31E70222000760090 /* PresentTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960D41E70222000760090 /* PresentTransitioningDelegate.m */; };
+		885960E41E70222000760090 /* NVCCustomTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960D71E70222000760090 /* NVCCustomTransitioningDelegate.m */; };
+		885960E51E70222000760090 /* NVCTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960D91E70222000760090 /* NVCTransitioningDelegate.m */; };
+		885960E61E70222000760090 /* FlipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960DD1E70222000760090 /* FlipView.m */; };
+		885960E71E70222000760090 /* OpenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960E01E70222000760090 /* OpenView.m */; };
 		889DBA391E6BFBA200520C77 /* CoreLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889DBA371E6BFBA200520C77 /* CoreLocationVC.m */; };
 		889DBA3A1E6BFBA200520C77 /* CoreLocationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889DBA381E6BFBA200520C77 /* CoreLocationVC.xib */; };
 		889DBA3C1E6BFC4200520C77 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889DBA3B1E6BFC4200520C77 /* CoreLocation.framework */; };
@@ -76,6 +105,58 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8859608C1E701FA300760090 /* Demo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Demo.png; sourceTree = "<group>"; };
+		8859608D1E701FA300760090 /* Quartz.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Quartz.pdf; sourceTree = "<group>"; };
+		8859608E1E701FA300760090 /* QuartzBlending.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuartzBlending.h; sourceTree = "<group>"; };
+		8859608F1E701FA300760090 /* QuartzBlending.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuartzBlending.m; sourceTree = "<group>"; };
+		885960901E701FA300760090 /* QuartzBlendingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuartzBlendingViewController.h; sourceTree = "<group>"; };
+		885960911E701FA300760090 /* QuartzBlendingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuartzBlendingViewController.m; sourceTree = "<group>"; };
+		885960921E701FA300760090 /* QuartzClipping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuartzClipping.h; sourceTree = "<group>"; };
+		885960931E701FA300760090 /* QuartzClipping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuartzClipping.m; sourceTree = "<group>"; };
+		885960941E701FA300760090 /* QuartzCurves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuartzCurves.h; sourceTree = "<group>"; };
+		885960951E701FA300760090 /* QuartzCurves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuartzCurves.m; sourceTree = "<group>"; };
+		885960961E701FA300760090 /* QuartzDashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuartzDashViewController.h; sourceTree = "<group>"; };
+		885960971E701FA300760090 /* QuartzDashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuartzDashViewController.m; sourceTree = "<group>"; };
+		885960981E701FA300760090 /* QuartzDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "QuartzDemo-Info.plist"; sourceTree = "<group>"; };
+		885960991E701FA300760090 /* QuartzDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QuartzDemo-Prefix.pch"; sourceTree = "<group>"; };
+		8859609A1E701FA300760090 /* QuartzDemoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuartzDemoVC.h; sourceTree = "<group>"; };
+		8859609B1E701FA300760090 /* QuartzDemoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuartzDemoVC.m; sourceTree = "<group>"; };
+		8859609C1E701FA300760090 /* QuartzGradientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuartzGradientViewController.h; sourceTree = "<group>"; };
+		8859609D1E701FA300760090 /* QuartzGradientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuartzGradientViewController.m; sourceTree = "<group>"; };
+		8859609E1E701FA300760090 /* QuartzImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuartzImages.h; sourceTree = "<group>"; };
+		8859609F1E701FA300760090 /* QuartzImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuartzImages.m; sourceTree = "<group>"; };
+		885960A01E701FA300760090 /* QuartzLines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuartzLines.h; sourceTree = "<group>"; };
+		885960A11E701FA300760090 /* QuartzLines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuartzLines.m; sourceTree = "<group>"; };
+		885960A21E701FA300760090 /* QuartzLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuartzLineViewController.h; sourceTree = "<group>"; };
+		885960A31E701FA300760090 /* QuartzLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuartzLineViewController.m; sourceTree = "<group>"; };
+		885960A41E701FA300760090 /* QuartzPolygons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuartzPolygons.h; sourceTree = "<group>"; };
+		885960A51E701FA300760090 /* QuartzPolygons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuartzPolygons.m; sourceTree = "<group>"; };
+		885960A61E701FA300760090 /* QuartzPolyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuartzPolyViewController.h; sourceTree = "<group>"; };
+		885960A71E701FA300760090 /* QuartzPolyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuartzPolyViewController.m; sourceTree = "<group>"; };
+		885960A81E701FA300760090 /* QuartzRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuartzRendering.h; sourceTree = "<group>"; };
+		885960A91E701FA300760090 /* QuartzRendering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuartzRendering.m; sourceTree = "<group>"; };
+		885960AA1E701FA300760090 /* QuartzStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QuartzStoryboard.storyboard; sourceTree = "<group>"; };
+		885960AB1E701FA300760090 /* QuartzView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuartzView.h; sourceTree = "<group>"; };
+		885960AC1E701FA300760090 /* QuartzView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuartzView.m; sourceTree = "<group>"; };
+		885960AD1E701FA300760090 /* Ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ship.png; sourceTree = "<group>"; };
+		885960C31E7020DD00760090 /* TestGeneralAnimationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestGeneralAnimationVC.h; sourceTree = "<group>"; };
+		885960C41E7020DD00760090 /* TestGeneralAnimationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestGeneralAnimationVC.m; sourceTree = "<group>"; };
+		885960C51E7020DD00760090 /* TestGeneralAnimationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestGeneralAnimationVC.xib; sourceTree = "<group>"; };
+		885960C81E70211C00760090 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		885960CC1E70222000760090 /* UIView+AnimationUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AnimationUtility.h"; sourceTree = "<group>"; };
+		885960CD1E70222000760090 /* UIView+AnimationUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AnimationUtility.m"; sourceTree = "<group>"; };
+		885960D11E70222000760090 /* PresentAnimationNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentAnimationNavigationController.h; sourceTree = "<group>"; };
+		885960D21E70222000760090 /* PresentAnimationNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentAnimationNavigationController.m; sourceTree = "<group>"; };
+		885960D31E70222000760090 /* PresentTransitioningDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentTransitioningDelegate.h; sourceTree = "<group>"; };
+		885960D41E70222000760090 /* PresentTransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentTransitioningDelegate.m; sourceTree = "<group>"; };
+		885960D61E70222000760090 /* NVCCustomTransitioningDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVCCustomTransitioningDelegate.h; sourceTree = "<group>"; };
+		885960D71E70222000760090 /* NVCCustomTransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVCCustomTransitioningDelegate.m; sourceTree = "<group>"; };
+		885960D81E70222000760090 /* NVCTransitioningDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVCTransitioningDelegate.h; sourceTree = "<group>"; };
+		885960D91E70222000760090 /* NVCTransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVCTransitioningDelegate.m; sourceTree = "<group>"; };
+		885960DC1E70222000760090 /* FlipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipView.h; sourceTree = "<group>"; };
+		885960DD1E70222000760090 /* FlipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipView.m; sourceTree = "<group>"; };
+		885960DF1E70222000760090 /* OpenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenView.h; sourceTree = "<group>"; };
+		885960E01E70222000760090 /* OpenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenView.m; sourceTree = "<group>"; };
 		889DBA361E6BFBA200520C77 /* CoreLocationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreLocationVC.h; path = Demo/Network/CoreLocationVC.h; sourceTree = SOURCE_ROOT; };
 		889DBA371E6BFBA200520C77 /* CoreLocationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreLocationVC.m; path = Demo/Network/CoreLocationVC.m; sourceTree = SOURCE_ROOT; };
 		889DBA381E6BFBA200520C77 /* CoreLocationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CoreLocationVC.xib; path = Demo/Network/CoreLocationVC.xib; sourceTree = SOURCE_ROOT; };
@@ -171,6 +252,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				885960C91E70211C00760090 /* QuartzCore.framework in Frameworks */,
 				889DBA3E1E6BFC4D00520C77 /* MapKit.framework in Frameworks */,
 				889DBA3C1E6BFC4200520C77 /* CoreLocation.framework in Frameworks */,
 				88A6182D1E5ABE9200EF8AFC /* Security.framework in Frameworks */,
@@ -196,6 +278,150 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8859608A1E701FA300760090 /* UI高级（动画） */ = {
+			isa = PBXGroup;
+			children = (
+				885960CA1E70222000760090 /* Animations */,
+				885960C31E7020DD00760090 /* TestGeneralAnimationVC.h */,
+				885960C41E7020DD00760090 /* TestGeneralAnimationVC.m */,
+				885960C51E7020DD00760090 /* TestGeneralAnimationVC.xib */,
+			);
+			path = "UI高级（动画）";
+			sourceTree = "<group>";
+		};
+		8859608B1E701FA300760090 /* UI高级（绘图） */ = {
+			isa = PBXGroup;
+			children = (
+				8859608C1E701FA300760090 /* Demo.png */,
+				8859608D1E701FA300760090 /* Quartz.pdf */,
+				8859608E1E701FA300760090 /* QuartzBlending.h */,
+				8859608F1E701FA300760090 /* QuartzBlending.m */,
+				885960901E701FA300760090 /* QuartzBlendingViewController.h */,
+				885960911E701FA300760090 /* QuartzBlendingViewController.m */,
+				885960921E701FA300760090 /* QuartzClipping.h */,
+				885960931E701FA300760090 /* QuartzClipping.m */,
+				885960941E701FA300760090 /* QuartzCurves.h */,
+				885960951E701FA300760090 /* QuartzCurves.m */,
+				885960961E701FA300760090 /* QuartzDashViewController.h */,
+				885960971E701FA300760090 /* QuartzDashViewController.m */,
+				885960981E701FA300760090 /* QuartzDemo-Info.plist */,
+				885960991E701FA300760090 /* QuartzDemo-Prefix.pch */,
+				8859609A1E701FA300760090 /* QuartzDemoVC.h */,
+				8859609B1E701FA300760090 /* QuartzDemoVC.m */,
+				8859609C1E701FA300760090 /* QuartzGradientViewController.h */,
+				8859609D1E701FA300760090 /* QuartzGradientViewController.m */,
+				8859609E1E701FA300760090 /* QuartzImages.h */,
+				8859609F1E701FA300760090 /* QuartzImages.m */,
+				885960A01E701FA300760090 /* QuartzLines.h */,
+				885960A11E701FA300760090 /* QuartzLines.m */,
+				885960A21E701FA300760090 /* QuartzLineViewController.h */,
+				885960A31E701FA300760090 /* QuartzLineViewController.m */,
+				885960A41E701FA300760090 /* QuartzPolygons.h */,
+				885960A51E701FA300760090 /* QuartzPolygons.m */,
+				885960A61E701FA300760090 /* QuartzPolyViewController.h */,
+				885960A71E701FA300760090 /* QuartzPolyViewController.m */,
+				885960A81E701FA300760090 /* QuartzRendering.h */,
+				885960A91E701FA300760090 /* QuartzRendering.m */,
+				885960AA1E701FA300760090 /* QuartzStoryboard.storyboard */,
+				885960AB1E701FA300760090 /* QuartzView.h */,
+				885960AC1E701FA300760090 /* QuartzView.m */,
+				885960AD1E701FA300760090 /* Ship.png */,
+			);
+			path = "UI高级（绘图）";
+			sourceTree = "<group>";
+		};
+		885960AE1E701FA300760090 /* UI高级（事件+手势） */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "UI高级（事件+手势）";
+			sourceTree = "<group>";
+		};
+		885960CA1E70222000760090 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				885960CB1E70222000760090 /* Category */,
+				885960CE1E70222000760090 /* 工具类 */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		885960CB1E70222000760090 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				885960CC1E70222000760090 /* UIView+AnimationUtility.h */,
+				885960CD1E70222000760090 /* UIView+AnimationUtility.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		885960CE1E70222000760090 /* 工具类 */ = {
+			isa = PBXGroup;
+			children = (
+				885960CF1E70222000760090 /* 导航页动画效果 */,
+				885960DA1E70222000760090 /* 转场过渡动画 */,
+			);
+			path = "工具类";
+			sourceTree = "<group>";
+		};
+		885960CF1E70222000760090 /* 导航页动画效果 */ = {
+			isa = PBXGroup;
+			children = (
+				885960D01E70222000760090 /* Present转场动画导航页 */,
+				885960D51E70222000760090 /* 自定义导航转场动画 */,
+			);
+			path = "导航页动画效果";
+			sourceTree = "<group>";
+		};
+		885960D01E70222000760090 /* Present转场动画导航页 */ = {
+			isa = PBXGroup;
+			children = (
+				885960D11E70222000760090 /* PresentAnimationNavigationController.h */,
+				885960D21E70222000760090 /* PresentAnimationNavigationController.m */,
+				885960D31E70222000760090 /* PresentTransitioningDelegate.h */,
+				885960D41E70222000760090 /* PresentTransitioningDelegate.m */,
+			);
+			path = "Present转场动画导航页";
+			sourceTree = "<group>";
+		};
+		885960D51E70222000760090 /* 自定义导航转场动画 */ = {
+			isa = PBXGroup;
+			children = (
+				885960D61E70222000760090 /* NVCCustomTransitioningDelegate.h */,
+				885960D71E70222000760090 /* NVCCustomTransitioningDelegate.m */,
+				885960D81E70222000760090 /* NVCTransitioningDelegate.h */,
+				885960D91E70222000760090 /* NVCTransitioningDelegate.m */,
+			);
+			path = "自定义导航转场动画";
+			sourceTree = "<group>";
+		};
+		885960DA1E70222000760090 /* 转场过渡动画 */ = {
+			isa = PBXGroup;
+			children = (
+				885960DB1E70222000760090 /* FlipView */,
+				885960DE1E70222000760090 /* OpenView */,
+			);
+			path = "转场过渡动画";
+			sourceTree = "<group>";
+		};
+		885960DB1E70222000760090 /* FlipView */ = {
+			isa = PBXGroup;
+			children = (
+				885960DC1E70222000760090 /* FlipView.h */,
+				885960DD1E70222000760090 /* FlipView.m */,
+			);
+			path = FlipView;
+			sourceTree = "<group>";
+		};
+		885960DE1E70222000760090 /* OpenView */ = {
+			isa = PBXGroup;
+			children = (
+				885960DF1E70222000760090 /* OpenView.h */,
+				885960E01E70222000760090 /* OpenView.m */,
+			);
+			path = OpenView;
+			sourceTree = "<group>";
+		};
 		88A6172F1E53100C00EF8AFC = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +446,9 @@
 		88A6173A1E53100C00EF8AFC /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				8859608B1E701FA300760090 /* UI高级（绘图） */,
+				8859608A1E701FA300760090 /* UI高级（动画） */,
+				885960AE1E701FA300760090 /* UI高级（事件+手势） */,
 				88C32E321E66BFF1002753FC /* 存储（数据库+CoreData+文件） */,
 				88C32E4F1E66BFF1002753FC /* 第三方功能（支付+分享） */,
 				88C32E501E66BFF1002753FC /* 多线程 */,
@@ -227,7 +456,6 @@
 				88C32E801E66BFF1002753FC /* 系统功能（定位+推送+音视频+录音+相机+app跳转+通讯录+日历） */,
 				88C32E811E66BFF1002753FC /* H5相关 */,
 				88C32E821E66BFF1002753FC /* OC高级（KVC+KVO+运行时） */,
-				88C32E831E66BFF1002753FC /* UI高级（事件+手势+绘图+动画） */,
 				88A6173E1E53100C00EF8AFC /* AppDelegate.h */,
 				88A6173F1E53100C00EF8AFC /* AppDelegate.m */,
 				88A617411E53100C00EF8AFC /* ViewController.h */,
@@ -270,6 +498,7 @@
 		88A617791E53EED000EF8AFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				885960C81E70211C00760090 /* QuartzCore.framework */,
 				889DBA3D1E6BFC4D00520C77 /* MapKit.framework */,
 				889DBA3B1E6BFC4200520C77 /* CoreLocation.framework */,
 				88A6182C1E5ABE9200EF8AFC /* Security.framework */,
@@ -468,13 +697,6 @@
 			path = "OC高级（KVC+KVO+运行时）";
 			sourceTree = "<group>";
 		};
-		88C32E831E66BFF1002753FC /* UI高级（事件+手势+绘图+动画） */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "UI高级（事件+手势+绘图+动画）";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -587,15 +809,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				885960C71E7020DD00760090 /* TestGeneralAnimationVC.xib in Resources */,
 				88C32E991E66BFF1002753FC /* LICENSE in Resources */,
 				88C32EA51E66BFF1002753FC /* NetworkVC.xib in Resources */,
+				885960AF1E701FA300760090 /* Demo.png in Resources */,
+				885960C11E701FA300760090 /* Ship.png in Resources */,
 				88A6174B1E53100C00EF8AFC /* LaunchScreen.storyboard in Resources */,
+				885960BF1E701FA300760090 /* QuartzStoryboard.storyboard in Resources */,
 				88A617481E53100C00EF8AFC /* Assets.xcassets in Resources */,
 				88C32E871E66BFF1002753FC /* FileManagerVC.xib in Resources */,
 				88A617461E53100C00EF8AFC /* Main.storyboard in Resources */,
 				88C32E881E66BFF1002753FC /* student.xml in Resources */,
+				885960B61E701FA300760090 /* QuartzDemo-Info.plist in Resources */,
 				88C32EA31E66BFF1002753FC /* file.png in Resources */,
 				889DBA3A1E6BFBA200520C77 /* CoreLocationVC.xib in Resources */,
+				885960B01E701FA300760090 /* Quartz.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,6 +849,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88C32E861E66BFF1002753FC /* FileManagerVC.m in Sources */,
+				885960B21E701FA300760090 /* QuartzBlendingViewController.m in Sources */,
 				88C32E9C1E66BFF1002753FC /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				88C32EA11E66BFF1002753FC /* UIRefreshControl+AFNetworking.m in Sources */,
 				88C32E9E1E66BFF1002753FC /* UIButton+AFNetworking.m in Sources */,
@@ -628,31 +857,52 @@
 				88A617431E53100C00EF8AFC /* ViewController.m in Sources */,
 				88C32E911E66BFF1002753FC /* AFHTTPRequestOperationManager.m in Sources */,
 				88A617401E53100C00EF8AFC /* AppDelegate.m in Sources */,
+				885960BE1E701FA300760090 /* QuartzRendering.m in Sources */,
+				885960BD1E701FA300760090 /* QuartzPolyViewController.m in Sources */,
 				88C32E951E66BFF1002753FC /* AFURLConnectionOperation.m in Sources */,
 				88C32EA41E66BFF1002753FC /* NetworkVC.m in Sources */,
 				88C32E8F1E66BFF1002753FC /* FMDBVC.m in Sources */,
+				885960E11E70222000760090 /* UIView+AnimationUtility.m in Sources */,
 				88C32E851E66BFF1002753FC /* Model.xcdatamodeld in Sources */,
 				88C32E961E66BFF1002753FC /* AFURLRequestSerialization.m in Sources */,
+				885960C01E701FA300760090 /* QuartzView.m in Sources */,
+				885960B71E701FA300760090 /* QuartzDemoVC.m in Sources */,
+				885960E71E70222000760090 /* OpenView.m in Sources */,
 				88C32EA01E66BFF1002753FC /* UIProgressView+AFNetworking.m in Sources */,
 				88C32E9A1E66BFF1002753FC /* README.md in Sources */,
 				88A6173D1E53100C00EF8AFC /* main.m in Sources */,
+				885960B91E701FA300760090 /* QuartzImages.m in Sources */,
 				88C32E921E66BFF1002753FC /* AFHTTPSessionManager.m in Sources */,
+				885960E31E70222000760090 /* PresentTransitioningDelegate.m in Sources */,
 				88C32E901E66BFF1002753FC /* AFHTTPRequestOperation.m in Sources */,
 				88C32E8B1E66BFF1002753FC /* FMDatabaseAdditions.m in Sources */,
+				885960E61E70222000760090 /* FlipView.m in Sources */,
 				88C32E941E66BFF1002753FC /* AFSecurityPolicy.m in Sources */,
+				885960C61E7020DD00760090 /* TestGeneralAnimationVC.m in Sources */,
 				88C32E8E1E66BFF1002753FC /* FMResultSet.m in Sources */,
 				88C32E931E66BFF1002753FC /* AFNetworkReachabilityManager.m in Sources */,
+				885960E51E70222000760090 /* NVCTransitioningDelegate.m in Sources */,
+				885960BC1E701FA300760090 /* QuartzPolygons.m in Sources */,
 				88C32E9F1E66BFF1002753FC /* UIImageView+AFNetworking.m in Sources */,
 				88C32E981E66BFF1002753FC /* AFURLSessionManager.m in Sources */,
 				88C32E891E66BFF1002753FC /* UICKeyChainStore.m in Sources */,
+				885960BA1E701FA300760090 /* QuartzLines.m in Sources */,
 				88C32E8C1E66BFF1002753FC /* FMDatabasePool.m in Sources */,
+				885960BB1E701FA300760090 /* QuartzLineViewController.m in Sources */,
 				889DBA391E6BFBA200520C77 /* CoreLocationVC.m in Sources */,
+				885960E21E70222000760090 /* PresentAnimationNavigationController.m in Sources */,
 				88C32E8D1E66BFF1002753FC /* FMDatabaseQueue.m in Sources */,
+				885960B41E701FA300760090 /* QuartzCurves.m in Sources */,
+				885960E41E70222000760090 /* NVCCustomTransitioningDelegate.m in Sources */,
 				88C32E9B1E66BFF1002753FC /* AFNetworkActivityIndicatorManager.m in Sources */,
+				885960B11E701FA300760090 /* QuartzBlending.m in Sources */,
 				88C32E841E66BFF1002753FC /* CoreDataVC.m in Sources */,
+				885960B31E701FA300760090 /* QuartzClipping.m in Sources */,
 				88C32EA21E66BFF1002753FC /* UIWebView+AFNetworking.m in Sources */,
 				88C32E971E66BFF1002753FC /* AFURLResponseSerialization.m in Sources */,
+				885960B81E701FA300760090 /* QuartzGradientViewController.m in Sources */,
 				88C32E8A1E66BFF1002753FC /* FMDatabase.m in Sources */,
+				885960B51E701FA300760090 /* QuartzDashViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,7 @@
 #import "FileManagerVC.h"
 #import "NetworkVC.h"
 #import "CoreLocationVC.h"
+#import "QuartzDemoVC.h"
 
 @interface EntryModel : NSObject
 
@@ -48,6 +49,7 @@
                        [EntryModel modelWithName:@"File Manager" class:[FileManagerVC class]],
                        [EntryModel modelWithName:@"Network" class:[NetworkVC class]],
                        [EntryModel modelWithName:@"CoreLocation" class:[CoreLocationVC class]],
+                       [EntryModel modelWithName:@"QuartzDemo" class:[QuartzDemoVC class]],
                        nil];
 
 }
