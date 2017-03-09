@@ -30,12 +30,6 @@
 		885960C71E7020DD00760090 /* TestGeneralAnimationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885960C51E7020DD00760090 /* TestGeneralAnimationVC.xib */; };
 		885960C91E70211C00760090 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885960C81E70211C00760090 /* QuartzCore.framework */; };
 		885960E11E70222000760090 /* UIView+AnimationUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960CD1E70222000760090 /* UIView+AnimationUtility.m */; };
-		885960E21E70222000760090 /* PresentAnimationNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960D21E70222000760090 /* PresentAnimationNavigationController.m */; };
-		885960E31E70222000760090 /* PresentTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960D41E70222000760090 /* PresentTransitioningDelegate.m */; };
-		885960E41E70222000760090 /* NVCCustomTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960D71E70222000760090 /* NVCCustomTransitioningDelegate.m */; };
-		885960E51E70222000760090 /* NVCTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960D91E70222000760090 /* NVCTransitioningDelegate.m */; };
-		885960E61E70222000760090 /* FlipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960DD1E70222000760090 /* FlipView.m */; };
-		885960E71E70222000760090 /* OpenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960E01E70222000760090 /* OpenView.m */; };
 		889DBA391E6BFBA200520C77 /* CoreLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889DBA371E6BFBA200520C77 /* CoreLocationVC.m */; };
 		889DBA3A1E6BFBA200520C77 /* CoreLocationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889DBA381E6BFBA200520C77 /* CoreLocationVC.xib */; };
 		889DBA3C1E6BFC4200520C77 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889DBA3B1E6BFC4200520C77 /* CoreLocation.framework */; };
@@ -145,18 +139,8 @@
 		885960C81E70211C00760090 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		885960CC1E70222000760090 /* UIView+AnimationUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AnimationUtility.h"; sourceTree = "<group>"; };
 		885960CD1E70222000760090 /* UIView+AnimationUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AnimationUtility.m"; sourceTree = "<group>"; };
-		885960D11E70222000760090 /* PresentAnimationNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentAnimationNavigationController.h; sourceTree = "<group>"; };
-		885960D21E70222000760090 /* PresentAnimationNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentAnimationNavigationController.m; sourceTree = "<group>"; };
-		885960D31E70222000760090 /* PresentTransitioningDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentTransitioningDelegate.h; sourceTree = "<group>"; };
-		885960D41E70222000760090 /* PresentTransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentTransitioningDelegate.m; sourceTree = "<group>"; };
-		885960D61E70222000760090 /* NVCCustomTransitioningDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVCCustomTransitioningDelegate.h; sourceTree = "<group>"; };
-		885960D71E70222000760090 /* NVCCustomTransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVCCustomTransitioningDelegate.m; sourceTree = "<group>"; };
-		885960D81E70222000760090 /* NVCTransitioningDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVCTransitioningDelegate.h; sourceTree = "<group>"; };
-		885960D91E70222000760090 /* NVCTransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVCTransitioningDelegate.m; sourceTree = "<group>"; };
-		885960DC1E70222000760090 /* FlipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipView.h; sourceTree = "<group>"; };
-		885960DD1E70222000760090 /* FlipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipView.m; sourceTree = "<group>"; };
-		885960DF1E70222000760090 /* OpenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenView.h; sourceTree = "<group>"; };
-		885960E01E70222000760090 /* OpenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenView.m; sourceTree = "<group>"; };
+		885960E91E70EB7E00760090 /* commonMacroDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commonMacroDef.h; sourceTree = "<group>"; };
+		885960EB1E70EEC400760090 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		889DBA361E6BFBA200520C77 /* CoreLocationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreLocationVC.h; path = Demo/Network/CoreLocationVC.h; sourceTree = SOURCE_ROOT; };
 		889DBA371E6BFBA200520C77 /* CoreLocationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreLocationVC.m; path = Demo/Network/CoreLocationVC.m; sourceTree = SOURCE_ROOT; };
 		889DBA381E6BFBA200520C77 /* CoreLocationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CoreLocationVC.xib; path = Demo/Network/CoreLocationVC.xib; sourceTree = SOURCE_ROOT; };
@@ -341,7 +325,6 @@
 			isa = PBXGroup;
 			children = (
 				885960CB1E70222000760090 /* Category */,
-				885960CE1E70222000760090 /* 工具类 */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -353,73 +336,6 @@
 				885960CD1E70222000760090 /* UIView+AnimationUtility.m */,
 			);
 			path = Category;
-			sourceTree = "<group>";
-		};
-		885960CE1E70222000760090 /* 工具类 */ = {
-			isa = PBXGroup;
-			children = (
-				885960CF1E70222000760090 /* 导航页动画效果 */,
-				885960DA1E70222000760090 /* 转场过渡动画 */,
-			);
-			path = "工具类";
-			sourceTree = "<group>";
-		};
-		885960CF1E70222000760090 /* 导航页动画效果 */ = {
-			isa = PBXGroup;
-			children = (
-				885960D01E70222000760090 /* Present转场动画导航页 */,
-				885960D51E70222000760090 /* 自定义导航转场动画 */,
-			);
-			path = "导航页动画效果";
-			sourceTree = "<group>";
-		};
-		885960D01E70222000760090 /* Present转场动画导航页 */ = {
-			isa = PBXGroup;
-			children = (
-				885960D11E70222000760090 /* PresentAnimationNavigationController.h */,
-				885960D21E70222000760090 /* PresentAnimationNavigationController.m */,
-				885960D31E70222000760090 /* PresentTransitioningDelegate.h */,
-				885960D41E70222000760090 /* PresentTransitioningDelegate.m */,
-			);
-			path = "Present转场动画导航页";
-			sourceTree = "<group>";
-		};
-		885960D51E70222000760090 /* 自定义导航转场动画 */ = {
-			isa = PBXGroup;
-			children = (
-				885960D61E70222000760090 /* NVCCustomTransitioningDelegate.h */,
-				885960D71E70222000760090 /* NVCCustomTransitioningDelegate.m */,
-				885960D81E70222000760090 /* NVCTransitioningDelegate.h */,
-				885960D91E70222000760090 /* NVCTransitioningDelegate.m */,
-			);
-			path = "自定义导航转场动画";
-			sourceTree = "<group>";
-		};
-		885960DA1E70222000760090 /* 转场过渡动画 */ = {
-			isa = PBXGroup;
-			children = (
-				885960DB1E70222000760090 /* FlipView */,
-				885960DE1E70222000760090 /* OpenView */,
-			);
-			path = "转场过渡动画";
-			sourceTree = "<group>";
-		};
-		885960DB1E70222000760090 /* FlipView */ = {
-			isa = PBXGroup;
-			children = (
-				885960DC1E70222000760090 /* FlipView.h */,
-				885960DD1E70222000760090 /* FlipView.m */,
-			);
-			path = FlipView;
-			sourceTree = "<group>";
-		};
-		885960DE1E70222000760090 /* OpenView */ = {
-			isa = PBXGroup;
-			children = (
-				885960DF1E70222000760090 /* OpenView.h */,
-				885960E01E70222000760090 /* OpenView.m */,
-			);
-			path = OpenView;
 			sourceTree = "<group>";
 		};
 		88A6172F1E53100C00EF8AFC = {
@@ -458,6 +374,8 @@
 				88C32E821E66BFF1002753FC /* OC高级（KVC+KVO+运行时） */,
 				88A6173E1E53100C00EF8AFC /* AppDelegate.h */,
 				88A6173F1E53100C00EF8AFC /* AppDelegate.m */,
+				885960EB1E70EEC400760090 /* PrefixHeader.pch */,
+				885960E91E70EB7E00760090 /* commonMacroDef.h */,
 				88A617411E53100C00EF8AFC /* ViewController.h */,
 				88A617421E53100C00EF8AFC /* ViewController.m */,
 				88A617441E53100C00EF8AFC /* Main.storyboard */,
@@ -867,21 +785,17 @@
 				88C32E961E66BFF1002753FC /* AFURLRequestSerialization.m in Sources */,
 				885960C01E701FA300760090 /* QuartzView.m in Sources */,
 				885960B71E701FA300760090 /* QuartzDemoVC.m in Sources */,
-				885960E71E70222000760090 /* OpenView.m in Sources */,
 				88C32EA01E66BFF1002753FC /* UIProgressView+AFNetworking.m in Sources */,
 				88C32E9A1E66BFF1002753FC /* README.md in Sources */,
 				88A6173D1E53100C00EF8AFC /* main.m in Sources */,
 				885960B91E701FA300760090 /* QuartzImages.m in Sources */,
 				88C32E921E66BFF1002753FC /* AFHTTPSessionManager.m in Sources */,
-				885960E31E70222000760090 /* PresentTransitioningDelegate.m in Sources */,
 				88C32E901E66BFF1002753FC /* AFHTTPRequestOperation.m in Sources */,
 				88C32E8B1E66BFF1002753FC /* FMDatabaseAdditions.m in Sources */,
-				885960E61E70222000760090 /* FlipView.m in Sources */,
 				88C32E941E66BFF1002753FC /* AFSecurityPolicy.m in Sources */,
 				885960C61E7020DD00760090 /* TestGeneralAnimationVC.m in Sources */,
 				88C32E8E1E66BFF1002753FC /* FMResultSet.m in Sources */,
 				88C32E931E66BFF1002753FC /* AFNetworkReachabilityManager.m in Sources */,
-				885960E51E70222000760090 /* NVCTransitioningDelegate.m in Sources */,
 				885960BC1E701FA300760090 /* QuartzPolygons.m in Sources */,
 				88C32E9F1E66BFF1002753FC /* UIImageView+AFNetworking.m in Sources */,
 				88C32E981E66BFF1002753FC /* AFURLSessionManager.m in Sources */,
@@ -890,10 +804,8 @@
 				88C32E8C1E66BFF1002753FC /* FMDatabasePool.m in Sources */,
 				885960BB1E701FA300760090 /* QuartzLineViewController.m in Sources */,
 				889DBA391E6BFBA200520C77 /* CoreLocationVC.m in Sources */,
-				885960E21E70222000760090 /* PresentAnimationNavigationController.m in Sources */,
 				88C32E8D1E66BFF1002753FC /* FMDatabaseQueue.m in Sources */,
 				885960B41E701FA300760090 /* QuartzCurves.m in Sources */,
-				885960E41E70222000760090 /* NVCCustomTransitioningDelegate.m in Sources */,
 				88C32E9B1E66BFF1002753FC /* AFNetworkActivityIndicatorManager.m in Sources */,
 				885960B11E701FA300760090 /* QuartzBlending.m in Sources */,
 				88C32E841E66BFF1002753FC /* CoreDataVC.m in Sources */,
@@ -1052,6 +964,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Demo/PrefixHeader.pch;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1068,6 +982,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Demo/PrefixHeader.pch;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
