@@ -6,7 +6,7 @@
 //  Copyright © 2017年 郭晓倩. All rights reserved.
 //
 
-#import "Quartz2DVC.h"
+#import "CoreGraphicVC.h"
 
 
 @interface Quartz2DView : UIView
@@ -121,11 +121,11 @@
 
 @end
 
-@interface Quartz2DVC ()
+@interface CoreGraphicVC ()
 
 @end
 
-@implementation Quartz2DVC
+@implementation CoreGraphicVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

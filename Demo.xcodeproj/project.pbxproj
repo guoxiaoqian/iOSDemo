@@ -37,8 +37,10 @@
 		889DBA7E1E7E71F900520C77 /* QuartzStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 889DBA6A1E7E71F900520C77 /* QuartzStoryboard.storyboard */; };
 		889DBA7F1E7E71F900520C77 /* QuartzView.m in Sources */ = {isa = PBXBuildFile; fileRef = 889DBA6C1E7E71F900520C77 /* QuartzView.m */; };
 		889DBA801E7E71F900520C77 /* Ship.png in Resources */ = {isa = PBXBuildFile; fileRef = 889DBA6D1E7E71F900520C77 /* Ship.png */; };
-		889DBA841E7E724500520C77 /* Quartz2DVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889DBA821E7E724500520C77 /* Quartz2DVC.m */; };
-		889DBA851E7E724500520C77 /* Quartz2DVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889DBA831E7E724500520C77 /* Quartz2DVC.xib */; };
+		889DBA841E7E724500520C77 /* CoreGraphicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889DBA821E7E724500520C77 /* CoreGraphicVC.m */; };
+		889DBA851E7E724500520C77 /* CoreGraphicVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889DBA831E7E724500520C77 /* CoreGraphicVC.xib */; };
+		889DBA891E7EBBA700520C77 /* CoreAnimationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889DBA871E7EBBA700520C77 /* CoreAnimationVC.m */; };
+		889DBA8A1E7EBBA700520C77 /* CoreAnimationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889DBA881E7EBBA700520C77 /* CoreAnimationVC.xib */; };
 		88A6173D1E53100C00EF8AFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A6173C1E53100C00EF8AFC /* main.m */; };
 		88A617401E53100C00EF8AFC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A6173F1E53100C00EF8AFC /* AppDelegate.m */; };
 		88A617431E53100C00EF8AFC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A617421E53100C00EF8AFC /* ViewController.m */; };
@@ -154,9 +156,12 @@
 		889DBA6B1E7E71F900520C77 /* QuartzView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuartzView.h; sourceTree = "<group>"; };
 		889DBA6C1E7E71F900520C77 /* QuartzView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuartzView.m; sourceTree = "<group>"; };
 		889DBA6D1E7E71F900520C77 /* Ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ship.png; sourceTree = "<group>"; };
-		889DBA811E7E724500520C77 /* Quartz2DVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quartz2DVC.h; sourceTree = "<group>"; };
-		889DBA821E7E724500520C77 /* Quartz2DVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quartz2DVC.m; sourceTree = "<group>"; };
-		889DBA831E7E724500520C77 /* Quartz2DVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Quartz2DVC.xib; sourceTree = "<group>"; };
+		889DBA811E7E724500520C77 /* CoreGraphicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreGraphicVC.h; sourceTree = "<group>"; };
+		889DBA821E7E724500520C77 /* CoreGraphicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreGraphicVC.m; sourceTree = "<group>"; };
+		889DBA831E7E724500520C77 /* CoreGraphicVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoreGraphicVC.xib; sourceTree = "<group>"; };
+		889DBA861E7EBBA700520C77 /* CoreAnimationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreAnimationVC.h; sourceTree = "<group>"; };
+		889DBA871E7EBBA700520C77 /* CoreAnimationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreAnimationVC.m; sourceTree = "<group>"; };
+		889DBA881E7EBBA700520C77 /* CoreAnimationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoreAnimationVC.xib; sourceTree = "<group>"; };
 		88A617381E53100C00EF8AFC /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A6173C1E53100C00EF8AFC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		88A6173E1E53100C00EF8AFC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -282,6 +287,9 @@
 				885960C31E7020DD00760090 /* TestGeneralAnimationVC.h */,
 				885960C41E7020DD00760090 /* TestGeneralAnimationVC.m */,
 				885960C51E7020DD00760090 /* TestGeneralAnimationVC.xib */,
+				889DBA861E7EBBA700520C77 /* CoreAnimationVC.h */,
+				889DBA871E7EBBA700520C77 /* CoreAnimationVC.m */,
+				889DBA881E7EBBA700520C77 /* CoreAnimationVC.xib */,
 			);
 			path = "UI高级（动画）";
 			sourceTree = "<group>";
@@ -291,9 +299,9 @@
 			children = (
 				889DBA4B1E7E71F900520C77 /* Quartz2D */,
 				889DBA491E7AC65700520C77 /* 概念.txt */,
-				889DBA811E7E724500520C77 /* Quartz2DVC.h */,
-				889DBA821E7E724500520C77 /* Quartz2DVC.m */,
-				889DBA831E7E724500520C77 /* Quartz2DVC.xib */,
+				889DBA811E7E724500520C77 /* CoreGraphicVC.h */,
+				889DBA821E7E724500520C77 /* CoreGraphicVC.m */,
+				889DBA831E7E724500520C77 /* CoreGraphicVC.xib */,
 			);
 			path = "UI高级（绘图）";
 			sourceTree = "<group>";
@@ -762,11 +770,12 @@
 				889DBA7E1E7E71F900520C77 /* QuartzStoryboard.storyboard in Resources */,
 				88A6174B1E53100C00EF8AFC /* LaunchScreen.storyboard in Resources */,
 				88A617481E53100C00EF8AFC /* Assets.xcassets in Resources */,
+				889DBA8A1E7EBBA700520C77 /* CoreAnimationVC.xib in Resources */,
 				88C32E871E66BFF1002753FC /* FileManagerVC.xib in Resources */,
 				88A617461E53100C00EF8AFC /* Main.storyboard in Resources */,
 				88C32E881E66BFF1002753FC /* student.xml in Resources */,
 				889DBA4A1E7AC65700520C77 /* 概念.txt in Resources */,
-				889DBA851E7E724500520C77 /* Quartz2DVC.xib in Resources */,
+				889DBA851E7E724500520C77 /* CoreGraphicVC.xib in Resources */,
 				88C32EA31E66BFF1002753FC /* file.png in Resources */,
 				889DBA6F1E7E71F900520C77 /* Quartz.pdf in Resources */,
 				889DBA3A1E6BFBA200520C77 /* CoreLocationVC.xib in Resources */,
@@ -806,6 +815,7 @@
 				889DBA781E7E71F900520C77 /* QuartzImages.m in Sources */,
 				88C32E911E66BFF1002753FC /* AFHTTPRequestOperationManager.m in Sources */,
 				88A617401E53100C00EF8AFC /* AppDelegate.m in Sources */,
+				889DBA891E7EBBA700520C77 /* CoreAnimationVC.m in Sources */,
 				88C32E951E66BFF1002753FC /* AFURLConnectionOperation.m in Sources */,
 				88C32EA41E66BFF1002753FC /* NetworkVC.m in Sources */,
 				88C32E8F1E66BFF1002753FC /* FMDBVC.m in Sources */,
@@ -842,7 +852,7 @@
 				889DBA711E7E71F900520C77 /* QuartzBlendingViewController.m in Sources */,
 				889DBA731E7E71F900520C77 /* QuartzCurves.m in Sources */,
 				889DBA7B1E7E71F900520C77 /* QuartzPolygons.m in Sources */,
-				889DBA841E7E724500520C77 /* Quartz2DVC.m in Sources */,
+				889DBA841E7E724500520C77 /* CoreGraphicVC.m in Sources */,
 				889DBA791E7E71F900520C77 /* QuartzLines.m in Sources */,
 				88C32E8A1E66BFF1002753FC /* FMDatabase.m in Sources */,
 			);

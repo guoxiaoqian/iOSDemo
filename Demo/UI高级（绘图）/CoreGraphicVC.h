@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Quartz2DVC : UIViewController
+@interface CoreGraphicVC : UIViewController
 
 @end

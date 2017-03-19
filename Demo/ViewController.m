@@ -14,7 +14,8 @@
 #import "CoreLocationVC.h"
 #import "QuartzDemoVC.h"
 #import "TestGeneralAnimationVC.h"
-#import "Quartz2DVC.h"
+#import "CoreGraphicVC.h"
+#import "CoreAnimationVC.h"
 
 @interface EntryModel : NSObject
 
@@ -51,9 +52,11 @@
                        [EntryModel modelWithName:@"File Manager" class:[FileManagerVC class]],
                        [EntryModel modelWithName:@"Network" class:[NetworkVC class]],
                        [EntryModel modelWithName:@"CoreLocation" class:[CoreLocationVC class]],
-                       [EntryModel modelWithName:@"CoreGraphic" class:[QuartzDemoVC class]],
-                       [EntryModel modelWithName:@"CoreAnimation" class:[TestGeneralAnimationVC class]],
-                       [EntryModel modelWithName:@"MyQuartz2D" class:[Quartz2DVC class]],
+                       [EntryModel modelWithName:@"Quartz2DDemo" class:[QuartzDemoVC class]],
+                       [EntryModel modelWithName:@"CoreGraphic" class:[CoreGraphicVC class]],
+                       [EntryModel modelWithName:@"CoreAnimationDemo" class:[TestGeneralAnimationVC class]],
+                       [EntryModel modelWithName:@"CoreAnimation" class:[CoreAnimationVC class]],
+
                        nil];
 
 }
