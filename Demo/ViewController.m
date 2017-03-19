@@ -14,6 +14,7 @@
 #import "CoreLocationVC.h"
 #import "QuartzDemoVC.h"
 #import "TestGeneralAnimationVC.h"
+#import "Quartz2DVC.h"
 
 @interface EntryModel : NSObject
 
@@ -52,6 +53,7 @@
                        [EntryModel modelWithName:@"CoreLocation" class:[CoreLocationVC class]],
                        [EntryModel modelWithName:@"CoreGraphic" class:[QuartzDemoVC class]],
                        [EntryModel modelWithName:@"CoreAnimation" class:[TestGeneralAnimationVC class]],
+                       [EntryModel modelWithName:@"MyQuartz2D" class:[Quartz2DVC class]],
                        nil];
 
 }
