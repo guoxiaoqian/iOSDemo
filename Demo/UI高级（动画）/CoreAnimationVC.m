@@ -46,6 +46,8 @@
 @property (weak, nonatomic) IBOutlet UIView *view1;
 @property (weak, nonatomic) IBOutlet UIView *view2;
 @property (weak, nonatomic) IBOutlet UIView *view3;
+@property (weak, nonatomic) IBOutlet UIView *view4;
+@property (weak, nonatomic) IBOutlet UIView *view5;
 
 @end
 
@@ -62,6 +64,8 @@
     [self.view2.layer addAnimation:[self keyFrameAnimation] forKey:nil];
     
     [self.view3.layer addAnimation:[self groupAnimation] forKey:nil];
+    
+    [self viewBlockAnimation];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,16 +86,20 @@
 }
 
 -(CAAnimation*)keyFrameAnimation{
-    CAKeyframeAnimation* animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
-    CATransform3D transform = CATransform3DIdentity;
+    //    CAKeyframeAnimation* animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+    //    CATransform3D transform = CATransform3DIdentity;
     //value一定要有初始值（时间为0时）；Tranform要连续的话，需要基于上个Transform构造新的Transform
-    animation.values = @[[NSValue valueWithCATransform3D:transform =  CATransform3DIdentity],
-                         [NSValue valueWithCATransform3D:transform = CATransform3DTranslate(transform,100, 100, 0)],
-                         [NSValue valueWithCATransform3D:transform = CATransform3DScale(transform,2, 2, 1)],
-                         [NSValue valueWithCATransform3D:CATransform3DRotate(transform,M_PI_2, 1, 0, 0)],
-                         [NSValue valueWithCATransform3D:CATransform3DIdentity],
-                         ];
-    animation.keyTimes = @[@(0),@(0.3),@(0.5),@(0.7),@(1)];
+    //    animation.values = @[[NSValue valueWithCATransform3D:transform =  CATransform3DIdentity],
+    //                         [NSValue valueWithCATransform3D:transform = CATransform3DTranslate(transform,100, 100, 0)],
+    //                         [NSValue valueWithCATransform3D:transform = CATransform3DScale(transform,2, 2, 1)],
+    //                         [NSValue valueWithCATransform3D:CATransform3DRotate(transform,M_PI_2, 1, 0, 0)],
+    //                         [NSValue valueWithCATransform3D:CATransform3DIdentity],
+    //                         ];
+    //    animation.keyTimes = @[@(0),@(0.3),@(0.5),@(0.7),@(1)];
+    
+    CAKeyframeAnimation* animation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    animation.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(100, 100, 200, 200)].CGPath;
+    
     animation.duration = 3;
     animation.beginTime = CACurrentMediaTime() + 1;
     return  animation;
@@ -108,11 +116,16 @@
 }
 
 -(void)viewBlockAnimation{
+    [UIView animateWithDuration:3 delay:1 options:UIViewAnimationOptionRepeat | UIViewAnimationCurveLinear | UIViewAnimationOptionAutoreverse animations:^{
+        self.view4.backgroundColor = [UIColor redColor];
+        self.view4.center = CGPointMake(100, 400);
+    } completion:^(BOOL finished) {
         
+    }];
 }
 
 -(void)transitionAnimation{
-
+    
 }
 
 -(void)shapeLayer{

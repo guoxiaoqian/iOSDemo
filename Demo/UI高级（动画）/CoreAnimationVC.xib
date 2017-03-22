@@ -15,6 +15,8 @@
                 <outlet property="view1" destination="O05-uP-2ef" id="xEg-Pc-piz"/>
                 <outlet property="view2" destination="dYZ-ct-Kuy" id="L13-KF-J1C"/>
                 <outlet property="view3" destination="fOw-wn-F3t" id="U1t-Ii-zCJ"/>
+                <outlet property="view4" destination="iPd-Cj-S9X" id="3Kc-lv-xzH"/>
+                <outlet property="view5" destination="Cdu-IN-SCk" id="Mbj-SZ-8bC"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -34,6 +36,16 @@
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fOw-wn-F3t">
                     <rect key="frame" x="16" y="251" width="88" height="62"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.26274509800000001" green="0.52156862749999999" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iPd-Cj-S9X">
+                    <rect key="frame" x="16" y="352" width="88" height="62"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.26274509800000001" green="0.52156862749999999" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cdu-IN-SCk">
+                    <rect key="frame" x="19" y="464" width="88" height="62"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.26274509800000001" green="0.52156862749999999" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
