@@ -38,6 +38,45 @@
     return obj;
 }
 
+-(void)drawRect:(CGRect)rect{
+    
+    NSLog(@"MyView.drawRect.layer.contents %@",self.layer.contents);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [[UIColor redColor] setStroke];
+    [[UIColor blueColor] setFill];
+    CGContextSetLineWidth(context, 2);
+    CGContextSetLineJoin(context, kCGLineJoinRound);
+    CGContextSetLineCap(context, kCGLineCapRound);
+    
+    //****划线
+    CGContextMoveToPoint(context, 0, 0);
+    CGContextAddLineToPoint(context, 100, 100);
+    CGContextAddRect(context, CGRectMake(0, 0, 100, 100));
+    CGContextStrokePath(context);
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSLog(@"MyView.ater.drawRect.layer.contents %@",self.layer.contents);
+    });
+}
+
+-(void)didMoveToSuperview{
+    if (self.superview) {
+        NSLog(@"MyView.didMoveToSuperview.layer.contents %@",self.layer.contents);
+    }
+}
+
+-(void)didMoveToWindow{
+    if (self.window) {
+        NSLog(@"MyView.didMoveToWindow.layer.contents %@",self.layer.contents);
+    }
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    NSLog(@"MyView.layoutSubviews.layer.contents %@",self.layer.contents);
+}
+
 @end
 
 
@@ -66,6 +105,14 @@
     [self.view3.layer addAnimation:[self groupAnimation] forKey:nil];
     
     [self viewBlockAnimation];
+    
+    NSLog(@"view.layer.contents %@",self.view.layer.contents);
+//    [self.view.layer setContents:(__bridge id)[UIImage imageNamed:@"Demo"].CGImage];
+//    NSLog(@"view.layer.contents %@",self.view.layer.contents);
+    
+    
+    MyView* myView = [[MyView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    [self.view addSubview:myView];
 }
 
 - (void)didReceiveMemoryWarning {
