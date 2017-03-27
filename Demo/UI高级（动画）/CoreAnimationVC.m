@@ -104,6 +104,7 @@
 @property (weak, nonatomic) IBOutlet UIView *view4;
 @property (weak, nonatomic) IBOutlet UIView *view5;
 @property (strong, nonatomic) CALayer *layer;
+@property (weak, nonatomic) IBOutlet UIView *view6;
 
 @end
 
@@ -123,9 +124,9 @@
 //    
 //    [self viewBlockAnimation];
 //    
-//    [self transitionAnimation];
+    [self transitionAnimation];
     
-    [self transaction];
+//    [self transaction];
     
 //    [self shapeLayer];
 //    
@@ -220,7 +221,27 @@
     transition.startProgress = 0;
     transition.endProgress = 1;
     transition.duration = 3;
-    [self.view5.layer addAnimation:transition forKey:nil];
+    
+//    CATransition* transition2 = [CATransition animation];
+//    transition2.type = kCATransitionFade;
+//    transition2.subtype = kCATransitionFromLeft;
+//    transition2.startProgress = 0;
+//    transition2.endProgress = 1;
+//    transition2.duration = 3;
+//    
+//    self.view6.frame = self.view5.frame;
+
+    [self.view5.layer addAnimation:transition forKey:@"transition"];
+//    [self.view6.layer addAnimation:transition forKey:@"transition"];
+//
+//    [self.view exchangeSubviewAtIndex:[self.view.subviews indexOfObject:self.view5] withSubviewAtIndex:[self.view.subviews indexOfObject:self.view6]];
+    
+//
+//    [CATransaction setCompletionBlock:^{
+//        self.view5.hidden = NO;
+//        self.view6.hidden = YES;
+//    }];
+    
 }
 
 -(void)transaction{
