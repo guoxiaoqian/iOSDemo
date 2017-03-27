@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x52a8;&#x753b;&#xff09;/CoreAnimationVC.m"
-            timestampString = "511965214.885736"
+            timestampString = "512304737.417952"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,44 +90,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x52a8;&#x753b;&#xff09;/CoreAnimationVC.m"
-            timestampString = "511965950.124716"
+            timestampString = "512304737.417952"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x52a8;&#x753b;&#xff09;/CoreAnimationVC.m"
-            timestampString = "511965950.124716"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "-layoutSubviews"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x52a8;&#x753b;&#xff09;/CoreAnimationVC.m"
-            timestampString = "511965948.509299"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "-drawRect:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x52a8;&#x753b;&#xff09;/CoreAnimationVC.m"
+            timestampString = "512304737.417952"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "-actionForKey:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

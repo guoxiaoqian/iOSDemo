@@ -19,6 +19,28 @@
     [super setPosition:position];
 }
 
+-(id<CAAction>)actionForKey:(NSString *)event{
+    id action = [super actionForKey:event];
+    id defaultAction = [[self class] defaultActionForKey:event];
+    NSLog(@"actionForKey:%@ action:%@ defaultAction:%@",event,action,defaultAction);
+    if ([event isEqualToString:@"position"]) {
+        CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@"position"];
+        animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(100, 50)];
+        animation.toValue = [NSValue valueWithCGPoint:CGPointMake(100, 500)];
+//        animation.duration = 10;
+        animation.repeatCount = 10;
+        return animation;
+    }else if([event isEqualToString:@"backgroundColor"]){
+        CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
+        animation.fromValue = (__bridge id)[UIColor redColor].CGColor;
+        animation.toValue = (__bridge id)[UIColor blueColor].CGColor;
+//        animation.duration = 3;
+        animation.repeatCount = 10;
+        return animation;
+    }
+    return action;
+}
+
 
 @end
 
@@ -60,12 +82,6 @@
     });
 }
 
--(void)didMoveToSuperview{
-    if (self.superview) {
-        NSLog(@"MyView.didMoveToSuperview.layer.contents %@",self.layer.contents);
-    }
-}
-
 -(void)didMoveToWindow{
     if (self.window) {
         NSLog(@"MyView.didMoveToWindow.layer.contents %@",self.layer.contents);
@@ -87,6 +103,7 @@
 @property (weak, nonatomic) IBOutlet UIView *view3;
 @property (weak, nonatomic) IBOutlet UIView *view4;
 @property (weak, nonatomic) IBOutlet UIView *view5;
+@property (strong, nonatomic) CALayer *layer;
 
 @end
 
@@ -97,22 +114,30 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    CAAnimation* basicAnimation = [self basicAnimation];
-    [self.view1.layer addAnimation:basicAnimation forKey:nil];
+//    CAAnimation* basicAnimation = [self basicAnimation];
+//    [self.view1.layer addAnimation:basicAnimation forKey:nil];
+//    
+//    [self.view2.layer addAnimation:[self keyFrameAnimation] forKey:nil];
     
-    [self.view2.layer addAnimation:[self keyFrameAnimation] forKey:nil];
+//    [self.view3.layer addAnimation:[self groupAnimation] forKey:nil];
+//    
+//    [self viewBlockAnimation];
+//    
+//    [self transitionAnimation];
     
-    [self.view3.layer addAnimation:[self groupAnimation] forKey:nil];
+    [self transaction];
     
-    [self viewBlockAnimation];
-    
-    NSLog(@"view.layer.contents %@",self.view.layer.contents);
-//    [self.view.layer setContents:(__bridge id)[UIImage imageNamed:@"Demo"].CGImage];
+//    [self shapeLayer];
+//    
+//    [self displayLink];
+//    
 //    NSLog(@"view.layer.contents %@",self.view.layer.contents);
-    
-    
-    MyView* myView = [[MyView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-    [self.view addSubview:myView];
+////    [self.view.layer setContents:(__bridge id)[UIImage imageNamed:@"Demo"].CGImage];
+////    NSLog(@"view.layer.contents %@",self.view.layer.contents);
+//    
+//    
+//    MyView* myView = [[MyView alloc] initWithFrame:CGRectMake(200, 200, 100, 100)];
+//    [self.view addSubview:myView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -154,11 +179,28 @@
 
 - (CAAnimation*)groupAnimation{
     CAAnimationGroup* group = [CAAnimationGroup animation];
-    group.animations = @[[self basicAnimation],
-                         [self keyFrameAnimation],
+    CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
+    //fromValue为id对象，由CG对象桥接而来；或者NSValue构造（值类型）
+    animation.fromValue = (__bridge id)([UIColor yellowColor].CGColor);
+    animation.toValue = (__bridge id)([UIColor greenColor].CGColor);
+    animation.duration = 2;
+    CAKeyframeAnimation* animation2 = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    animation2.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(100, 100, 200, 200)].CGPath;
+    animation2.duration = 1;
+    animation2.beginTime = 3;
+    
+//    group.animations = @[[self basicAnimation],
+//                         [self keyFrameAnimation],
+//                         ];
+    group.animations = @[animation,
+                         animation2,
                          ];
     group.duration = 4;
-#warning 第二个动画没有效果？
+    group.beginTime = CACurrentMediaTime() + 3;
+
+//group的周期不改变子animation的周期，若子animation周期过长，动画会被截断。
+//子animation的beginTime是与group的beginTime的相对时间，不能加CACurrentMediaTime()。
+    
     return group;
 }
 
@@ -172,7 +214,34 @@
 }
 
 -(void)transitionAnimation{
+    CATransition* transition = [CATransition animation];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromLeft;
+    transition.startProgress = 0;
+    transition.endProgress = 1;
+    transition.duration = 3;
+    [self.view5.layer addAnimation:transition forKey:nil];
+}
+
+-(void)transaction{
+    self.layer = [MyLayer layer];
+    self.layer.frame = CGRectMake(200, 400, 100, 100);
+    self.layer.backgroundColor = [UIColor redColor].CGColor;
+    [self.view.layer addSublayer:self.layer];
     
+#warning CALayer的属性修改，为啥返回的action都为null ???
+    
+    [CATransaction begin];
+    NSLog(@"CATransaction begin");
+    //改的是默认动画时间，即action没有设置动画时间时，才会采用默认时间；action动画时间超过默认时间，不会被中断
+    [CATransaction setAnimationDuration:3];
+    [CATransaction setDisableActions:NO];
+    self.layer.backgroundColor = [UIColor yellowColor].CGColor;
+    self.layer.position = CGPointMake(100, 100);
+    [CATransaction setCompletionBlock:^{
+        NSLog(@"CATransaction complete");
+    }];
+    [CATransaction commit];
 }
 
 -(void)shapeLayer{
