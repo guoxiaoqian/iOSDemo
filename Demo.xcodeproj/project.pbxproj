@@ -11,6 +11,8 @@
 		885960C71E7020DD00760090 /* TestGeneralAnimationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885960C51E7020DD00760090 /* TestGeneralAnimationVC.xib */; };
 		885960C91E70211C00760090 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885960C81E70211C00760090 /* QuartzCore.framework */; };
 		885960E11E70222000760090 /* UIView+AnimationUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960CD1E70222000760090 /* UIView+AnimationUtility.m */; };
+		889B2E961E89E98700ACD1A0 /* Demo2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 889B2E941E89E98700ACD1A0 /* Demo2@2x.png */; };
+		889B2E971E89E98700ACD1A0 /* Demo2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 889B2E951E89E98700ACD1A0 /* Demo2@3x.png */; };
 		889DBA391E6BFBA200520C77 /* CoreLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889DBA371E6BFBA200520C77 /* CoreLocationVC.m */; };
 		889DBA3A1E6BFBA200520C77 /* CoreLocationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889DBA381E6BFBA200520C77 /* CoreLocationVC.xib */; };
 		889DBA3C1E6BFC4200520C77 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889DBA3B1E6BFC4200520C77 /* CoreLocation.framework */; };
@@ -114,6 +116,8 @@
 		885960CD1E70222000760090 /* UIView+AnimationUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AnimationUtility.m"; sourceTree = "<group>"; };
 		885960E91E70EB7E00760090 /* commonMacroDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commonMacroDef.h; sourceTree = "<group>"; };
 		885960EB1E70EEC400760090 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		889B2E941E89E98700ACD1A0 /* Demo2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Demo2@2x.png"; sourceTree = "<group>"; };
+		889B2E951E89E98700ACD1A0 /* Demo2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Demo2@3x.png"; sourceTree = "<group>"; };
 		889DBA361E6BFBA200520C77 /* CoreLocationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreLocationVC.h; path = Demo/Network/CoreLocationVC.h; sourceTree = SOURCE_ROOT; };
 		889DBA371E6BFBA200520C77 /* CoreLocationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreLocationVC.m; path = Demo/Network/CoreLocationVC.m; sourceTree = SOURCE_ROOT; };
 		889DBA381E6BFBA200520C77 /* CoreLocationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CoreLocationVC.xib; path = Demo/Network/CoreLocationVC.xib; sourceTree = SOURCE_ROOT; };
@@ -283,6 +287,8 @@
 		8859608A1E701FA300760090 /* UI高级（动画） */ = {
 			isa = PBXGroup;
 			children = (
+				889B2E941E89E98700ACD1A0 /* Demo2@2x.png */,
+				889B2E951E89E98700ACD1A0 /* Demo2@3x.png */,
 				885960CA1E70222000760090 /* Animations */,
 				885960C31E7020DD00760090 /* TestGeneralAnimationVC.h */,
 				885960C41E7020DD00760090 /* TestGeneralAnimationVC.m */,
@@ -763,6 +769,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				889DBA6E1E7E71F900520C77 /* Demo.png in Resources */,
+				889B2E971E89E98700ACD1A0 /* Demo2@3x.png in Resources */,
 				885960C71E7020DD00760090 /* TestGeneralAnimationVC.xib in Resources */,
 				88C32E991E66BFF1002753FC /* LICENSE in Resources */,
 				88C32EA51E66BFF1002753FC /* NetworkVC.xib in Resources */,
@@ -775,6 +782,7 @@
 				88A617461E53100C00EF8AFC /* Main.storyboard in Resources */,
 				88C32E881E66BFF1002753FC /* student.xml in Resources */,
 				889DBA4A1E7AC65700520C77 /* 概念.txt in Resources */,
+				889B2E961E89E98700ACD1A0 /* Demo2@2x.png in Resources */,
 				889DBA851E7E724500520C77 /* CoreGraphicVC.xib in Resources */,
 				88C32EA31E66BFF1002753FC /* file.png in Resources */,
 				889DBA6F1E7E71F900520C77 /* Quartz.pdf in Resources */,

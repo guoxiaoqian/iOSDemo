@@ -27,14 +27,14 @@
         CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@"position"];
         animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(100, 50)];
         animation.toValue = [NSValue valueWithCGPoint:CGPointMake(100, 500)];
-//        animation.duration = 10;
+        //        animation.duration = 10;
         animation.repeatCount = 10;
         return animation;
     }else if([event isEqualToString:@"backgroundColor"]){
         CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
         animation.fromValue = (__bridge id)[UIColor redColor].CGColor;
         animation.toValue = (__bridge id)[UIColor blueColor].CGColor;
-//        animation.duration = 3;
+        //        animation.duration = 3;
         animation.repeatCount = 10;
         return animation;
     }
@@ -102,9 +102,9 @@
 @property (weak, nonatomic) IBOutlet UIView *view2;
 @property (weak, nonatomic) IBOutlet UIView *view3;
 @property (weak, nonatomic) IBOutlet UIView *view4;
-@property (weak, nonatomic) IBOutlet UIView *view5;
+@property (strong, nonatomic) IBOutlet UIView *view5;
+@property (strong, nonatomic) IBOutlet UIView *view6;
 @property (strong, nonatomic) CALayer *layer;
-@property (weak, nonatomic) IBOutlet UIView *view6;
 
 @end
 
@@ -115,30 +115,30 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
-//    CAAnimation* basicAnimation = [self basicAnimation];
-//    [self.view1.layer addAnimation:basicAnimation forKey:nil];
-//    
-//    [self.view2.layer addAnimation:[self keyFrameAnimation] forKey:nil];
+    //    CAAnimation* basicAnimation = [self basicAnimation];
+    //    [self.view1.layer addAnimation:basicAnimation forKey:nil];
+    //
+    //    [self.view2.layer addAnimation:[self keyFrameAnimation] forKey:nil];
     
-//    [self.view3.layer addAnimation:[self groupAnimation] forKey:nil];
-//    
-//    [self viewBlockAnimation];
-//    
+    //    [self.view3.layer addAnimation:[self groupAnimation] forKey:nil];
+    //
+    //    [self viewBlockAnimation];
+    //
     [self transitionAnimation];
     
-//    [self transaction];
+    //    [self transaction];
     
-//    [self shapeLayer];
-//    
-//    [self displayLink];
-//    
-//    NSLog(@"view.layer.contents %@",self.view.layer.contents);
-////    [self.view.layer setContents:(__bridge id)[UIImage imageNamed:@"Demo"].CGImage];
-////    NSLog(@"view.layer.contents %@",self.view.layer.contents);
-//    
-//    
-//    MyView* myView = [[MyView alloc] initWithFrame:CGRectMake(200, 200, 100, 100)];
-//    [self.view addSubview:myView];
+    //    [self shapeLayer];
+    //
+    //    [self displayLink];
+    //
+    //    NSLog(@"view.layer.contents %@",self.view.layer.contents);
+    ////    [self.view.layer setContents:(__bridge id)[UIImage imageNamed:@"Demo"].CGImage];
+    ////    NSLog(@"view.layer.contents %@",self.view.layer.contents);
+    //
+    //
+    //    MyView* myView = [[MyView alloc] initWithFrame:CGRectMake(200, 200, 100, 100)];
+    //    [self.view addSubview:myView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -190,17 +190,17 @@
     animation2.duration = 1;
     animation2.beginTime = 3;
     
-//    group.animations = @[[self basicAnimation],
-//                         [self keyFrameAnimation],
-//                         ];
+    //    group.animations = @[[self basicAnimation],
+    //                         [self keyFrameAnimation],
+    //                         ];
     group.animations = @[animation,
                          animation2,
                          ];
     group.duration = 4;
     group.beginTime = CACurrentMediaTime() + 3;
-
-//group的周期不改变子animation的周期，若子animation周期过长，动画会被截断。
-//子animation的beginTime是与group的beginTime的相对时间，不能加CACurrentMediaTime()。
+    
+    //group的周期不改变子animation的周期，若子animation周期过长，动画会被截断。
+    //子animation的beginTime是与group的beginTime的相对时间，不能加CACurrentMediaTime()。
     
     return group;
 }
@@ -215,32 +215,75 @@
 }
 
 -(void)transitionAnimation{
-    CATransition* transition = [CATransition animation];
-    transition.type = kCATransitionPush;
-    transition.subtype = kCATransitionFromLeft;
-    transition.startProgress = 0;
-    transition.endProgress = 1;
-    transition.duration = 3;
-    
-//    CATransition* transition2 = [CATransition animation];
-//    transition2.type = kCATransitionFade;
-//    transition2.subtype = kCATransitionFromLeft;
-//    transition2.startProgress = 0;
-//    transition2.endProgress = 1;
-//    transition2.duration = 3;
-//    
-//    self.view6.frame = self.view5.frame;
+    self.view6.frame = self.view5.frame;
+    //    self.view5.hidden = YES;
 
-    [self.view5.layer addAnimation:transition forKey:@"transition"];
-//    [self.view6.layer addAnimation:transition forKey:@"transition"];
-//
-//    [self.view exchangeSubviewAtIndex:[self.view.subviews indexOfObject:self.view5] withSubviewAtIndex:[self.view.subviews indexOfObject:self.view6]];
     
-//
-//    [CATransaction setCompletionBlock:^{
-//        self.view5.hidden = NO;
-//        self.view6.hidden = YES;
-//    }];
+    CATransition* transition = [CATransition animation];
+    transition.startProgress = 0;
+    transition.endProgress = 1.0;
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromRight;
+    transition.duration = 2.0;
+    
+#pragma mark 基本Transition - 图层可见性
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // Add the transition animation to both layers
+        [self.view5.layer addAnimation:transition forKey:@"transition"];
+        [self.view6.layer addAnimation:transition forKey:@"transition"];
+        
+        // Finally, change the visibility of the layers.
+        self.view5.hidden = NO;
+        self.view6.hidden = YES;
+    });
+    
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.view5.layer addAnimation:transition forKey:@"transition"];
+        [self.view6.layer addAnimation:transition forKey:@"transition"];
+        [self.view exchangeSubviewAtIndex:[self.view.subviews indexOfObject:self.view5] withSubviewAtIndex:[self.view.subviews indexOfObject:self.view6]];
+    });
+    
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.view5.layer addAnimation:transition forKey:@"transition"];
+        [self.view6.layer addAnimation:transition forKey:@"transition"];
+        
+        [self.view6 removeFromSuperview];
+        [self.view addSubview:self.view5];
+    });
+    
+#pragma mark 基本Transition - content
+    
+    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(200, 400, 100, 100)];
+    [self.view addSubview:imageView];
+    UIImage* image = [UIImage imageNamed:@"Demo"];
+    UIImage* image2 = [UIImage imageNamed:@"Demo2"];
+    imageView.image = image;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [imageView.layer addAnimation:transition forKey:nil];
+        imageView.image = image2;
+    });
+    
+#pragma mark UIView transition
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView beginAnimations:@"" context:nil];
+        [UIView setAnimationDuration:2];
+        [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view5 cache:YES];
+        [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view6 cache:YES];
+        self.view5.hidden = NO;
+        self.view6.hidden = NO;
+        [self.view5 removeFromSuperview];
+        [self.view addSubview:self.view6];
+        [UIView commitAnimations];
+    });
+  
+    
+#pragma mark - VC transition - 容器View切换
+    
+    
     
 }
 
