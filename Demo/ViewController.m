@@ -16,6 +16,7 @@
 #import "TestGeneralAnimationVC.h"
 #import "CoreGraphicVC.h"
 #import "CoreAnimationVC.h"
+#import "CubeVC.h"
 
 @interface EntryModel : NSObject
 
@@ -45,7 +46,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.dataSource = [NSMutableArray arrayWithObjects:
                        [EntryModel modelWithName:@"Core Data" class:[CoreDataVC class]],
                        [EntryModel modelWithName:@"FMDB" class:[FMDBVC class]],
@@ -56,9 +57,9 @@
                        [EntryModel modelWithName:@"CoreGraphic" class:[CoreGraphicVC class]],
                        [EntryModel modelWithName:@"CoreAnimationDemo" class:[TestGeneralAnimationVC class]],
                        [EntryModel modelWithName:@"CoreAnimation" class:[CoreAnimationVC class]],
-
+                       [EntryModel modelWithName:@"CubeVC" class:[CubeVC class]],
                        nil];
-
+    
 }
 
 - (void)didReceiveMemoryWarning {

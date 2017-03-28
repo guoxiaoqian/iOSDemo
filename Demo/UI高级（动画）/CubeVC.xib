@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CubeVC">
+            <connections>
+                <outlet property="containerView" destination="pHN-kR-jpq" id="Noj-dd-N0W"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="faces" destination="m9Y-49-TX4" id="dw1-lP-Glp"/>
+                <outletCollection property="faces" destination="zg1-ZO-B1b" id="l5r-CI-dBq"/>
+                <outletCollection property="faces" destination="BHj-Bq-1w4" id="6u8-ew-X8w"/>
+                <outletCollection property="faces" destination="W4J-uy-SQc" id="Bd0-8g-ToR"/>
+                <outletCollection property="faces" destination="c15-hA-ezb" id="lLi-OM-Ii8"/>
+                <outletCollection property="faces" destination="vpa-us-bPg" id="IUA-UW-zOj"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pHN-kR-jpq">
+                    <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="9U5-8F-MWe"/>
+                        <constraint firstAttribute="width" constant="200" id="MWT-GW-kdz"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="pHN-kR-jpq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Wnq-Bp-qcE"/>
+                <constraint firstItem="pHN-kR-jpq" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="mjj-oG-I5i"/>
+            </constraints>
+        </view>
+        <view contentMode="scaleToFill" id="m9Y-49-TX4">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nho-z8-arK">
+                    <rect key="frame" x="30" y="30" width="140" height="140"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="1"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.3294117647" green="0.68235294120000001" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Nho-z8-arK" firstAttribute="centerX" secondItem="m9Y-49-TX4" secondAttribute="centerX" id="Iwv-1b-6we"/>
+                <constraint firstItem="Nho-z8-arK" firstAttribute="centerY" secondItem="m9Y-49-TX4" secondAttribute="centerY" id="WSx-aA-XaT"/>
+                <constraint firstItem="Nho-z8-arK" firstAttribute="leading" secondItem="m9Y-49-TX4" secondAttribute="leading" constant="30" id="ttl-be-ZCe"/>
+                <constraint firstItem="Nho-z8-arK" firstAttribute="top" secondItem="m9Y-49-TX4" secondAttribute="top" constant="30" id="xr3-mp-XRg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="213" y="561"/>
+        </view>
+        <view contentMode="scaleToFill" id="zg1-ZO-B1b">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xO3-LS-ncI">
+                    <rect key="frame" x="30" y="30" width="140" height="140"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="2"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="xO3-LS-ncI" firstAttribute="centerY" secondItem="zg1-ZO-B1b" secondAttribute="centerY" id="JWc-iF-46Z"/>
+                <constraint firstItem="xO3-LS-ncI" firstAttribute="leading" secondItem="zg1-ZO-B1b" secondAttribute="leading" constant="30" id="cDy-54-73t"/>
+                <constraint firstItem="xO3-LS-ncI" firstAttribute="top" secondItem="zg1-ZO-B1b" secondAttribute="top" constant="30" id="dNG-vN-2Om"/>
+                <constraint firstItem="xO3-LS-ncI" firstAttribute="centerX" secondItem="zg1-ZO-B1b" secondAttribute="centerX" id="lii-XJ-k4u"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="466" y="561"/>
+        </view>
+        <view contentMode="scaleToFill" id="BHj-Bq-1w4">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2y-9Q-j91">
+                    <rect key="frame" x="30" y="30" width="140" height="140"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="3"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.97473609758189583" blue="0.18472272371368192" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="W2y-9Q-j91" firstAttribute="leading" secondItem="BHj-Bq-1w4" secondAttribute="leading" constant="30" id="CeV-Fw-O9o"/>
+                <constraint firstItem="W2y-9Q-j91" firstAttribute="centerX" secondItem="BHj-Bq-1w4" secondAttribute="centerX" id="VA7-lG-D0z"/>
+                <constraint firstItem="W2y-9Q-j91" firstAttribute="centerY" secondItem="BHj-Bq-1w4" secondAttribute="centerY" id="i18-GN-X1F"/>
+                <constraint firstItem="W2y-9Q-j91" firstAttribute="top" secondItem="BHj-Bq-1w4" secondAttribute="top" constant="30" id="uBg-3r-LDa"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="721" y="561"/>
+        </view>
+        <view contentMode="scaleToFill" id="W4J-uy-SQc">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lsa-8b-20L">
+                    <rect key="frame" x="30" y="30" width="140" height="140"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="4"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.33054762753681344" green="0.96575813780862474" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Lsa-8b-20L" firstAttribute="top" secondItem="W4J-uy-SQc" secondAttribute="top" constant="30" id="7rR-yM-Cg3"/>
+                <constraint firstItem="Lsa-8b-20L" firstAttribute="centerX" secondItem="W4J-uy-SQc" secondAttribute="centerX" id="BKs-hW-jGe"/>
+                <constraint firstItem="Lsa-8b-20L" firstAttribute="centerY" secondItem="W4J-uy-SQc" secondAttribute="centerY" id="o0c-i3-pxN"/>
+                <constraint firstItem="Lsa-8b-20L" firstAttribute="leading" secondItem="W4J-uy-SQc" secondAttribute="leading" constant="30" id="tW8-fu-5iI"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="213" y="827"/>
+        </view>
+        <view contentMode="scaleToFill" id="c15-hA-ezb">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rnc-j7-AC6">
+                    <rect key="frame" x="30" y="30" width="140" height="140"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="5"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.32000956200385611" blue="0.91234339402477171" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Rnc-j7-AC6" firstAttribute="leading" secondItem="c15-hA-ezb" secondAttribute="leading" constant="30" id="czU-fY-WLj"/>
+                <constraint firstItem="Rnc-j7-AC6" firstAttribute="centerY" secondItem="c15-hA-ezb" secondAttribute="centerY" id="f36-jC-azg"/>
+                <constraint firstItem="Rnc-j7-AC6" firstAttribute="top" secondItem="c15-hA-ezb" secondAttribute="top" constant="30" id="tz0-fm-uoI"/>
+                <constraint firstItem="Rnc-j7-AC6" firstAttribute="centerX" secondItem="c15-hA-ezb" secondAttribute="centerX" id="uG3-pC-YIf"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="466" y="827"/>
+        </view>
+        <view contentMode="scaleToFill" id="vpa-us-bPg">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxM-eA-kCJ">
+                    <rect key="frame" x="30" y="30" width="140" height="140"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="6"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.91402766972632543" green="0.89987495610956025" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="hxM-eA-kCJ" firstAttribute="leading" secondItem="vpa-us-bPg" secondAttribute="leading" constant="30" id="B6y-I8-6G5"/>
+                <constraint firstItem="hxM-eA-kCJ" firstAttribute="centerX" secondItem="vpa-us-bPg" secondAttribute="centerX" id="F05-hv-eks"/>
+                <constraint firstItem="hxM-eA-kCJ" firstAttribute="top" secondItem="vpa-us-bPg" secondAttribute="top" constant="30" id="TyM-7i-BQO"/>
+                <constraint firstItem="hxM-eA-kCJ" firstAttribute="centerY" secondItem="vpa-us-bPg" secondAttribute="centerY" id="pgf-SZ-7hD"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="721" y="827"/>
+        </view>
+    </objects>
+</document>

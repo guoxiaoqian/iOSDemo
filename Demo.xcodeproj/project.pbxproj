@@ -13,6 +13,8 @@
 		885960E11E70222000760090 /* UIView+AnimationUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960CD1E70222000760090 /* UIView+AnimationUtility.m */; };
 		889B2E961E89E98700ACD1A0 /* Demo2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 889B2E941E89E98700ACD1A0 /* Demo2@2x.png */; };
 		889B2E971E89E98700ACD1A0 /* Demo2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 889B2E951E89E98700ACD1A0 /* Demo2@3x.png */; };
+		889B2E9B1E8A978300ACD1A0 /* CubeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889B2E991E8A978300ACD1A0 /* CubeVC.m */; };
+		889B2E9C1E8A978300ACD1A0 /* CubeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889B2E9A1E8A978300ACD1A0 /* CubeVC.xib */; };
 		889DBA391E6BFBA200520C77 /* CoreLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889DBA371E6BFBA200520C77 /* CoreLocationVC.m */; };
 		889DBA3A1E6BFBA200520C77 /* CoreLocationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889DBA381E6BFBA200520C77 /* CoreLocationVC.xib */; };
 		889DBA3C1E6BFC4200520C77 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889DBA3B1E6BFC4200520C77 /* CoreLocation.framework */; };
@@ -118,6 +120,9 @@
 		885960EB1E70EEC400760090 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		889B2E941E89E98700ACD1A0 /* Demo2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Demo2@2x.png"; sourceTree = "<group>"; };
 		889B2E951E89E98700ACD1A0 /* Demo2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Demo2@3x.png"; sourceTree = "<group>"; };
+		889B2E981E8A978300ACD1A0 /* CubeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CubeVC.h; sourceTree = "<group>"; };
+		889B2E991E8A978300ACD1A0 /* CubeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CubeVC.m; sourceTree = "<group>"; };
+		889B2E9A1E8A978300ACD1A0 /* CubeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CubeVC.xib; sourceTree = "<group>"; };
 		889DBA361E6BFBA200520C77 /* CoreLocationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreLocationVC.h; path = Demo/Network/CoreLocationVC.h; sourceTree = SOURCE_ROOT; };
 		889DBA371E6BFBA200520C77 /* CoreLocationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreLocationVC.m; path = Demo/Network/CoreLocationVC.m; sourceTree = SOURCE_ROOT; };
 		889DBA381E6BFBA200520C77 /* CoreLocationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CoreLocationVC.xib; path = Demo/Network/CoreLocationVC.xib; sourceTree = SOURCE_ROOT; };
@@ -296,6 +301,9 @@
 				889DBA861E7EBBA700520C77 /* CoreAnimationVC.h */,
 				889DBA871E7EBBA700520C77 /* CoreAnimationVC.m */,
 				889DBA881E7EBBA700520C77 /* CoreAnimationVC.xib */,
+				889B2E981E8A978300ACD1A0 /* CubeVC.h */,
+				889B2E991E8A978300ACD1A0 /* CubeVC.m */,
+				889B2E9A1E8A978300ACD1A0 /* CubeVC.xib */,
 			);
 			path = "UI高级（动画）";
 			sourceTree = "<group>";
@@ -778,6 +786,7 @@
 				88A6174B1E53100C00EF8AFC /* LaunchScreen.storyboard in Resources */,
 				88A617481E53100C00EF8AFC /* Assets.xcassets in Resources */,
 				889DBA8A1E7EBBA700520C77 /* CoreAnimationVC.xib in Resources */,
+				889B2E9C1E8A978300ACD1A0 /* CubeVC.xib in Resources */,
 				88C32E871E66BFF1002753FC /* FileManagerVC.xib in Resources */,
 				88A617461E53100C00EF8AFC /* Main.storyboard in Resources */,
 				88C32E881E66BFF1002753FC /* student.xml in Resources */,
@@ -847,6 +856,7 @@
 				88C32E981E66BFF1002753FC /* AFURLSessionManager.m in Sources */,
 				88C32E891E66BFF1002753FC /* UICKeyChainStore.m in Sources */,
 				88C32E8C1E66BFF1002753FC /* FMDatabasePool.m in Sources */,
+				889B2E9B1E8A978300ACD1A0 /* CubeVC.m in Sources */,
 				889DBA7D1E7E71F900520C77 /* QuartzRendering.m in Sources */,
 				889DBA391E6BFBA200520C77 /* CoreLocationVC.m in Sources */,
 				889DBA721E7E71F900520C77 /* QuartzClipping.m in Sources */,
