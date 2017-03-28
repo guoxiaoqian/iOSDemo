@@ -128,13 +128,13 @@
     //
     //    [self viewBlockAnimation];
     //
-//    [self transitionAnimation];
+    [self transitionAnimation];
     
     //    [self transaction];
     
-        [self shapeLayerDemo];
-
-        [self displayLink];
+    //        [self shapeLayerDemo];
+    //
+    //        [self displayLink];
     //
     //    NSLog(@"view.layer.contents %@",self.view.layer.contents);
     ////    [self.view.layer setContents:(__bridge id)[UIImage imageNamed:@"Demo"].CGImage];
@@ -193,7 +193,7 @@
     animation2.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(100, 100, 200, 200)].CGPath;
     animation2.duration = 1;
     animation2.beginTime = 3;
-
+    
     group.animations = @[animation,
                          animation2,
                          ];
@@ -218,7 +218,7 @@
 -(void)transitionAnimation{
     self.view6.frame = self.view5.frame;
     //    self.view5.hidden = YES;
-
+    
     
     CATransition* transition = [CATransition animation];
     transition.startProgress = 0;
@@ -284,42 +284,39 @@
             
         }];
     });
-  
+    
     
 #pragma mark - VC transition - 容器View切换
     
-    UITabBarController* tabVC = [[UITabBarController alloc] init];
-    tabVC.view.frame = CGRectMake(200, 200, 200, 200);
     UIViewController* chidVC = [UIViewController new];
     chidVC.view.backgroundColor = [UIColor greenColor];
-    chidVC.title = @"left";
     UIViewController* chidVC2 = [UIViewController new];
     chidVC2.view.backgroundColor = [UIColor redColor];
-    chidVC2.title = @"right";
-
-    [tabVC addChildViewController:chidVC];
-    [tabVC addChildViewController:chidVC2];
     
-    [self addChildViewController:tabVC];
-    [self.view addSubview:tabVC.view];
-
+    [self addChildViewController:chidVC];
+    [self addChildViewController:chidVC2];
+    chidVC.view.frame = self.view.bounds;
+    chidVC2.view.frame = self.view.bounds;
+    [self.view addSubview:chidVC.view];
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [chidVC.view.layer addAnimation:transition forKey:nil];
         [chidVC2.view.layer addAnimation:transition forKey:nil];
-        [tabVC setSelectedIndex:1];
+        [chidVC.view removeFromSuperview];
+        [self.view addSubview:chidVC2.view];
 #warning chidVC 消失没有动画
     });
     
+    //不能用系统提供的容器（TabBarController）
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self transitionFromViewController:chidVC2 toViewController:chidVC duration:2 options:UIViewAnimationOptionTransitionCurlUp animations:^{
+            [chidVC2.view removeFromSuperview];
+            [self.view addSubview:chidVC.view];
+        } completion:^(BOOL finished) {
+            
+        }];
+    });
     
-#warning 崩溃
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [tabVC transitionFromViewController:chidVC2 toViewController:chidVC duration:2 options:UIViewAnimationOptionTransitionCurlUp animations:^{
-//            [tabVC setSelectedIndex:0];
-//        } completion:^(BOOL finished) {
-//            
-//        }];
-//    });
-
     
 }
 
@@ -357,7 +354,7 @@
         animation.duration = 3;
         [self.shapeLayer addAnimation:animation forKey:nil];
     });
-
+    
 }
 
 -(UIBezierPath*)bezierPathWithHeight:(CGFloat)height{
@@ -365,7 +362,7 @@
     [path moveToPoint:CGPointMake(0, height)];
     [path addQuadCurveToPoint:CGPointMake(kScreenWidth, height) controlPoint:CGPointMake(kScreenWidth/2, height * 1.3)];
     [path closePath];
-//    [path fill];
+    //    [path fill];
     return path;
 }
 
@@ -374,7 +371,7 @@
     
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(200, 505, 100, 100)];
     [self.view addSubview:self.imageView];
-
+    
     CADisplayLink* displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(didDisplayLinkCome:)];
     [displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
     
@@ -391,7 +388,7 @@
     if (self.displayLinkCount > 300) {
         [sender invalidate];
     }
-
+    
 }
 
 @end
