@@ -119,30 +119,30 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    //    CAAnimation* basicAnimation = [self basicAnimation];
-    //    [self.view1.layer addAnimation:basicAnimation forKey:nil];
-    //
-    //    [self.view2.layer addAnimation:[self keyFrameAnimation] forKey:nil];
+    CAAnimation* basicAnimation = [self basicAnimation];
+    [self.view1.layer addAnimation:basicAnimation forKey:nil];
     
-    //    [self.view3.layer addAnimation:[self groupAnimation] forKey:nil];
-    //
-    //    [self viewBlockAnimation];
-    //
+    [self.view2.layer addAnimation:[self keyFrameAnimation] forKey:nil];
+    
+    [self.view3.layer addAnimation:[self groupAnimation] forKey:nil];
+    
+    [self viewBlockAnimation];
+    
     [self transitionAnimation];
     
-    //    [self transaction];
+    [self transaction];
     
-    //        [self shapeLayerDemo];
-    //
-    //        [self displayLink];
-    //
+    [self shapeLayerDemo];
+    
+    [self displayLink];
+    
+    NSLog(@"view.layer.contents %@",self.view.layer.contents);
+    //    [self.view.layer setContents:(__bridge id)[UIImage imageNamed:@"Demo"].CGImage];
     //    NSLog(@"view.layer.contents %@",self.view.layer.contents);
-    ////    [self.view.layer setContents:(__bridge id)[UIImage imageNamed:@"Demo"].CGImage];
-    ////    NSLog(@"view.layer.contents %@",self.view.layer.contents);
-    //
-    //
-    //    MyView* myView = [[MyView alloc] initWithFrame:CGRectMake(200, 200, 100, 100)];
-    //    [self.view addSubview:myView];
+    
+    
+    MyView* myView = [[MyView alloc] initWithFrame:CGRectMake(200, 200, 100, 100)];
+    [self.view addSubview:myView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -230,7 +230,6 @@
 #pragma mark 基本Transition - 图层可见性
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // Add the transition animation to both layers
         [self.view5.layer addAnimation:transition forKey:@"transition"];
         [self.view6.layer addAnimation:transition forKey:@"transition"];
         
@@ -240,22 +239,23 @@
     });
     
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.view5.layer addAnimation:transition forKey:@"transition"];
-        [self.view6.layer addAnimation:transition forKey:@"transition"];
-        [self.view exchangeSubviewAtIndex:[self.view.subviews indexOfObject:self.view5] withSubviewAtIndex:[self.view.subviews indexOfObject:self.view6]];
+    
+    UIView* containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 500, 100, 100)];
+    UIView* childView1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    childView1.backgroundColor = [UIColor redColor];
+    UIView* childView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    childView2.backgroundColor = [UIColor blueColor];
+    [containerView addSubview:childView1];
+    [self.view addSubview:containerView];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // toView added to fromView.superview, fromView removed from its superview
+        [UIView transitionFromView:childView1 toView:childView2 duration:2 options:UIViewAnimationOptionTransitionCurlDown | UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse completion:^(BOOL finished) {
+            
+        }];
     });
     
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.view5.layer addAnimation:transition forKey:@"transition"];
-        [self.view6.layer addAnimation:transition forKey:@"transition"];
-        
-        [self.view6 removeFromSuperview];
-        [self.view addSubview:self.view5];
-    });
-    
-#pragma mark 基本Transition - content
+#pragma mark 基本Transition - 设置content
     
     UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(200, 400, 100, 100)];
     [self.view addSubview:imageView];
@@ -268,7 +268,6 @@
         imageView.image = image2;
     });
     
-#pragma mark UIView transition
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [UIView beginAnimations:@"" context:nil];
         [UIView setAnimationDuration:2];
@@ -288,36 +287,32 @@
     
 #pragma mark - VC transition - 容器View切换
     
-    UIViewController* chidVC = [UIViewController new];
-    chidVC.view.backgroundColor = [UIColor greenColor];
-    UIViewController* chidVC2 = [UIViewController new];
-    chidVC2.view.backgroundColor = [UIColor redColor];
-    
-    [self addChildViewController:chidVC];
-    [self addChildViewController:chidVC2];
-    chidVC.view.frame = self.view.bounds;
-    chidVC2.view.frame = self.view.bounds;
-    [self.view addSubview:chidVC.view];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [chidVC.view.layer addAnimation:transition forKey:nil];
-        [chidVC2.view.layer addAnimation:transition forKey:nil];
-        [chidVC.view removeFromSuperview];
-        [self.view addSubview:chidVC2.view];
-#warning chidVC 消失没有动画
-    });
-    
-    //不能用系统提供的容器（TabBarController）
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self transitionFromViewController:chidVC2 toViewController:chidVC duration:2 options:UIViewAnimationOptionTransitionCurlUp animations:^{
-            [chidVC2.view removeFromSuperview];
-            [self.view addSubview:chidVC.view];
-        } completion:^(BOOL finished) {
-            
-        }];
+        
+        UIViewController* chidVC = [UIViewController new];
+        chidVC.view.backgroundColor = [UIColor greenColor];
+        UIViewController* chidVC2 = [UIViewController new];
+        chidVC2.view.backgroundColor = [UIColor redColor];
+        
+        [self addChildViewController:chidVC];
+        [self addChildViewController:chidVC2];
+        chidVC.view.frame = self.view.bounds;
+        chidVC2.view.frame = self.view.bounds;
+        [self.view addSubview:chidVC.view];
+        
+        //不能用系统提供的容器（TabBarController）
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            //The receiver of this method is their common parent view controller. This method will add the toViewController's view to the superview of the
+            // fromViewController's view and the fromViewController's view will be removed from its superview after the
+            // transition completes.
+            [self transitionFromViewController:chidVC toViewController:chidVC2 duration:2 options:UIViewAnimationOptionTransitionCurlUp animations:^{
+                
+            } completion:^(BOOL finished) {
+                
+            }];
+        });
+        
     });
-    
-    
 }
 
 -(void)transaction{
