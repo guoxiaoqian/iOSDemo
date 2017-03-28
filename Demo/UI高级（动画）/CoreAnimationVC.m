@@ -105,6 +105,10 @@
 @property (strong, nonatomic) IBOutlet UIView *view5;
 @property (strong, nonatomic) IBOutlet UIView *view6;
 @property (strong, nonatomic) CALayer *layer;
+@property (strong,nonatomic) UIImageView* imageView;
+@property (assign,nonatomic) int displayLinkCount;
+@property (strong,nonatomic) CAShapeLayer* shapeLayer;
+
 
 @end
 
@@ -124,13 +128,13 @@
     //
     //    [self viewBlockAnimation];
     //
-    [self transitionAnimation];
+//    [self transitionAnimation];
     
     //    [self transaction];
     
-    //    [self shapeLayer];
-    //
-    //    [self displayLink];
+        [self shapeLayerDemo];
+
+        [self displayLink];
     //
     //    NSLog(@"view.layer.contents %@",self.view.layer.contents);
     ////    [self.view.layer setContents:(__bridge id)[UIImage imageNamed:@"Demo"].CGImage];
@@ -189,10 +193,7 @@
     animation2.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(100, 100, 200, 200)].CGPath;
     animation2.duration = 1;
     animation2.beginTime = 3;
-    
-    //    group.animations = @[[self basicAnimation],
-    //                         [self keyFrameAnimation],
-    //                         ];
+
     group.animations = @[animation,
                          animation2,
                          ];
@@ -271,19 +272,54 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [UIView beginAnimations:@"" context:nil];
         [UIView setAnimationDuration:2];
-        [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view5 cache:YES];
-        [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view6 cache:YES];
-        self.view5.hidden = NO;
-        self.view6.hidden = NO;
-        [self.view5 removeFromSuperview];
-        [self.view addSubview:self.view6];
+        [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:imageView cache:YES];
+        imageView.image = image;
         [UIView commitAnimations];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(9 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView transitionWithView:imageView duration:2 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
+            imageView.image = image2;
+        } completion:^(BOOL finished) {
+            
+        }];
     });
   
     
 #pragma mark - VC transition - 容器View切换
     
+    UITabBarController* tabVC = [[UITabBarController alloc] init];
+    tabVC.view.frame = CGRectMake(200, 200, 200, 200);
+    UIViewController* chidVC = [UIViewController new];
+    chidVC.view.backgroundColor = [UIColor greenColor];
+    chidVC.title = @"left";
+    UIViewController* chidVC2 = [UIViewController new];
+    chidVC2.view.backgroundColor = [UIColor redColor];
+    chidVC2.title = @"right";
+
+    [tabVC addChildViewController:chidVC];
+    [tabVC addChildViewController:chidVC2];
     
+    [self addChildViewController:tabVC];
+    [self.view addSubview:tabVC.view];
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [chidVC.view.layer addAnimation:transition forKey:nil];
+        [chidVC2.view.layer addAnimation:transition forKey:nil];
+        [tabVC setSelectedIndex:1];
+#warning chidVC 消失没有动画
+    });
+    
+    
+#warning 崩溃
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [tabVC transitionFromViewController:chidVC2 toViewController:chidVC duration:2 options:UIViewAnimationOptionTransitionCurlUp animations:^{
+//            [tabVC setSelectedIndex:0];
+//        } completion:^(BOOL finished) {
+//            
+//        }];
+//    });
+
     
 }
 
@@ -308,12 +344,54 @@
     [CATransaction commit];
 }
 
--(void)shapeLayer{
+-(void)shapeLayerDemo{
+    self.shapeLayer = [CAShapeLayer layer];
+    self.shapeLayer.fillColor = [UIColor greenColor].CGColor;
+    self.shapeLayer.path = [self bezierPathWithHeight:100].CGPath;
+    [self.view.layer addSublayer:self.shapeLayer];
     
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@"path"];
+        animation.fromValue = (__bridge id)[self bezierPathWithHeight:100].CGPath;
+        animation.toValue = (__bridge id)[self bezierPathWithHeight:300].CGPath;
+        animation.duration = 3;
+        [self.shapeLayer addAnimation:animation forKey:nil];
+    });
+
+}
+
+-(UIBezierPath*)bezierPathWithHeight:(CGFloat)height{
+    UIBezierPath* path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, kScreenWidth, height)];
+    [path moveToPoint:CGPointMake(0, height)];
+    [path addQuadCurveToPoint:CGPointMake(kScreenWidth, height) controlPoint:CGPointMake(kScreenWidth/2, height * 1.3)];
+    [path closePath];
+//    [path fill];
+    return path;
 }
 
 -(void)displayLink{
     
+    
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(200, 505, 100, 100)];
+    [self.view addSubview:self.imageView];
+
+    CADisplayLink* displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(didDisplayLinkCome:)];
+    [displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+    
+}
+
+-(void)didDisplayLinkCome:(CADisplayLink *)sender{
+    if (self.displayLinkCount %60 == 0) {
+        UIImage* image = [UIImage imageNamed:@"Demo"];
+        UIImage* image2 = [UIImage imageNamed:@"Demo2"];
+        self.imageView.image = (self.displayLinkCount / 60) % 2 == 0 ? image : image2;
+    }
+    self.displayLinkCount ++;
+    
+    if (self.displayLinkCount > 300) {
+        [sender invalidate];
+    }
+
 }
 
 @end
