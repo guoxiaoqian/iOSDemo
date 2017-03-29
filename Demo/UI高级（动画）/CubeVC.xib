@@ -27,11 +27,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pHN-kR-jpq">
-                    <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
+                    <rect key="frame" x="-12.5" y="133.5" width="400" height="400"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="9U5-8F-MWe"/>
-                        <constraint firstAttribute="width" constant="200" id="MWT-GW-kdz"/>
+                        <constraint firstAttribute="height" constant="400" id="9U5-8F-MWe"/>
+                        <constraint firstAttribute="width" constant="400" id="MWT-GW-kdz"/>
                     </constraints>
                 </view>
             </subviews>
@@ -49,6 +49,9 @@
                     <rect key="frame" x="30" y="30" width="140" height="140"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title="1"/>
+                    <connections>
+                        <action selector="didClickFace:" destination="-1" eventType="touchUpInside" id="TS9-pi-4gE"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.3294117647" green="0.68235294120000001" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
@@ -69,6 +72,9 @@
                     <rect key="frame" x="30" y="30" width="140" height="140"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title="2"/>
+                    <connections>
+                        <action selector="didClickFace:" destination="-1" eventType="touchUpInside" id="h1c-lW-1Be"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -89,6 +95,9 @@
                     <rect key="frame" x="30" y="30" width="140" height="140"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title="3"/>
+                    <connections>
+                        <action selector="didClickFace:" destination="-1" eventType="touchUpInside" id="JV2-5K-Vsd"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="0.97473609758189583" blue="0.18472272371368192" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -109,6 +118,9 @@
                     <rect key="frame" x="30" y="30" width="140" height="140"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title="4"/>
+                    <connections>
+                        <action selector="didClickFace:" destination="-1" eventType="touchUpInside" id="fdM-lm-GFX"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.33054762753681344" green="0.96575813780862474" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -129,6 +141,9 @@
                     <rect key="frame" x="30" y="30" width="140" height="140"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title="5"/>
+                    <connections>
+                        <action selector="didClickFace:" destination="-1" eventType="touchUpInside" id="brM-zh-q1h"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="0.32000956200385611" blue="0.91234339402477171" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -149,6 +164,9 @@
                     <rect key="frame" x="30" y="30" width="140" height="140"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title="6"/>
+                    <connections>
+                        <action selector="didClickFace:" destination="-1" eventType="touchUpInside" id="LVr-df-Nn7"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.91402766972632543" green="0.89987495610956025" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

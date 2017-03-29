@@ -20,12 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    CATransform3D perspective = CATransform3DIdentity;
-    perspective.m34 = -1.0 / 500;
-    //有视角后，不旋转还是看不到透视效果
-    perspective = CATransform3DRotate(perspective, -M_PI_4, 1, 0, 0);
-    perspective = CATransform3DRotate(perspective, -M_PI_4, 0, 1, 0);
-    self.containerView.layer.sublayerTransform = perspective;
+    [self rotateAngleX:-M_PI_4 angleY: -M_PI_4];
     
     //前后
     CATransform3D transform1 = CATransform3DMakeTranslation(0, 0, 100);
@@ -60,11 +55,16 @@
 
 -(void)addFaceAtIndex:(NSUInteger)index withTransform:(CATransform3D)transform{
     UIView* face = [self.faces objectAtIndex:index];
-    face.frame = CGRectMake(0, 0, 200, 200);
+    UIButton* button = [face.subviews firstObject];
+    button.layer.cornerRadius = 5;
+    button.layer.borderWidth = 1;
+    button.layer.borderColor = [UIColor grayColor].CGColor;
     face.layer.transform = transform;
-    face.layer.doubleSided = NO;
+    face.layer.doubleSided = YES;
 
     [self.containerView addSubview:face];
+    CGSize containerSize = self.containerView.frame.size;
+    face.center = CGPointMake(containerSize.width/2, containerSize.height/2);
 }
 
 -(void)rotateAngleX:(CGFloat)angleX angleY:(CGFloat)angleY{
@@ -76,12 +76,16 @@
 }
 
 -(void)didPan:(UIPanGestureRecognizer*)gesture{
+    //get the distance that the user’s finger has moved from the original touch location.
     CGPoint point = [gesture translationInView:self.view];
     CGFloat angleX = -point.y / kScreenHeight * (2*M_PI);
     CGFloat angleY = point.x / kScreenWidth * (2*M_PI);
     [self rotateAngleX:angleX angleY:angleY];
 }
 
+- (IBAction)didClickFace:(UIButton*)sender {
+    NSLog(@"didClickFace %@",[sender titleColorForState:UIControlStateNormal]);
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
