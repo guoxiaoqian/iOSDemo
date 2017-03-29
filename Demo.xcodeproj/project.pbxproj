@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		882C996C1E8BC39100BFDAC7 /* EventVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 882C996A1E8BC39100BFDAC7 /* EventVC.m */; };
+		882C996D1E8BC39100BFDAC7 /* EventVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882C996B1E8BC39100BFDAC7 /* EventVC.xib */; };
 		885960C61E7020DD00760090 /* TestGeneralAnimationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960C41E7020DD00760090 /* TestGeneralAnimationVC.m */; };
 		885960C71E7020DD00760090 /* TestGeneralAnimationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885960C51E7020DD00760090 /* TestGeneralAnimationVC.xib */; };
 		885960C91E70211C00760090 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885960C81E70211C00760090 /* QuartzCore.framework */; };
@@ -122,6 +124,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		882C99691E8BC39100BFDAC7 /* EventVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventVC.h; sourceTree = "<group>"; };
+		882C996A1E8BC39100BFDAC7 /* EventVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventVC.m; sourceTree = "<group>"; };
+		882C996B1E8BC39100BFDAC7 /* EventVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventVC.xib; sourceTree = "<group>"; };
 		885960C31E7020DD00760090 /* TestGeneralAnimationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestGeneralAnimationVC.h; sourceTree = "<group>"; };
 		885960C41E7020DD00760090 /* TestGeneralAnimationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestGeneralAnimationVC.m; sourceTree = "<group>"; };
 		885960C51E7020DD00760090 /* TestGeneralAnimationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestGeneralAnimationVC.xib; sourceTree = "<group>"; };
@@ -363,6 +368,9 @@
 		885960AE1E701FA300760090 /* UI高级（事件+手势） */ = {
 			isa = PBXGroup;
 			children = (
+				882C99691E8BC39100BFDAC7 /* EventVC.h */,
+				882C996A1E8BC39100BFDAC7 /* EventVC.m */,
+				882C996B1E8BC39100BFDAC7 /* EventVC.xib */,
 			);
 			path = "UI高级（事件+手势）";
 			sourceTree = "<group>";
@@ -873,6 +881,7 @@
 				88A617461E53100C00EF8AFC /* Main.storyboard in Resources */,
 				88C32E881E66BFF1002753FC /* student.xml in Resources */,
 				889DBA4A1E7AC65700520C77 /* 概念.txt in Resources */,
+				882C996D1E8BC39100BFDAC7 /* EventVC.xib in Resources */,
 				889B2E961E89E98700ACD1A0 /* Demo2@2x.png in Resources */,
 				8865C6021E8B4B52003AAEC4 /* LICENSE in Resources */,
 				889DBA851E7E724500520C77 /* CoreGraphicVC.xib in Resources */,
@@ -967,6 +976,7 @@
 				889DBA841E7E724500520C77 /* CoreGraphicVC.m in Sources */,
 				889DBA791E7E71F900520C77 /* QuartzLines.m in Sources */,
 				88C32E8A1E66BFF1002753FC /* FMDatabase.m in Sources */,
+				882C996C1E8BC39100BFDAC7 /* EventVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
