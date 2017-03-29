@@ -63,8 +63,13 @@
     face.layer.doubleSided = YES;
 
     [self.containerView addSubview:face];
-    CGSize containerSize = self.containerView.frame.size;
-    face.center = CGPointMake(containerSize.width/2, containerSize.height/2);
+//    CGSize containerSize = self.containerView.frame.size;
+//    face.center = CGPointMake(containerSize.width/2, containerSize.height/2);
+    [face mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(200);
+        make.height.mas_equalTo(200);
+        make.center.equalTo(self.containerView);
+    }];
 }
 
 -(void)rotateAngleX:(CGFloat)angleX angleY:(CGFloat)angleY{
@@ -73,6 +78,24 @@
     perspective = CATransform3DRotate(perspective, angleX, 1, 0, 0);
     perspective = CATransform3DRotate(perspective, angleY, 0, 1, 0);
     self.containerView.layer.sublayerTransform = perspective;
+    
+// 最多同时显示三个面，每个对立面的userInteractionEnabled都相反
+    
+    ((UIView*)self.faces[0]).userInteractionEnabled = (-M_PI_2 < angleX && angleX < M_PI_2) && (-M_PI_2 < angleY && angleY < M_PI_2);
+    ((UIView*)self.faces[1]).userInteractionEnabled = ! ((UIView*)self.faces[0]).userInteractionEnabled;
+    
+    ((UIView*)self.faces[2]).userInteractionEnabled = (-M_PI_2 < angleX && angleX < M_PI_2) && (0 < angleY && angleY < M_PI);
+    ((UIView*)self.faces[3]).userInteractionEnabled = ! ((UIView*)self.faces[2]).userInteractionEnabled;
+    
+    ((UIView*)self.faces[4]).userInteractionEnabled = (-M_PI < angleX && angleX < 0) && (-M_PI_2 < angleY && angleY < M_PI_2);
+    ((UIView*)self.faces[5]).userInteractionEnabled = ! ((UIView*)self.faces[4]).userInteractionEnabled;
+    
+#warning 未处理极限状态，即仅一个面在前面，其他侧面看不到（看不到的虽然userInteractionEnabled为YES，但是hitTest检测不到）
+    
+    for (int i = 0; i< self.faces.count; ++i) {
+        UIView* face = self.faces[i];
+        NSLog(@"face %d userInteractionEnabled %d",i+1,face.userInteractionEnabled);
+    }
 }
 
 -(void)didPan:(UIPanGestureRecognizer*)gesture{
@@ -84,7 +107,7 @@
 }
 
 - (IBAction)didClickFace:(UIButton*)sender {
-    NSLog(@"didClickFace %@",[sender titleColorForState:UIControlStateNormal]);
+    NSLog(@"didClickFace %@",[sender titleForState:UIControlStateNormal]);
 }
 
 - (void)didReceiveMemoryWarning {
