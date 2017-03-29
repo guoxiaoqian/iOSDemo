@@ -79,7 +79,7 @@
     perspective = CATransform3DRotate(perspective, angleY, 0, 1, 0);
     self.containerView.layer.sublayerTransform = perspective;
     
-// 最多同时显示三个面，每个对立面的userInteractionEnabled都相反
+// 最多同时显示三个面，每个对立面的userInteractionEnabled都相反;未处理极限状态，即仅一个面在前面，其他侧面看不到（看不到的虽然userInteractionEnabled为YES，但是hitTest检测不到）
     
     ((UIView*)self.faces[0]).userInteractionEnabled = (-M_PI_2 < angleX && angleX < M_PI_2) && (-M_PI_2 < angleY && angleY < M_PI_2);
     ((UIView*)self.faces[1]).userInteractionEnabled = ! ((UIView*)self.faces[0]).userInteractionEnabled;
@@ -90,12 +90,10 @@
     ((UIView*)self.faces[4]).userInteractionEnabled = (-M_PI < angleX && angleX < 0) && (-M_PI_2 < angleY && angleY < M_PI_2);
     ((UIView*)self.faces[5]).userInteractionEnabled = ! ((UIView*)self.faces[4]).userInteractionEnabled;
     
-#warning 未处理极限状态，即仅一个面在前面，其他侧面看不到（看不到的虽然userInteractionEnabled为YES，但是hitTest检测不到）
-    
-    for (int i = 0; i< self.faces.count; ++i) {
-        UIView* face = self.faces[i];
-        NSLog(@"face %d userInteractionEnabled %d",i+1,face.userInteractionEnabled);
-    }
+//    for (int i = 0; i< self.faces.count; ++i) {
+//        UIView* face = self.faces[i];
+//        NSLog(@"face %d userInteractionEnabled %d",i+1,face.userInteractionEnabled);
+//    }
 }
 
 -(void)didPan:(UIPanGestureRecognizer*)gesture{
@@ -108,6 +106,62 @@
 
 - (IBAction)didClickFace:(UIButton*)sender {
     NSLog(@"didClickFace %@",[sender titleForState:UIControlStateNormal]);
+    
+    [self randomRotate];
+}
+
+- (void)randomRotate{
+    int randNum = arc4random() % 6 + 1;
+    CGFloat angleX = 0;
+    CGFloat angleY = 0;
+    switch (randNum) {
+        case 1:
+            angleX = 0;
+            angleY = 0;
+            break;
+        case 2:
+            angleX = M_PI;
+            angleY = M_PI;
+            break;
+        case 3:
+            angleX = 0;
+            angleY = M_PI_2;
+            break;
+        case 4:
+            angleX = 0;
+            angleY = -M_PI_2;
+            break;
+        case 5:
+            angleX = -M_PI_2;
+            angleY = 0;
+            break;
+        case 6:
+            angleX = M_PI_2;
+            angleY = 0;
+            break;
+        default:
+            break;
+    }
+    
+    
+    NSLog(@"random face is %d",randNum);
+    
+    [CATransaction begin];
+    CAKeyframeAnimation* animation = [CAKeyframeAnimation animationWithKeyPath:@"sublayerTransform"];
+    animation.duration = 0.3;
+    animation.repeatCount = 5;
+    CATransform3D transform = self.containerView.layer.sublayerTransform;
+    animation.values = @[[NSValue valueWithCATransform3D:transform],
+                         [NSValue valueWithCATransform3D:(transform = CATransform3DRotate(transform, M_PI, 1, 1, 1))],
+                         [NSValue valueWithCATransform3D:(transform = CATransform3DRotate(transform, M_PI, 1, 1, 1))]
+                         ];
+    animation.keyTimes = @[@(0),@(0.5),@(1)];
+    [self.containerView.layer addAnimation:animation forKey:nil];
+    
+    [CATransaction setCompletionBlock:^{
+        [self rotateAngleX:angleX  angleY:angleY];
+    }];
+    [CATransaction commit];
 }
 
 - (void)didReceiveMemoryWarning {
