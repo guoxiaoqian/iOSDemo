@@ -218,9 +218,11 @@ typedef enum : NSUInteger {
 
 @end
 
-@interface EventVC ()
+@interface EventVC () <UIGestureRecognizerDelegate>
 
 @property (strong,nonatomic) TouchView* touchView;
+@property (strong,nonatomic) MyGesture* myGesture;
+@property (strong,nonatomic) UISwipeGestureRecognizer* swipeGesture;
 
 @end
 
@@ -251,9 +253,26 @@ typedef enum : NSUInteger {
 }
 
 - (void)gesture{
-    MyGesture* gesture = [[MyGesture alloc] initWithTarget:self action:@selector(didMyGestureRecognized:)];
-    [self.touchView addGestureRecognizer:gesture];
+    self.myGesture = [[MyGesture alloc] initWithTarget:self action:@selector(didMyGestureRecognized:)];
+    self.myGesture.delegate = self;
+    [self.touchView addGestureRecognizer:self.myGesture];
+    
+    self.swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipeGestureRecognized:)];
+    self.swipeGesture.delegate = self;
+    [self.touchView addGestureRecognizer:self.swipeGesture];
 }
+
+#pragma mark UIGestureRecognizerDelegate
+
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+    //手势依赖顺序
+    if (gestureRecognizer == self.myGesture && otherGestureRecognizer == self.swipeGesture) {
+        return YES;
+    }
+    return NO;
+}
+
+#pragma mark Gesture Action
 
 -(void)didMyGestureRecognized:(MyGesture*)gesture{
     if (gesture.state == UIGestureRecognizerStateRecognized) {
@@ -261,8 +280,16 @@ typedef enum : NSUInteger {
     }
 }
 
+-(void)didSwipeGestureRecognized:(UISwipeGestureRecognizer*)gesture{
+    if (gesture.state == UIGestureRecognizerStateRecognized) {
+        NSLog(@"UISwipeGestureRecognizer Recognized !!! direction:%ld",gesture.direction);
+    }
+}
+
+
+
 - (void)remoteControlEvent{
-    
+
 }
 
 - (void)motionEvent{

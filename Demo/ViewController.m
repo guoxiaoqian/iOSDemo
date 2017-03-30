@@ -18,6 +18,7 @@
 #import "CoreAnimationVC.h"
 #import "CubeVC.h"
 #import "EventVC.h"
+#import "RemoteEnvetVC.h"
 
 @interface EntryModel : NSObject
 
@@ -60,6 +61,7 @@
                        [EntryModel modelWithName:@"CoreAnimation" class:[CoreAnimationVC class]],
                        [EntryModel modelWithName:@"CubeVC" class:[CubeVC class]],
                        [EntryModel modelWithName:@"EventVC" class:[EventVC class]],
+                       [EntryModel modelWithName:@"RemoteEventVC" class:[RemoteEnvetVC class]],
                        nil];
     
 }

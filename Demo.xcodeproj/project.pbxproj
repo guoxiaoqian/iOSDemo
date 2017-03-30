@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		882C996C1E8BC39100BFDAC7 /* EventVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 882C996A1E8BC39100BFDAC7 /* EventVC.m */; };
 		882C996D1E8BC39100BFDAC7 /* EventVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882C996B1E8BC39100BFDAC7 /* EventVC.xib */; };
+		882C996F1E8D007500BFDAC7 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 882C996E1E8D007500BFDAC7 /* MediaPlayer.framework */; };
+		882C99741E8D0CE300BFDAC7 /* RemoteEnvetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 882C99721E8D0CE300BFDAC7 /* RemoteEnvetVC.m */; };
+		882C99751E8D0CE300BFDAC7 /* RemoteEnvetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882C99731E8D0CE300BFDAC7 /* RemoteEnvetVC.xib */; };
+		882C99771E8D0D9000BFDAC7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 882C99761E8D0D9000BFDAC7 /* AVFoundation.framework */; };
 		885960C61E7020DD00760090 /* TestGeneralAnimationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960C41E7020DD00760090 /* TestGeneralAnimationVC.m */; };
 		885960C71E7020DD00760090 /* TestGeneralAnimationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885960C51E7020DD00760090 /* TestGeneralAnimationVC.xib */; };
 		885960C91E70211C00760090 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885960C81E70211C00760090 /* QuartzCore.framework */; };
@@ -127,6 +131,11 @@
 		882C99691E8BC39100BFDAC7 /* EventVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventVC.h; sourceTree = "<group>"; };
 		882C996A1E8BC39100BFDAC7 /* EventVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventVC.m; sourceTree = "<group>"; };
 		882C996B1E8BC39100BFDAC7 /* EventVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventVC.xib; sourceTree = "<group>"; };
+		882C996E1E8D007500BFDAC7 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		882C99711E8D0CE300BFDAC7 /* RemoteEnvetVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteEnvetVC.h; sourceTree = "<group>"; };
+		882C99721E8D0CE300BFDAC7 /* RemoteEnvetVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteEnvetVC.m; sourceTree = "<group>"; };
+		882C99731E8D0CE300BFDAC7 /* RemoteEnvetVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RemoteEnvetVC.xib; sourceTree = "<group>"; };
+		882C99761E8D0D9000BFDAC7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		885960C31E7020DD00760090 /* TestGeneralAnimationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestGeneralAnimationVC.h; sourceTree = "<group>"; };
 		885960C41E7020DD00760090 /* TestGeneralAnimationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestGeneralAnimationVC.m; sourceTree = "<group>"; };
 		885960C51E7020DD00760090 /* TestGeneralAnimationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestGeneralAnimationVC.xib; sourceTree = "<group>"; };
@@ -305,6 +314,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				882C99771E8D0D9000BFDAC7 /* AVFoundation.framework in Frameworks */,
+				882C996F1E8D007500BFDAC7 /* MediaPlayer.framework in Frameworks */,
 				889DBA481E7419E400520C77 /* CoreGraphics.framework in Frameworks */,
 				889DBA461E74196F00520C77 /* OpenGLES.framework in Frameworks */,
 				885960C91E70211C00760090 /* QuartzCore.framework in Frameworks */,
@@ -371,6 +382,9 @@
 				882C99691E8BC39100BFDAC7 /* EventVC.h */,
 				882C996A1E8BC39100BFDAC7 /* EventVC.m */,
 				882C996B1E8BC39100BFDAC7 /* EventVC.xib */,
+				882C99711E8D0CE300BFDAC7 /* RemoteEnvetVC.h */,
+				882C99721E8D0CE300BFDAC7 /* RemoteEnvetVC.m */,
+				882C99731E8D0CE300BFDAC7 /* RemoteEnvetVC.xib */,
 			);
 			path = "UI高级（事件+手势）";
 			sourceTree = "<group>";
@@ -553,6 +567,8 @@
 		88A617791E53EED000EF8AFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				882C99761E8D0D9000BFDAC7 /* AVFoundation.framework */,
+				882C996E1E8D007500BFDAC7 /* MediaPlayer.framework */,
 				889DBA471E7419E400520C77 /* CoreGraphics.framework */,
 				889DBA451E74196F00520C77 /* OpenGLES.framework */,
 				885960C81E70211C00760090 /* QuartzCore.framework */,
@@ -883,6 +899,7 @@
 				889DBA4A1E7AC65700520C77 /* 概念.txt in Resources */,
 				882C996D1E8BC39100BFDAC7 /* EventVC.xib in Resources */,
 				889B2E961E89E98700ACD1A0 /* Demo2@2x.png in Resources */,
+				882C99751E8D0CE300BFDAC7 /* RemoteEnvetVC.xib in Resources */,
 				8865C6021E8B4B52003AAEC4 /* LICENSE in Resources */,
 				889DBA851E7E724500520C77 /* CoreGraphicVC.xib in Resources */,
 				88C32EA31E66BFF1002753FC /* file.png in Resources */,
@@ -949,6 +966,7 @@
 				885960C61E7020DD00760090 /* TestGeneralAnimationVC.m in Sources */,
 				889DBA771E7E71F900520C77 /* QuartzGradientViewController.m in Sources */,
 				8865C6051E8B4B52003AAEC4 /* MASConstraintMaker.m in Sources */,
+				882C99741E8D0CE300BFDAC7 /* RemoteEnvetVC.m in Sources */,
 				88C32E8E1E66BFF1002753FC /* FMResultSet.m in Sources */,
 				88C32E931E66BFF1002753FC /* AFNetworkReachabilityManager.m in Sources */,
 				88C32E9F1E66BFF1002753FC /* UIImageView+AFNetworking.m in Sources */,
