@@ -9,60 +9,107 @@
 #import "EventVC.h"
 #import <UIKit/UIGestureRecognizerSubclass.h>
 
+typedef enum : NSUInteger {
+    MyGesturePhaseNotStart = 0,
+    MyGesturePhaseInitialPoint,
+    MyGesturePhaseStrokeDown,
+    MyGesturePhaseStrokeUp,
+} MyGesturePhase;
+
 @interface MyGesture : UIGestureRecognizer
 
 @property (strong,nonatomic) UITouch* beginTouch;
-@property (strong,nonatomic) UITouch* turnTouch;
+@property (assign,nonatomic) CGPoint beginPoint;
+@property (assign,nonatomic) CGPoint turnPoint;
+@property (assign,nonatomic) MyGesturePhase phase;
 
 
 @end
 
 @implementation MyGesture
 
+//UITouch代表手指触摸，连续滑动时，UITouch对象不变，只是LocationInView变了；在Began总忽略掉Touch,后续就收不到了
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [super touchesBegan:touches withEvent:event];
+    
+    if (touches.count != 1) {
+        self.state = UIGestureRecognizerStateFailed;
+    }
+    
     UITouch* currentTouch = [touches anyObject];
-    NSLog(@"MyGesture touchesBegan touch point %@  \n %@",NSStringFromCGPoint([currentTouch locationInView:currentTouch.view]),currentTouch);
-    self.state = UIGestureRecognizerStateBegan;
-    self.beginTouch = currentTouch;
+    CGPoint currentPoint = [currentTouch locationInView:self.view];
+    NSLog(@"MyGesture touchesBegan touch point %@",NSStringFromCGPoint(currentPoint));
+    if (self.beginTouch == nil) {
+        self.beginPoint = currentPoint;
+        self.beginTouch = currentTouch;
+        self.phase = MyGesturePhaseInitialPoint;
+    }else{
+        for (UITouch* touch in touches) {
+            if (touch != self.beginTouch) {
+                [self ignoreTouch:touch forEvent:event];
+            }
+        }
+    }
 }
 
 -(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [super touchesMoved:touches withEvent:event];
+    
     UITouch* currentTouch = [touches anyObject];
-    NSLog(@"MyGesture touchesMoved touch point %@ \n %@",NSStringFromCGPoint([currentTouch locationInView:currentTouch.view]),currentTouch);
-    if (self.turnTouch == nil) {
-        if ([self isRightBottomWithTouch1:self.beginTouch Touch2:currentTouch]) {
-            if ([self isDistanceEnoughWithTouch:self.beginTouch Touch2:currentTouch]) {
-                self.turnTouch = currentTouch;
+    CGPoint currentPoint = [currentTouch locationInView:self.view];
+    CGPoint previousPoint = [currentTouch preciseLocationInView:self.view];
+
+    NSLog(@"MyGesture touchesMoved touch point %@",NSStringFromCGPoint(currentPoint));
+
+    if (currentTouch != self.beginTouch) {
+        self.state = UIGestureRecognizerStateFailed;
+        return;
+    }
+    
+    if (self.phase == MyGesturePhaseInitialPoint) {
+        if (previousPoint.x > currentPoint.x && previousPoint.y > currentPoint.y) {
+            //开始下画
+            self.phase = MyGesturePhaseStrokeDown;
+        }else{
+            self.state = UIGestureRecognizerStateFailed;
+        }
+    }else if(self.phase == MyGesturePhaseStrokeDown) {
+        if (previousPoint.x > currentPoint.x && previousPoint.y > currentPoint.y) {
+            //继续下画
+        }else if(previousPoint.x > currentPoint.x && previousPoint.y < currentPoint.y){
+            //转折点
+            self.phase = MyGesturePhaseStrokeUp;
+        }else{
+            self.state = UIGestureRecognizerStateFailed;
+        }
+    }else if(self.phase == MyGesturePhaseStrokeUp){
+        if (previousPoint.x > currentPoint.x && previousPoint.y < currentPoint.y) {
+            if (currentPoint.y < self.beginPoint.y){
+                //比起点高，识别成功
+                self.state = UIGestureRecognizerStateRecognized;
+            }else{
+                //继续上画
             }
-            self.state = UIGestureRecognizerStateChanged;
         }else{
             self.state = UIGestureRecognizerStateFailed;
         }
     }else{
-        if ([self isRightBottomWithTouch1:self.beginTouch Touch2:currentTouch]) {
-            self.turnTouch = currentTouch;
-            self.state = UIGestureRecognizerStateChanged;
-        }else{
-            if ([self isRightTopWithTouch1:self.turnTouch Touch2:currentTouch]) {
-                if ([self isDistanceEnoughWithTouch:self.turnTouch Touch2:currentTouch]) {
-                    self.state = UIGestureRecognizerStateRecognized;
-                }else{
-                    self.state = UIGestureRecognizerStateChanged;
-                }
-            }else{
-                self.state = UIGestureRecognizerStateChanged;
-            }
-        }
+        self.state = UIGestureRecognizerStateFailed;
     }
 }
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [super touchesEnded:touches withEvent:event];
+    
     UITouch* currentTouch = [touches anyObject];
     NSLog(@"MyGesture touchesEnded touch point %@ ",NSStringFromCGPoint([currentTouch locationInView:currentTouch.view]));
+    
     if (self.state != UIGestureRecognizerStateRecognized) {
         self.state = UIGestureRecognizerStateFailed;
     }
-
+    
+    self.beginTouch = nil;
+    self.phase = MyGesturePhaseNotStart;
 }
 
 -(BOOL)isRightBottomWithTouch1:(UITouch*)touch1 Touch2:(UITouch*)touch2{
@@ -83,7 +130,7 @@
     CGPoint point2 = [touch2 locationInView:touch2.view];
     CGFloat distanceX = ABS(point2.x - point1.x);
     CGFloat distanceY = ABS(point2.y - point1.y);
-
+    
     return sqrt(distanceX*distanceX + distanceY*distanceY) > 50;
 }
 
@@ -132,7 +179,7 @@
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     self.currentTouch = [touches anyObject];
     NSLog(@"TouchView touchesEnded touch point %@ ",NSStringFromCGPoint([self.currentTouch locationInView:self]));
-
+    
     //清空数据，结束划线
     _path = nil;
     self.currentTouch = nil;
@@ -158,7 +205,7 @@
 -(void)setCurrentTouch:(UITouch *)currentTouch{
     _currentTouch = currentTouch;
     //用了UIView的setNeedsDisplay，不会调用displayLayer，怀疑UIView有自己的一套标记
-//    [self setNeedsDisplay];
+    //    [self setNeedsDisplay];
     [self.layer setNeedsDisplay];
 }
 
@@ -174,7 +221,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self touchEvent];
@@ -210,11 +257,11 @@
 }
 
 - (void)remoteControlEvent{
-
+    
 }
 
 - (void)motionEvent{
-
+    
 }
 
 @end
