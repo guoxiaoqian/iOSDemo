@@ -28,7 +28,8 @@ typedef enum : NSUInteger {
 
 @implementation MyGesture
 
-//UITouch代表手指触摸，连续滑动时，UITouch对象不变，只是LocationInView变了；在Began总忽略掉Touch,后续就收不到了
+//UITouch代表手指触摸，连续滑动时，UITouch对象不变，只是LocationInView变了；在Began中忽略掉Touch,后续就收不到了
+//You cannot simply store references to the UITouch objects that you receive because UIKit reuses those objects and overwrites any old values. Instead, you must define custom data structures to store the touch information you need.
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [super touchesBegan:touches withEvent:event];
     
@@ -236,10 +237,6 @@ typedef enum : NSUInteger {
     [self touchEvent];
     
     [self gesture];
-    
-    [self remoteControlEvent];
-    
-    [self motionEvent];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -288,12 +285,25 @@ typedef enum : NSUInteger {
 
 
 
-- (void)remoteControlEvent{
+#pragma mark - Motion Event
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didOrentationChaged:) name:UIDeviceOrientationDidChangeNotification object:nil];
+    
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
 }
 
-- (void)motionEvent{
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
     
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
+}
+
+-(void)didOrentationChaged:(NSNotification*)noti{
+    __unused UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
 }
 
 @end
