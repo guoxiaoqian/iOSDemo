@@ -52,16 +52,18 @@
     self.audioPlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:@"https://www.cocoanetics.com/files/Cocoanetics_031.mp3"]];
     [self.audioPlayer setShouldAutoplay:NO];
     [self.audioPlayer prepareToPlay];
-
+    
     self.audioPlayer.view.frame = CGRectMake(0, 0, kScreenWidth, 300);
     self.audioPlayer.controlStyle = MPMovieControlStyleDefault;
     [self.view addSubview:self.audioPlayer.view];
 }
 
 - (void)prepaerForRemoteControl{
-    //可以接受远程控制
-    [self becomeFirstResponder];
-    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    // ps:如果已经通过注册 [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];也会触发该事件-remoteControlReceivedWithEvent:, UIEvent 和UIEventTypeRemoteControl 的事件要进行区分,根据目前的发展情况 MPRemoteCommandEvents将取代UIEvents的一些功能.
+    
+    //    [self becomeFirstResponder];
+    //    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    
     
     [[MPRemoteCommandCenter sharedCommandCenter].playCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
         [self startPlay];
@@ -84,7 +86,7 @@
     NSDictionary* playInfo = @{
                                MPMediaItemPropertyTitle:@"伟大之歌",
                                MPMediaItemPropertyArtist:@"郭晓倩",
-                               MPMediaItemPropertyAlbumTitle:@"封面",
+                               MPMediaItemPropertyAlbumTitle:@"专辑名",
                                MPMediaItemPropertyArtwork:artWork,
                                };
     
@@ -103,10 +105,24 @@
     [self.audioPlayer stop];
 }
 
-#pragma mark - Handle Remote Event
+#pragma mark - Handle Remote Event in Old Way
 
 -(void)remoteControlReceivedWithEvent:(UIEvent *)event{
-
+    if (event.type == UIEventTypeRemoteControl) {
+        switch (event.subtype) {
+            case UIEventSubtypeRemoteControlPlay:
+                NSLog(@"remoteControlReceivedWithEvent play");
+                break;
+            case UIEventSubtypeRemoteControlPause:
+                NSLog(@"remoteControlReceivedWithEvent pause");
+                break;
+            case UIEventSubtypeRemoteControlStop:
+                NSLog(@"remoteControlReceivedWithEvent stop");
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 @end
