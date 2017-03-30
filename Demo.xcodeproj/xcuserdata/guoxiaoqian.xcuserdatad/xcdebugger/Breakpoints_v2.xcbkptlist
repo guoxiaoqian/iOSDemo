@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x4e8b;&#x4ef6;+&#x624b;&#x52bf;&#xff09;/EventVC.m"
-            timestampString = "512536978.254355"
+            timestampString = "512540624.996731"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "-touchesEnded:withEvent:"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "-reset"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x4e8b;&#x4ef6;+&#x624b;&#x52bf;&#xff09;/EventVC.m"
-            timestampString = "512538813.001128"
+            timestampString = "512540666.756978"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
-            landmarkName = "-touchesEnded:withEvent:"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "-touchesCancelled:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,59 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x4e8b;&#x4ef6;+&#x624b;&#x52bf;&#xff09;/EventVC.m"
-            timestampString = "512538813.001128"
+            timestampString = "512540730.65674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "-touchesEnded:withEvent:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x4e8b;&#x4ef6;+&#x624b;&#x52bf;&#xff09;/EventVC.m"
-            timestampString = "512538813.001128"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
-            landmarkName = "-didMyGestureRecognized:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x4e8b;&#x4ef6;+&#x624b;&#x52bf;&#xff09;/EventVC.m"
-            timestampString = "512538842.311541"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "-setState:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x4e8b;&#x4ef6;+&#x624b;&#x52bf;&#xff09;/EventVC.m"
-            timestampString = "512538842.80667"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "-setState:"
             landmarkType = "7">
          </BreakpointContent>

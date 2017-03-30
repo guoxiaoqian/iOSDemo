@@ -115,13 +115,29 @@ typedef enum : NSUInteger {
     }
 }
 
+-(void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [super touchesCancelled:touches withEvent:event];
+    
+    [self resetPrivate];
+
+    self.state = UIGestureRecognizerStateCancelled;
+}
+
+//override, called by recognized or failed
+-(void)reset{
+    [super reset];
+    
+    [self resetPrivate];
+}
+
 -(void)setState:(UIGestureRecognizerState)state{
     [super setState:state];
-    
-    if (state == UIGestureRecognizerStateFailed || state == UIGestureRecognizerStateRecognized) {
-        self.beginTouch = nil;
-        self.phase = MyGesturePhaseNotStart;
-    }
+}
+
+-(void)resetPrivate{
+    self.beginTouch = nil;
+    self.beginPoint = CGPointZero;
+    self.phase = MyGesturePhaseNotStart;
 }
 
 @end
