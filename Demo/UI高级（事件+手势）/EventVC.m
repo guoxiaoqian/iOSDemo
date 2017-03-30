@@ -57,40 +57,35 @@ typedef enum : NSUInteger {
     
     UITouch* currentTouch = [touches anyObject];
     CGPoint currentPoint = [currentTouch locationInView:self.view];
-    CGPoint previousPoint = [currentTouch preciseLocationInView:self.view];
-
+    CGPoint previousPoint = [currentTouch previousLocationInView:self.view];
+    
     NSLog(@"MyGesture touchesMoved touch point %@",NSStringFromCGPoint(currentPoint));
-
+    
     if (currentTouch != self.beginTouch) {
         self.state = UIGestureRecognizerStateFailed;
         return;
     }
     
     if (self.phase == MyGesturePhaseInitialPoint) {
-        if (previousPoint.x > currentPoint.x && previousPoint.y > currentPoint.y) {
+        if (currentPoint.x >= self.beginPoint.x && currentPoint.y >= self.beginPoint.y) {
             //开始下画
             self.phase = MyGesturePhaseStrokeDown;
         }else{
             self.state = UIGestureRecognizerStateFailed;
         }
     }else if(self.phase == MyGesturePhaseStrokeDown) {
-        if (previousPoint.x > currentPoint.x && previousPoint.y > currentPoint.y) {
-            //继续下画
-        }else if(previousPoint.x > currentPoint.x && previousPoint.y < currentPoint.y){
-            //转折点
-            self.phase = MyGesturePhaseStrokeUp;
+        if (currentPoint.x >= previousPoint.x) {
+            if (currentPoint.y < previousPoint.y) {
+                //转折点
+                self.phase = MyGesturePhaseStrokeUp;
+            }else{
+                //继续下画
+            }
         }else{
             self.state = UIGestureRecognizerStateFailed;
         }
     }else if(self.phase == MyGesturePhaseStrokeUp){
-        if (previousPoint.x > currentPoint.x && previousPoint.y < currentPoint.y) {
-            if (currentPoint.y < self.beginPoint.y){
-                //比起点高，识别成功
-                self.state = UIGestureRecognizerStateRecognized;
-            }else{
-                //继续上画
-            }
-        }else{
+        if (currentPoint.x < previousPoint.x || currentPoint.y > previousPoint.y) {
             self.state = UIGestureRecognizerStateFailed;
         }
     }else{
@@ -102,38 +97,32 @@ typedef enum : NSUInteger {
     [super touchesEnded:touches withEvent:event];
     
     UITouch* currentTouch = [touches anyObject];
-    NSLog(@"MyGesture touchesEnded touch point %@ ",NSStringFromCGPoint([currentTouch locationInView:currentTouch.view]));
+    CGPoint currentPoint = [currentTouch locationInView:self.view];
+    NSLog(@"MyGesture touchesEnded touch point %@ ",NSStringFromCGPoint(currentPoint));
     
-    if (self.state != UIGestureRecognizerStateRecognized) {
+    if (currentTouch != self.beginTouch) {
         self.state = UIGestureRecognizerStateFailed;
+        return;
     }
     
-    self.beginTouch = nil;
-    self.phase = MyGesturePhaseNotStart;
-}
-
--(BOOL)isRightBottomWithTouch1:(UITouch*)touch1 Touch2:(UITouch*)touch2{
-    CGPoint point1 = [touch1 locationInView:touch1.view];
-    CGPoint point2 = [touch2 locationInView:touch2.view];
-    return (point2.x - point1.x >= 0) && (point2.y - point1.y >= 0);
-}
-
--(BOOL)isRightTopWithTouch1:(UITouch*)touch1 Touch2:(UITouch*)touch2{
-    CGPoint point1 = [touch1 locationInView:touch1.view];
-    CGPoint point2 = [touch2 locationInView:touch2.view];
-    return (point2.x - point1.x >= 0) && (point2.y - point1.y <= 0);
-}
-
-
--(BOOL)isDistanceEnoughWithTouch:(UITouch*)touch1 Touch2:(UITouch*)touch2{
-    CGPoint point1 = [touch1 locationInView:touch1.view];
-    CGPoint point2 = [touch2 locationInView:touch2.view];
-    CGFloat distanceX = ABS(point2.x - point1.x);
-    CGFloat distanceY = ABS(point2.y - point1.y);
     
-    return sqrt(distanceX*distanceX + distanceY*distanceY) > 50;
+    if (self.state == UIGestureRecognizerStatePossible && self.phase == MyGesturePhaseStrokeUp && currentPoint.y < self.beginPoint.y) {
+        self.state = UIGestureRecognizerStateRecognized;
+#warning 手势识别后不再调用UIView的touchesEnded
+        [self.view touchesEnded:touches withEvent:event];
+    }else{
+        self.state = UIGestureRecognizerStateFailed;
+    }
 }
 
+-(void)setState:(UIGestureRecognizerState)state{
+    [super setState:state];
+    
+    if (state == UIGestureRecognizerStateFailed || state == UIGestureRecognizerStateRecognized) {
+        self.beginTouch = nil;
+        self.phase = MyGesturePhaseNotStart;
+    }
+}
 
 @end
 
@@ -199,6 +188,8 @@ typedef enum : NSUInteger {
     
     if (_path) {
         ((CAShapeLayer*)self.layer).path = _path.CGPath;
+    }else{
+        ((CAShapeLayer*)self.layer).path = NULL;
     }
 }
 
@@ -251,8 +242,6 @@ typedef enum : NSUInteger {
 -(void)didMyGestureRecognized:(MyGesture*)gesture{
     if (gesture.state == UIGestureRecognizerStateRecognized) {
         NSLog(@"MyGesture Recognized !!!");
-    }else if(gesture.state == UIGestureRecognizerStateFailed){
-        NSLog(@"MyGesture Failed !!!");
     }
 }
 

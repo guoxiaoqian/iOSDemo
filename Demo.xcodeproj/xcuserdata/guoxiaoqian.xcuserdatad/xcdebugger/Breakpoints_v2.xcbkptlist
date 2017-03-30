@@ -9,109 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Demo/Network/NetworkVC.m"
-            timestampString = "509943107.542728"
+            filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x4e8b;&#x4ef6;+&#x624b;&#x52bf;&#xff09;/EventVC.m"
+            timestampString = "512536978.254355"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
-            landmarkName = "-afNetworkGeneralRequest"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo/Network/NetworkVC.m"
-            timestampString = "509943108.836438"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
-            landmarkName = "-afNetworkGeneralRequest"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo/Network/NetworkVC.m"
-            timestampString = "509943111.345194"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
-            landmarkName = "-afNetworkingMultiPartFormRequest"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo/Network/NetworkVC.m"
-            timestampString = "509943112.504044"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
-            landmarkName = "-afNetworkingMultiPartFormRequest"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x52a8;&#x753b;&#xff09;/CoreAnimationVC.m"
-            timestampString = "512304737.417952"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "-drawRect:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x52a8;&#x753b;&#xff09;/CoreAnimationVC.m"
-            timestampString = "512304737.417952"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "-drawRect:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x52a8;&#x753b;&#xff09;/CoreAnimationVC.m"
-            timestampString = "512304737.417952"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "-actionForKey:"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "-touchesEnded:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -122,11 +26,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x4e8b;&#x4ef6;+&#x624b;&#x52bf;&#xff09;/EventVC.m"
-            timestampString = "512528657.987605"
+            timestampString = "512538813.001128"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "-touchesEnded:withEvent:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x4e8b;&#x4ef6;+&#x624b;&#x52bf;&#xff09;/EventVC.m"
+            timestampString = "512538813.001128"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "-touchesEnded:withEvent:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x4e8b;&#x4ef6;+&#x624b;&#x52bf;&#xff09;/EventVC.m"
+            timestampString = "512538813.001128"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
             landmarkName = "-didMyGestureRecognized:"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x4e8b;&#x4ef6;+&#x624b;&#x52bf;&#xff09;/EventVC.m"
-            timestampString = "512528657.987605"
+            timestampString = "512538842.311541"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
-            landmarkName = "-didMyGestureRecognized:"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "-setState:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -154,60 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x4e8b;&#x4ef6;+&#x624b;&#x52bf;&#xff09;/EventVC.m"
-            timestampString = "512528657.987605"
+            timestampString = "512538842.80667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "-isDistanceEnoughWithTouch:Touch2:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x4e8b;&#x4ef6;+&#x624b;&#x52bf;&#xff09;/EventVC.m"
-            timestampString = "512528657.987605"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "-touchesMoved:withEvent:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x4e8b;&#x4ef6;+&#x624b;&#x52bf;&#xff09;/EventVC.m"
-            timestampString = "512528657.987605"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "-isRightBottomWithTouch1:Touch2:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo/UI&#x9ad8;&#x7ea7;&#xff08;&#x4e8b;&#x4ef6;+&#x624b;&#x52bf;&#xff09;/EventVC.m"
-            timestampString = "512528657.987605"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "-isRightTopWithTouch1:Touch2:"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "-setState:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
