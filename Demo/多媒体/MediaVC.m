@@ -118,7 +118,7 @@ void soundCompleteCallback(SystemSoundID soundID,void * clientData){
     NSLog(@"audioPlayer decode error");
 }
 
-#pragma mark - Play Music Queue
+#pragma mark - 播放媒体库音乐，需设置Info.plist权限：NSAppleMusicUsageDescription
 
 -(MPMusicPlayerController*)musicPlayer{
     if (_musicPlayer == nil) {
@@ -193,20 +193,51 @@ void soundCompleteCallback(SystemSoundID soundID,void * clientData){
     return _musicPicker;
 }
 
--(void)pickMusic{
+-(IBAction)pickMusic:(id)sender{
     [self presentViewController:self.musicPicker animated:YES completion:^{
         
     }];
+}
+
+-(IBAction)playOrPauseMusic:(UIButton*)sender{
+    if (self.musicPlayer.playbackState == MPMusicPlaybackStatePlaying) {
+        [self.musicPlayer play];
+        [sender setTitle:@"暂停" forState:UIControlStateNormal];
+    }else{
+        [self.musicPlayer pause];
+        [sender setTitle:@"播放" forState:UIControlStateNormal];
+    }
+}
+
+-(IBAction)previousMusic:(id)sender{
+    [self.musicPlayer skipToPreviousItem];
+}
+
+-(IBAction)nextMusic:(id)sender{
+    [self.musicPlayer skipToNextItem];
 }
 
 #pragma mark MPMediaPickerControllerDelegate
 
 -(void)mediaPicker:(MPMediaPickerController *)mediaPicker didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection{
     
+    NSLog(@"mediaPicker:didPickMediaItems %@",mediaItemCollection);
+
+    
+    [self.musicPlayer stop];
+    [self.musicPlayer setQueueWithItemCollection:mediaItemCollection];
+    [self.musicPlayer play];
+    
+    [self.musicPicker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 -(void)mediaPickerDidCancel:(MPMediaPickerController *)mediaPicker{
-
+    NSLog(@"mediaPickerDidCancel");
+    [self.musicPicker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 @end
