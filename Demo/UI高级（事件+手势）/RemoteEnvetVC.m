@@ -45,11 +45,15 @@
 }
 
 -(void)prepareForPlay{
-    [[AVAudioSession sharedInstance] setActive:YES error:nil];
     /* Use this category for music tracks.*/
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    //到设置完音频会话类型之后需要调用setActive::方法将会话激活才能起作用;音频播放完之后（关闭或退出到后台之后）能够继续播放其他应用的音频的话则可以调用setActive::方法关闭会话
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
     
-    self.audioPlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:@"https://www.cocoanetics.com/files/Cocoanetics_031.mp3"]];
+//    NSURL* netFileURL = [NSURL URLWithString:@"https://www.cocoanetics.com/files/Cocoanetics_031.mp3"];
+    NSURL* fileURL = [[NSBundle mainBundle] URLForResource:@"music" withExtension:@"mp3"];
+
+    self.audioPlayer = [[MPMoviePlayerController alloc] initWithContentURL:fileURL];
     [self.audioPlayer setShouldAutoplay:NO];
     [self.audioPlayer prepareToPlay];
     

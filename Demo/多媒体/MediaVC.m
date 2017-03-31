@@ -9,13 +9,17 @@
 #import "MediaVC.h"
 #import <AudioToolbox/AudioToolbox.h> //播放音效：AudioServices
 #import <AVFoundation/AVFoundation.h> //播放音乐：AVAudioPlayer
+#import <MediaPlayer/MediaPlayer.h>
 
-@interface MediaVC ()
+@interface MediaVC ()<AVAudioPlayerDelegate,MPMediaPickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UISlider *progressBar;
 @property (strong,nonatomic) AVAudioPlayer* audioPlayer;
 @property (strong,nonatomic) NSTimer* progressTimer;
 @property (weak, nonatomic) IBOutlet UILabel *MetersLabel;
+
+@property (strong,nonatomic) MPMusicPlayerController* musicPlayer;
+@property (strong,nonatomic) MPMediaPickerController* musicPicker;
 
 @end
 
@@ -34,6 +38,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - 播放音效
@@ -65,6 +73,7 @@ void soundCompleteCallback(SystemSoundID soundID,void * clientData){
     self.audioPlayer.volume = 0.3; //0-1
     self.audioPlayer.rate = 1.0;//播放速率，范围0.5-2.0，如果为1.0则正常播放，如果要修改播放速率则必须设置enableRate为YES
     self.audioPlayer.meteringEnabled = YES;//是否启用音频测量
+    self.audioPlayer.delegate = self;
     [self.audioPlayer prepareToPlay];
 }
 
@@ -97,6 +106,107 @@ void soundCompleteCallback(SystemSoundID soundID,void * clientData){
     //必须在此之前调用updateMeters方法,才能获得分贝峰值
     [self.audioPlayer updateMeters];
     self.MetersLabel.text = [NSString stringWithFormat:@"%f分贝",[self.audioPlayer peakPowerForChannel:0]];
+}
+
+#pragma mark  AVAudioPlayerDelegate
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
+    NSLog(@"audioPlayer finish");
+}
+
+-(void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError *)error{
+    NSLog(@"audioPlayer decode error");
+}
+
+#pragma mark - Play Music Queue
+
+-(MPMusicPlayerController*)musicPlayer{
+    if (_musicPlayer == nil) {
+        _musicPlayer = [MPMusicPlayerController systemMusicPlayer];
+        [_musicPlayer setQueueWithQuery:[self queryForLocalMusic]];
+//        [_musicPlayer setQueueWithItemCollection:[self collectionForLocalMusic]];
+        [self addNotification];
+    }
+    return _musicPlayer;
+}
+
+// 取得媒体队列
+-(MPMediaQuery *)queryForLocalMusic{
+    MPMediaQuery* songQuery = [MPMediaQuery songsQuery];
+    for (MPMediaItem *item in songQuery.items) {
+        NSLog(@"标题：%@,%@",item.title,item.albumTitle);
+    }
+    MPMediaPredicate* predicate = [MPMediaPropertyPredicate predicateWithValue:@"music" forProperty:@"title" comparisonType:MPMediaPredicateComparisonEqualTo];
+    [songQuery addFilterPredicate:predicate];
+    return songQuery;
+}
+
+//取得媒体集合
+-(MPMediaItemCollection*)collectionForLocalMusic{
+    MPMediaQuery* songQuery = [MPMediaQuery songsQuery];
+    NSMutableArray* array = [NSMutableArray new];
+    for (MPMediaItem *item in songQuery.items) {
+        NSLog(@"标题：%@,%@",item.title,item.albumTitle);
+        //可以自己做过滤
+        [array addObject:item];
+    }
+    return [MPMediaItemCollection collectionWithItems:array];
+}
+
+-(void)addNotification{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didPlaybackStateChanged:) name:MPMusicPlayerControllerPlaybackStateDidChangeNotification object:nil];
+}
+
+-(void)didPlaybackStateChanged:(NSNotification*)n{
+    switch (self.musicPlayer.playbackState) {
+//            MPMusicPlaybackStateStopped,
+//            MPMusicPlaybackStatePlaying,
+//            MPMusicPlaybackStatePaused,
+//            MPMusicPlaybackStateInterrupted,
+//            MPMusicPlaybackStateSeekingForward,
+//            MPMusicPlaybackStateSeekingBackward
+
+        case MPMusicPlaybackStatePlaying:
+            NSLog(@"MPMusicPlaybackStatePlaying");
+            break;
+        case MPMusicPlaybackStatePaused:
+            NSLog(@"MPMusicPlaybackStatePaused");
+            break;
+        case MPMusicPlaybackStateSeekingForward:
+            NSLog(@"MPMusicPlaybackStateSeekingForward");
+            break;
+        case MPMusicPlaybackStateSeekingBackward:
+            NSLog(@"MPMusicPlaybackStateSeekingBackward");
+            break;
+        default:
+            break;
+    }
+}
+
+
+-(MPMediaPickerController*)musicPicker{
+    if (!_musicPicker) {
+        _musicPicker = [[MPMediaPickerController alloc] initWithMediaTypes:MPMediaTypeMusic];
+        _musicPicker.allowsPickingMultipleItems = YES;
+        _musicPicker.delegate = self;
+    }
+    return _musicPicker;
+}
+
+-(void)pickMusic{
+    [self presentViewController:self.musicPicker animated:YES completion:^{
+        
+    }];
+}
+
+#pragma mark MPMediaPickerControllerDelegate
+
+-(void)mediaPicker:(MPMediaPickerController *)mediaPicker didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection{
+    
+}
+
+-(void)mediaPickerDidCancel:(MPMediaPickerController *)mediaPicker{
+
 }
 
 @end
