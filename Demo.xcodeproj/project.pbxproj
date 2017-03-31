@@ -13,6 +13,7 @@
 		882C99741E8D0CE300BFDAC7 /* RemoteEnvetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 882C99721E8D0CE300BFDAC7 /* RemoteEnvetVC.m */; };
 		882C99751E8D0CE300BFDAC7 /* RemoteEnvetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882C99731E8D0CE300BFDAC7 /* RemoteEnvetVC.xib */; };
 		882C99771E8D0D9000BFDAC7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 882C99761E8D0D9000BFDAC7 /* AVFoundation.framework */; };
+		882C99791E8E267700BFDAC7 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 882C99781E8E267700BFDAC7 /* music.mp3 */; };
 		885960C61E7020DD00760090 /* TestGeneralAnimationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960C41E7020DD00760090 /* TestGeneralAnimationVC.m */; };
 		885960C71E7020DD00760090 /* TestGeneralAnimationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885960C51E7020DD00760090 /* TestGeneralAnimationVC.xib */; };
 		885960C91E70211C00760090 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885960C81E70211C00760090 /* QuartzCore.framework */; };
@@ -141,6 +142,7 @@
 		882C99721E8D0CE300BFDAC7 /* RemoteEnvetVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteEnvetVC.m; sourceTree = "<group>"; };
 		882C99731E8D0CE300BFDAC7 /* RemoteEnvetVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RemoteEnvetVC.xib; sourceTree = "<group>"; };
 		882C99761E8D0D9000BFDAC7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		882C99781E8E267700BFDAC7 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 		885960C31E7020DD00760090 /* TestGeneralAnimationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestGeneralAnimationVC.h; sourceTree = "<group>"; };
 		885960C41E7020DD00760090 /* TestGeneralAnimationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestGeneralAnimationVC.m; sourceTree = "<group>"; };
 		885960C51E7020DD00760090 /* TestGeneralAnimationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestGeneralAnimationVC.xib; sourceTree = "<group>"; };
@@ -464,6 +466,7 @@
 		889B2E9F1E8DDA7000ACD1A0 /* 多媒体 */ = {
 			isa = PBXGroup;
 			children = (
+				882C99781E8E267700BFDAC7 /* music.mp3 */,
 				889B2EA81E8DE13B00ACD1A0 /* msg.wav */,
 				889B2EA01E8DDAB500ACD1A0 /* MediaVC.h */,
 				889B2EA11E8DDAB500ACD1A0 /* MediaVC.m */,
@@ -911,6 +914,7 @@
 			files = (
 				889DBA6E1E7E71F900520C77 /* Demo.png in Resources */,
 				889B2E971E89E98700ACD1A0 /* Demo2@3x.png in Resources */,
+				882C99791E8E267700BFDAC7 /* music.mp3 in Resources */,
 				885960C71E7020DD00760090 /* TestGeneralAnimationVC.xib in Resources */,
 				88C32E991E66BFF1002753FC /* LICENSE in Resources */,
 				88C32EA51E66BFF1002753FC /* NetworkVC.xib in Resources */,
