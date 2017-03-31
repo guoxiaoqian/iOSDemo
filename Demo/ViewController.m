@@ -19,6 +19,7 @@
 #import "CubeVC.h"
 #import "EventVC.h"
 #import "RemoteEnvetVC.h"
+#import "MediaVC.h"
 
 @interface EntryModel : NSObject
 
@@ -62,6 +63,7 @@
                        [EntryModel modelWithName:@"CubeVC" class:[CubeVC class]],
                        [EntryModel modelWithName:@"EventVC" class:[EventVC class]],
                        [EntryModel modelWithName:@"RemoteEventVC" class:[RemoteEnvetVC class]],
+                       [EntryModel modelWithName:@"MediaVC" class:[MediaVC class]],
                        nil];
     
 }

@@ -34,6 +34,10 @@
 		889B2E9B1E8A978300ACD1A0 /* CubeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889B2E991E8A978300ACD1A0 /* CubeVC.m */; };
 		889B2E9C1E8A978300ACD1A0 /* CubeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889B2E9A1E8A978300ACD1A0 /* CubeVC.xib */; };
 		889B2E9E1E8D53AD00ACD1A0 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889B2E9D1E8D53AD00ACD1A0 /* CoreMotion.framework */; };
+		889B2EA31E8DDAB500ACD1A0 /* MediaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889B2EA11E8DDAB500ACD1A0 /* MediaVC.m */; };
+		889B2EA41E8DDAB500ACD1A0 /* MediaVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889B2EA21E8DDAB500ACD1A0 /* MediaVC.xib */; };
+		889B2EA61E8DDDCC00ACD1A0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889B2EA51E8DDDCC00ACD1A0 /* AudioToolbox.framework */; };
+		889B2EA91E8DE13B00ACD1A0 /* msg.wav in Resources */ = {isa = PBXBuildFile; fileRef = 889B2EA81E8DE13B00ACD1A0 /* msg.wav */; };
 		889DBA391E6BFBA200520C77 /* CoreLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889DBA371E6BFBA200520C77 /* CoreLocationVC.m */; };
 		889DBA3A1E6BFBA200520C77 /* CoreLocationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889DBA381E6BFBA200520C77 /* CoreLocationVC.xib */; };
 		889DBA3C1E6BFC4200520C77 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889DBA3B1E6BFC4200520C77 /* CoreLocation.framework */; };
@@ -178,6 +182,11 @@
 		889B2E991E8A978300ACD1A0 /* CubeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CubeVC.m; sourceTree = "<group>"; };
 		889B2E9A1E8A978300ACD1A0 /* CubeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CubeVC.xib; sourceTree = "<group>"; };
 		889B2E9D1E8D53AD00ACD1A0 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		889B2EA01E8DDAB500ACD1A0 /* MediaVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaVC.h; sourceTree = "<group>"; };
+		889B2EA11E8DDAB500ACD1A0 /* MediaVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaVC.m; sourceTree = "<group>"; };
+		889B2EA21E8DDAB500ACD1A0 /* MediaVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaVC.xib; sourceTree = "<group>"; };
+		889B2EA51E8DDDCC00ACD1A0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		889B2EA81E8DE13B00ACD1A0 /* msg.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = msg.wav; sourceTree = "<group>"; };
 		889DBA361E6BFBA200520C77 /* CoreLocationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreLocationVC.h; path = Demo/Network/CoreLocationVC.h; sourceTree = SOURCE_ROOT; };
 		889DBA371E6BFBA200520C77 /* CoreLocationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreLocationVC.m; path = Demo/Network/CoreLocationVC.m; sourceTree = SOURCE_ROOT; };
 		889DBA381E6BFBA200520C77 /* CoreLocationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CoreLocationVC.xib; path = Demo/Network/CoreLocationVC.xib; sourceTree = SOURCE_ROOT; };
@@ -316,6 +325,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				889B2EA61E8DDDCC00ACD1A0 /* AudioToolbox.framework in Frameworks */,
 				889B2E9E1E8D53AD00ACD1A0 /* CoreMotion.framework in Frameworks */,
 				882C99771E8D0D9000BFDAC7 /* AVFoundation.framework in Frameworks */,
 				882C996F1E8D007500BFDAC7 /* MediaPlayer.framework in Frameworks */,
@@ -451,6 +461,17 @@
 			path = Masonry;
 			sourceTree = "<group>";
 		};
+		889B2E9F1E8DDA7000ACD1A0 /* 多媒体 */ = {
+			isa = PBXGroup;
+			children = (
+				889B2EA81E8DE13B00ACD1A0 /* msg.wav */,
+				889B2EA01E8DDAB500ACD1A0 /* MediaVC.h */,
+				889B2EA11E8DDAB500ACD1A0 /* MediaVC.m */,
+				889B2EA21E8DDAB500ACD1A0 /* MediaVC.xib */,
+			);
+			path = "多媒体";
+			sourceTree = "<group>";
+		};
 		889DBA4B1E7E71F900520C77 /* Quartz2D */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,6 +537,7 @@
 		88A6173A1E53100C00EF8AFC /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				889B2E9F1E8DDA7000ACD1A0 /* 多媒体 */,
 				8859608B1E701FA300760090 /* UI高级（绘图） */,
 				8859608A1E701FA300760090 /* UI高级（动画） */,
 				885960AE1E701FA300760090 /* UI高级（事件+手势） */,
@@ -570,6 +592,7 @@
 		88A617791E53EED000EF8AFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				889B2EA51E8DDDCC00ACD1A0 /* AudioToolbox.framework */,
 				889B2E9D1E8D53AD00ACD1A0 /* CoreMotion.framework */,
 				882C99761E8D0D9000BFDAC7 /* AVFoundation.framework */,
 				882C996E1E8D007500BFDAC7 /* MediaPlayer.framework */,
@@ -908,7 +931,9 @@
 				889DBA851E7E724500520C77 /* CoreGraphicVC.xib in Resources */,
 				88C32EA31E66BFF1002753FC /* file.png in Resources */,
 				889DBA6F1E7E71F900520C77 /* Quartz.pdf in Resources */,
+				889B2EA91E8DE13B00ACD1A0 /* msg.wav in Resources */,
 				889DBA3A1E6BFBA200520C77 /* CoreLocationVC.xib in Resources */,
+				889B2EA41E8DDAB500ACD1A0 /* MediaVC.xib in Resources */,
 				889DBA801E7E71F900520C77 /* Ship.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -983,6 +1008,7 @@
 				889DBA7D1E7E71F900520C77 /* QuartzRendering.m in Sources */,
 				889DBA391E6BFBA200520C77 /* CoreLocationVC.m in Sources */,
 				889DBA721E7E71F900520C77 /* QuartzClipping.m in Sources */,
+				889B2EA31E8DDAB500ACD1A0 /* MediaVC.m in Sources */,
 				88C32E8D1E66BFF1002753FC /* FMDatabaseQueue.m in Sources */,
 				88C32E9B1E66BFF1002753FC /* AFNetworkActivityIndicatorManager.m in Sources */,
 				88C32E841E66BFF1002753FC /* CoreDataVC.m in Sources */,
