@@ -33,6 +33,7 @@
 		889B2E971E89E98700ACD1A0 /* Demo2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 889B2E951E89E98700ACD1A0 /* Demo2@3x.png */; };
 		889B2E9B1E8A978300ACD1A0 /* CubeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889B2E991E8A978300ACD1A0 /* CubeVC.m */; };
 		889B2E9C1E8A978300ACD1A0 /* CubeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889B2E9A1E8A978300ACD1A0 /* CubeVC.xib */; };
+		889B2E9E1E8D53AD00ACD1A0 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889B2E9D1E8D53AD00ACD1A0 /* CoreMotion.framework */; };
 		889DBA391E6BFBA200520C77 /* CoreLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889DBA371E6BFBA200520C77 /* CoreLocationVC.m */; };
 		889DBA3A1E6BFBA200520C77 /* CoreLocationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889DBA381E6BFBA200520C77 /* CoreLocationVC.xib */; };
 		889DBA3C1E6BFC4200520C77 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889DBA3B1E6BFC4200520C77 /* CoreLocation.framework */; };
@@ -176,6 +177,7 @@
 		889B2E981E8A978300ACD1A0 /* CubeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CubeVC.h; sourceTree = "<group>"; };
 		889B2E991E8A978300ACD1A0 /* CubeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CubeVC.m; sourceTree = "<group>"; };
 		889B2E9A1E8A978300ACD1A0 /* CubeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CubeVC.xib; sourceTree = "<group>"; };
+		889B2E9D1E8D53AD00ACD1A0 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		889DBA361E6BFBA200520C77 /* CoreLocationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreLocationVC.h; path = Demo/Network/CoreLocationVC.h; sourceTree = SOURCE_ROOT; };
 		889DBA371E6BFBA200520C77 /* CoreLocationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreLocationVC.m; path = Demo/Network/CoreLocationVC.m; sourceTree = SOURCE_ROOT; };
 		889DBA381E6BFBA200520C77 /* CoreLocationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CoreLocationVC.xib; path = Demo/Network/CoreLocationVC.xib; sourceTree = SOURCE_ROOT; };
@@ -314,6 +316,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				889B2E9E1E8D53AD00ACD1A0 /* CoreMotion.framework in Frameworks */,
 				882C99771E8D0D9000BFDAC7 /* AVFoundation.framework in Frameworks */,
 				882C996F1E8D007500BFDAC7 /* MediaPlayer.framework in Frameworks */,
 				889DBA481E7419E400520C77 /* CoreGraphics.framework in Frameworks */,
@@ -567,6 +570,7 @@
 		88A617791E53EED000EF8AFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				889B2E9D1E8D53AD00ACD1A0 /* CoreMotion.framework */,
 				882C99761E8D0D9000BFDAC7 /* AVFoundation.framework */,
 				882C996E1E8D007500BFDAC7 /* MediaPlayer.framework */,
 				889DBA471E7419E400520C77 /* CoreGraphics.framework */,

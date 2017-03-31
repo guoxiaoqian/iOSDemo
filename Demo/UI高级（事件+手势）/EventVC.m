@@ -8,6 +8,7 @@
 
 #import "EventVC.h"
 #import <UIKit/UIGestureRecognizerSubclass.h>
+#import <CoreMotion/CoreMotion.h>
 
 typedef enum : NSUInteger {
     MyGesturePhaseNotStart = 0,
@@ -120,7 +121,7 @@ typedef enum : NSUInteger {
     [super touchesCancelled:touches withEvent:event];
     
     [self resetPrivate];
-
+    
     self.state = UIGestureRecognizerStateCancelled;
 }
 
@@ -225,6 +226,8 @@ typedef enum : NSUInteger {
 @property (strong,nonatomic) MyGesture* myGesture;
 @property (strong,nonatomic) UISwipeGestureRecognizer* swipeGesture;
 
+@property (strong,nonatomic) CMMotionManager* motionManager;
+
 @end
 
 @implementation EventVC
@@ -237,6 +240,8 @@ typedef enum : NSUInteger {
     [self touchEvent];
     
     [self gesture];
+    
+    [self coreMotion];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -285,10 +290,18 @@ typedef enum : NSUInteger {
 
 
 
-#pragma mark - Motion Event
+#pragma mark - Motion Event - Orientation
+
+-(BOOL)canBecomeFirstResponder{
+    return YES;
+}
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    //接受MotionEvent-Shake
+    [self becomeFirstResponder];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didOrentationChaged:) name:UIDeviceOrientationDidChangeNotification object:nil];
     
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
@@ -304,6 +317,67 @@ typedef enum : NSUInteger {
 
 -(void)didOrentationChaged:(NSNotification*)noti{
     __unused UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
+}
+
+#pragma mark - Motion Event - Shake
+
+-(void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+    NSLog(@"motion begin %ld",motion);
+}
+
+-(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+    if (motion == UIEventSubtypeMotionShake) {
+        NSLog(@"shake !!!!");
+    }
+}
+
+-(void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+    NSLog(@"motion canceled %ld",motion);
+}
+
+#pragma mark - Motion Event - CoreMotion
+
+//https://developer.apple.com/library/content/documentation/EventHandling/Conceptual/EventHandlingiPhoneOS/HandlingProcessedDeviceMotionData.html#//apple_ref/doc/uid/TP40009541-CH27-SW1
+
+//The device-motion service offers a simple way for you to get motion-related data for your app. Raw accelerometer and gyroscope data needs to be processed to remove bias from other factors, such as gravity. The device-motion service does this processing for you, giving you refined data that you can use right away.
+
+//The device-motion service uses the available hardware to generate a CMDeviceMotion object, which contains the following information:
+//
+//The device’s orientation (or attitude) in three-dimensional space relative to a reference frame（三维朝向）
+//The unbiased rotation rate (旋转角速度)
+//The current gravity vector
+//The user-generated acceleration vector (without gravity) (加速度)
+//The current magnetic field vector （磁感应方向）
+
+-(void)coreMotion{
+    self.motionManager = [[CMMotionManager alloc] init];
+    if (self.motionManager.isDeviceMotionAvailable) {
+        self.motionManager.deviceMotionUpdateInterval = 1.0 / 60;
+        self.motionManager.showsDeviceMovementDisplay = YES;
+        //        [self.motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
+        //            if (motion) {
+        //                CMAttitude *attitude = motion.attitude;
+        //                CMRotationRate rotationRate = motion.rotationRate;
+        //                CMAcceleration userAcceleration = motion.userAcceleration;
+        //                CMCalibratedMagneticField magneticField = motion.magneticField;
+        //            }
+        //        }];
+        
+        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXMagneticNorthZVertical toQueue:[NSOperationQueue mainQueue] withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
+            if (motion) {
+                CMAttitude *attitude = motion.attitude;
+                CMRotationRate rotationRate = motion.rotationRate;
+                CMAcceleration userAcceleration = motion.userAcceleration;
+                CMCalibratedMagneticField magneticField = motion.magneticField;
+            }
+        }];
+        
+    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(20 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (self.motionManager.isDeviceMotionActive) {
+            [self.motionManager stopDeviceMotionUpdates];
+        }
+    });
 }
 
 @end
