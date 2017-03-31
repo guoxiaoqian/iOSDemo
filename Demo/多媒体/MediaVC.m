@@ -11,7 +11,7 @@
 #import <AVFoundation/AVFoundation.h> //播放音乐：AVAudioPlayer
 #import <MediaPlayer/MediaPlayer.h>
 
-@interface MediaVC ()<AVAudioPlayerDelegate,MPMediaPickerControllerDelegate>
+@interface MediaVC ()<AVAudioPlayerDelegate,MPMediaPickerControllerDelegate,AVAudioRecorderDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UISlider *progressBar;
 @property (strong,nonatomic) AVAudioPlayer* audioPlayer;
@@ -20,6 +20,9 @@
 
 @property (strong,nonatomic) MPMusicPlayerController* musicPlayer;
 @property (strong,nonatomic) MPMediaPickerController* musicPicker;
+
+@property (strong,nonatomic) AVAudioRecorder* audioRecorder;
+@property (strong,nonatomic) NSTimer* recordTimer;
 
 @end
 
@@ -32,7 +35,7 @@
     
     [self playSoundEffect];
     
-    [self setupAVAudioPlayer];
+    [self setupAVAudioPlayerWithURL:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,8 +69,8 @@ void soundCompleteCallback(SystemSoundID soundID,void * clientData){
 
 #pragma mark - 播放音乐
 
--(void)setupAVAudioPlayer{
-    NSURL* fileURL = [[NSBundle mainBundle] URLForResource:@"music" withExtension:@"mp3"];
+-(void)setupAVAudioPlayerWithURL:(NSURL*)url{
+    NSURL* fileURL = url ?: [[NSBundle mainBundle] URLForResource:@"music" withExtension:@"mp3"];
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:nil];
     self.audioPlayer.numberOfLoops = 0;//循环播放次数，如果为0则不循环，如果小于0则无限循环，大于0则表示循环次数
     self.audioPlayer.volume = 0.3; //0-1
@@ -238,6 +241,96 @@ void soundCompleteCallback(SystemSoundID soundID,void * clientData){
     [self.musicPicker dismissViewControllerAnimated:YES completion:^{
         
     }];
+}
+
+#pragma mark - 录音
+
+-(NSURL*)recordFileURL{
+    NSString* fileURL = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"record.pcm"];
+    return [NSURL URLWithString:fileURL];
+}
+
+-(NSDictionary*)recordSetting{
+    NSMutableDictionary *dicM=[NSMutableDictionary dictionary];
+    //设置录音格式
+    [dicM setObject:@(kAudioFormatLinearPCM) forKey:AVFormatIDKey];
+    //设置录音采样率，8000是电话采样率，对于一般录音已经够了
+    [dicM setObject:@(8000) forKey:AVSampleRateKey];
+    //设置通道,这里采用单声道
+    [dicM setObject:@(1) forKey:AVNumberOfChannelsKey];
+    //每个采样点位数,分为8、16、24、32
+    [dicM setObject:@(8) forKey:AVLinearPCMBitDepthKey];
+    //是否使用浮点数采样
+    [dicM setObject:@(YES) forKey:AVLinearPCMIsFloatKey];
+    //....其他设置等
+    return dicM;
+}
+
+-(AVAudioRecorder*)audioRecorder{
+    if (!_audioRecorder) {
+        NSError* error = nil;
+        _audioRecorder = [[AVAudioRecorder alloc] initWithURL:[self recordFileURL] settings:[self recordSetting] error:&error];
+        if (error) {
+            NSLog(@"audioRecorder init failed");
+        }
+        _audioRecorder.delegate = self;
+        _audioRecorder.meteringEnabled = YES;
+        [_audioRecorder prepareToRecord];
+        
+        //牵扯到录音和播放操作。
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+        [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    }
+    return _audioRecorder;
+}
+
+-(NSTimer*)recordTimer{
+    if (!_recordTimer) {
+        _recordTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateMeters) userInfo:nil repeats:YES];
+    }
+    return _recordTimer;
+}
+
+-(IBAction)startRecord:(id)sender{
+    if (!self.audioRecorder.isRecording) {
+        [self.audioRecorder record];
+    }
+    self.recordTimer.fireDate = [NSDate distantPast];
+}
+
+-(IBAction)pauseRecord:(id)sender{
+    [self.audioRecorder pause];
+    self.recordTimer.fireDate = [NSDate distantFuture];
+}
+
+-(IBAction)stopRecord:(id)sender{
+    [self.audioRecorder stop];
+    [self.recordTimer invalidate];
+    self.recordTimer = nil;
+}
+
+-(IBAction)deleteRecord:(id)sender{
+    [self.audioRecorder deleteRecording];
+}
+
+-(void)updateMeters{
+    [self.audioRecorder updateMeters];
+    float power= [self.audioRecorder averagePowerForChannel:0];//取得第一个通道的音频，注意音频强度范围时-160到0
+    self.MetersLabel.text = [NSString stringWithFormat:@"%f",power];
+}
+
+#pragma mark AVAudioRecorderDelegate
+
+-(void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag{
+    NSLog(@"audioRecorderDidFinishRecording");
+    
+    //录音完毕直接播放
+    [self setupAVAudioPlayerWithURL:[self recordFileURL]];
+    [self playOrPause:nil];
+}
+
+-(void)audioRecorderEncodeErrorDidOccur:(AVAudioRecorder *)recorder error:(NSError *)error{
+    NSLog(@"audioRecorderEncodeErrorDidOccur");
 }
 
 @end
