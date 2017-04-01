@@ -53,7 +53,7 @@
 #pragma mark - 播放音效
 
 void soundCompleteCallback(SystemSoundID soundID,void * clientData){
-    NSLog(@"播放完成...");
+    NSLog(@"播放音效完成...");
 }
 
 
@@ -343,6 +343,63 @@ void soundCompleteCallback(SystemSoundID soundID,void * clientData){
     return netFileURL;
 }
 
+-(FSAudioStream*)freeStreamPlayer{
+    if (!_freeStreamPlayer) {
+        _freeStreamPlayer = [[FSAudioStream alloc] initWithUrl:[self getNetworkMusicURL]];
+        _freeStreamPlayer.onCompletion = ^{
+            NSLog(@"freeStreamPlayer completed");
+        };
+        _freeStreamPlayer.onFailure = ^(FSAudioStreamError error, NSString *errorDescription){
+            NSLog(@"freeStreamPlayer error %@",errorDescription);
+        };
+        _freeStreamPlayer.onStateChange = ^(FSAudioStreamState state){
+            switch (state) {
+                case kFsAudioStreamBuffering:
+                    NSLog(@"freeStreamPlayer state buffering");
+                    break;
+                case kFsAudioStreamPlaying:
+                    NSLog(@"freeStreamPlayer state playing");
+                    break;
+                case kFsAudioStreamPaused:
+                    NSLog(@"freeStreamPlayer state paused");
+                    break;
+                case kFsAudioStreamStopped:
+                    NSLog(@"freeStreamPlayer state stoped");
+                    break;
+                case kFsAudioStreamFailed:
+                    NSLog(@"freeStreamPlayer state failed");
+                    break;
+                case kFsAudioStreamSeeking:
+                    NSLog(@"freeStreamPlayer state seeking");
+                    break;
+                case kFsAudioStreamPlaybackCompleted:
+                    NSLog(@"freeStreamPlayer state completed");
+                    break;
+                default:
+                    break;
+            }
+        };
+        [_freeStreamPlayer setVolume:0.5];
+        [_freeStreamPlayer preload];
+        
+    }
+    return _freeStreamPlayer;
+}
 
+-(IBAction)palyOrPauseStreamMusic:(UIButton*)sender{
+    if (self.freeStreamPlayer.isPlaying) {
+        [self.freeStreamPlayer pause];
+        [sender setTitle:@"播放流音乐" forState:UIControlStateNormal];
+    }else{
+        static BOOL isFirstPlay = YES;
+        if (isFirstPlay) {
+            [self.freeStreamPlayer play];
+            isFirstPlay = NO;
+        }else{
+            [self.freeStreamPlayer pause];
+        }
+        [sender setTitle:@"暂停流音乐" forState:UIControlStateNormal];
+    }
+}
 
 @end

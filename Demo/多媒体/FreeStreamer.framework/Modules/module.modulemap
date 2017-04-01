@@ -1,6 +1,0 @@
-framework module FreeStreamer {
-  umbrella header "FreeStreamer.h"
-
-  export *
-  module * { export * }
-}

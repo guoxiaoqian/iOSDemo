@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8801319D1E8F7CB40087EBBD /* FreeStreamer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8801319A1E8F7C8B0087EBBD /* FreeStreamer.framework */; };
+		8801319E1E8F7CB40087EBBD /* FreeStreamer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8801319A1E8F7C8B0087EBBD /* FreeStreamer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		882C996C1E8BC39100BFDAC7 /* EventVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 882C996A1E8BC39100BFDAC7 /* EventVC.m */; };
 		882C996D1E8BC39100BFDAC7 /* EventVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882C996B1E8BC39100BFDAC7 /* EventVC.xib */; };
 		882C996F1E8D007500BFDAC7 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 882C996E1E8D007500BFDAC7 /* MediaPlayer.framework */; };
@@ -39,9 +41,6 @@
 		889B2EA41E8DDAB500ACD1A0 /* MediaVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889B2EA21E8DDAB500ACD1A0 /* MediaVC.xib */; };
 		889B2EA61E8DDDCC00ACD1A0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889B2EA51E8DDDCC00ACD1A0 /* AudioToolbox.framework */; };
 		889B2EA91E8DE13B00ACD1A0 /* msg.wav in Resources */ = {isa = PBXBuildFile; fileRef = 889B2EA81E8DE13B00ACD1A0 /* msg.wav */; };
-		889B2EAF1E8F323500ACD1A0 /* FreeStreamer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889B2EAE1E8F323500ACD1A0 /* FreeStreamer.framework */; };
-		889B2EB11E8F325200ACD1A0 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 889B2EB01E8F325200ACD1A0 /* libxml2.tbd */; };
-		889B2EB31E8F327300ACD1A0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889B2EB21E8F327300ACD1A0 /* CFNetwork.framework */; };
 		889DBA391E6BFBA200520C77 /* CoreLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889DBA371E6BFBA200520C77 /* CoreLocationVC.m */; };
 		889DBA3A1E6BFBA200520C77 /* CoreLocationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889DBA381E6BFBA200520C77 /* CoreLocationVC.xib */; };
 		889DBA3C1E6BFC4200520C77 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889DBA3B1E6BFC4200520C77 /* CoreLocation.framework */; };
@@ -120,6 +119,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		880131991E8F7C8B0087EBBD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 880131951E8F7C8B0087EBBD /* FreeStreamer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 969D3AA11C6DE48F00DF5410;
+			remoteInfo = FreeStreamer;
+		};
+		8801319B1E8F7C980087EBBD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 880131951E8F7C8B0087EBBD /* FreeStreamer.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 969D3AA01C6DE48F00DF5410;
+			remoteInfo = FreeStreamer;
+		};
+		8801319F1E8F7CB40087EBBD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 880131951E8F7C8B0087EBBD /* FreeStreamer.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 969D3AA01C6DE48F00DF5410;
+			remoteInfo = FreeStreamer;
+		};
 		88A617521E53100C00EF8AFC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 88A617301E53100C00EF8AFC /* Project object */;
@@ -136,7 +156,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		880131A11E8F7CB50087EBBD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8801319E1E8F7CB40087EBBD /* FreeStreamer.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		880131951E8F7C8B0087EBBD /* FreeStreamer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FreeStreamer.xcodeproj; path = FreeStreamer/FreeStreamer.xcodeproj; sourceTree = "<group>"; };
 		882C99691E8BC39100BFDAC7 /* EventVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventVC.h; sourceTree = "<group>"; };
 		882C996A1E8BC39100BFDAC7 /* EventVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventVC.m; sourceTree = "<group>"; };
 		882C996B1E8BC39100BFDAC7 /* EventVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventVC.xib; sourceTree = "<group>"; };
@@ -192,9 +227,6 @@
 		889B2EA21E8DDAB500ACD1A0 /* MediaVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaVC.xib; sourceTree = "<group>"; };
 		889B2EA51E8DDDCC00ACD1A0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		889B2EA81E8DE13B00ACD1A0 /* msg.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = msg.wav; sourceTree = "<group>"; };
-		889B2EAE1E8F323500ACD1A0 /* FreeStreamer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreeStreamer.framework; path = "Demo/多媒体/FreeStreamer.framework"; sourceTree = "<group>"; };
-		889B2EB01E8F325200ACD1A0 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
-		889B2EB21E8F327300ACD1A0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		889DBA361E6BFBA200520C77 /* CoreLocationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreLocationVC.h; path = Demo/Network/CoreLocationVC.h; sourceTree = SOURCE_ROOT; };
 		889DBA371E6BFBA200520C77 /* CoreLocationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreLocationVC.m; path = Demo/Network/CoreLocationVC.m; sourceTree = SOURCE_ROOT; };
 		889DBA381E6BFBA200520C77 /* CoreLocationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CoreLocationVC.xib; path = Demo/Network/CoreLocationVC.xib; sourceTree = SOURCE_ROOT; };
@@ -333,9 +365,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				889B2EB31E8F327300ACD1A0 /* CFNetwork.framework in Frameworks */,
-				889B2EB11E8F325200ACD1A0 /* libxml2.tbd in Frameworks */,
-				889B2EAF1E8F323500ACD1A0 /* FreeStreamer.framework in Frameworks */,
 				889B2EA61E8DDDCC00ACD1A0 /* AudioToolbox.framework in Frameworks */,
 				889B2E9E1E8D53AD00ACD1A0 /* CoreMotion.framework in Frameworks */,
 				882C99771E8D0D9000BFDAC7 /* AVFoundation.framework in Frameworks */,
@@ -345,6 +374,7 @@
 				885960C91E70211C00760090 /* QuartzCore.framework in Frameworks */,
 				889DBA3E1E6BFC4D00520C77 /* MapKit.framework in Frameworks */,
 				889DBA3C1E6BFC4200520C77 /* CoreLocation.framework in Frameworks */,
+				8801319D1E8F7CB40087EBBD /* FreeStreamer.framework in Frameworks */,
 				88A6182D1E5ABE9200EF8AFC /* Security.framework in Frameworks */,
 				88A6180A1E5466F200EF8AFC /* libsqlite3.0.tbd in Frameworks */,
 				88A6177B1E53EED000EF8AFC /* CoreData.framework in Frameworks */,
@@ -368,6 +398,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		880131961E8F7C8B0087EBBD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8801319A1E8F7C8B0087EBBD /* FreeStreamer.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8859608A1E701FA300760090 /* UI高级（动画） */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,6 +513,7 @@
 		889B2E9F1E8DDA7000ACD1A0 /* 多媒体 */ = {
 			isa = PBXGroup;
 			children = (
+				880131951E8F7C8B0087EBBD /* FreeStreamer.xcodeproj */,
 				882C99781E8E267700BFDAC7 /* music.mp3 */,
 				889B2EA81E8DE13B00ACD1A0 /* msg.wav */,
 				889B2EA01E8DDAB500ACD1A0 /* MediaVC.h */,
@@ -604,9 +643,6 @@
 		88A617791E53EED000EF8AFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				889B2EB21E8F327300ACD1A0 /* CFNetwork.framework */,
-				889B2EB01E8F325200ACD1A0 /* libxml2.tbd */,
-				889B2EAE1E8F323500ACD1A0 /* FreeStreamer.framework */,
 				889B2EA51E8DDDCC00ACD1A0 /* AudioToolbox.framework */,
 				889B2E9D1E8D53AD00ACD1A0 /* CoreMotion.framework */,
 				882C99761E8D0D9000BFDAC7 /* AVFoundation.framework */,
@@ -822,10 +858,13 @@
 				88A617341E53100C00EF8AFC /* Sources */,
 				88A617351E53100C00EF8AFC /* Frameworks */,
 				88A617361E53100C00EF8AFC /* Resources */,
+				880131A11E8F7CB50087EBBD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8801319C1E8F7C980087EBBD /* PBXTargetDependency */,
+				880131A01E8F7CB40087EBBD /* PBXTargetDependency */,
 			);
 			name = Demo;
 			productName = Demo;
@@ -910,6 +949,12 @@
 			mainGroup = 88A6172F1E53100C00EF8AFC;
 			productRefGroup = 88A617391E53100C00EF8AFC /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 880131961E8F7C8B0087EBBD /* Products */;
+					ProjectRef = 880131951E8F7C8B0087EBBD /* FreeStreamer.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				88A617371E53100C00EF8AFC /* Demo */,
@@ -918,6 +963,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8801319A1E8F7C8B0087EBBD /* FreeStreamer.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FreeStreamer.framework;
+			remoteRef = 880131991E8F7C8B0087EBBD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		88A617361E53100C00EF8AFC /* Resources */ = {
@@ -1063,6 +1118,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8801319C1E8F7C980087EBBD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FreeStreamer;
+			targetProxy = 8801319B1E8F7C980087EBBD /* PBXContainerItemProxy */;
+		};
+		880131A01E8F7CB40087EBBD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FreeStreamer;
+			targetProxy = 8801319F1E8F7CB40087EBBD /* PBXContainerItemProxy */;
+		};
 		88A617531E53100C00EF8AFC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 88A617371E53100C00EF8AFC /* Demo */;
