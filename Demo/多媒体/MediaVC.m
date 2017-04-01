@@ -46,7 +46,7 @@
     
     [self setupAVAudioPlayerWithURL:nil];
     
-    self.moviePlayer.view.frame = CGRectMake(0, 300, kScreenWidth, 200);
+    self.moviePlayer.view.frame = CGRectMake(200,400, 100, 100);
     [self.view addSubview:self.moviePlayer.view];
 }
 
@@ -483,33 +483,45 @@ void soundCompleteCallback(SystemSoundID soundID,void * clientData){
 
 #pragma mark - UIImagePickerController拍照和视频录制
 
+-(IBAction)startImagePicker:(id)sender{
+    self.isVideo = YES;
+    [self presentViewController:self.imagePicker animated:YES completion:^{
+        
+    }];
+}
+
 -(UIImagePickerController*)imagePicker{
     if (!_imagePicker) {
         _imagePicker = [[UIImagePickerController alloc] init];
         _imagePicker.delegate = self;
-        _imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        _imagePicker.showsCameraControls = YES;
-        UIView* overlayView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-        overlayView.backgroundColor = [UIColor yellowColor];
-        _imagePicker.cameraOverlayView = overlayView;
-        _imagePicker.cameraViewTransform = CGAffineTransformMakeRotation(M_PI_4);
+        //必须判断SourceType是否支持，否则后续设置会崩溃
         if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-            NSLog(@"不支持摄像头");
-        }
-        if (self.isVideo) {
-            _imagePicker.cameraFlashMode = UIImagePickerControllerCameraCaptureModeVideo; //拍照 或 视频
-            _imagePicker.mediaTypes = @[(__bridge id)kUTTypeVideo];//默认kUTTypeImage;kUTTypeMovie带声音,kUTTypeVideo不带
-            _imagePicker.videoQuality = UIImagePickerControllerQualityTypeMedium;
+            _imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            
+            _imagePicker.showsCameraControls = YES;
+            UIView* overlayView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+            overlayView.backgroundColor = [UIColor yellowColor];
+            _imagePicker.cameraOverlayView = overlayView;
+            _imagePicker.cameraViewTransform = CGAffineTransformMakeRotation(M_PI_4);
+            
+            if (self.isVideo) {
+                _imagePicker.cameraFlashMode = UIImagePickerControllerCameraCaptureModeVideo; //拍照 或 视频
+                _imagePicker.mediaTypes = @[(__bridge id)kUTTypeVideo];//默认kUTTypeImage;kUTTypeMovie带声音,kUTTypeVideo不带
+                _imagePicker.videoQuality = UIImagePickerControllerQualityTypeMedium;
+            }else{
+                _imagePicker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+            }
+            
+            if([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront]){
+                _imagePicker.cameraDevice = UIImagePickerControllerCameraDeviceFront; //前置 或 后置摄像头；UIImagePickerControllerCameraDeviceRear为前置
+            }
+            if([UIImagePickerController isFlashAvailableForCameraDevice:UIImagePickerControllerCameraDeviceFront]){
+                _imagePicker.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;//闪光灯
+            }
         }else{
-                    _imagePicker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
-        }
-
-        
-        if([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront]){
-            _imagePicker.cameraDevice = UIImagePickerControllerCameraDeviceFront; //前置 或 后置摄像头；UIImagePickerControllerCameraDeviceRear为前置
-        }
-        if([UIImagePickerController isFlashAvailableForCameraDevice:UIImagePickerControllerCameraDeviceFront]){
-        _imagePicker.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;//闪光灯
+            NSLog(@"不支持摄像头");
+            //Info.plist必须设置权限NSPhotoLibraryUsageDescription
+            _imagePicker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
         }
     }
     return _imagePicker;
@@ -522,16 +534,27 @@ void soundCompleteCallback(SystemSoundID soundID,void * clientData){
     NSString* mediaType = info[UIImagePickerControllerMediaType];
     if([mediaType isEqualToString:(__bridge id)kUTTypeImage]){
         UIImage* image = info[UIImagePickerControllerOriginalImage]; //UIImagePickerControllerEditedImage裁减过的正方形
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
     }else if([mediaType isEqualToString:(__bridge id)kUTTypeVideo]){
         NSURL* videoURL = info[UIImagePickerControllerMediaURL]; //视频存放路径
         UISaveVideoAtPathToSavedPhotosAlbum(videoURL.absoluteString, nil, nil, nil);
-
+        
+        //播放
+        [self.moviePlayer stop];
+        self.moviePlayer.contentURL = videoURL;
+        [self.moviePlayer play];
     }
-
+    
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     NSLog(@"imagePickerControllerDidCancel");
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 @end
