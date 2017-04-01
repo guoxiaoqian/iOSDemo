@@ -39,6 +39,9 @@
 		889B2EA41E8DDAB500ACD1A0 /* MediaVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889B2EA21E8DDAB500ACD1A0 /* MediaVC.xib */; };
 		889B2EA61E8DDDCC00ACD1A0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889B2EA51E8DDDCC00ACD1A0 /* AudioToolbox.framework */; };
 		889B2EA91E8DE13B00ACD1A0 /* msg.wav in Resources */ = {isa = PBXBuildFile; fileRef = 889B2EA81E8DE13B00ACD1A0 /* msg.wav */; };
+		889B2EAF1E8F323500ACD1A0 /* FreeStreamer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889B2EAE1E8F323500ACD1A0 /* FreeStreamer.framework */; };
+		889B2EB11E8F325200ACD1A0 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 889B2EB01E8F325200ACD1A0 /* libxml2.tbd */; };
+		889B2EB31E8F327300ACD1A0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889B2EB21E8F327300ACD1A0 /* CFNetwork.framework */; };
 		889DBA391E6BFBA200520C77 /* CoreLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889DBA371E6BFBA200520C77 /* CoreLocationVC.m */; };
 		889DBA3A1E6BFBA200520C77 /* CoreLocationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889DBA381E6BFBA200520C77 /* CoreLocationVC.xib */; };
 		889DBA3C1E6BFC4200520C77 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889DBA3B1E6BFC4200520C77 /* CoreLocation.framework */; };
@@ -189,6 +192,9 @@
 		889B2EA21E8DDAB500ACD1A0 /* MediaVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaVC.xib; sourceTree = "<group>"; };
 		889B2EA51E8DDDCC00ACD1A0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		889B2EA81E8DE13B00ACD1A0 /* msg.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = msg.wav; sourceTree = "<group>"; };
+		889B2EAE1E8F323500ACD1A0 /* FreeStreamer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreeStreamer.framework; path = "Demo/多媒体/FreeStreamer.framework"; sourceTree = "<group>"; };
+		889B2EB01E8F325200ACD1A0 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		889B2EB21E8F327300ACD1A0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		889DBA361E6BFBA200520C77 /* CoreLocationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreLocationVC.h; path = Demo/Network/CoreLocationVC.h; sourceTree = SOURCE_ROOT; };
 		889DBA371E6BFBA200520C77 /* CoreLocationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreLocationVC.m; path = Demo/Network/CoreLocationVC.m; sourceTree = SOURCE_ROOT; };
 		889DBA381E6BFBA200520C77 /* CoreLocationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CoreLocationVC.xib; path = Demo/Network/CoreLocationVC.xib; sourceTree = SOURCE_ROOT; };
@@ -327,6 +333,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				889B2EB31E8F327300ACD1A0 /* CFNetwork.framework in Frameworks */,
+				889B2EB11E8F325200ACD1A0 /* libxml2.tbd in Frameworks */,
+				889B2EAF1E8F323500ACD1A0 /* FreeStreamer.framework in Frameworks */,
 				889B2EA61E8DDDCC00ACD1A0 /* AudioToolbox.framework in Frameworks */,
 				889B2E9E1E8D53AD00ACD1A0 /* CoreMotion.framework in Frameworks */,
 				882C99771E8D0D9000BFDAC7 /* AVFoundation.framework in Frameworks */,
@@ -595,6 +604,9 @@
 		88A617791E53EED000EF8AFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				889B2EB21E8F327300ACD1A0 /* CFNetwork.framework */,
+				889B2EB01E8F325200ACD1A0 /* libxml2.tbd */,
+				889B2EAE1E8F323500ACD1A0 /* FreeStreamer.framework */,
 				889B2EA51E8DDDCC00ACD1A0 /* AudioToolbox.framework */,
 				889B2E9D1E8D53AD00ACD1A0 /* CoreMotion.framework */,
 				882C99761E8D0D9000BFDAC7 /* AVFoundation.framework */,
@@ -1178,6 +1190,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Demo/多媒体",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Demo/PrefixHeader.pch;
 				INFOPLIST_FILE = Demo/Info.plist;
@@ -1196,6 +1212,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Demo/多媒体",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Demo/PrefixHeader.pch;
 				INFOPLIST_FILE = Demo/Info.plist;

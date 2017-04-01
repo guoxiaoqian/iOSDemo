@@ -10,6 +10,7 @@
 #import <AudioToolbox/AudioToolbox.h> //播放音效：AudioServices
 #import <AVFoundation/AVFoundation.h> //播放音乐：AVAudioPlayer
 #import <MediaPlayer/MediaPlayer.h>
+#import <FreeStreamer/FreeStreamer.h>
 
 @interface MediaVC ()<AVAudioPlayerDelegate,MPMediaPickerControllerDelegate,AVAudioRecorderDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
@@ -24,13 +25,15 @@
 @property (strong,nonatomic) AVAudioRecorder* audioRecorder;
 @property (strong,nonatomic) NSTimer* recordTimer;
 
+@property (strong,nonatomic) FSAudioStream* freeStreamPlayer;
+
 @end
 
 @implementation MediaVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self playSoundEffect];
@@ -63,11 +66,11 @@ void soundCompleteCallback(SystemSoundID soundID,void * clientData){
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &soundId);
     AudioServicesAddSystemSoundCompletion(soundId, NULL,NULL,soundCompleteCallback, NULL);
     AudioServicesPlaySystemSound(soundId);
-//    AudioServicesPlayAlertSound(soundId); //带震动
+    //    AudioServicesPlayAlertSound(soundId); //带震动
     
 }
 
-#pragma mark - 播放音乐
+#pragma mark - 播放音乐(AVAudioPlayer只能播放本地文件，并且是一次性加载所以音频数据)
 
 -(void)setupAVAudioPlayerWithURL:(NSURL*)url{
     NSURL* fileURL = url ?: [[NSBundle mainBundle] URLForResource:@"music" withExtension:@"mp3"];
@@ -127,7 +130,7 @@ void soundCompleteCallback(SystemSoundID soundID,void * clientData){
     if (_musicPlayer == nil) {
         _musicPlayer = [MPMusicPlayerController systemMusicPlayer];
         [_musicPlayer setQueueWithQuery:[self queryForLocalMusic]];
-//        [_musicPlayer setQueueWithItemCollection:[self collectionForLocalMusic]];
+        //        [_musicPlayer setQueueWithItemCollection:[self collectionForLocalMusic]];
         [self addNotification];
     }
     return _musicPlayer;
@@ -162,13 +165,13 @@ void soundCompleteCallback(SystemSoundID soundID,void * clientData){
 
 -(void)didPlaybackStateChanged:(NSNotification*)n{
     switch (self.musicPlayer.playbackState) {
-//            MPMusicPlaybackStateStopped,
-//            MPMusicPlaybackStatePlaying,
-//            MPMusicPlaybackStatePaused,
-//            MPMusicPlaybackStateInterrupted,
-//            MPMusicPlaybackStateSeekingForward,
-//            MPMusicPlaybackStateSeekingBackward
-
+            //            MPMusicPlaybackStateStopped,
+            //            MPMusicPlaybackStatePlaying,
+            //            MPMusicPlaybackStatePaused,
+            //            MPMusicPlaybackStateInterrupted,
+            //            MPMusicPlaybackStateSeekingForward,
+            //            MPMusicPlaybackStateSeekingBackward
+            
         case MPMusicPlaybackStatePlaying:
             NSLog(@"MPMusicPlaybackStatePlaying");
             break;
@@ -225,7 +228,7 @@ void soundCompleteCallback(SystemSoundID soundID,void * clientData){
 -(void)mediaPicker:(MPMediaPickerController *)mediaPicker didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection{
     
     NSLog(@"mediaPicker:didPickMediaItems %@",mediaItemCollection);
-
+    
     
     [self.musicPlayer stop];
     [self.musicPlayer setQueueWithItemCollection:mediaItemCollection];
@@ -243,7 +246,7 @@ void soundCompleteCallback(SystemSoundID soundID,void * clientData){
     }];
 }
 
-#pragma mark - 录音
+#pragma mark - 录音,需要info.plist中设置麦克风权限
 
 -(NSURL*)recordFileURL{
     NSString* fileURL = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"record.pcm"];
@@ -332,5 +335,14 @@ void soundCompleteCallback(SystemSoundID soundID,void * clientData){
 -(void)audioRecorderEncodeErrorDidOccur:(AVAudioRecorder *)recorder error:(NSError *)error{
     NSLog(@"audioRecorderEncodeErrorDidOccur");
 }
+
+#pragma mark - AudioQueue (AudioToolbox框架中的,播放网络音乐;第三方库FreeStreamer)
+
+-(NSURL*)getNetworkMusicURL{
+    NSURL* netFileURL = [NSURL URLWithString:@"https://www.cocoanetics.com/files/Cocoanetics_031.mp3"];
+    return netFileURL;
+}
+
+
 
 @end
