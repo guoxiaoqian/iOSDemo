@@ -41,6 +41,8 @@
 		889B2EA41E8DDAB500ACD1A0 /* MediaVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889B2EA21E8DDAB500ACD1A0 /* MediaVC.xib */; };
 		889B2EA61E8DDDCC00ACD1A0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889B2EA51E8DDDCC00ACD1A0 /* AudioToolbox.framework */; };
 		889B2EA91E8DE13B00ACD1A0 /* msg.wav in Resources */ = {isa = PBXBuildFile; fileRef = 889B2EA81E8DE13B00ACD1A0 /* msg.wav */; };
+		889B2EB81E9077DB00ACD1A0 /* ConcurrencyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889B2EB61E9077DB00ACD1A0 /* ConcurrencyVC.m */; };
+		889B2EB91E9077DB00ACD1A0 /* ConcurrencyVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889B2EB71E9077DB00ACD1A0 /* ConcurrencyVC.xib */; };
 		889DBA391E6BFBA200520C77 /* CoreLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889DBA371E6BFBA200520C77 /* CoreLocationVC.m */; };
 		889DBA3A1E6BFBA200520C77 /* CoreLocationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889DBA381E6BFBA200520C77 /* CoreLocationVC.xib */; };
 		889DBA3C1E6BFC4200520C77 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889DBA3B1E6BFC4200520C77 /* CoreLocation.framework */; };
@@ -227,6 +229,9 @@
 		889B2EA21E8DDAB500ACD1A0 /* MediaVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaVC.xib; sourceTree = "<group>"; };
 		889B2EA51E8DDDCC00ACD1A0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		889B2EA81E8DE13B00ACD1A0 /* msg.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = msg.wav; sourceTree = "<group>"; };
+		889B2EB51E9077DB00ACD1A0 /* ConcurrencyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConcurrencyVC.h; path = "Demo/多媒体/ConcurrencyVC.h"; sourceTree = SOURCE_ROOT; };
+		889B2EB61E9077DB00ACD1A0 /* ConcurrencyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConcurrencyVC.m; path = "Demo/多媒体/ConcurrencyVC.m"; sourceTree = SOURCE_ROOT; };
+		889B2EB71E9077DB00ACD1A0 /* ConcurrencyVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ConcurrencyVC.xib; path = "Demo/多媒体/ConcurrencyVC.xib"; sourceTree = SOURCE_ROOT; };
 		889DBA361E6BFBA200520C77 /* CoreLocationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreLocationVC.h; path = Demo/Network/CoreLocationVC.h; sourceTree = SOURCE_ROOT; };
 		889DBA371E6BFBA200520C77 /* CoreLocationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreLocationVC.m; path = Demo/Network/CoreLocationVC.m; sourceTree = SOURCE_ROOT; };
 		889DBA381E6BFBA200520C77 /* CoreLocationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CoreLocationVC.xib; path = Demo/Network/CoreLocationVC.xib; sourceTree = SOURCE_ROOT; };
@@ -588,12 +593,12 @@
 		88A6173A1E53100C00EF8AFC /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				889B2E9F1E8DDA7000ACD1A0 /* 多媒体 */,
 				8859608B1E701FA300760090 /* UI高级（绘图） */,
 				8859608A1E701FA300760090 /* UI高级（动画） */,
 				885960AE1E701FA300760090 /* UI高级（事件+手势） */,
 				88C32E321E66BFF1002753FC /* 存储（数据库+CoreData+文件） */,
 				88C32E4F1E66BFF1002753FC /* 第三方功能（支付+分享） */,
+				889B2E9F1E8DDA7000ACD1A0 /* 多媒体 */,
 				88C32E501E66BFF1002753FC /* 多线程 */,
 				88C32E511E66BFF1002753FC /* 网络 */,
 				88C32E801E66BFF1002753FC /* 系统功能（定位+推送+音视频+录音+相机+app跳转+通讯录+日历） */,
@@ -738,6 +743,9 @@
 		88C32E501E66BFF1002753FC /* 多线程 */ = {
 			isa = PBXGroup;
 			children = (
+				889B2EB51E9077DB00ACD1A0 /* ConcurrencyVC.h */,
+				889B2EB61E9077DB00ACD1A0 /* ConcurrencyVC.m */,
+				889B2EB71E9077DB00ACD1A0 /* ConcurrencyVC.xib */,
 			);
 			path = "多线程";
 			sourceTree = "<group>";
@@ -985,6 +993,7 @@
 				885960C71E7020DD00760090 /* TestGeneralAnimationVC.xib in Resources */,
 				88C32E991E66BFF1002753FC /* LICENSE in Resources */,
 				88C32EA51E66BFF1002753FC /* NetworkVC.xib in Resources */,
+				889B2EB91E9077DB00ACD1A0 /* ConcurrencyVC.xib in Resources */,
 				889DBA751E7E71F900520C77 /* QuartzDemo-Info.plist in Resources */,
 				889DBA7E1E7E71F900520C77 /* QuartzStoryboard.storyboard in Resources */,
 				88A6174B1E53100C00EF8AFC /* LaunchScreen.storyboard in Resources */,
@@ -1053,6 +1062,7 @@
 				8865C60C1E8B4B52003AAEC4 /* ViewController+MASAdditions.m in Sources */,
 				8865C6041E8B4B52003AAEC4 /* MASConstraint.m in Sources */,
 				8865C6031E8B4B52003AAEC4 /* MASCompositeConstraint.m in Sources */,
+				889B2EB81E9077DB00ACD1A0 /* ConcurrencyVC.m in Sources */,
 				88A6173D1E53100C00EF8AFC /* main.m in Sources */,
 				8865C60D1E8B4B52003AAEC4 /* README.md in Sources */,
 				8865C60A1E8B4B52003AAEC4 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,

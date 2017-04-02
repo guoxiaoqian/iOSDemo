@@ -498,18 +498,21 @@ void soundCompleteCallback(SystemSoundID soundID,void * clientData){
         if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
             _imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
             
-            _imagePicker.showsCameraControls = YES;
-            UIView* overlayView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-            overlayView.backgroundColor = [UIColor yellowColor];
-            _imagePicker.cameraOverlayView = overlayView;
-            _imagePicker.cameraViewTransform = CGAffineTransformMakeRotation(M_PI_4);
-            
             if (self.isVideo) {
                 _imagePicker.cameraFlashMode = UIImagePickerControllerCameraCaptureModeVideo; //拍照 或 视频
                 _imagePicker.mediaTypes = @[(__bridge id)kUTTypeVideo];//默认kUTTypeImage;kUTTypeMovie带声音,kUTTypeVideo不带
                 _imagePicker.videoQuality = UIImagePickerControllerQualityTypeMedium;
+                _imagePicker.videoMaximumDuration = 10; //最大录制时长
             }else{
                 _imagePicker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+                
+                _imagePicker.showsCameraControls = YES;
+                UIView* overlayView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+                overlayView.backgroundColor = [UIColor yellowColor];
+                _imagePicker.cameraOverlayView = overlayView;
+                _imagePicker.cameraViewTransform = CGAffineTransformMakeRotation(M_PI_4);
+                
+                _imagePicker.allowsEditing = YES; //可以编辑照片
             }
             
             if([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront]){
