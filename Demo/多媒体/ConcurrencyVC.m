@@ -129,6 +129,8 @@ typedef enum : NSUInteger {
     [self operationQueueGenaral];
     
     [self operationQueueCustom];
+    
+    [self dispatchQueueGeneral];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -145,14 +147,14 @@ typedef enum : NSUInteger {
     
     
     NSBlockOperation* operation = [NSBlockOperation blockOperationWithBlock:^{
-        NSLog(@"block 开始 current Thread %@",[NSThread currentThread]);
+        NSLog(@"operation block 开始 current Thread %@",[NSThread currentThread]);
     }];
     [operation addExecutionBlock:^{ //追加的block跟前面的block不是顺序关系，可能先执行
-        NSLog(@"block 补充");
+        NSLog(@"operation block 补充");
     }];
     operation.name = @"operation1";
     [operation setCompletionBlock:^{
-        NSLog(@"block 结束");
+        NSLog(@"operation block 结束");
     }];
     
     NSString* data = @"郭晓倩太帅";
@@ -191,12 +193,97 @@ typedef enum : NSUInteger {
 }
 
 -(void)operationInvoke:(id)object{
-    NSLog(@"invoke %@",object);
+    NSLog(@"operation invoke %@",object);
 }
 
 #pragma mark - Dispatch Queue
 
+-(void)dispatchQueueGeneral{
+    //获取系统提供的队列(四个不同优先级并行队列，一个主队列)
+    dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
+    dispatch_queue_t mainQueue = dispatch_get_main_queue();
+    
+    //创建新队列(文档中说要释放,结果ARC中禁用？？？)
+    dispatch_queue_t cocurrentQueue = dispatch_queue_create("concurrent queue", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t serialQueue = dispatch_queue_create("serial queue", DISPATCH_QUEUE_SERIAL);
+    
+    
+    //分发任务(同步和异步)
+    dispatch_async(globalQueue, ^{
+        NSLog(@"dispatch_async 1 开始");
+        sleep(2);
+        NSLog(@"dispatch_async 1 结束");
+    });
+    dispatch_async(globalQueue, ^{
+        NSLog(@"dispatch_async 2 开始");  //任务2可能先执行
+        sleep(1);
+        NSLog(@"dispatch_async 2 结束");
+    });
+    
+    //其他应用--加快循环(并发队列)
+    dispatch_apply(10, globalQueue, ^(size_t i) {
+        NSLog(@"dispatch_apply %d",(int)i);
+    });
+    
+    //其他应用--延迟(队列自带Runloop)
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), globalQueue, ^{
+        NSLog(@"dispatch_after globalQueue");
+    });
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), cocurrentQueue, ^{
+        NSLog(@"dispatch_after cocurrentQueue");
+    });
+    
+    //其他应用--单例
+    static dispatch_once_t onceToken;
+    dispatch_async(globalQueue, ^{
+        dispatch_once(&onceToken, ^{
+            NSLog(@"dispatch_once 1");
+        });
+    });
+    dispatch_async(globalQueue, ^{
+        dispatch_once(&onceToken, ^{
+            NSLog(@"dispatch_once 2");
+        });
+    });
+    
+    //其他应用--暂停/恢复
+    dispatch_suspend(globalQueue);
+    dispatch_resume(globalQueue);
+    
+    //其他应用--信号量（有限资源访问），也可用来将异步变为同步(资源数改为1则退化为互斥锁,改为0则变为同步锁)
+    dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+    dispatch_async(serialQueue, ^{
+        sleep(1);
+        NSLog(@"dispatch_semaphore_t 解除等待");
+        dispatch_semaphore_signal(sema);
+    });
+    NSLog(@"dispatch_semaphore_t 等待开始");
+    dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+    NSLog(@"dispatch_semaphore_t 等待结束");
+    
+    //其他应用--依赖，同步
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_group_async(group, globalQueue, ^{
+        NSLog(@"dispatch_group_t 1");
+    });
+    dispatch_group_async(group, globalQueue, ^{
+        NSLog(@"dispatch_group_t 2");
+    });
+    NSLog(@"dispatch_group_t 等待开始");
+    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+    NSLog(@"dispatch_group_t 等待结束");
+
+}
+
+//用顺序队列做同步操作比锁更高效
+//This type of queue-based synchronization is more efficient than locks because locks always require an expensive kernel trap in both the contested and uncontested cases, whereas a dispatch queue works primarily in your application’s process space and only calls down to the kernel when absolutely necessary.
+
+//Dispatch semaphores比一般信号量更高效
+//A dispatch semaphore is similar to a traditional semaphore but is generally more efficient. Dispatch semaphores call down to the kernel only when the calling thread needs to be blocked because the semaphore is unavailable.
+
 #pragma mark - Dispatch Source
+
+//You can use dispatch sources to monitor events such as process notifications, signals, and descriptor events among others. When an event occurs, the dispatch source submits your task code asynchronously to the specified dispatch queue for processing. 
 
 #pragma mark - Thread
 
