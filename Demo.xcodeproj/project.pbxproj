@@ -32,6 +32,8 @@
 		8865C60B1E8B4B52003AAEC4 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8865C5FD1E8B4B52003AAEC4 /* View+MASAdditions.m */; };
 		8865C60C1E8B4B52003AAEC4 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8865C6001E8B4B52003AAEC4 /* ViewController+MASAdditions.m */; };
 		8865C60D1E8B4B52003AAEC4 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 8865C6011E8B4B52003AAEC4 /* README.md */; };
+		886EBA8C1E991E8C00F9DE77 /* RuntimeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 886EBA8A1E991E8C00F9DE77 /* RuntimeVC.m */; };
+		886EBA8D1E991E8C00F9DE77 /* RuntimeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 886EBA8B1E991E8C00F9DE77 /* RuntimeVC.xib */; };
 		889B2E961E89E98700ACD1A0 /* Demo2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 889B2E941E89E98700ACD1A0 /* Demo2@2x.png */; };
 		889B2E971E89E98700ACD1A0 /* Demo2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 889B2E951E89E98700ACD1A0 /* Demo2@3x.png */; };
 		889B2E9B1E8A978300ACD1A0 /* CubeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889B2E991E8A978300ACD1A0 /* CubeVC.m */; };
@@ -218,6 +220,9 @@
 		8865C5FF1E8B4B52003AAEC4 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		8865C6001E8B4B52003AAEC4 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		8865C6011E8B4B52003AAEC4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		886EBA891E991E8C00F9DE77 /* RuntimeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RuntimeVC.h; path = "Demo/多媒体/RuntimeVC.h"; sourceTree = SOURCE_ROOT; };
+		886EBA8A1E991E8C00F9DE77 /* RuntimeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RuntimeVC.m; path = "Demo/多媒体/RuntimeVC.m"; sourceTree = SOURCE_ROOT; };
+		886EBA8B1E991E8C00F9DE77 /* RuntimeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RuntimeVC.xib; path = "Demo/多媒体/RuntimeVC.xib"; sourceTree = SOURCE_ROOT; };
 		889B2E941E89E98700ACD1A0 /* Demo2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Demo2@2x.png"; sourceTree = "<group>"; };
 		889B2E951E89E98700ACD1A0 /* Demo2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Demo2@3x.png"; sourceTree = "<group>"; };
 		889B2E981E8A978300ACD1A0 /* CubeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CubeVC.h; sourceTree = "<group>"; };
@@ -852,6 +857,9 @@
 		88C32E821E66BFF1002753FC /* OC高级（KVC+KVO+运行时） */ = {
 			isa = PBXGroup;
 			children = (
+				886EBA891E991E8C00F9DE77 /* RuntimeVC.h */,
+				886EBA8A1E991E8C00F9DE77 /* RuntimeVC.m */,
+				886EBA8B1E991E8C00F9DE77 /* RuntimeVC.xib */,
 			);
 			path = "OC高级（KVC+KVO+运行时）";
 			sourceTree = "<group>";
@@ -1015,6 +1023,7 @@
 				889DBA3A1E6BFBA200520C77 /* CoreLocationVC.xib in Resources */,
 				889B2EA41E8DDAB500ACD1A0 /* MediaVC.xib in Resources */,
 				889DBA801E7E71F900520C77 /* Ship.png in Resources */,
+				886EBA8D1E991E8C00F9DE77 /* RuntimeVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1078,6 +1087,7 @@
 				8865C6051E8B4B52003AAEC4 /* MASConstraintMaker.m in Sources */,
 				882C99741E8D0CE300BFDAC7 /* RemoteEnvetVC.m in Sources */,
 				88C32E8E1E66BFF1002753FC /* FMResultSet.m in Sources */,
+				886EBA8C1E991E8C00F9DE77 /* RuntimeVC.m in Sources */,
 				88C32E931E66BFF1002753FC /* AFNetworkReachabilityManager.m in Sources */,
 				88C32E9F1E66BFF1002753FC /* UIImageView+AFNetworking.m in Sources */,
 				8865C6091E8B4B52003AAEC4 /* NSArray+MASAdditions.m in Sources */,

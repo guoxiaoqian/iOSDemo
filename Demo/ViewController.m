@@ -21,6 +21,7 @@
 #import "RemoteEnvetVC.h"
 #import "MediaVC.h"
 #import "ConcurrencyVC.h"
+#import "RuntimeVC.h"
 
 @interface EntryModel : NSObject
 
@@ -66,6 +67,9 @@
                        [EntryModel modelWithName:@"RemoteEventVC" class:[RemoteEnvetVC class]],
                        [EntryModel modelWithName:@"MediaVC" class:[MediaVC class]],
                        [EntryModel modelWithName:@"ConcurrencyVC" class:[ConcurrencyVC class]],
+                       [EntryModel modelWithName:@"RuntimeVC" class:[RuntimeVC class]],
+
+            
                        nil];
     
 }
