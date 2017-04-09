@@ -59,7 +59,7 @@ void clasMethodImplemention(id self,SEL _cmd){
 
 @interface MessageDeliver : NSObject
 
--(void)methodNotImplemented1;
+-(void)methodNotImplemented1:(int)i;
 
 -(void)methodNotImplemented2;
 
@@ -73,8 +73,8 @@ void clasMethodImplemention(id self,SEL _cmd){
 
 +(BOOL)resolveInstanceMethod:(SEL)sel{
     NSString* selName = NSStringFromSelector(sel);
-    if ([selName isEqualToString:@"methodNotImplemented1"]) {
-        class_addMethod([self class], sel, (IMP)methodImplemention, "v@:");
+    if ([selName isEqualToString:@"methodNotImplemented1:"]) {
+        class_addMethod([self class], sel, (IMP)methodImplemention, "v@:"); //参数个数不匹配，也能Work
         return YES;
     }
     return [super resolveInstanceMethod:sel];
@@ -198,7 +198,7 @@ void clasMethodImplemention(id self,SEL _cmd){
 
 -(void)messageDeliver{
     MessageDeliver* deliver = [MessageDeliver new];
-    [deliver methodNotImplemented1]; //动态方法解析
+    [deliver methodNotImplemented1:1]; //动态方法解析
     [deliver methodNotImplemented2]; //消息转发第一步
     [deliver methodNotImplemented3]; //消息转发第二步和第三步
     
@@ -269,28 +269,33 @@ void clasMethodImplemention(id self,SEL _cmd){
 
 -(void)runtimeClass{
     //创建类
+    //    return Nil if the class could not be created (for example, the desired name is already in use)
     Class cls = objc_allocateClassPair([NSObject class], "RuntimeClass", 0);
     
-    //添加成员变量
-    //    * @note This function may only be called after objc_allocateClassPair and before objc_registerClassPair.
-    //    *       Adding an instance variable to an existing class is not supported.
-    //    * @note The class must not be a metaclass. Adding an instance variable to a metaclass is not supported.
-    //    * @note The instance variable's minimum alignment in bytes is 1<<align. The minimum alignment of an instance
-    //    *       variable depends on the ivar's type and the machine architecture.
-    //    *       For variables of any pointer type, pass log2(sizeof(pointer_type)).
-    class_addIvar(cls, "address", sizeof(NSString*), log2(sizeof(NSString*)), @encode(NSString*));
-    class_addIvar([RuntimeObject class], "sex", sizeof(int), sizeof(int), @encode(int));
-    
-    
-    //添加方法
-    //    * @note class_addMethod will add an override of a superclass's implementation,
-    //    *  but will not replace an existing implementation in this class.
-    //    *  To change an existing implementation, use method_setImplementation.
-    SEL printSEL = sel_registerName("print");
-    class_addMethod(cls, printSEL, (IMP)print, "v@:");
-    
-    //注册类
-    objc_registerClassPair(cls);
+    if (cls) {
+        //添加成员变量
+        //    * @note This function may only be called after objc_allocateClassPair and before objc_registerClassPair.
+        //    *       Adding an instance variable to an existing class is not supported.
+        //    * @note The class must not be a metaclass. Adding an instance variable to a metaclass is not supported.
+        //    * @note The instance variable's minimum alignment in bytes is 1<<align. The minimum alignment of an instance
+        //    *       variable depends on the ivar's type and the machine architecture.
+        //    *       For variables of any pointer type, pass log2(sizeof(pointer_type)).
+        class_addIvar(cls, "address", sizeof(NSString*), log2(sizeof(NSString*)), @encode(NSString*));
+        class_addIvar([RuntimeObject class], "sex", sizeof(int), sizeof(int), @encode(int));
+        
+        
+        //添加方法
+        //    * @note class_addMethod will add an override of a superclass's implementation,
+        //    *  but will not replace an existing implementation in this class.
+        //    *  To change an existing implementation, use method_setImplementation.
+        SEL printSEL = sel_registerName("print");
+        class_addMethod(cls, printSEL, (IMP)print, "v@:");
+        
+        //注册类
+        objc_registerClassPair(cls);
+    }else{
+        cls = objc_getClass("RuntimeClass");
+    }
     
     //创建对象
     id obj = [[cls alloc] init];
@@ -301,7 +306,7 @@ void clasMethodImplemention(id self,SEL _cmd){
     NSLog(@"addressVar %@",object_getIvar(obj, addressVar));
     
     //访问方法
-    [obj performSelector:printSEL];
+    [obj performSelector:@selector(print)];
 }
 
 
