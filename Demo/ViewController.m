@@ -17,6 +17,7 @@
 #import "CoreGraphicVC.h"
 #import "CoreAnimationVC.h"
 #import "CubeVC.h"
+#import "SpecialLayerVC.h"
 #import "EventVC.h"
 #import "RemoteEnvetVC.h"
 #import "MediaVC.h"
@@ -64,6 +65,7 @@
                        [EntryModel modelWithName:@"CoreAnimationDemo" class:[TestGeneralAnimationVC class]],
                        [EntryModel modelWithName:@"CoreAnimation" class:[CoreAnimationVC class]],
                        [EntryModel modelWithName:@"CubeVC" class:[CubeVC class]],
+                       [EntryModel modelWithName:@"SpecialLayerVC" class:[SpecialLayerVC class]],
                        [EntryModel modelWithName:@"EventVC" class:[EventVC class]],
                        [EntryModel modelWithName:@"RemoteEventVC" class:[RemoteEnvetVC class]],
                        [EntryModel modelWithName:@"MediaVC" class:[MediaVC class]],

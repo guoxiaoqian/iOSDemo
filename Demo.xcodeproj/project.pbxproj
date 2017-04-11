@@ -16,6 +16,8 @@
 		882C99751E8D0CE300BFDAC7 /* RemoteEnvetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882C99731E8D0CE300BFDAC7 /* RemoteEnvetVC.xib */; };
 		882C99771E8D0D9000BFDAC7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 882C99761E8D0D9000BFDAC7 /* AVFoundation.framework */; };
 		882C99791E8E267700BFDAC7 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 882C99781E8E267700BFDAC7 /* music.mp3 */; };
+		88439EF01E9D1466007DDA1B /* SpecialLayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88439EEE1E9D1466007DDA1B /* SpecialLayerVC.m */; };
+		88439EF11E9D1466007DDA1B /* SpecialLayerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88439EEF1E9D1466007DDA1B /* SpecialLayerVC.xib */; };
 		885960C61E7020DD00760090 /* TestGeneralAnimationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960C41E7020DD00760090 /* TestGeneralAnimationVC.m */; };
 		885960C71E7020DD00760090 /* TestGeneralAnimationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885960C51E7020DD00760090 /* TestGeneralAnimationVC.xib */; };
 		885960C91E70211C00760090 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885960C81E70211C00760090 /* QuartzCore.framework */; };
@@ -189,6 +191,9 @@
 		882C99731E8D0CE300BFDAC7 /* RemoteEnvetVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RemoteEnvetVC.xib; sourceTree = "<group>"; };
 		882C99761E8D0D9000BFDAC7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		882C99781E8E267700BFDAC7 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
+		88439EED1E9D1466007DDA1B /* SpecialLayerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialLayerVC.h; sourceTree = "<group>"; };
+		88439EEE1E9D1466007DDA1B /* SpecialLayerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialLayerVC.m; sourceTree = "<group>"; };
+		88439EEF1E9D1466007DDA1B /* SpecialLayerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialLayerVC.xib; sourceTree = "<group>"; };
 		885960C31E7020DD00760090 /* TestGeneralAnimationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestGeneralAnimationVC.h; sourceTree = "<group>"; };
 		885960C41E7020DD00760090 /* TestGeneralAnimationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestGeneralAnimationVC.m; sourceTree = "<group>"; };
 		885960C51E7020DD00760090 /* TestGeneralAnimationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestGeneralAnimationVC.xib; sourceTree = "<group>"; };
@@ -442,6 +447,9 @@
 				889B2E981E8A978300ACD1A0 /* CubeVC.h */,
 				889B2E991E8A978300ACD1A0 /* CubeVC.m */,
 				889B2E9A1E8A978300ACD1A0 /* CubeVC.xib */,
+				88439EED1E9D1466007DDA1B /* SpecialLayerVC.h */,
+				88439EEE1E9D1466007DDA1B /* SpecialLayerVC.m */,
+				88439EEF1E9D1466007DDA1B /* SpecialLayerVC.xib */,
 			);
 			path = "UI高级（动画）";
 			sourceTree = "<group>";
@@ -1029,6 +1037,7 @@
 				889C4A6F1E9C73C600EB2C68 /* NotificationVC.xib in Resources */,
 				889C4A9F1E9C743000EB2C68 /* NetworkVC.xib in Resources */,
 				889B2EA91E8DE13B00ACD1A0 /* msg.wav in Resources */,
+				88439EF11E9D1466007DDA1B /* SpecialLayerVC.xib in Resources */,
 				889DBA3A1E6BFBA200520C77 /* CoreLocationVC.xib in Resources */,
 				889C4A9E1E9C743000EB2C68 /* file.png in Resources */,
 				889B2EA41E8DDAB500ACD1A0 /* MediaVC.xib in Resources */,
@@ -1061,6 +1070,7 @@
 				88C32E861E66BFF1002753FC /* FileManagerVC.m in Sources */,
 				889DBA7C1E7E71F900520C77 /* QuartzPolyViewController.m in Sources */,
 				889DBA701E7E71F900520C77 /* QuartzBlending.m in Sources */,
+				88439EF01E9D1466007DDA1B /* SpecialLayerVC.m in Sources */,
 				88A617431E53100C00EF8AFC /* ViewController.m in Sources */,
 				889C4AAA1E9C743000EB2C68 /* README.md in Sources */,
 				889DBA781E7E71F900520C77 /* QuartzImages.m in Sources */,
