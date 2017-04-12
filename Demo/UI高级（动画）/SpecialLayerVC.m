@@ -8,6 +8,35 @@
 
 #import "SpecialLayerVC.h"
 
+@interface TiledView : UIView
+
+@end
+
+@implementation TiledView
+
++(Class)layerClass{
+    return [CATiledLayer class];
+}
+
+-(instancetype)initWithFrame:(CGRect)frame{
+    if (self = [super initWithFrame:frame]) {
+        [((CATiledLayer*)self.layer) setTileSize:CGSizeMake(100*self.contentScaleFactor, 100*self.contentScaleFactor)];
+    }
+    return self;
+}
+
+-(void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx{
+    CGRect rect = CGContextGetClipBoundingBox(ctx);
+    NSLog(@"DRAW LAYER %@",NSStringFromCGRect(rect));
+    
+    CGContextSetFillColorWithColor(ctx, [UIColor redColor].CGColor);
+    CGContextAddRect(ctx, CGRectMake(rect.origin.x+2, rect.origin.y+2, rect.size.width-4, rect.size.height-4));
+    CGContextFillPath(ctx);
+}
+
+@end
+
+
 @interface SpecialLayerVC ()
 
 @property (strong,nonatomic) CAScrollLayer* scrollLayer;
@@ -142,30 +171,38 @@
     subLayer.contents =(id)[UIImage imageNamed:@"Demo"].CGImage;
 
     CAScrollLayer* layer = [CAScrollLayer layer];
-    layer.frame = CGRectMake(0, 220, 100, 100);
+    layer.frame = CGRectMake(0, 0, 100, 100);
     layer.scrollMode = kCAScrollBoth;
     [layer addSublayer:subLayer];
     
-    [self.view.layer addSublayer:layer];
+    UIView* scrollView = [[UIView alloc] initWithFrame:CGRectMake(0, 220, 100, 100)];
+    [scrollView.layer addSublayer:layer];
+    [self.view addSubview:scrollView];
     self.scrollLayer = layer;
     
     UIPanGestureRecognizer* gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didPan:)];
-    [self.view addGestureRecognizer:gesture];
+    [scrollView addGestureRecognizer:gesture];
 }
 
 -(void)didPan:(UIPanGestureRecognizer*)gesture{
     CGPoint origin = self.scrollLayer.bounds.origin;
-    CGPoint translation = [gesture translationInView:self.view];
+    CGPoint translation = [gesture translationInView:gesture.view];
     origin = CGPointMake(origin.x - translation.x, origin.y - translation.y);
     [self.scrollLayer scrollToPoint:origin];
     
     //重置偏移量
-    [gesture setTranslation:CGPointZero inView:self.view];
+    [gesture setTranslation:CGPointZero inView:gesture.view];
 }
 
 -(void)tiledLayer{
-    UIScrollView* scrollView;
-//    CATiledLayer提供异步加载图片各部分的功能。layer的drawLayer:inContext:方法会在出现时回调，用来绘制对应部分的内容。可以通过Context的clip bounds和CTM（当前图形上下文的仿射变换，CGContextGetCTM方法）来判断是图片的哪一部分以及大小。
+    //    CATiledLayer提供异步加载图片各部分的功能。layer的drawLayer:inContext:方法会在出现时回调，用来绘制对应部分的内容。可以通过Context的clip bounds和CTM（当前图形上下文的仿射变换，CGContextGetCTM方法）来判断是图片的哪一部分以及大小。
+    CGRect contentRect = CGRectMake(0, 0, 1000, 2000);
+    TiledView* tiledView = [[TiledView alloc] initWithFrame:contentRect];
+    
+    UIScrollView* scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 330, 200, 50)];
+    [scrollView addSubview:tiledView];
+    scrollView.contentSize = contentRect.size;
+    [self.view addSubview:scrollView];
 }
 
 @end
