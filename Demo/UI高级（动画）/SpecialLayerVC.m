@@ -10,6 +10,8 @@
 
 @interface SpecialLayerVC ()
 
+@property (strong,nonatomic) CAScrollLayer* scrollLayer;
+
 @end
 
 @implementation SpecialLayerVC
@@ -24,6 +26,10 @@
     [self transformLayer];
     
     [self emitterLayer];
+    
+    [self replicatorLayer];
+    
+    [self scrollLayerTest];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,7 +49,13 @@
     [self.view.layer addSublayer:layer];
 }
 
--(void)transformLayer{ //zPosition是三维的
+-(void)transformLayer{
+//    CATransformLayer用来创建3D的layer结构，而不是CALayer那样的扁平结构。和普通layer不同的地方有：
+//    1、transform layer只渲染sublayers，那些从CALayer继承下来的属性不起作用，包括：backgroundColor, contents, border style properties, stroke style properties等。
+//    2、2D图片的处理属性也不起作用，包括：filters, backgroundFilters, compositingFilter, mask, masksToBounds以及阴影属性。
+//    3、opacity属性会应用到每个sublayer，transform layer并不作为一个整体来实现半透明效果。
+//    4、在transform layer上不可以调用hitTest:方法，因为它并不存在一个2D的坐标空间来定位所测试的点。
+//    在transform layer上设置sublayerTransform的m34值，定位一个透视点，sublayer上应用z轴位置变换的动画，就可以看到3D效果
     CATransformLayer* layer = [CATransformLayer layer];
     layer.frame = CGRectMake(110, 0, 100, 100);
     
@@ -96,6 +108,58 @@
     layer.emitterCells = @[item];
     
     [self.view.layer addSublayer:layer];
+}
+
+-(void)replicatorLayer{
+//CAReplicatorLayer创建layer和它的sublayer的多个副本，副本可以设置transform来变形，或者设置颜色、透明度的变化。
+    CAReplicatorLayer* layer = [CAReplicatorLayer layer];
+    layer.frame = CGRectMake(110, 110, 100, 100);
+    CALayer* subLayer = [CALayer layer];
+    subLayer.frame = CGRectMake(0, 0, 50, 50);
+    subLayer.contents = (id)[UIImage imageNamed:@"Demo"].CGImage;
+    [layer addSublayer:subLayer];
+    
+    layer.instanceCount = 2;
+    CATransform3D transform = CATransform3DIdentity;
+    transform = CATransform3DTranslate(transform, 0, 0, 0);
+    transform = CATransform3DRotate(transform, M_PI, 1, 0, 0);//绕X轴（底边为轴），旋转后成镜像
+    transform = CATransform3DScale(transform, 1, 0.8, 1);
+    layer.instanceTransform = transform;
+    layer.instanceRedOffset = -0.1;
+    layer.instanceBlueOffset = -0.1;
+    layer.instanceGreenOffset = -0.1;
+    layer.instanceAlphaOffset = -0.1;
+    
+    [self.view.layer addSublayer:layer];
+}
+
+-(void)scrollLayerTest{
+
+    CALayer* subLayer =[CALayer layer];
+    subLayer.frame = CGRectMake(0, 0, 100, 100);
+    subLayer.contents =(id)[UIImage imageNamed:@"Demo"].CGImage;
+
+    CAScrollLayer* layer = [CAScrollLayer layer];
+    layer.frame = CGRectMake(0, 220, 100, 100);
+    layer.scrollMode = kCAScrollBoth;
+    [layer addSublayer:subLayer];
+    
+    [self.view.layer addSublayer:layer];
+    self.scrollLayer = layer;
+    
+    UIPanGestureRecognizer* gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didPan:)];
+    [self.view addGestureRecognizer:gesture];
+}
+
+-(void)didPan:(UIPanGestureRecognizer*)gesture{
+    CGPoint origin = self.scrollLayer.bounds.origin;
+    CGPoint translation = [gesture translationInView:self.view];
+    origin = CGPointMake(origin.x - translation.x, origin.y - translation.y);
+    [self.scrollLayer scrollToPoint:origin];
+}
+
+-(void)tieldLayer{
+    UIScrollView* scrollView;
 }
 
 @end
