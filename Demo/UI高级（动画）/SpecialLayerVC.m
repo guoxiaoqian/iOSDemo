@@ -30,6 +30,8 @@
     [self replicatorLayer];
     
     [self scrollLayerTest];
+    
+    [self tiledLayer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -156,10 +158,14 @@
     CGPoint translation = [gesture translationInView:self.view];
     origin = CGPointMake(origin.x - translation.x, origin.y - translation.y);
     [self.scrollLayer scrollToPoint:origin];
+    
+    //重置偏移量
+    [gesture setTranslation:CGPointZero inView:self.view];
 }
 
--(void)tieldLayer{
+-(void)tiledLayer{
     UIScrollView* scrollView;
+//    CATiledLayer提供异步加载图片各部分的功能。layer的drawLayer:inContext:方法会在出现时回调，用来绘制对应部分的内容。可以通过Context的clip bounds和CTM（当前图形上下文的仿射变换，CGContextGetCTM方法）来判断是图片的哪一部分以及大小。
 }
 
 @end
