@@ -8,6 +8,42 @@
 
 #import "ConcurrencyVC.h"
 
+#pragma mark - 自定义Thread
+
+@interface MyThread : NSThread
+
+@end
+
+@implementation MyThread
+
+-(void)main{
+    @autoreleasepool {
+        
+#warning Timer
+        NSRunLoop* runloop = [[NSRunLoop alloc] init];
+        int count = 0;
+        NSTimer* timer = [NSTimer timerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
+            if ([self isCancelled]) {
+                [timer invalidate];
+                timer = nil;
+                NSLog(@"MyThread timer canceld");
+            }else{
+                NSLog(@"MyThread timer %d",count);
+            }
+        }];
+        [runloop addTimer:timer forMode:NSRunLoopCommonModes];
+        
+        int i = 0;
+        while (![self isCancelled] && i < 100) {
+            [NSThread sleepForTimeInterval:1];
+            NSLog(@"MyThread run %d",i);
+            i++;
+        }
+    }
+}
+
+@end
+
 #pragma mark - 自定义Operation
 
 typedef enum : NSUInteger {
@@ -125,12 +161,14 @@ typedef enum : NSUInteger {
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+//    
+//    [self operationQueueGenaral];
+//    
+//    [self operationQueueCustom];
+//    
+//    [self dispatchQueueGeneral];
     
-    [self operationQueueGenaral];
-    
-    [self operationQueueCustom];
-    
-    [self dispatchQueueGeneral];
+    [self thread];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -283,8 +321,182 @@ typedef enum : NSUInteger {
 
 #pragma mark - Dispatch Source
 
-//You can use dispatch sources to monitor events such as process notifications, signals, and descriptor events among others. When an event occurs, the dispatch source submits your task code asynchronously to the specified dispatch queue for processing. 
+//You can use dispatch sources to monitor events such as process notifications, signals, and descriptor events among others. When an event occurs, the dispatch source submits your task code asynchronously to the specified dispatch queue for processing.
+
+-(void)dispatchSourceTimer{
+    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 1 * NSEC_PER_SEC);
+    dispatch_source_set_event_handler(timer, ^{
+        NSLog(@"source timer event");
+    });
+    dispatch_resume(timer);
+}
+
+dispatch_source_t ProcessContentsOfFile(const char* filename)
+{
+    // Prepare the file for reading.
+    int fd = open(filename, O_RDONLY);
+    if (fd == -1)
+        return NULL;
+    fcntl(fd, F_SETFL, O_NONBLOCK);  // Avoid blocking the read operation
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_source_t readSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_READ,
+                                                          fd, 0, queue);
+    if (!readSource)
+    {
+        close(fd);
+        return NULL;
+    }
+    
+    // Install the event handler
+    dispatch_source_set_event_handler(readSource, ^{
+        size_t estimated = dispatch_source_get_data(readSource) + 1;
+        // Read the data into a text buffer.
+        char* buffer = (char*)malloc(estimated);
+        if (buffer)
+        {
+            
+//            ssize_t actual = read(fd, buffer, (estimated));
+//            Boolean done = MyProcessFileData(buffer, actual);  // Process the data.
+//            
+//            // Release the buffer when done.
+//            free(buffer);
+            
+            Boolean done = YES;
+            
+            // If there is no more data, cancel the source.
+            if (done)
+                dispatch_source_cancel(readSource);
+        }
+    });
+    
+    // Install the cancellation handler
+    dispatch_source_set_cancel_handler(readSource, ^{close(fd);});
+    
+    // Start reading the file.
+    dispatch_resume(readSource);
+    return readSource;
+}
+
+dispatch_source_t WriteDataToFile(const char* filename)
+{
+    int fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC,
+                  (S_IRUSR | S_IWUSR | S_ISUID | S_ISGID));
+    if (fd == -1)
+        return NULL;
+    fcntl(fd, F_SETFL); // Block during the write.
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_source_t writeSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_WRITE,
+                                                           fd, 0, queue);
+    if (!writeSource)
+    {
+        close(fd);
+        return NULL;
+    }
+    
+    dispatch_source_set_event_handler(writeSource, ^{
+//        size_t bufferSize = MyGetDataSize();
+//        void* buffer = malloc(bufferSize);
+//        
+//        size_t actual = MyGetData(buffer, bufferSize);
+//        write(fd, buffer, actual);
+//        
+//        free(buffer);
+        
+        // Cancel and release the dispatch source when done.
+        dispatch_source_cancel(writeSource);
+    });
+    
+    dispatch_source_set_cancel_handler(writeSource, ^{close(fd);});
+    dispatch_resume(writeSource);
+    return (writeSource);
+}
+
+dispatch_source_t MonitorNameChangesToFile(const char* filename)
+{
+    int fd = open(filename, O_EVTONLY);
+    if (fd == -1)
+        return NULL;
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_source_t source = dispatch_source_create(DISPATCH_SOURCE_TYPE_VNODE,
+                                                      fd, DISPATCH_VNODE_RENAME, queue);
+    if (source)
+    {
+        // Copy the filename for later use.
+//        int length = strlen(filename);
+//        char* newString = (char*)malloc(length + 1);
+//        newString = strcpy(newString, filename);
+//        dispatch_set_context(source, newString);
+//        
+//        // Install the event handler to process the name change
+//        dispatch_source_set_event_handler(source, ^{
+//            const char*  oldFilename = (char*)dispatch_get_context(source);
+//            MyUpdateFileName(oldFilename, fd);
+//        });
+        
+        // Install a cancellation handler to free the descriptor
+        // and the stored string.
+        dispatch_source_set_cancel_handler(source, ^{
+            char* fileStr = (char*)dispatch_get_context(source);
+            free(fileStr);
+            close(fd);
+        });
+        
+        // Start processing events.
+        dispatch_resume(source);
+    }
+    else
+        close(fd);
+    
+    return source;
+}
+
+//Signal dispatch sources are not a replacement for the synchronous signal handlers you install using the sigaction function. Synchronous signal handlers can actually catch a signal and prevent it from terminating your application. Signal dispatch sources allow you to monitor only the arrival of the signal. In addition, you cannot use signal dispatch sources to retrieve all types of signals. Specifically, you cannot use them to monitor the SIGILL, SIGBUS, and SIGSEGV signals.
+
+
+
 
 #pragma mark - Thread
+
+-(void)thread{
+    //常规创建
+    NSThread* thread = [[NSThread alloc] initWithBlock:^{
+        NSLog(@"NSThread %@ start",[NSThread currentThread]);
+        [NSThread sleepForTimeInterval:2];
+        NSLog(@"NSThread %@ end",[NSThread currentThread]);
+    }];
+    [thread start];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [thread cancel];
+    });
+    
+    //静态方法创建
+    [NSThread detachNewThreadWithBlock:^{
+        NSLog(@"NSThread %@ start",[NSThread currentThread]);
+        [NSThread sleepForTimeInterval:2];
+        NSLog(@"NSThread %@ end",[NSThread currentThread]);
+    }];
+    
+    
+    //隐式创建线程
+    [self performSelectorInBackground:@selector(doSomething) withObject:nil];
+    
+    
+    //自定义线程
+    MyThread* myThread = [[MyThread alloc] init];
+    [myThread start];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [myThread cancel];
+    });
+}
+
+-(void)doSomething{
+    NSLog(@"NSThread %@ start",[NSThread currentThread]);
+    [NSThread sleepForTimeInterval:2];
+    NSLog(@"NSThread %@ end",[NSThread currentThread]);
+}
 
 @end
