@@ -17,11 +17,11 @@
 @implementation MyThread
 
 -(void)main{
+    //最外层一定是自动释放池
     @autoreleasepool {
         
-#warning Timer
-        NSRunLoop* runloop = [[NSRunLoop alloc] init];
-        int count = 0;
+        //子线程中创建定时器
+        __block int count = 0;
         NSTimer* timer = [NSTimer timerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
             if ([self isCancelled]) {
                 [timer invalidate];
@@ -30,15 +30,26 @@
             }else{
                 NSLog(@"MyThread timer %d",count);
             }
+            count ++;
         }];
+        
+//        在Cocoa中，每个线程(NSThread)对象中内部都有一个run loop（NSRunLoop）对象用来循环处理输入事件(子线程默认是没创建的只有去获取Runloop的时候才创建)。
+        
+        //首次获取，会为子线程创建Runloop并关联
+        NSRunLoop* runloop = [NSRunLoop currentRunLoop];
         [runloop addTimer:timer forMode:NSRunLoopCommonModes];
         
-        int i = 0;
-        while (![self isCancelled] && i < 100) {
-            [NSThread sleepForTimeInterval:1];
-            NSLog(@"MyThread run %d",i);
-            i++;
-        }
+        //执行runloop
+//        [runloop run];
+        [runloop runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
+        
+        //用runloop就不用循环了
+//        int i = 0;
+//        while (![self isCancelled] && i < 100) {
+//            [NSThread sleepForTimeInterval:1];
+//            NSLog(@"MyThread run %d",i);
+//            i++;
+//        }
     }
 }
 
