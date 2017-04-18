@@ -18,6 +18,10 @@
 		882C99791E8E267700BFDAC7 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 882C99781E8E267700BFDAC7 /* music.mp3 */; };
 		88439EF01E9D1466007DDA1B /* SpecialLayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88439EEE1E9D1466007DDA1B /* SpecialLayerVC.m */; };
 		88439EF11E9D1466007DDA1B /* SpecialLayerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88439EEF1E9D1466007DDA1B /* SpecialLayerVC.xib */; };
+		88486C881EA624A800AA842F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C871EA624A800AA842F /* MessageUI.framework */; };
+		88486C8A1EA6341300AA842F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C891EA6341300AA842F /* AddressBook.framework */; };
+		88486C8C1EA6344100AA842F /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C8B1EA6344100AA842F /* Contacts.framework */; };
+		88486C8F1EA63DCF00AA842F /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C8E1EA63DCF00AA842F /* EventKit.framework */; };
 		885960C61E7020DD00760090 /* TestGeneralAnimationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960C41E7020DD00760090 /* TestGeneralAnimationVC.m */; };
 		885960C71E7020DD00760090 /* TestGeneralAnimationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885960C51E7020DD00760090 /* TestGeneralAnimationVC.xib */; };
 		885960C91E70211C00760090 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885960C81E70211C00760090 /* QuartzCore.framework */; };
@@ -194,6 +198,10 @@
 		88439EED1E9D1466007DDA1B /* SpecialLayerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialLayerVC.h; sourceTree = "<group>"; };
 		88439EEE1E9D1466007DDA1B /* SpecialLayerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialLayerVC.m; sourceTree = "<group>"; };
 		88439EEF1E9D1466007DDA1B /* SpecialLayerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialLayerVC.xib; sourceTree = "<group>"; };
+		88486C871EA624A800AA842F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		88486C891EA6341300AA842F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		88486C8B1EA6344100AA842F /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		88486C8E1EA63DCF00AA842F /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		885960C31E7020DD00760090 /* TestGeneralAnimationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestGeneralAnimationVC.h; sourceTree = "<group>"; };
 		885960C41E7020DD00760090 /* TestGeneralAnimationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestGeneralAnimationVC.m; sourceTree = "<group>"; };
 		885960C51E7020DD00760090 /* TestGeneralAnimationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestGeneralAnimationVC.xib; sourceTree = "<group>"; };
@@ -390,6 +398,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88486C8F1EA63DCF00AA842F /* EventKit.framework in Frameworks */,
+				88486C8C1EA6344100AA842F /* Contacts.framework in Frameworks */,
+				88486C8A1EA6341300AA842F /* AddressBook.framework in Frameworks */,
+				88486C881EA624A800AA842F /* MessageUI.framework in Frameworks */,
 				889B2EA61E8DDDCC00ACD1A0 /* AudioToolbox.framework in Frameworks */,
 				889B2E9E1E8D53AD00ACD1A0 /* CoreMotion.framework in Frameworks */,
 				882C99771E8D0D9000BFDAC7 /* AVFoundation.framework in Frameworks */,
@@ -732,6 +744,10 @@
 		88A617791E53EED000EF8AFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88486C8E1EA63DCF00AA842F /* EventKit.framework */,
+				88486C8B1EA6344100AA842F /* Contacts.framework */,
+				88486C891EA6341300AA842F /* AddressBook.framework */,
+				88486C871EA624A800AA842F /* MessageUI.framework */,
 				889B2EA51E8DDDCC00ACD1A0 /* AudioToolbox.framework */,
 				889B2E9D1E8D53AD00ACD1A0 /* CoreMotion.framework */,
 				882C99761E8D0D9000BFDAC7 /* AVFoundation.framework */,
