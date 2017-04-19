@@ -24,6 +24,7 @@
 #import "ConcurrencyVC.h"
 #import "RuntimeVC.h"
 #import "SystemAppVC.h"
+#import "SystemInfoVC.h"
 
 @interface EntryModel : NSObject
 
@@ -72,7 +73,7 @@
                        [EntryModel modelWithName:@"ConcurrencyVC" class:[ConcurrencyVC class]],
                        [EntryModel modelWithName:@"RuntimeVC" class:[RuntimeVC class]],
                        [EntryModel modelWithName:@"SystemAppVC" class:[SystemAppVC class]],
-                       
+                       [EntryModel modelWithName:@"SystemInfoVC" class:[SystemInfoVC class]],
                        
                        nil];
     

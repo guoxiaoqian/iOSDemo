@@ -20,6 +20,9 @@
 		88439EF11E9D1466007DDA1B /* SpecialLayerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88439EEF1E9D1466007DDA1B /* SpecialLayerVC.xib */; };
 		88439EF41EA6E9B3007DDA1B /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88439EF31EA6E9B3007DDA1B /* MultipeerConnectivity.framework */; };
 		88439EF61EA6E9BD007DDA1B /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88439EF51EA6E9BD007DDA1B /* CoreBluetooth.framework */; };
+		88439EFB1EA79D62007DDA1B /* SystemInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88439EF91EA79D62007DDA1B /* SystemInfoVC.m */; };
+		88439EFC1EA79D62007DDA1B /* SystemInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88439EFA1EA79D62007DDA1B /* SystemInfoVC.xib */; };
+		88439EFE1EA79F4F007DDA1B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88439EFD1EA79F4F007DDA1B /* AdSupport.framework */; };
 		88486C881EA624A800AA842F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C871EA624A800AA842F /* MessageUI.framework */; };
 		88486C8A1EA6341300AA842F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C891EA6341300AA842F /* AddressBook.framework */; };
 		88486C8C1EA6344100AA842F /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C8B1EA6344100AA842F /* Contacts.framework */; };
@@ -204,6 +207,10 @@
 		88439EEF1E9D1466007DDA1B /* SpecialLayerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialLayerVC.xib; sourceTree = "<group>"; };
 		88439EF31EA6E9B3007DDA1B /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 		88439EF51EA6E9BD007DDA1B /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		88439EF81EA79D62007DDA1B /* SystemInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemInfoVC.h; sourceTree = "<group>"; };
+		88439EF91EA79D62007DDA1B /* SystemInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemInfoVC.m; sourceTree = "<group>"; };
+		88439EFA1EA79D62007DDA1B /* SystemInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemInfoVC.xib; sourceTree = "<group>"; };
+		88439EFD1EA79F4F007DDA1B /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		88486C871EA624A800AA842F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		88486C891EA6341300AA842F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		88486C8B1EA6344100AA842F /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
@@ -406,6 +413,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88439EFE1EA79F4F007DDA1B /* AdSupport.framework in Frameworks */,
 				88CC32B01EA7405300801376 /* iAd.framework in Frameworks */,
 				88CC32AE1EA72CCA00801376 /* Social.framework in Frameworks */,
 				88439EF61EA6E9BD007DDA1B /* CoreBluetooth.framework in Frameworks */,
@@ -756,6 +764,7 @@
 		88A617791E53EED000EF8AFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88439EFD1EA79F4F007DDA1B /* AdSupport.framework */,
 				88CC32AF1EA7405300801376 /* iAd.framework */,
 				88CC32AD1EA72CCA00801376 /* Social.framework */,
 				88439EF51EA6E9BD007DDA1B /* CoreBluetooth.framework */,
@@ -890,6 +899,9 @@
 				889C4A6B1E9C73C600EB2C68 /* NotificationVC.h */,
 				889C4A6C1E9C73C600EB2C68 /* NotificationVC.m */,
 				889C4A6D1E9C73C600EB2C68 /* NotificationVC.xib */,
+				88439EF81EA79D62007DDA1B /* SystemInfoVC.h */,
+				88439EF91EA79D62007DDA1B /* SystemInfoVC.m */,
+				88439EFA1EA79D62007DDA1B /* SystemInfoVC.xib */,
 			);
 			name = "系统功能（定位+推送+音视频+录音+相机+app跳转+通讯录+日历）";
 			path = "系统功能（定位+音视频+录音+播放+app跳转+通讯录+日历）";
@@ -1050,6 +1062,7 @@
 				882C99791E8E267700BFDAC7 /* music.mp3 in Resources */,
 				885960C71E7020DD00760090 /* TestGeneralAnimationVC.xib in Resources */,
 				889B2EB91E9077DB00ACD1A0 /* ConcurrencyVC.xib in Resources */,
+				88439EFC1EA79D62007DDA1B /* SystemInfoVC.xib in Resources */,
 				889DBA751E7E71F900520C77 /* QuartzDemo-Info.plist in Resources */,
 				889DBA7E1E7E71F900520C77 /* QuartzStoryboard.storyboard in Resources */,
 				88A6174B1E53100C00EF8AFC /* LaunchScreen.storyboard in Resources */,
@@ -1135,6 +1148,7 @@
 				889C4AA21E9C743000EB2C68 /* AFHTTPSessionManager.m in Sources */,
 				88C32E8E1E66BFF1002753FC /* FMResultSet.m in Sources */,
 				886EBA8C1E991E8C00F9DE77 /* RuntimeVC.m in Sources */,
+				88439EFB1EA79D62007DDA1B /* SystemInfoVC.m in Sources */,
 				8865C6091E8B4B52003AAEC4 /* NSArray+MASAdditions.m in Sources */,
 				889C4A9D1E9C743000EB2C68 /* NetworkVC.m in Sources */,
 				889C4AA61E9C743000EB2C68 /* AFURLRequestSerialization.m in Sources */,
