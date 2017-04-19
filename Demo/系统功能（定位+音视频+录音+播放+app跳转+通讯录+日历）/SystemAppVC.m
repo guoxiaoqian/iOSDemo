@@ -13,11 +13,19 @@
 #import <Contacts/Contacts.h>
 #import <EventKit/EventKit.h>
 
+#import <MultipeerConnectivity/MultipeerConnectivity.h>
+#import <CoreBluetooth/CoreBluetooth.h>
+
 @interface SystemAppVC () <MFMessageComposeViewControllerDelegate,MFMailComposeViewControllerDelegate>
 
 @property (assign,nonatomic) ABAddressBookRef addressBook;//通讯录
 @property (strong,nonatomic) NSMutableArray *allPerson;//通讯录所有人员
 
+@property (strong,nonatomic) MCAdvertiserAssistant* advertiserAssistant;
+@property (strong,nonatomic) MCSession* advertiserSession;
+
+@property (strong,nonatomic) MCBrowserViewController* browerVC;
+@property (strong,nonatomic) MCSession* browserSession;
 @end
 
 @implementation SystemAppVC
@@ -182,8 +190,9 @@
 #pragma mark - 通讯录
 
 //通过AddressBook.framework开发者可以从底层去操作AddressBook.framework的所有信息，但是需要注意的是这个框架是基于C语言编写的，无法使用ARC来管理内存，开发者需要自己管理内存。
+//AddressBookUI.framework。例如前面查看、新增、修改人员的界面这个框架就提供了现成的控制器视图供开发者使用。
+
 //通讯录的访问步骤一般如下：
-//
 //调用ABAddressBookCreateWithOptions()方法创建通讯录对象ABAddressBookRef。
 //调用ABAddressBookRequestAccessWithCompletion()方法获得用户授权访问通讯录。
 //调用ABAddressBookCopyArrayOfAllPeople()、ABAddressBookCopyPeopleWithName()方法查询联系人信息。
@@ -258,8 +267,13 @@
 
 #pragma mark - 日历
 
--(IBAction)importCourseToCalender:(id)sender{
+//IOS利用EventKit.framework可以实现添加提醒和添加事件（日历）的功能
+//Calendar负责记录确定时间要做的事情，以便于到期提醒，或是事后记录某个时间的具体事宜，便于日后备查。其关注的某一时间的行为，重点是时间。提醒事项负责记录要完成的事项列表，通过时间或是地点来提醒，完成的时间可能不确定或是需要跨日期。其关注的重点是待办事宜的完成与否和进度，重点是行为。
+
+-(IBAction)importToCalender:(id)sender{
     EKEventStore *eventStore = [[EKEventStore alloc] init];
+    
+    
     [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
         if (error){
             NSLog(@"课程详情.请求日历访问权限失败，error=%@",error);
@@ -299,8 +313,9 @@
                     
                     //添加提醒(提前一天)
                     [event addAlarm:[EKAlarm alarmWithRelativeOffset:60.0f * -60.0f * 24]];
-                    
+                    //关联日历
                     [event setCalendar:[eventStore defaultCalendarForNewEvents]];
+                    //存储事件
                     NSError *err;
                     [eventStore saveEvent:event span:EKSpanThisEvent error:&err];
                     
@@ -318,6 +333,18 @@
 }
 
 #pragma mark - 蓝牙
+
+//在iOS中进行蓝牙传输应用开发常用的框架有如下几种：
+//GameKit.framework：iOS7之前的蓝牙通讯框架，从iOS7开始过期，但是目前多数应用还是基于此框架。
+//MultipeerConnectivity.framework：iOS7开始引入的新的蓝牙通讯开发框架，用于取代GameKit。
+//CoreBluetooth.framework：功能强大的蓝牙开发框架，要求设备必须支持蓝牙4.0。
+
+-(void)initAdvertiser{
+    MCPeerID* peerId = [[MCPeerID alloc] initWithDisplayName:@"广播者"];
+    self.advertiserSession = [[MCSession alloc] initWithPeer:peerId];
+    self.advertiserSession.delegate = self;
+    self.advertiserAssistant = [[MCAdvertiserAssistant alloc] initWithServiceType:@"" discoveryInfo:nil session:self.advertiserSession];
+}
 
 #pragma mark - 社交
 
