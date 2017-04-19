@@ -24,8 +24,14 @@
 	<true/>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>想使用音乐库，请允许</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>想使用蓝牙，请允许</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>想使用日历，请允许</string>
 	<key>NSCameraUsageDescription</key>
 	<string>想使用相机，请允许</string>
+	<key>NSContactsUsageDescription</key>
+	<string>想使用通讯录，请允许</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>想使用前后台定位，请允许</string>
 	<key>NSLocationUsageDescription</key>

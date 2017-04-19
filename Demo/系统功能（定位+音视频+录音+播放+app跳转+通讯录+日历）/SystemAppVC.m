@@ -7,7 +7,6 @@
 //
 
 #import "SystemAppVC.h"
-#import "AppDelegate.h"
 #import <MessageUI/MessageUI.h>
 #import <AddressBook/AddressBook.h>
 #import <Contacts/Contacts.h>
@@ -16,13 +15,14 @@
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
-@interface SystemAppVC () <MFMessageComposeViewControllerDelegate,MFMailComposeViewControllerDelegate>
+@interface SystemAppVC () <MFMessageComposeViewControllerDelegate,MFMailComposeViewControllerDelegate,MCSessionDelegate,MCBrowserViewControllerDelegate>
 
 @property (assign,nonatomic) ABAddressBookRef addressBook;//通讯录
 @property (strong,nonatomic) NSMutableArray *allPerson;//通讯录所有人员
 
 @property (strong,nonatomic) MCAdvertiserAssistant* advertiserAssistant;
 @property (strong,nonatomic) MCSession* advertiserSession;
+@property (weak, nonatomic) IBOutlet UIImageView *receiveImageView;
 
 @property (strong,nonatomic) MCBrowserViewController* browerVC;
 @property (strong,nonatomic) MCSession* browserSession;
@@ -189,6 +189,7 @@
 
 #pragma mark - 通讯录
 
+//info.plist增加权限NSContactsUsageDescription
 //通过AddressBook.framework开发者可以从底层去操作AddressBook.framework的所有信息，但是需要注意的是这个框架是基于C语言编写的，无法使用ARC来管理内存，开发者需要自己管理内存。
 //AddressBookUI.framework。例如前面查看、新增、修改人员的界面这个框架就提供了现成的控制器视图供开发者使用。
 
@@ -267,6 +268,7 @@
 
 #pragma mark - 日历
 
+//info.plist增加权限NSCalendarsUsageDescription
 //IOS利用EventKit.framework可以实现添加提醒和添加事件（日历）的功能
 //Calendar负责记录确定时间要做的事情，以便于到期提醒，或是事后记录某个时间的具体事宜，便于日后备查。其关注的某一时间的行为，重点是时间。提醒事项负责记录要完成的事项列表，通过时间或是地点来提醒，完成的时间可能不确定或是需要跨日期。其关注的重点是待办事宜的完成与否和进度，重点是行为。
 
@@ -334,17 +336,75 @@
 
 #pragma mark - 蓝牙
 
+//info.plist增加权限Privacy - Bluetooth Peripheral Usage Description
 //在iOS中进行蓝牙传输应用开发常用的框架有如下几种：
 //GameKit.framework：iOS7之前的蓝牙通讯框架，从iOS7开始过期，但是目前多数应用还是基于此框架。
 //MultipeerConnectivity.framework：iOS7开始引入的新的蓝牙通讯开发框架，用于取代GameKit。
 //CoreBluetooth.framework：功能强大的蓝牙开发框架，要求设备必须支持蓝牙4.0。
 
--(void)initAdvertiser{
+-(IBAction)startAdvertiser:(id)sender{
     MCPeerID* peerId = [[MCPeerID alloc] initWithDisplayName:@"广播者"];
     self.advertiserSession = [[MCSession alloc] initWithPeer:peerId];
     self.advertiserSession.delegate = self;
-    self.advertiserAssistant = [[MCAdvertiserAssistant alloc] initWithServiceType:@"" discoveryInfo:nil session:self.advertiserSession];
+    self.advertiserAssistant = [[MCAdvertiserAssistant alloc] initWithServiceType:@"cmj-stream" discoveryInfo:nil session:self.advertiserSession];
+    [self.advertiserAssistant start];
 }
+
+-(IBAction)startBrowser:(id)sender{
+    MCPeerID* peerId = [[MCPeerID alloc] initWithDisplayName:@"发现者"];
+    self.browserSession = [[MCSession alloc] initWithPeer:peerId];
+    self.browserSession.delegate = self;
+    self.browerVC = [[MCBrowserViewController alloc] initWithServiceType:@"cmj-stream" session:self.browserSession];
+    self.browerVC.delegate = self;
+    [self presentViewController:self.browerVC animated:YES completion:^{
+        
+    }];
+}
+
+#pragma mark MCSessionDelegate
+
+-(void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state{
+    switch (state) {
+        case MCSessionStateConnected:{
+            NSLog(@"蓝牙连接成功");
+            if (session == self.browserSession) {
+                [session sendData:UIImagePNGRepresentation([UIImage imageNamed:@"Demo"]) toPeers:[session connectedPeers] withMode:MCSessionSendDataReliable error:nil];
+            }
+        }
+            break;
+        case MCSessionStateNotConnected:{
+            NSLog(@"蓝牙连接失败");
+        }
+            break;
+        case MCSessionStateConnecting:{
+            NSLog(@"蓝牙连接中。。。");
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+-(void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID{
+    NSLog(@"%s",__FUNCTION__);
+    if (session == self.advertiserSession) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIImage* image = [UIImage imageWithData:data];
+            self.receiveImageView.image = image;
+        });
+    }
+}
+
+#pragma mark MCBrowserViewControllerDelegate
+
+-(void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController{
+    [browserViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController{
+    [browserViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 #pragma mark - 社交
 
@@ -365,12 +425,11 @@
 
 //需在plist文件中添加URL types节点并配置URL Schemas作为具体协议，配置URL identifier作为这个URL的唯一标识
 //然后在AppDelegate中实现跳转处理
-
 @interface AppDelegate (Extension) <UIApplicationDelegate>
 
 @end
 
-@implementation AppDelegate
+@implementation AppDelegate (Extension)
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(id)annotation{
     //IOS9之前
