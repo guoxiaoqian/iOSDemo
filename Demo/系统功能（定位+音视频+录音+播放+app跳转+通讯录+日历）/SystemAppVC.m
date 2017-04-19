@@ -15,7 +15,11 @@
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
-@interface SystemAppVC () <MFMessageComposeViewControllerDelegate,MFMailComposeViewControllerDelegate,MCSessionDelegate,MCBrowserViewControllerDelegate>
+#import <Social/Social.h>
+
+#import <iAd/iAd.h>
+
+@interface SystemAppVC () <MFMessageComposeViewControllerDelegate,MFMailComposeViewControllerDelegate,MCSessionDelegate,MCBrowserViewControllerDelegate,ADBannerViewDelegate>
 
 @property (assign,nonatomic) ABAddressBookRef addressBook;//通讯录
 @property (strong,nonatomic) NSMutableArray *allPerson;//通讯录所有人员
@@ -26,6 +30,10 @@
 
 @property (strong,nonatomic) MCBrowserViewController* browerVC;
 @property (strong,nonatomic) MCSession* browserSession;
+
+
+@property (weak, nonatomic) IBOutlet ADBannerView *adBannerView;
+
 @end
 
 @implementation SystemAppVC
@@ -408,15 +416,109 @@
 
 #pragma mark - 社交
 
+//苹果官方默认支持的分享并不太多，特别是对于国内的应用只支持新浪微博和腾讯微博（事实上从iOS7苹果才考虑支持腾讯微博）。目前最好的选择就是使用第三方框架，因为如果要自己实现各个应用的接口还是比较复杂的。当前使用较多的就是友盟社会化组件、ShareSDK，而且现在百度也出了社会化分享组件。
+
+-(IBAction)shareToSina:(id)sender{
+    //检查新浪微博服务是否可用
+    if(![SLComposeViewController isAvailableForServiceType:SLServiceTypeSinaWeibo]){
+        NSLog(@"新浪微博服务不可用.");
+        return;
+    }
+    //初始化内容编写控制器，注意这里指定分享类型为新浪微博
+    SLComposeViewController *composeController=[SLComposeViewController composeViewControllerForServiceType:SLServiceTypeSinaWeibo];
+    //设置默认信息
+    [composeController setInitialText:@"Kenshin Cui's Blog..."];
+    //添加图片
+    [composeController addImage:[UIImage imageNamed:@"stevenChow"]];
+    //添加连接
+    [composeController addURL:[NSURL URLWithString:@"http://www.cnblogs.com/kenshincui"]];
+    //设置发送完成后的回调事件
+    __block SLComposeViewController *composeControllerForBlock=composeController;
+    composeController.completionHandler=^(SLComposeViewControllerResult result){
+        if (result==SLComposeViewControllerResultDone) {
+            NSLog(@"开始发送...");
+        }
+        [composeControllerForBlock dismissViewControllerAnimated:YES completion:nil];
+    };
+    //显示编辑视图
+    [self presentViewController:composeController animated:YES completion:nil];
+}
+
+
 #pragma mark - GameCenter
+
+//Game Center是由苹果发布的在线多人游戏社交网络，通过它游戏玩家可以邀请好友进行多人游戏，它也会记录玩家的成绩并在排行榜中展示，同时玩家每经过一定的阶段会获得不同的成就。这里就简单介绍一下如何在自己的应用中集成Game Center服务来让用户获得积分、成就以及查看游戏排行和已获得成就。
 
 #pragma mark - 应用内购买
 
+//大家都知道做iOS开发本身的收入有三种来源：出售应用、内购和广告。内购营销模式，通常软件本身是不收费的，但是要获得某些特权就必须购买一些道具，而内购的过程是由苹果官方统一来管理的
+
+#pragma mark - 广告
+//上面也提到做iOS开发另一收益来源就是广告，在iOS上有很多广告服务可以集成，使用比较多的就是苹果的iAd、谷歌的Admob，下面简单演示一下如何使用iAd来集成广告。使用iAd集成广告的过程比较简单，首先引入iAd.framework框架，然后创建ADBannerView来展示广告，通常会设置ADBannerView的代理方法来监听广告点击并在广告加载失败时隐藏广告展示控件。
+
+#pragma mark ADBannerViewDelegate
+
+-(void)bannerViewWillLoadAd:(ADBannerView *)banner{
+    NSLog(@"%s",__FUNCTION__);
+}
+
+-(void)bannerViewDidLoadAd:(ADBannerView *)banner{
+    NSLog(@"%s",__FUNCTION__);
+}
+
+-(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
+    NSLog(@"%s",__FUNCTION__);
+}
+
+- (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave{
+
+    return YES;
+}
+
+-(void)bannerViewActionDidFinish:(ADBannerView *)banner{
+    NSLog(@"%s",__FUNCTION__);
+}
+
 #pragma mark - iCloud
+
+//iCloud是苹果提供的云端服务，用户可以将通讯录、备忘录、邮件、照片、音乐、视频等备份到云服务器并在各个苹果设备间直接进行共享而无需关心数据同步问题，甚至即使你的设备丢失后在一台新的设备上也可以通过Apple ID登录同步。当然这些内容都是iOS内置的功能，那么对于开放者如何利用iCloud呢？苹果已经将云端存储功能开放给开发者，利用iCloud开发者可以存储两类数据：用户文档和应用数据、应用配置项。前者主要用于一些用户文档、文件的存储，后者更类似于日常开放中的偏好设置，只是这些配置信息会同步到云端。
 
 #pragma mark - Passbook
 
+//Passbook是苹果推出的一个管理登机牌、会员卡、电影票、优惠券等信息的工具。Passbook就像一个卡包，用于存放你的购物卡、积分卡、电影票、礼品卡等，而这些票据就是一个“Pass”。和物理票据不同的是你可以动态更新Pass的信息，提醒用户优惠券即将过期；甚至如果你的Pass中包含地理位置信息的话当你到达某个商店还可以动态提示用户最近商店有何种优惠活动；当用户将一张团购券添加到Passbook之后，用户到了商店之后Passbook可以自动弹出团购券，店员扫描之后进行消费、积分等等都是Passbook的应用场景。Passbook可以管理多类票据，苹果将其划分为五类：
+//登机牌（Boarding pass）
+//优惠券（Coupon）
+//活动票据、入场券（Event ticket）
+//购物卡、积分卡（Store Cards）
+//普通票据(自定义票据)（Generic pass）
+
 #pragma mark - 其他跳转（系统设置）
+
+-(IBAction)jumpToNotificationSetting:(id)sender{
+    //判断是否开启通知权限
+    BOOL isOpenPushNotification = NO;
+    if ([UIDevice currentDevice].systemVersion.floatValue >= 8.0) {
+        isOpenPushNotification = ([[UIApplication sharedApplication] currentUserNotificationSettings].types  != UIRemoteNotificationTypeNone);
+    }else{
+        isOpenPushNotification = ([[UIApplication sharedApplication] enabledRemoteNotificationTypes]  != UIRemoteNotificationTypeNone);
+    }
+
+    //调整通知权限设置页
+    NSURL * url = nil;
+    if ([UIDevice currentDevice].systemVersion.floatValue >= 8.0) {
+        url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+    }else{
+        url= [NSURL URLWithString:@"prefs:root=NOTIFICATIONS_ID"];
+    }
+    if([[UIApplication sharedApplication] canOpenURL:url]) {
+        if ([UIDevice currentDevice].systemVersion.floatValue >= 10.0) {
+            [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {
+            }];
+        }else{
+            [[UIApplication sharedApplication] openURL:url];
+        }
+    }
+}
 
 
 @end

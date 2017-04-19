@@ -132,6 +132,8 @@
 		88C32E8D1E66BFF1002753FC /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C32E491E66BFF1002753FC /* FMDatabaseQueue.m */; };
 		88C32E8E1E66BFF1002753FC /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C32E4C1E66BFF1002753FC /* FMResultSet.m */; };
 		88C32E8F1E66BFF1002753FC /* FMDBVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C32E4E1E66BFF1002753FC /* FMDBVC.m */; };
+		88CC32AE1EA72CCA00801376 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CC32AD1EA72CCA00801376 /* Social.framework */; };
+		88CC32B01EA7405300801376 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CC32AF1EA7405300801376 /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -395,6 +397,8 @@
 		88C32E4C1E66BFF1002753FC /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		88C32E4D1E66BFF1002753FC /* FMDBVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDBVC.h; sourceTree = "<group>"; };
 		88C32E4E1E66BFF1002753FC /* FMDBVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBVC.m; sourceTree = "<group>"; };
+		88CC32AD1EA72CCA00801376 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		88CC32AF1EA7405300801376 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,6 +406,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88CC32B01EA7405300801376 /* iAd.framework in Frameworks */,
+				88CC32AE1EA72CCA00801376 /* Social.framework in Frameworks */,
 				88439EF61EA6E9BD007DDA1B /* CoreBluetooth.framework in Frameworks */,
 				88439EF41EA6E9B3007DDA1B /* MultipeerConnectivity.framework in Frameworks */,
 				88486C8F1EA63DCF00AA842F /* EventKit.framework in Frameworks */,
@@ -750,6 +756,8 @@
 		88A617791E53EED000EF8AFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88CC32AF1EA7405300801376 /* iAd.framework */,
+				88CC32AD1EA72CCA00801376 /* Social.framework */,
 				88439EF51EA6E9BD007DDA1B /* CoreBluetooth.framework */,
 				88439EF31EA6E9B3007DDA1B /* MultipeerConnectivity.framework */,
 				88486C8E1EA63DCF00AA842F /* EventKit.framework */,
