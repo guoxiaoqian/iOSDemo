@@ -25,6 +25,7 @@
 #import "RuntimeVC.h"
 #import "SystemAppVC.h"
 #import "SystemInfoVC.h"
+#import "NotificationVC.h"
 
 @interface EntryModel : NSObject
 
@@ -74,6 +75,7 @@
                        [EntryModel modelWithName:@"RuntimeVC" class:[RuntimeVC class]],
                        [EntryModel modelWithName:@"SystemAppVC" class:[SystemAppVC class]],
                        [EntryModel modelWithName:@"SystemInfoVC" class:[SystemInfoVC class]],
+                       [EntryModel modelWithName:@"NotificationVC" class:[NotificationVC class]],
                        
                        nil];
     

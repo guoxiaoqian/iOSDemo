@@ -45,6 +45,7 @@
 		8865C60D1E8B4B52003AAEC4 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 8865C6011E8B4B52003AAEC4 /* README.md */; };
 		886EBA8C1E991E8C00F9DE77 /* RuntimeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 886EBA8A1E991E8C00F9DE77 /* RuntimeVC.m */; };
 		886EBA8D1E991E8C00F9DE77 /* RuntimeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 886EBA8B1E991E8C00F9DE77 /* RuntimeVC.xib */; };
+		8887A3721EA83E6D005EEFAE /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8887A3711EA83E6D005EEFAE /* UserNotifications.framework */; };
 		889B2E961E89E98700ACD1A0 /* Demo2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 889B2E941E89E98700ACD1A0 /* Demo2@2x.png */; };
 		889B2E971E89E98700ACD1A0 /* Demo2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 889B2E951E89E98700ACD1A0 /* Demo2@3x.png */; };
 		889B2E9B1E8A978300ACD1A0 /* CubeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889B2E991E8A978300ACD1A0 /* CubeVC.m */; };
@@ -253,6 +254,7 @@
 		886EBA891E991E8C00F9DE77 /* RuntimeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RuntimeVC.h; path = "Demo/多媒体/RuntimeVC.h"; sourceTree = SOURCE_ROOT; };
 		886EBA8A1E991E8C00F9DE77 /* RuntimeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RuntimeVC.m; path = "Demo/多媒体/RuntimeVC.m"; sourceTree = SOURCE_ROOT; };
 		886EBA8B1E991E8C00F9DE77 /* RuntimeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RuntimeVC.xib; path = "Demo/多媒体/RuntimeVC.xib"; sourceTree = SOURCE_ROOT; };
+		8887A3711EA83E6D005EEFAE /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		889B2E941E89E98700ACD1A0 /* Demo2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Demo2@2x.png"; sourceTree = "<group>"; };
 		889B2E951E89E98700ACD1A0 /* Demo2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Demo2@3x.png"; sourceTree = "<group>"; };
 		889B2E981E8A978300ACD1A0 /* CubeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CubeVC.h; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8887A3721EA83E6D005EEFAE /* UserNotifications.framework in Frameworks */,
 				88439EFE1EA79F4F007DDA1B /* AdSupport.framework in Frameworks */,
 				88CC32B01EA7405300801376 /* iAd.framework in Frameworks */,
 				88CC32AE1EA72CCA00801376 /* Social.framework in Frameworks */,
@@ -764,6 +767,7 @@
 		88A617791E53EED000EF8AFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8887A3711EA83E6D005EEFAE /* UserNotifications.framework */,
 				88439EFD1EA79F4F007DDA1B /* AdSupport.framework */,
 				88CC32AF1EA7405300801376 /* iAd.framework */,
 				88CC32AD1EA72CCA00801376 /* Social.framework */,
