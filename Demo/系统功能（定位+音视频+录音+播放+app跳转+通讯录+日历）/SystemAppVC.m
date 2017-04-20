@@ -454,7 +454,8 @@
 //大家都知道做iOS开发本身的收入有三种来源：出售应用、内购和广告。内购营销模式，通常软件本身是不收费的，但是要获得某些特权就必须购买一些道具，而内购的过程是由苹果官方统一来管理的
 
 #pragma mark - 广告
-//上面也提到做iOS开发另一收益来源就是广告，在iOS上有很多广告服务可以集成，使用比较多的就是苹果的iAd、谷歌的Admob，下面简单演示一下如何使用iAd来集成广告。使用iAd集成广告的过程比较简单，首先引入iAd.framework框架，然后创建ADBannerView来展示广告，通常会设置ADBannerView的代理方法来监听广告点击并在广告加载失败时隐藏广告展示控件。
+//在iOS上有很多广告服务可以集成，使用比较多的就是苹果的iAd、谷歌的Admob，下面简单演示一下如何使用iAd来集成广告。使用iAd集成广告的过程比较简单，首先引入iAd.framework框架，然后创建ADBannerView来展示广告，通常会设置ADBannerView的代理方法来监听广告点击并在广告加载失败时隐藏广告展示控件。
+//首先你已经参加了那个99刀的开发者计划。之后需要在iTunes Connect的账户中申请加入iAd Network。
 
 #pragma mark ADBannerViewDelegate
 
@@ -468,14 +469,16 @@
 
 -(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
     NSLog(@"%s",__FUNCTION__);
+    //广告不是你想有，想有就能有的
 }
 
 - (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave{
-
+//这个方法在用户点击Banner的时候调用。用户点击Banner之后，会出现一个modal view现实全屏广告。当这个全屏广告出现的时候任何用户相关的活动都需要暂停。这里返回的是YES，如果返回的是NO的话，用户点击了Banner之后不会出现全屏的广告。
     return YES;
 }
 
 -(void)bannerViewActionDidFinish:(ADBannerView *)banner{
+    //这个方法在全屏的广告退出的时候调用。在这里，全屏广告出现时暂停的全部动作又可以开始运行。
     NSLog(@"%s",__FUNCTION__);
 }
 

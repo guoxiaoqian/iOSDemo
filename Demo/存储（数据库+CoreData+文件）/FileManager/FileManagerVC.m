@@ -118,6 +118,8 @@
     ArchiveModel* model = [ArchiveModel new];
     model.name = @"郭晓倩";
     model.year = 11;
+    
+    //路径中包含不存在的文件夹会归档失败，必须确定路径可访问
     NSString* archivePath = [[self filePath] stringByAppendingPathComponent:@"archive"];
     [NSKeyedArchiver archiveRootObject:model toFile:archivePath];
     

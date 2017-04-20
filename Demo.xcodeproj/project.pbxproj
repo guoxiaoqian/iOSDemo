@@ -138,6 +138,7 @@
 		88C32E8F1E66BFF1002753FC /* FMDBVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C32E4E1E66BFF1002753FC /* FMDBVC.m */; };
 		88CC32AE1EA72CCA00801376 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CC32AD1EA72CCA00801376 /* Social.framework */; };
 		88CC32B01EA7405300801376 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CC32AF1EA7405300801376 /* iAd.framework */; };
+		88CC32BA1EA8C3C900801376 /* VolumeWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88CC32B81EA8C3C900801376 /* VolumeWaveView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -408,6 +409,8 @@
 		88C32E4E1E66BFF1002753FC /* FMDBVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBVC.m; sourceTree = "<group>"; };
 		88CC32AD1EA72CCA00801376 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		88CC32AF1EA7405300801376 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		88CC32B81EA8C3C900801376 /* VolumeWaveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolumeWaveView.m; sourceTree = "<group>"; };
+		88CC32B91EA8C3C900801376 /* VolumeWaveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolumeWaveView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -485,6 +488,8 @@
 				88439EED1E9D1466007DDA1B /* SpecialLayerVC.h */,
 				88439EEE1E9D1466007DDA1B /* SpecialLayerVC.m */,
 				88439EEF1E9D1466007DDA1B /* SpecialLayerVC.xib */,
+				88CC32B91EA8C3C900801376 /* VolumeWaveView.h */,
+				88CC32B81EA8C3C900801376 /* VolumeWaveView.m */,
 			);
 			path = "UI高级（动画）";
 			sourceTree = "<group>";
@@ -1159,6 +1164,7 @@
 				8865C60B1E8B4B52003AAEC4 /* View+MASAdditions.m in Sources */,
 				889C4AA71E9C743000EB2C68 /* AFURLResponseSerialization.m in Sources */,
 				88C32E891E66BFF1002753FC /* UICKeyChainStore.m in Sources */,
+				88CC32BA1EA8C3C900801376 /* VolumeWaveView.m in Sources */,
 				889C4AAE1E9C743000EB2C68 /* UIButton+AFNetworking.m in Sources */,
 				889C4AA51E9C743000EB2C68 /* AFURLConnectionOperation.m in Sources */,
 				88C32E8C1E66BFF1002753FC /* FMDatabasePool.m in Sources */,

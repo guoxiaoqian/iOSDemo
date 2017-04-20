@@ -7,6 +7,7 @@
 //
 
 #import "SpecialLayerVC.h"
+#import "VolumeWaveView.h"
 
 @interface TiledView : UIView
 
@@ -50,6 +51,8 @@
     // Do any additional setup after loading the view from its nib.
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
+    [self shapeLayer];
+    
     [self gradientLayer];
     
     [self transformLayer];
@@ -66,6 +69,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)shapeLayer{
+    VolumeWaveView* waveView = [[VolumeWaveView alloc] initWithFrame:CGRectMake(0, 400, 200, 50)];
+    [self.view addSubview:waveView];
+    [waveView start];
 }
 
 -(void)gradientLayer{
