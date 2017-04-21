@@ -65,20 +65,22 @@
 }
 
 -(void)sendLocalNotification{
-    //    触发器是只对本地通知而言的，远程推送的通知的话默认会在收到后立即显示。现在 UserNotifications 框架中提供了三种触发器，分别是：在一定时间后触发 UNTimeIntervalNotificationTrigger，在某月某日某时触发 UNCalendarNotificationTrigger 以及在用户进入或是离开某个区域时触发 UNLocationNotificationTrigger。
-    //    请求标识符可以用来区分不同的通知请求，在将一个通知请求提交后，通过特定 API 我们能够使用这个标识符来取消或者更新这个通知。我们将在稍后再提到具体用法。
-    UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
-    content.title = @"标题";
-    content.subtitle = @"副标题";
-    content.userInfo = @{@"name":@"郭晓倩"}; //额外信息
-    
-    UNNotificationTrigger* trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:3 repeats:NO];
-    
+    //请求标识符可以用来区分不同的通知请求，在将一个通知请求提交后，通过特定 API 我们能够使用这个标识符来取消或者更新这个通知。我们将在稍后再提到具体用法。
     NSString* identifier = @"com.qq.student.notification";
     
     
+    //内容--基本信息
+    UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
+    content.title = @"标题";
+    content.subtitle = @"副标题";
     
-//    iOS 8 和 9 中 Apple 引入了可以交互的通知，这是通过将一簇 action 放到一个 category 中，将这个 category 进行注册，最后在发送通知时将通知的 category 设置为要使用的 category 来实现的。
+    
+    //内容--额外信息
+    content.userInfo = @{@"name":@"郭晓倩"};
+    
+    
+    //内容--操作选项
+    //    iOS 8 和 9 中 Apple 引入了可以交互的通知，这是通过将一簇 action 放到一个 category 中，将这个 category 进行注册，最后在发送通知时将通知的 category 设置为要使用的 category 来实现的。
     UNNotificationAction* addAction = [UNNotificationAction actionWithIdentifier:@"action.add" title:@"add" options:UNNotificationActionOptionForeground];
     UNTextInputNotificationAction* inputAction = [UNTextInputNotificationAction actionWithIdentifier:@"action.input" title:@"input" options:UNNotificationActionOptionForeground];
     UNNotificationAction* cancelAction = [UNNotificationAction actionWithIdentifier:@"action.cancel" title:@"cancel" options:UNNotificationActionOptionDestructive];
@@ -86,14 +88,38 @@
     [[UNUserNotificationCenter currentNotificationCenter] setNotificationCategories:[NSSet setWithObject:category]];
     content.categoryIdentifier = @"category";
     //尝试展示这个通知，在下拉或者使用 3D touch 展开通知后，就可以看到对应的 action了
-//    远程推送也可以使用 category，只需要在 payload 中添加 category 字段，并指定预先定义的 category id 就可以了：
-//    {
-//        "aps":{
-//            "alert":"Please say something",
-//            "category":"saySomething"
-//        }
-//    }
-
+    //    远程推送也可以使用 category，只需要在 payload 中添加 category 字段，并指定预先定义的 category id 就可以了：
+    //    {
+    //        "aps":{
+    //            "alert":"Please say something",
+    //            "category":"saySomething"
+    //        }
+    //    }
+    
+    //内容--多媒体附件
+    NSURL* fileURL = [[NSBundle mainBundle] URLForResource:@"Demo" withExtension:@"png"];
+    UNNotificationAttachment* attachment = [UNNotificationAttachment attachmentWithIdentifier:@"attach" URL:fileURL options:nil error:nil];
+    content.attachments = @[attachment];
+    //    除了图片以外，通知还支持音频以及视频。你可以将 MP3 或者 MP4 这样的文件提供给系统来在通知中进行展示和播放。不过，这些文件都有尺寸的限制，比如图片不能超过 10MB，视频不能超过 50MB 等，
+    //    远程推送中，我们在推送的 payload 中指定需要加载的图片资源地址，这个地址可以是应用 bundle 内已经存在的资源，也可以是网络的资源。
+    //    Notification Service Extension 来修改推送通知内容的技术,获取或下载图片，并生成 attachment，进行通知展示；mutable-content 表示我们会在接收到通知时对内容进行更改，image 指明了目标图片的地址。
+    //    {
+    //        "aps":{
+    //            "alert":{
+    //                "title":"Image Notification",
+    //                "body":"Show me an image from web!"
+    //            },
+    //            "mutable-content":1
+    //        },
+    //        "image": "https://onevcat.com/assets/images/background-cover.jpg"
+    //    }
+    
+    
+    
+    
+    //    触发器是只对本地通知而言的，远程推送的通知的话默认会在收到后立即显示。现在 UserNotifications 框架中提供了三种触发器，分别是：在一定时间后触发 UNTimeIntervalNotificationTrigger，在某月某日某时触发 UNCalendarNotificationTrigger 以及在用户进入或是离开某个区域时触发 UNLocationNotificationTrigger。
+    UNNotificationTrigger* trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:3 repeats:NO];
+    
     
     UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:identifier content:content trigger:trigger];
     
@@ -177,6 +203,7 @@
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
     NSLog(@"%s error=%@",__FUNCTION__,error);
 }
+
 
 -(void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{
     
