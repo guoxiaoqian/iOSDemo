@@ -19,6 +19,11 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>TodayExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -43,6 +48,11 @@
 			<true/>
 		</dict>
 		<key>88A6175B1E53100C00EF8AFC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88CC32C01EA9F2B100801376</key>
 		<dict>
 			<key>primary</key>
 			<true/>

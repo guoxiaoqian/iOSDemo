@@ -48,10 +48,10 @@
     [UNUserNotificationCenter currentNotificationCenter].delegate = self;
     
     //通用权限
-    [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:UNAuthorizationOptionBadge | UNAuthorizationOptionAlert completionHandler:^(BOOL granted, NSError * _Nullable error) {
+    [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:UNAuthorizationOptionBadge | UNAuthorizationOptionAlert | UNAuthorizationOptionSound completionHandler:^(BOOL granted, NSError * _Nullable error) {
         if (granted) {
             NSLog(@"获取通知权限成功,然后注册远程推送或发送本地通知");
-            [self registerRemoteNotification];
+//            [self registerRemoteNotification];
             [self sendLocalNotification];
         }else{
             NSLog(@"获取通知权限失败");
@@ -73,7 +73,7 @@
     UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
     content.title = @"标题";
     content.subtitle = @"副标题";
-    
+    content.body = @"我是bdoy";
     
     //内容--额外信息
     content.userInfo = @{@"name":@"郭晓倩"};
@@ -118,13 +118,13 @@
     
     
     //    触发器是只对本地通知而言的，远程推送的通知的话默认会在收到后立即显示。现在 UserNotifications 框架中提供了三种触发器，分别是：在一定时间后触发 UNTimeIntervalNotificationTrigger，在某月某日某时触发 UNCalendarNotificationTrigger 以及在用户进入或是离开某个区域时触发 UNLocationNotificationTrigger。
-    UNNotificationTrigger* trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:3 repeats:NO];
+    UNNotificationTrigger* trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:60 repeats:YES];
     
     
     UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:identifier content:content trigger:trigger];
     
     [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
-        
+        NSLog(@"add notification complete, error = %@",error);
     }];
     
 }
@@ -201,16 +201,18 @@
 }
 
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
+    //Code=3000 "未找到应用程序的“aps-environment”的授权字符串" 解决办法:在Capblilities中打开这个‘Push Notification’开关，steps这两步骤会自动检查APP ID等推送文件的合法性。
     NSLog(@"%s error=%@",__FUNCTION__,error);
 }
 
 
 -(void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{
-    
+    NSLog(@"%s",__FUNCTION__);
 }
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     //IOS10之前
+    NSLog(@"%s",__FUNCTION__);
 }
 
 @end

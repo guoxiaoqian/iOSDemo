@@ -23,6 +23,9 @@
     // Do any required interface initialization here.
 }
 
+//iOS 10 SDK 新加的另一个 Content Extension 可以用来自定义通知的详细页面的视图
+//系统在接收到通知后会先查找有没有能够处理这类通知的 content extension，如果存在，那么就交给 extension 来进行处理。
+
 //自定义 UI 的通知是和通知 category 绑定的，我们需要在 extension 的 Info.plist 里指定这个通知样式所对应的 category 标识符：
 //系统在接收到通知后会先查找有没有能够处理这类通知的 content extension，如果存在，那么就交给 extension 来进行处理。
 
@@ -31,6 +34,9 @@
 //如果你的自定义 UI 包含视频等，你还可以实现 UNNotificationContentExtension 里的 media 开头的一系列属性，它将为你提供一些视频播放的控件和相关方法。
 
 - (void)didReceiveNotification:(UNNotification *)notification {
+    
+    NSLog(@"%s",__FUNCTION__);
+    
     self.label.text = notification.request.content.body;
     
     UNNotificationAttachment* attachment = notification.request.content.attachments.firstObject;

@@ -18,11 +18,26 @@
 
 @implementation NotificationService
 
+
+//Service Extension 让我们有机会在收到远程推送的通知后，展示之前对通知内容进行修改；现在只对远程推送的通知起效，你可以在推送 payload 中增加一个 mutable-content 值为 1 的项来启用内容修改：
+//{
+//    "aps":{
+//        "alert":{
+//            "title":"Greetings",
+//            "body":"Long time no see"
+//        },
+//        "mutable-content":1
+//    }
+//}
+
 - (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent * _Nonnull))contentHandler {
+    
+    NSLog(@"%s",__FUNCTION__);
+    
     self.contentHandler = contentHandler;
     self.bestAttemptContent = [request.content mutableCopy];
     
-    // Modify the notification content here...
+    //可以修改推送内容，或者处理加密传输
     self.bestAttemptContent.title = [NSString stringWithFormat:@"%@ [modified]", self.bestAttemptContent.title];
     
 //    attachments 虽然是一个数组，但是系统只会展示第一个 attachment 对象的内容。但你可以发送多个，并处理那个优先显示
@@ -38,11 +53,14 @@
     }
 
     
-    //    serviceExtensionTimeWillExpire 被调用之前，你有 30 秒时间来处理和更改通知内容。
+    //serviceExtensionTimeWillExpire 被调用之前，你有 30 秒时间来处理和更改通知内容。
     self.contentHandler(self.bestAttemptContent);
 }
 
 - (void)serviceExtensionTimeWillExpire {
+    
+    NSLog(@"%s",__FUNCTION__);
+    
     // Called just before the extension will be terminated by the system.
     // Use this as an opportunity to deliver your "best attempt" at modified content, otherwise the original push payload will be used.
     self.contentHandler(self.bestAttemptContent);
