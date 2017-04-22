@@ -33,6 +33,30 @@ void print(id self,SEL _cmd){
 @end
 
 
+#pragma mark - 通过扩展加属性
+
+@interface RuntimeObject (AddProperty)
+
+@property (strong,nonatomic) NSString* address;
+
+@end
+
+@implementation RuntimeObject (AddProperty)
+
+static char key;
+
+//key只要是唯一的标示就行，比如一个固定的地址
+-(void)setAddress:(NSString *)address{
+//    objc_setAssociatedObject(self, @selector(address), address, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, &key, address, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+-(NSString*)address{
+   return objc_getAssociatedObject(self, &key);
+}
+
+@end
+
 
 #pragma mark - 消息转发相关
 
@@ -239,6 +263,10 @@ void clasMethodImplemention(id self,SEL _cmd){
     Ivar nameVar = class_getInstanceVariable([RuntimeObject class], "_name");
     object_setIvar(obj, nameVar, @"郭晓倩");
     NSLog(@"nameVar %@",obj.name);
+    
+    //增加属性
+    obj.address = @"地址是哈哈哈哈";
+    NSLog(@"增加属性：address=%@",obj.address);
 }
 
 -(void)runtimeMethod{
@@ -307,6 +335,35 @@ void clasMethodImplemention(id self,SEL _cmd){
     
     //访问方法
     [obj performSelector:@selector(print)];
+    
+    
+}
+
+-(void)typeBridge{
+//    在 iOS 中关于 CoreFoundation 框架和 Foundation 框架的桥接有三种方式。
+//    1、CoreFoundation-> Foundation 。
+//    将 CoreFoundation 框架的对象的对象所有权交给 Foundation 框架来使用，CoreFoundation 中的对象的内存管理还是自己来管理
+//    (__bridge <#type#>)<#expression#>);
+//    2、 Foundation-> CoreFoundation 。
+//    将 Foundation 框架的对象 retain 之后转换为 CoreFoundation 框架来使用，这样保证了 Foundation 框架的对象被释放后，CoreFoundation 的值仍旧能正常使用,然后需要CoreFundation自己释放内存：
+//    (__bridge_retained <#CF type#>)<#expression#>;
+//    3、 CoreFoundation-> Foundation 。
+//    将 CoreFoundation 框架中的对象的所有权和内存都交给Foundation 框架来管理，也就是说通过这种方法来转换之后，不用写 CFRelease（） 了。
+//    (__bridge_transfer <#Objective-C type#>)<#expression#>);
+    
+    NSString* ocStr = @"郭晓倩";
+    CFStringRef cfStr = (__bridge_retained CFStringRef)ocStr;//先计数加一，需要手动释放
+    CFRelease(cfStr);
+    CFStringRef cfStr2 = (__bridge CFStringRef)ocStr;//仅获得使用权，不需要手动释放
+
+    
+    CFStringRef cfStr3 = (__bridge_retained CFStringRef)ocStr;
+    CFStringRef cfStr4 = (__bridge_retained CFStringRef)ocStr;
+    NSString* ocStr3 = (__bridge NSString*)cfStr3; //仅获取使用权，还需手动释放
+    CFRelease(cfStr3);
+
+    NSString* ocStr4 = (__bridge_transfer NSString*)cfStr4; //获取管理权，不用手动释放
+
 }
 
 
