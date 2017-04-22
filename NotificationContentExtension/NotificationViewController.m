@@ -12,7 +12,7 @@
 
 @interface NotificationViewController () <UNNotificationContentExtension>
 
-@property IBOutlet UILabel *label;
+@property IBOutlet UIImageView *imageView;
 
 @end
 
@@ -37,13 +37,11 @@
     
     NSLog(@"%s",__FUNCTION__);
     
-    self.label.text = notification.request.content.body;
-    
     UNNotificationAttachment* attachment = notification.request.content.attachments.firstObject;
     if ([attachment.URL startAccessingSecurityScopedResource]) {
-        
+        NSLog(@"CONTENT EXTENSION attachURL %@",attachment.URL.path);
         UIImage* image = [UIImage imageWithContentsOfFile:attachment.URL.path];
-        
+        self.imageView.image = image;
         [attachment.URL stopAccessingSecurityScopedResource];
     }
 }

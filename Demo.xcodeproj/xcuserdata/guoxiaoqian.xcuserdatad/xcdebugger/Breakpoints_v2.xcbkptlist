@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo/&#x7cfb;&#x7edf;&#x529f;&#x80fd;&#xff08;&#x5b9a;&#x4f4d;+&#x97f3;&#x89c6;&#x9891;+&#x5f55;&#x97f3;+&#x64ad;&#x653e;+app&#x8df3;&#x8f6c;+&#x901a;&#x8baf;&#x5f55;+&#x65e5;&#x5386;&#xff09;/NotificationVC.m"
-            timestampString = "514433506.674012"
+            timestampString = "514551911.858385"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "-userNotificationCenter:willPresentNotification:withCompletionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo/&#x7cfb;&#x7edf;&#x529f;&#x80fd;&#xff08;&#x5b9a;&#x4f4d;+&#x97f3;&#x89c6;&#x9891;+&#x5f55;&#x97f3;+&#x64ad;&#x653e;+app&#x8df3;&#x8f6c;+&#x901a;&#x8baf;&#x5f55;+&#x65e5;&#x5386;&#xff09;/NotificationVC.m"
-            timestampString = "514433509.226897"
+            timestampString = "514551911.858385"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "-userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo/&#x7cfb;&#x7edf;&#x529f;&#x80fd;&#xff08;&#x5b9a;&#x4f4d;+&#x97f3;&#x89c6;&#x9891;+&#x5f55;&#x97f3;+&#x64ad;&#x653e;+app&#x8df3;&#x8f6c;+&#x901a;&#x8baf;&#x5f55;+&#x65e5;&#x5386;&#xff09;/NotificationVC.m"
-            timestampString = "514433512.567875"
+            timestampString = "514551911.858385"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "-application:didRegisterForRemoteNotificationsWithDeviceToken:"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo/&#x7cfb;&#x7edf;&#x529f;&#x80fd;&#xff08;&#x5b9a;&#x4f4d;+&#x97f3;&#x89c6;&#x9891;+&#x5f55;&#x97f3;+&#x64ad;&#x653e;+app&#x8df3;&#x8f6c;+&#x901a;&#x8baf;&#x5f55;+&#x65e5;&#x5386;&#xff09;/NotificationVC.m"
-            timestampString = "514433768.18926"
+            timestampString = "514551911.858385"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
             landmarkName = "-application:didFailToRegisterForRemoteNotificationsWithError:"
             landmarkType = "7">
          </BreakpointContent>
@@ -176,6 +176,70 @@
             startingLineNumber = "37"
             endingLineNumber = "37"
             landmarkName = "-didReceiveNotification:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Demo/&#x7cfb;&#x7edf;&#x529f;&#x80fd;&#xff08;&#x5b9a;&#x4f4d;+&#x97f3;&#x89c6;&#x9891;+&#x5f55;&#x97f3;+&#x64ad;&#x653e;+app&#x8df3;&#x8f6c;+&#x901a;&#x8baf;&#x5f55;+&#x65e5;&#x5386;&#xff09;/NotificationVC.m"
+            timestampString = "514551911.858385"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
+            landmarkName = "-userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NotificationContentExtension/NotificationViewController.m"
+            timestampString = "514542143.321736"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "-didReceiveNotification:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ShareExtension/ShareViewController.m"
+            timestampString = "514551927.578872"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "-didSelectPost"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ShareExtension/ShareViewController.m"
+            timestampString = "514551931.011045"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "-configurationItems"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -10,6 +10,10 @@
 #import <NotificationCenter/NotificationCenter.h>
 #import <Foundation/Foundation.h>
 
+
+//构建主APP到模拟器上，widget自动添加；真机好像不行。。。
+//内部断点任何时候都生效
+
 @interface TodayViewController () <NCWidgetProviding>
 
 @end
@@ -53,11 +57,17 @@
     // If there's no update required, use NCUpdateResultNoData
     // If there's an update, use NCUpdateResultNewData
     
-    //在iOS8中，UIViewController新增了一个扩展上下文属性extensionContext，来处理containingapp与扩展之间的通信
-    //通过openURL方式拉起主应用
-    [self.extensionContext openURL:[NSURL URLWithString:@""] completionHandler:nil];
+
+    //刷新数据后回调
 
     completionHandler(NCUpdateResultNewData);
+}
+
+-(IBAction)didOpenApp:(id)sender{
+    //在iOS8中，UIViewController新增了一个扩展上下文属性extensionContext，来处理containingapp与扩展之间的通信
+    //通过openURL方式拉起主应用
+    [self.extensionContext openURL:[NSURL URLWithString:@"Demo://xxxx"] completionHandler:nil];
+
 }
 
 @end

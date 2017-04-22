@@ -51,7 +51,7 @@
     [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:UNAuthorizationOptionBadge | UNAuthorizationOptionAlert | UNAuthorizationOptionSound completionHandler:^(BOOL granted, NSError * _Nullable error) {
         if (granted) {
             NSLog(@"获取通知权限成功,然后注册远程推送或发送本地通知");
-//            [self registerRemoteNotification];
+            //            [self registerRemoteNotification];
             [self sendLocalNotification];
         }else{
             NSLog(@"获取通知权限失败");
@@ -121,11 +121,13 @@
     UNNotificationTrigger* trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:60 repeats:YES];
     
     
+    
     UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:identifier content:content trigger:trigger];
     
     [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
         NSLog(@"add notification complete, error = %@",error);
     }];
+
     
 }
 
