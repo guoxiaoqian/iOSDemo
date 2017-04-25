@@ -56,6 +56,9 @@
 		8887A3A51EAB58B4005EEFAE /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8887A3A41EAB58B4005EEFAE /* ShareViewController.m */; };
 		8887A3A81EAB58B4005EEFAE /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8887A3A61EAB58B4005EEFAE /* MainInterface.storyboard */; };
 		8887A3AC1EAB58B4005EEFAE /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8887A3A11EAB58B3005EEFAE /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8887A3B31EAEC8C7005EEFAE /* H5VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8887A3B11EAEC8C7005EEFAE /* H5VC.m */; };
+		8887A3B41EAEC8C7005EEFAE /* H5VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8887A3B21EAEC8C7005EEFAE /* H5VC.xib */; };
+		8887A3B61EAED15B005EEFAE /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8887A3B51EAED15B005EEFAE /* WebKit.framework */; };
 		889B2E961E89E98700ACD1A0 /* Demo2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 889B2E941E89E98700ACD1A0 /* Demo2@2x.png */; };
 		889B2E971E89E98700ACD1A0 /* Demo2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 889B2E951E89E98700ACD1A0 /* Demo2@3x.png */; };
 		889B2E9B1E8A978300ACD1A0 /* CubeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889B2E991E8A978300ACD1A0 /* CubeVC.m */; };
@@ -327,6 +330,10 @@
 		8887A3A41EAB58B4005EEFAE /* ShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
 		8887A3A71EAB58B4005EEFAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		8887A3A91EAB58B4005EEFAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8887A3B01EAEC8C7005EEFAE /* H5VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = H5VC.h; path = "Demo/系统功能（定位+音视频+录音+播放+app跳转+通讯录+日历）/H5VC.h"; sourceTree = SOURCE_ROOT; };
+		8887A3B11EAEC8C7005EEFAE /* H5VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = H5VC.m; path = "Demo/系统功能（定位+音视频+录音+播放+app跳转+通讯录+日历）/H5VC.m"; sourceTree = SOURCE_ROOT; };
+		8887A3B21EAEC8C7005EEFAE /* H5VC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = H5VC.xib; path = "Demo/系统功能（定位+音视频+录音+播放+app跳转+通讯录+日历）/H5VC.xib"; sourceTree = SOURCE_ROOT; };
+		8887A3B51EAED15B005EEFAE /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		889B2E941E89E98700ACD1A0 /* Demo2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Demo2@2x.png"; sourceTree = "<group>"; };
 		889B2E951E89E98700ACD1A0 /* Demo2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Demo2@3x.png"; sourceTree = "<group>"; };
 		889B2E981E8A978300ACD1A0 /* CubeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CubeVC.h; sourceTree = "<group>"; };
@@ -520,6 +527,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8887A3B61EAED15B005EEFAE /* WebKit.framework in Frameworks */,
 				8887A3721EA83E6D005EEFAE /* UserNotifications.framework in Frameworks */,
 				88439EFE1EA79F4F007DDA1B /* AdSupport.framework in Frameworks */,
 				88CC32B01EA7405300801376 /* iAd.framework in Frameworks */,
@@ -923,6 +931,7 @@
 		88A617791E53EED000EF8AFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8887A3B51EAED15B005EEFAE /* WebKit.framework */,
 				8887A3711EA83E6D005EEFAE /* UserNotifications.framework */,
 				88439EFD1EA79F4F007DDA1B /* AdSupport.framework */,
 				88CC32AF1EA7405300801376 /* iAd.framework */,
@@ -1072,6 +1081,9 @@
 		88C32E811E66BFF1002753FC /* H5相关 */ = {
 			isa = PBXGroup;
 			children = (
+				8887A3B01EAEC8C7005EEFAE /* H5VC.h */,
+				8887A3B11EAEC8C7005EEFAE /* H5VC.m */,
+				8887A3B21EAEC8C7005EEFAE /* H5VC.xib */,
 			);
 			path = "H5相关";
 			sourceTree = "<group>";
@@ -1362,6 +1374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				889DBA6E1E7E71F900520C77 /* Demo.png in Resources */,
+				8887A3B41EAEC8C7005EEFAE /* H5VC.xib in Resources */,
 				889C4A6A1E9C6D7B00EB2C68 /* SystemAppVC.xib in Resources */,
 				889B2E971E89E98700ACD1A0 /* Demo2@3x.png in Resources */,
 				882C99791E8E267700BFDAC7 /* music.mp3 in Resources */,
@@ -1511,6 +1524,7 @@
 				889C4AA01E9C743000EB2C68 /* AFHTTPRequestOperation.m in Sources */,
 				889C4AA41E9C743000EB2C68 /* AFSecurityPolicy.m in Sources */,
 				889DBA761E7E71F900520C77 /* QuartzDemoVC.m in Sources */,
+				8887A3B31EAEC8C7005EEFAE /* H5VC.m in Sources */,
 				889DBA711E7E71F900520C77 /* QuartzBlendingViewController.m in Sources */,
 				889C4AAD1E9C743000EB2C68 /* UIAlertView+AFNetworking.m in Sources */,
 				889C4A691E9C6D7B00EB2C68 /* SystemAppVC.m in Sources */,

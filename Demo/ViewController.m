@@ -26,6 +26,7 @@
 #import "SystemAppVC.h"
 #import "SystemInfoVC.h"
 #import "NotificationVC.h"
+#import "H5VC.h"
 
 @interface EntryModel : NSObject
 
@@ -76,7 +77,8 @@
                        [EntryModel modelWithName:@"SystemAppVC" class:[SystemAppVC class]],
                        [EntryModel modelWithName:@"SystemInfoVC" class:[SystemInfoVC class]],
                        [EntryModel modelWithName:@"NotificationVC" class:[NotificationVC class]],
-                       
+                       [EntryModel modelWithName:@"H5VC" class:[H5VC class]],
+
                        nil];
     
 }
