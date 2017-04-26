@@ -9,7 +9,7 @@
 #import "H5VC.h"
 #import <WebKit/WebKit.h>
 
-@interface H5VC () <UIWebViewDelegate>
+@interface H5VC () <UIWebViewDelegate,WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler>
 
 @property (strong,nonatomic) UIWebView* uiWebView;
 @property (strong,nonatomic) WKWebView* wkWebView;
@@ -24,6 +24,14 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
+    
+    [self showUIWebView];
+    
+    [self UIWebViewWithJS];
+    
+    [self showWKWebView];
+    
+    [self WKWebViewWithJS];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -128,7 +136,9 @@
 #pragma mark - WKWebView
 
 -(void)showWKWebView{
-    WKWebView* webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 200+5, kScreenWidth, 200) configuration:nil];
+    WKWebView* webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 200+5, kScreenWidth, 200)];
+    webView.UIDelegate = self;
+    webView.navigationDelegate = self;
     
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]];
     [webView loadRequest:request];
@@ -166,5 +176,117 @@
     
 }
 
+-(void)WKWebViewWithJS{
+    //1、动态加载并运行JS代码
+    
+    // 图片缩放的js代码
+    NSString *js = @"window.alert('呵呵');";
+    // 根据JS字符串初始化WKUserScript对象
+    WKUserScript *script = [[WKUserScript alloc] initWithSource:js injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+    // 根据生成的WKUserScript对象，初始化WKWebViewConfiguration
+    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+    [config.userContentController addUserScript:script];
+    
+    WKWebView* webview = [[WKWebView alloc] initWithFrame:CGRectMake(0, 400+2, kScreenWidth, 200) configuration:config];
+    webview.UIDelegate = self;
+    webview.navigationDelegate = self;
+    
+    [webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
+    [self.view addSubview:webview];
+    
+    //2.webView 执行JS代码
+    
+    //javaScriptString是JS方法名，completionHandler是异步回调block
+    [webview evaluateJavaScript:@"window.alert('郭晓倩');" completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+        
+    }];
+    
+    //3.JS调用App注册过的方法
+    
+    //OC注册供JS调用的方法;NOTE:强持有self,会造成循环引用，使用Protocol代理解决
+    [[webview configuration].userContentController addScriptMessageHandler:self name:@"closeMe"];
+    
+    //OC在JS调用方法做的处理
+    //    - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
+    //        NSLog(@"JS 调用了 %@ 方法，传回参数 %@",message.name,message.body);
+    //    }
+    
+    //JS调用
+    //    window.webkit.messageHandlers.closeMe.postMessage(null);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [webview evaluateJavaScript:@"window.webkit.messageHandlers.closeMe.postMessage('牛兆娟');" completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+            
+        }];
+    });
+}
+
+#pragma mark - WKNavigationDelegate 最常用，和UIWebViewDelegate功能类似，追踪加载过程，有是否允许加载、开始加载、加载完成、加载失败。下面会对函数做简单的说明，并用数字标出调用的先后次序：1-2-3-4-5
+
+//三个是否允许加载函数：
+
+/// 接收到服务器跳转请求之后调用 (服务器端redirect)，不一定调用
+- (void)webView:(WKWebView *)webView didReceiveServerRedirectForProvisionalNavigation:(WKNavigation *)navigation{
+    LOG_FUNCTION;
+}
+/// 3 在收到服务器的响应头，根据response相关信息，决定是否跳转。decisionHandler必须调用，来决定是否跳转，参数WKNavigationActionPolicyCancel取消跳转，WKNavigationActionPolicyAllow允许跳转
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler{
+    LOG_FUNCTION;
+    decisionHandler(WKNavigationResponsePolicyAllow);
+}
+/// 1 在发送请求之前，决定是否跳转
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
+    LOG_FUNCTION;
+    decisionHandler(WKNavigationActionPolicyAllow);
+}
+
+//追踪加载过程函数:
+
+/// 2 页面开始加载
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
+    LOG_FUNCTION;
+}
+/// 4 开始获取到网页内容时返回
+- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation{
+    LOG_FUNCTION;
+}
+/// 5 页面加载完成之后调用
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+    LOG_FUNCTION;
+}
+/// 页面加载失败时调用
+- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation{
+    LOG_FUNCTION;
+}
+
+#pragma mark - WKScriptMessageHandler：必须实现的函数，是APP与js交互，提供从网页中收消息的回调方法
+
+/// message: 收到的脚本信息.
+- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message{
+    LOG_FUNCTION;
+    NSLog(@"JS 调用了 %@ 方法，传回参数 %@",message.name,message.body);
+    
+}
+
+#pragma mark - WKUIDelegate：UI界面相关，原生控件支持，三种提示框：输入、确认、警告。首先将web提示框拦截然后再做处理。
+
+/// 创建一个新的WebView
+- (WKWebView *)webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures{
+    LOG_FUNCTION;
+    return nil;
+}
+/// 输入框
+- (void)webView:(WKWebView *)webView runJavaScriptTextInputPanelWithPrompt:(NSString *)prompt defaultText:(nullable NSString *)defaultText initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(NSString * __nullable result))completionHandler{
+    LOG_FUNCTION;
+}
+/// 确认框
+- (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL result))completionHandler{
+    LOG_FUNCTION;
+}
+/// 警告框
+- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler{
+    LOG_FUNCTION;
+    NSLog(@"alert %@",message);
+    completionHandler();
+}
 
 @end
