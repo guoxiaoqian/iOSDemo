@@ -203,7 +203,7 @@
     
     //3.JS调用App注册过的方法
     
-    //OC注册供JS调用的方法
+    //OC注册供JS调用的方法;NOTE:强持有self,会造成循环引用，使用Protocol代理解决
     [[webview configuration].userContentController addScriptMessageHandler:self name:@"closeMe"];
     
     //OC在JS调用方法做的处理
@@ -213,6 +213,11 @@
     
     //JS调用
     //    window.webkit.messageHandlers.closeMe.postMessage(null);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [webview evaluateJavaScript:@"window.webkit.messageHandlers.closeMe.postMessage('牛兆娟');" completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+            
+        }];
+    });
 }
 
 #pragma mark - WKNavigationDelegate 最常用，和UIWebViewDelegate功能类似，追踪加载过程，有是否允许加载、开始加载、加载完成、加载失败。下面会对函数做简单的说明，并用数字标出调用的先后次序：1-2-3-4-5
@@ -258,6 +263,8 @@
 /// message: 收到的脚本信息.
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message{
     LOG_FUNCTION;
+    NSLog(@"JS 调用了 %@ 方法，传回参数 %@",message.name,message.body);
+    
 }
 
 #pragma mark - WKUIDelegate：UI界面相关，原生控件支持，三种提示框：输入、确认、警告。首先将web提示框拦截然后再做处理。
