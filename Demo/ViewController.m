@@ -27,6 +27,7 @@
 #import "SystemInfoVC.h"
 #import "NotificationVC.h"
 #import "H5VC.h"
+#import "AutoLayoutVC.h"
 
 @interface EntryModel : NSObject
 
@@ -63,6 +64,7 @@
                        [EntryModel modelWithName:@"File Manager" class:[FileManagerVC class]],
                        [EntryModel modelWithName:@"Network" class:[NetworkVC class]],
                        [EntryModel modelWithName:@"CoreLocation" class:[CoreLocationVC class]],
+                       [EntryModel modelWithName:@"AutoLayoutVC" class:[AutoLayoutVC class]],
                        [EntryModel modelWithName:@"Quartz2DDemo" class:[QuartzDemoVC class]],
                        [EntryModel modelWithName:@"CoreGraphic" class:[CoreGraphicVC class]],
                        [EntryModel modelWithName:@"CoreAnimationDemo" class:[TestGeneralAnimationVC class]],

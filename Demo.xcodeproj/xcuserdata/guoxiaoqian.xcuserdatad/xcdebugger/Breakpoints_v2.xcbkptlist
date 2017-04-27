@@ -90,12 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo/&#x7cfb;&#x7edf;&#x529f;&#x80fd;&#xff08;&#x5b9a;&#x4f4d;+&#x97f3;&#x89c6;&#x9891;+&#x5f55;&#x97f3;+&#x64ad;&#x653e;+app&#x8df3;&#x8f6c;+&#x901a;&#x8baf;&#x5f55;+&#x65e5;&#x5386;&#xff09;/NotificationVC.m"
-            timestampString = "514724453.101604"
+            timestampString = "514551911.858385"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
-            landmarkName = "-userNotificationCenter:willPresentNotification:withCompletionHandler:"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
+            landmarkName = "-setCategoryAndAction"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -106,12 +106,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo/&#x7cfb;&#x7edf;&#x529f;&#x80fd;&#xff08;&#x5b9a;&#x4f4d;+&#x97f3;&#x89c6;&#x9891;+&#x5f55;&#x97f3;+&#x64ad;&#x653e;+app&#x8df3;&#x8f6c;+&#x901a;&#x8baf;&#x5f55;+&#x65e5;&#x5386;&#xff09;/NotificationVC.m"
-            timestampString = "514724453.101604"
+            timestampString = "514551911.858385"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
-            landmarkName = "-userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "-sendLocalNotification"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -202,12 +202,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo/&#x7cfb;&#x7edf;&#x529f;&#x80fd;&#xff08;&#x5b9a;&#x4f4d;+&#x97f3;&#x89c6;&#x9891;+&#x5f55;&#x97f3;+&#x64ad;&#x653e;+app&#x8df3;&#x8f6c;+&#x901a;&#x8baf;&#x5f55;+&#x65e5;&#x5386;&#xff09;/NotificationVC.m"
-            timestampString = "514724453.101604"
+            timestampString = "514723752.940521"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
-            landmarkName = "-userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "-sendLocalNotification"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
