@@ -27,6 +27,7 @@
 #import "SystemInfoVC.h"
 #import "NotificationVC.h"
 #import "H5VC.h"
+#import "FunctionVC.h"
 
 @interface EntryModel : NSObject
 
@@ -74,6 +75,7 @@
                        [EntryModel modelWithName:@"MediaVC" class:[MediaVC class]],
                        [EntryModel modelWithName:@"ConcurrencyVC" class:[ConcurrencyVC class]],
                        [EntryModel modelWithName:@"RuntimeVC" class:[RuntimeVC class]],
+                       [EntryModel modelWithName:@"FunctionVC" class:[FunctionVC class]],
                        [EntryModel modelWithName:@"SystemAppVC" class:[SystemAppVC class]],
                        [EntryModel modelWithName:@"SystemInfoVC" class:[SystemInfoVC class]],
                        [EntryModel modelWithName:@"NotificationVC" class:[NotificationVC class]],
