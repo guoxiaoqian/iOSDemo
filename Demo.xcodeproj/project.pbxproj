@@ -31,6 +31,8 @@
 		8849AE2D1EC2BBAE001F3218 /* FunctionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8849AE281EC2BBAE001F3218 /* FunctionVC.xib */; };
 		8849AE2E1EC2BBAE001F3218 /* RuntimeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8849AE291EC2BBAE001F3218 /* RuntimeVC.m */; };
 		8849AE2F1EC2BBAE001F3218 /* RuntimeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8849AE2B1EC2BBAE001F3218 /* RuntimeVC.xib */; };
+		8849AE331EC30260001F3218 /* RunloopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8849AE311EC30260001F3218 /* RunloopVC.m */; };
+		8849AE341EC30260001F3218 /* RunloopVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8849AE321EC30260001F3218 /* RunloopVC.xib */; };
 		885960C61E7020DD00760090 /* TestGeneralAnimationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960C41E7020DD00760090 /* TestGeneralAnimationVC.m */; };
 		885960C71E7020DD00760090 /* TestGeneralAnimationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885960C51E7020DD00760090 /* TestGeneralAnimationVC.xib */; };
 		885960C91E70211C00760090 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885960C81E70211C00760090 /* QuartzCore.framework */; };
@@ -286,6 +288,9 @@
 		8849AE291EC2BBAE001F3218 /* RuntimeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuntimeVC.m; sourceTree = "<group>"; };
 		8849AE2A1EC2BBAE001F3218 /* RuntimeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuntimeVC.h; sourceTree = "<group>"; };
 		8849AE2B1EC2BBAE001F3218 /* RuntimeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RuntimeVC.xib; sourceTree = "<group>"; };
+		8849AE301EC30260001F3218 /* RunloopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunloopVC.h; sourceTree = "<group>"; };
+		8849AE311EC30260001F3218 /* RunloopVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunloopVC.m; sourceTree = "<group>"; };
+		8849AE321EC30260001F3218 /* RunloopVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RunloopVC.xib; sourceTree = "<group>"; };
 		885960C31E7020DD00760090 /* TestGeneralAnimationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestGeneralAnimationVC.h; sourceTree = "<group>"; };
 		885960C41E7020DD00760090 /* TestGeneralAnimationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestGeneralAnimationVC.m; sourceTree = "<group>"; };
 		885960C51E7020DD00760090 /* TestGeneralAnimationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestGeneralAnimationVC.xib; sourceTree = "<group>"; };
@@ -1010,6 +1015,9 @@
 				889B2EB51E9077DB00ACD1A0 /* ConcurrencyVC.h */,
 				889B2EB61E9077DB00ACD1A0 /* ConcurrencyVC.m */,
 				889B2EB71E9077DB00ACD1A0 /* ConcurrencyVC.xib */,
+				8849AE301EC30260001F3218 /* RunloopVC.h */,
+				8849AE311EC30260001F3218 /* RunloopVC.m */,
+				8849AE321EC30260001F3218 /* RunloopVC.xib */,
 			);
 			path = "多线程";
 			sourceTree = "<group>";
@@ -1417,6 +1425,7 @@
 				88C32E871E66BFF1002753FC /* FileManagerVC.xib in Resources */,
 				88A617461E53100C00EF8AFC /* Main.storyboard in Resources */,
 				8849AE2F1EC2BBAE001F3218 /* RuntimeVC.xib in Resources */,
+				8849AE341EC30260001F3218 /* RunloopVC.xib in Resources */,
 				88C32E881E66BFF1002753FC /* student.xml in Resources */,
 				889DBA4A1E7AC65700520C77 /* 概念.txt in Resources */,
 				882C996D1E8BC39100BFDAC7 /* EventVC.xib in Resources */,
@@ -1533,6 +1542,7 @@
 				88EA7A881EB2247500165B37 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				88EA7A891EB2247500165B37 /* View+MASAdditions.m in Sources */,
 				88C32E8C1E66BFF1002753FC /* FMDatabasePool.m in Sources */,
+				8849AE331EC30260001F3218 /* RunloopVC.m in Sources */,
 				889B2E9B1E8A978300ACD1A0 /* CubeVC.m in Sources */,
 				88EA7A831EB2247500165B37 /* MASConstraintMaker.m in Sources */,
 				889DBA7D1E7E71F900520C77 /* QuartzRendering.m in Sources */,

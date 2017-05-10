@@ -21,18 +21,6 @@
 @implementation FunctionVC
 
 
-
-
-//在Xcode4.4版本之前@property和@synthesize的功能是独立分工的：
-//@property的作用是：自动的生成成员变量set/get方法的声明如代码：
-//@synthesize的作用：将@property中定义的属性自动生成get/set的实现方法而且默认访问成员变量age
-//@synthesize age; //只生成age变量
-
-//如果指定访问成员变量_age的话代码如：
-@synthesize age = _age; //只生成_age变量
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -44,6 +32,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - synthesize
+
+//在Xcode4.4版本之前@property和@synthesize的功能是独立分工的：
+//@property的作用是：自动的生成成员变量set/get方法的声明如代码：
+//@synthesize的作用：将@property中定义的属性自动生成get/set的实现方法而且默认访问成员变量age
+//@synthesize age; //只生成age变量
+
+//如果指定访问成员变量_age的话代码如：
+@synthesize age = _age; //只生成_age变量
 
 -(void)testSynthesize{
     //获取变量

@@ -29,6 +29,7 @@
 #import "H5VC.h"
 #import "AutoLayoutVC.h"
 #import "FunctionVC.h"
+#import "RunloopVC.h"
 
 @interface EntryModel : NSObject
 
@@ -76,6 +77,7 @@
                        [EntryModel modelWithName:@"RemoteEventVC" class:[RemoteEnvetVC class]],
                        [EntryModel modelWithName:@"MediaVC" class:[MediaVC class]],
                        [EntryModel modelWithName:@"ConcurrencyVC" class:[ConcurrencyVC class]],
+                       [EntryModel modelWithName:@"RunloopVC" class:[RunloopVC class]],
                        [EntryModel modelWithName:@"FunctionVC" class:[FunctionVC class]],
                        [EntryModel modelWithName:@"RuntimeVC" class:[RuntimeVC class]],
                        [EntryModel modelWithName:@"SystemAppVC" class:[SystemAppVC class]],
