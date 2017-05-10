@@ -9,14 +9,11 @@
 #import "RunloopVC.h"
 #import <Foundation/NSPort.h>
 
-#define kCheckInMessageId 100
-#define kWorkMessageId 1000
-
 @interface RunloopVC () <NSPortDelegate,NSMachPortDelegate>
 
 @property CFRunLoopSourceRef workerSource;
 @property NSRunLoop* workerRunloop;
-
+@property dispatch_source_t timer;
 
 @end
 
@@ -52,6 +49,9 @@
     [[NSThread currentThread] setName:@"mainThread"];
     
     [self addObserver:[NSRunLoop mainRunLoop]];
+    [self addSelector:[NSRunLoop mainRunLoop]];
+    [self addBlock:[NSRunLoop mainRunLoop]];
+    [self dispatchSource:[NSRunLoop mainRunLoop]];
 }
 
 #pragma mark - 工作线程
@@ -75,8 +75,8 @@
         [runloop addPort:[NSMachPort port] forMode:NSDefaultRunLoopMode];
         
         [self addObserver:runloop];
-        [self addTimer:runloop];
-        [self addDisplayLink:runloop];
+//        [self addTimer:runloop];
+//        [self addDisplayLink:runloop];
         
         self.workerSource = [self addSource0:runloop];
         self.workerRunloop = runloop;
@@ -134,7 +134,7 @@
     CFRunLoopAddObserver([runloop getCFRunLoop],observer, kCFRunLoopDefaultMode);
 }
 
-#pragma mark - 自定义输入源
+#pragma mark - 自定义输入源（Source0）
 
 //注：1，输入源就是一类事件（命令）处理机制。他是线程间的事件（命令）异步通讯机制，所以不能试图通过这个机制实现进程间的通讯。
 
@@ -196,7 +196,7 @@ void RunLoopSourceCancelRoutine (void *info, CFRunLoopRef rl, CFStringRef mode)
     CFRunLoopRemoveSource([runloop getCFRunLoop], source, kCFRunLoopDefaultMode);
 }
 
-#pragma mark - 配置基于端口的输入源
+#pragma mark - 配置基于端口的输入源（source1）
 
 -(void)addSource1:(NSRunLoop*)runloop{
     
@@ -228,11 +228,58 @@ void RunLoopTimerCallBack(CFRunLoopTimerRef timer, void *info){
 }
 
 -(void)displayLinkCome{
-    static int count = 0;
-    count ++;
-    if (count % 60 == 0) {
-        NSLog(@"displayLinkCome");
-    }
+    LOG_FUNCTION;
+    //也会阻塞事件处理
+    sleep(1);
+}
+
+#pragma mark - 其他源
+
+-(void)addSelector:(NSRunLoop*)runloop{
+    //Timer处理
+    [runloop performSelector:@selector(selectorCome) target:self argument:nil order:0 modes:@[NSRunLoopCommonModes]];
+
+    //唤醒后处理
+    [self performSelector:@selector(selectorCome2) withObject:nil afterDelay:0 inModes:@[NSRunLoopCommonModes]];
+    
+}
+
+-(void)selectorCome{
+    NSLog(@"selectorCome");
+}
+
+-(void)selectorCome2{
+    NSLog(@"selectorCome2");
+}
+
+-(void)addBlock:(NSRunLoop*)runloop{
+    [runloop performInModes:@[NSRunLoopCommonModes] block:^{
+        //IOS 10后支持
+        //唤醒后处理
+        NSLog(@"blockCome1");
+    }];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        //Source事件
+        NSLog(@"blockCome2");
+    });
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //Source事件
+        NSLog(@"blockCome3");
+    });
+}
+
+-(void)dispatchSource:(NSRunLoop*)runloop{
+    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 0 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+    dispatch_source_set_event_handler(timer, ^{
+        //Source事件
+        NSLog(@"sourceTimerCome");
+        dispatch_suspend(timer);
+        dispatch_cancel(timer);
+    });
+    dispatch_resume(timer);
+    self.timer = timer; //一定要持有，否则timer被释放
 }
 
 
