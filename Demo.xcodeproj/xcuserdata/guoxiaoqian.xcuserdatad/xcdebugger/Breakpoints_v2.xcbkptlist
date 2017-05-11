@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Demo/&#x591a;&#x5a92;&#x4f53;/RuntimeVC.m"
-            timestampString = "514554107.740922"
+            filePath = "Demo/&#x591a;&#x5a92;&#x4f53;/MediaVC.m"
+            timestampString = "516155002.529513"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "+resolveInstanceMethod:"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "-nextMusic:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Demo/&#x591a;&#x5a92;&#x4f53;/RuntimeVC.m"
-            timestampString = "514554107.740922"
+            filePath = "Demo/&#x591a;&#x5a92;&#x4f53;/MediaVC.m"
+            timestampString = "516155012.222932"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "+resolveInstanceMethod:"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
+            landmarkName = "-previousMusic:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Demo/&#x591a;&#x5a92;&#x4f53;/RuntimeVC.m"
-            timestampString = "514554107.740922"
+            filePath = "Demo/&#x591a;&#x5a92;&#x4f53;/MediaVC.m"
+            timestampString = "516155015.601412"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
-            landmarkName = "-messageDeliver"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
+            landmarkName = "-playOrPauseMusic:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,157 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIApplication.h"
-            timestampString = "513789771.224319"
+            filePath = "Demo/&#x591a;&#x7ebf;&#x7a0b;/RunloopVC.m"
+            timestampString = "516157214.654905"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
-            landmarkName = "@protocol UIApplicationDelegate"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo/&#x7cfb;&#x7edf;&#x529f;&#x80fd;&#xff08;&#x5b9a;&#x4f4d;+&#x97f3;&#x89c6;&#x9891;+&#x5f55;&#x97f3;+&#x64ad;&#x653e;+app&#x8df3;&#x8f6c;+&#x901a;&#x8baf;&#x5f55;+&#x65e5;&#x5386;&#xff09;/SystemInfoVC.m"
-            timestampString = "514307196.358233"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
-            landmarkName = "-rotateScreen:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo/&#x7cfb;&#x7edf;&#x529f;&#x80fd;&#xff08;&#x5b9a;&#x4f4d;+&#x97f3;&#x89c6;&#x9891;+&#x5f55;&#x97f3;+&#x64ad;&#x653e;+app&#x8df3;&#x8f6c;+&#x901a;&#x8baf;&#x5f55;+&#x65e5;&#x5386;&#xff09;/NotificationVC.m"
-            timestampString = "514551911.858385"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
-            landmarkName = "-setCategoryAndAction"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo/&#x7cfb;&#x7edf;&#x529f;&#x80fd;&#xff08;&#x5b9a;&#x4f4d;+&#x97f3;&#x89c6;&#x9891;+&#x5f55;&#x97f3;+&#x64ad;&#x653e;+app&#x8df3;&#x8f6c;+&#x901a;&#x8baf;&#x5f55;+&#x65e5;&#x5386;&#xff09;/NotificationVC.m"
-            timestampString = "514551911.858385"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "-sendLocalNotification"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NotificationServiceExtension/NotificationService.m"
-            timestampString = "514456356.725084"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "-didReceiveNotificationRequest:withContentHandler:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NotificationContentExtension/NotificationViewController.m"
-            timestampString = "514456380.236698"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "-didReceiveNotification:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NotificationContentExtension/NotificationViewController.m"
-            timestampString = "514542143.321736"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "-didReceiveNotification:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShareExtension/ShareViewController.m"
-            timestampString = "514554107.740922"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "-didSelectPost"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShareExtension/ShareViewController.m"
-            timestampString = "514554107.740922"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "-configurationItems"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo/&#x7cfb;&#x7edf;&#x529f;&#x80fd;&#xff08;&#x5b9a;&#x4f4d;+&#x97f3;&#x89c6;&#x9891;+&#x5f55;&#x97f3;+&#x64ad;&#x653e;+app&#x8df3;&#x8f6c;+&#x901a;&#x8baf;&#x5f55;+&#x65e5;&#x5386;&#xff09;/NotificationVC.m"
-            timestampString = "514723752.940521"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
-            landmarkName = "-sendLocalNotification"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
+            landmarkName = "-addBlock:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -75,8 +75,8 @@
         [runloop addPort:[NSMachPort port] forMode:NSDefaultRunLoopMode];
         
         [self addObserver:runloop];
-//        [self addTimer:runloop];
-//        [self addDisplayLink:runloop];
+        [self addTimer:runloop];
+        [self addDisplayLink:runloop];
         
         self.workerSource = [self addSource0:runloop];
         self.workerRunloop = runloop;
@@ -149,7 +149,7 @@ void RunLoopSourceScheduleRoutine (void *info, CFRunLoopRef rl, CFStringRef mode
 //当sourcer接收到消息的时候，调用此回调方法(CFRunLoopSourceSignal(source);CFRunLoopWakeUp(runLoop);
 void RunLoopSourcePerformRoutine (void *info)
 {
-    NSLog(@"事件源开始处理...");
+    NSLog(@"事件源开始处理...");//SOURCE0
     sleep(1);
     NSLog(@"事件源处理结束");
 }
@@ -206,7 +206,7 @@ void RunLoopSourceCancelRoutine (void *info, CFRunLoopRef rl, CFStringRef mode)
 #pragma mark - 配置定时源
 
 void RunLoopTimerCallBack(CFRunLoopTimerRef timer, void *info){
-    LOG_FUNCTION;
+    LOG_FUNCTION;//TIMER
 }
 
 -(void)addTimer:(NSRunLoop*)runloop{
@@ -216,6 +216,7 @@ void RunLoopTimerCallBack(CFRunLoopTimerRef timer, void *info){
     CFRunLoopAddTimer([runloop getCFRunLoop], timer, kCFRunLoopCommonModes);
     
     
+    //NSTimer与CFRunloopTimerRef可以桥接转换
 //    NSTimer* timer2 = [NSTimer timerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
 //        NSLog(@"timer2");
 //    }];
@@ -228,43 +229,65 @@ void RunLoopTimerCallBack(CFRunLoopTimerRef timer, void *info){
 }
 
 -(void)displayLinkCome{
-    LOG_FUNCTION;
+    LOG_FUNCTION; //SOURCE1
     //也会阻塞事件处理
     sleep(1);
 }
 
 #pragma mark - 其他源
 
+//RunLoop主要处理以下6类事件：
+//
+//static void __CFRUNLOOP_IS_CALLING_OUT_TO_AN_OBSERVER_CALLBACK_FUNCTION__();
+//static void __CFRUNLOOP_IS_CALLING_OUT_TO_A_BLOCK__();
+//static void __CFRUNLOOP_IS_SERVICING_THE_MAIN_DISPATCH_QUEUE__();
+//static void __CFRUNLOOP_IS_CALLING_OUT_TO_A_TIMER_CALLBACK_FUNCTION__();
+//static void __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__();
+//static void __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE1_PERFORM_FUNCTION__();
+//他对这六类事件有如下解释
+//
+//1.Observer事件，runloop中状态变化时进行通知。（微信卡顿监控就是利用这个事件通知来记录下最近一次main runloop活动时间，在另一个check线程中用定时器检测当前时间距离最后一次活动时间过久来判断在主线程中的处理逻辑耗时和卡主线程）。这里还需要特别注意，CAAnimation是由RunloopObserver触发回调来重绘，接下来会讲到。
+//
+//2.Block事件，非延迟的NSObject PerformSelector立即调用，runloop的performBlock。
+//
+//3.Main_Dispatch_Queue事件：GCD中dispatch到main queue的block会被dispatch到main loop执行，dispatch_after。
+//
+//4.Timer事件：延迟的NSObject PerformSelector，timer事件。
+//
+//5.Source0事件：处理如UIEvent，CFSocket这类事件。需要手动触发。触摸事件其实是Source1接收系统事件后在回调 __IOHIDEventSystemClientQueueCallback() 内触发的 Source0，Source0 再触发的 _UIApplicationHandleEventQueue()。source0一定是要唤醒runloop及时响应并执行的，如果runloop此时在休眠等待系统的 mach_msg事件，那么就会通过source1来唤醒runloop执行。
+
+//
+//6.Source1事件：处理系统内核的mach_msg事件。（CADisplayLink也是这里触发）。
+
+
 -(void)addSelector:(NSRunLoop*)runloop{
-    //Timer处理
     [runloop performSelector:@selector(selectorCome) target:self argument:nil order:0 modes:@[NSRunLoopCommonModes]];
 
-    //唤醒后处理
     [self performSelector:@selector(selectorCome2) withObject:nil afterDelay:0 inModes:@[NSRunLoopCommonModes]];
     
 }
 
 -(void)selectorCome{
-    NSLog(@"selectorCome");
+    NSLog(@"selectorCome");//OBSERVER
 }
 
 -(void)selectorCome2{
-    NSLog(@"selectorCome2");
+    NSLog(@"selectorCome2");//TIMER
 }
 
 -(void)addBlock:(NSRunLoop*)runloop{
     [runloop performInModes:@[NSRunLoopCommonModes] block:^{
         //IOS 10后支持
-        //唤醒后处理
+        //BLOCK
         NSLog(@"blockCome1");
     }];
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        //Source事件
+        //DISPATCH
         NSLog(@"blockCome2");
     });
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        //Source事件
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //DISPATCH
         NSLog(@"blockCome3");
     });
 }
@@ -273,7 +296,7 @@ void RunLoopTimerCallBack(CFRunLoopTimerRef timer, void *info){
     dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
     dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 0 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
     dispatch_source_set_event_handler(timer, ^{
-        //Source事件
+        //DISPATCH——SOURCE_INVOKE
         NSLog(@"sourceTimerCome");
         dispatch_suspend(timer);
         dispatch_cancel(timer);
