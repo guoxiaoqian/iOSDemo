@@ -11,6 +11,7 @@
 
 @interface RunloopVC () <NSPortDelegate,NSMachPortDelegate>
 
+@property NSThread* workerThread;
 @property CFRunLoopSourceRef workerSource;
 @property NSRunLoop* workerRunloop;
 @property dispatch_source_t timer;
@@ -25,7 +26,7 @@
     
     [self initMainThread];
     
-    [[self workerThread] start];
+    [self initWorkerThread];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         NSLog(@"主线程唤醒工作线程");
@@ -39,8 +40,9 @@
 }
 
 - (void)dealloc{
-    CFRelease(self.workerSource);
+    [self removeSource0:self.workerRunloop source:self.workerSource];
     CFRunLoopStop([self.workerRunloop getCFRunLoop]);
+    [self.workerThread cancel];
 }
 
 #pragma mark - 主线程
@@ -56,13 +58,9 @@
 
 #pragma mark - 工作线程
 
--(NSThread*)workerThread{
-    static NSThread* workerThread = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        workerThread = [[NSThread alloc] initWithTarget:self selector:@selector(threadEntry) object:nil];
-    });
-    return workerThread;
+-(void)initWorkerThread{
+    self.workerThread = [[NSThread alloc] initWithTarget:self selector:@selector(threadEntry) object:nil];
+    [self.workerThread start];
 }
 
 -(void)threadEntry{
@@ -237,18 +235,17 @@ void RunLoopTimerCallBack(CFRunLoopTimerRef timer, void *info){
 #pragma mark - 其他源
 
 //RunLoop主要处理以下6类事件：
-//
 //static void __CFRUNLOOP_IS_CALLING_OUT_TO_AN_OBSERVER_CALLBACK_FUNCTION__();
 //static void __CFRUNLOOP_IS_CALLING_OUT_TO_A_BLOCK__();
 //static void __CFRUNLOOP_IS_SERVICING_THE_MAIN_DISPATCH_QUEUE__();
 //static void __CFRUNLOOP_IS_CALLING_OUT_TO_A_TIMER_CALLBACK_FUNCTION__();
 //static void __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__();
 //static void __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE1_PERFORM_FUNCTION__();
+
 //他对这六类事件有如下解释
-//
 //1.Observer事件，runloop中状态变化时进行通知。（微信卡顿监控就是利用这个事件通知来记录下最近一次main runloop活动时间，在另一个check线程中用定时器检测当前时间距离最后一次活动时间过久来判断在主线程中的处理逻辑耗时和卡主线程）。这里还需要特别注意，CAAnimation是由RunloopObserver触发回调来重绘，接下来会讲到。
 //
-//2.Block事件，非延迟的NSObject PerformSelector立即调用，runloop的performBlock。
+//2.Block事件，非延迟的NSObject PerformSelector立即调用，runloop的performBlock,CFRunLoopPerformBlock。
 //
 //3.Main_Dispatch_Queue事件：GCD中dispatch到main queue的block会被dispatch到main loop执行，dispatch_after。
 //
@@ -261,21 +258,29 @@ void RunLoopTimerCallBack(CFRunLoopTimerRef timer, void *info){
 
 
 -(void)addSelector:(NSRunLoop*)runloop{
+    //OBSERVER
     [runloop performSelector:@selector(selectorCome) target:self argument:nil order:0 modes:@[NSRunLoopCommonModes]];
 
-    [self performSelector:@selector(selectorCome2) withObject:nil afterDelay:0 inModes:@[NSRunLoopCommonModes]];
+    //TIMER
+    [self performSelector:@selector(selectorCome2) withObject:nil afterDelay:1 inModes:@[NSRunLoopCommonModes]];
     
 }
 
 -(void)selectorCome{
-    NSLog(@"selectorCome");//OBSERVER
+    NSLog(@"selectorCome");
 }
 
 -(void)selectorCome2{
-    NSLog(@"selectorCome2");//TIMER
+    NSLog(@"selectorCome2");
 }
 
 -(void)addBlock:(NSRunLoop*)runloop{
+    
+    CFRunLoopPerformBlock([runloop getCFRunLoop],kCFRunLoopDefaultMode,^{
+        //BLOCK
+        NSLog(@"blockCome");
+    });
+    
     [runloop performInModes:@[NSRunLoopCommonModes] block:^{
         //IOS 10后支持
         //BLOCK
@@ -286,7 +291,7 @@ void RunLoopTimerCallBack(CFRunLoopTimerRef timer, void *info){
         //DISPATCH
         NSLog(@"blockCome2");
     });
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         //DISPATCH
         NSLog(@"blockCome3");
     });
@@ -294,7 +299,7 @@ void RunLoopTimerCallBack(CFRunLoopTimerRef timer, void *info){
 
 -(void)dispatchSource:(NSRunLoop*)runloop{
     dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 0 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
     dispatch_source_set_event_handler(timer, ^{
         //DISPATCH——SOURCE_INVOKE
         NSLog(@"sourceTimerCome");
