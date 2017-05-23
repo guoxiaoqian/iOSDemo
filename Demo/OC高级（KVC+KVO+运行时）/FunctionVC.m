@@ -26,6 +26,8 @@
     // Do any additional setup after loading the view from its nib.
     
     [self testSynthesize];
+    
+    [self testKVO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,6 +55,20 @@
     }
     free(varList); //必须释放
 }
+
+-(void)testKVO{
+    [self addObserver:self forKeyPath:@"age"
+            options: NSKeyValueObservingOptionNew
+            context:nil];
+
+    NSLog(@"KVO %@",NSStringFromClass(self.class));
+    self.age = @"100";
+    [self removeObserver:self forKeyPath:@"age"];
+}
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    NSLog(@"KVO class:%@ key:%@ change:%@",NSStringFromClass([object class]),keyPath,change);
+}
+
 
 
 @end

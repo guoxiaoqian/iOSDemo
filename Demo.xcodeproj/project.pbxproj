@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		8801319D1E8F7CB40087EBBD /* FreeStreamer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8801319A1E8F7C8B0087EBBD /* FreeStreamer.framework */; };
 		8801319E1E8F7CB40087EBBD /* FreeStreamer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8801319A1E8F7C8B0087EBBD /* FreeStreamer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8825CF021ED3BA1F00C59E4E /* DesignPatternVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF001ED3BA1F00C59E4E /* DesignPatternVC.m */; };
+		8825CF031ED3BA1F00C59E4E /* DesignPatternVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8825CF011ED3BA1F00C59E4E /* DesignPatternVC.xib */; };
+		8825CF071ED3BA3500C59E4E /* DataStructureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF051ED3BA3500C59E4E /* DataStructureVC.m */; };
+		8825CF081ED3BA3500C59E4E /* DataStructureVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8825CF061ED3BA3500C59E4E /* DataStructureVC.xib */; };
+		8825CF0C1ED3BA6700C59E4E /* AlgorithmVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF0A1ED3BA6700C59E4E /* AlgorithmVC.m */; };
+		8825CF0D1ED3BA6700C59E4E /* AlgorithmVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8825CF0B1ED3BA6700C59E4E /* AlgorithmVC.xib */; };
 		882C996C1E8BC39100BFDAC7 /* EventVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 882C996A1E8BC39100BFDAC7 /* EventVC.m */; };
 		882C996D1E8BC39100BFDAC7 /* EventVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882C996B1E8BC39100BFDAC7 /* EventVC.xib */; };
 		882C996F1E8D007500BFDAC7 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 882C996E1E8D007500BFDAC7 /* MediaPlayer.framework */; };
@@ -260,6 +266,15 @@
 
 /* Begin PBXFileReference section */
 		880131951E8F7C8B0087EBBD /* FreeStreamer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FreeStreamer.xcodeproj; path = FreeStreamer/FreeStreamer.xcodeproj; sourceTree = "<group>"; };
+		8825CEFF1ED3BA1F00C59E4E /* DesignPatternVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignPatternVC.h; sourceTree = "<group>"; };
+		8825CF001ED3BA1F00C59E4E /* DesignPatternVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignPatternVC.m; sourceTree = "<group>"; };
+		8825CF011ED3BA1F00C59E4E /* DesignPatternVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignPatternVC.xib; sourceTree = "<group>"; };
+		8825CF041ED3BA3500C59E4E /* DataStructureVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStructureVC.h; sourceTree = "<group>"; };
+		8825CF051ED3BA3500C59E4E /* DataStructureVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStructureVC.m; sourceTree = "<group>"; };
+		8825CF061ED3BA3500C59E4E /* DataStructureVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataStructureVC.xib; sourceTree = "<group>"; };
+		8825CF091ED3BA6700C59E4E /* AlgorithmVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlgorithmVC.h; sourceTree = "<group>"; };
+		8825CF0A1ED3BA6700C59E4E /* AlgorithmVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlgorithmVC.m; sourceTree = "<group>"; };
+		8825CF0B1ED3BA6700C59E4E /* AlgorithmVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlgorithmVC.xib; sourceTree = "<group>"; };
 		882C99691E8BC39100BFDAC7 /* EventVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventVC.h; sourceTree = "<group>"; };
 		882C996A1E8BC39100BFDAC7 /* EventVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventVC.m; sourceTree = "<group>"; };
 		882C996B1E8BC39100BFDAC7 /* EventVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventVC.xib; sourceTree = "<group>"; };
@@ -602,6 +617,36 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		8825CEFC1ED3B9F900C59E4E /* 设计模式 */ = {
+			isa = PBXGroup;
+			children = (
+				8825CEFF1ED3BA1F00C59E4E /* DesignPatternVC.h */,
+				8825CF001ED3BA1F00C59E4E /* DesignPatternVC.m */,
+				8825CF011ED3BA1F00C59E4E /* DesignPatternVC.xib */,
+			);
+			path = "设计模式";
+			sourceTree = "<group>";
+		};
+		8825CEFD1ED3B9F900C59E4E /* 数据结构 */ = {
+			isa = PBXGroup;
+			children = (
+				8825CF041ED3BA3500C59E4E /* DataStructureVC.h */,
+				8825CF051ED3BA3500C59E4E /* DataStructureVC.m */,
+				8825CF061ED3BA3500C59E4E /* DataStructureVC.xib */,
+			);
+			path = "数据结构";
+			sourceTree = "<group>";
+		};
+		8825CEFE1ED3B9F900C59E4E /* 算法 */ = {
+			isa = PBXGroup;
+			children = (
+				8825CF091ED3BA6700C59E4E /* AlgorithmVC.h */,
+				8825CF0A1ED3BA6700C59E4E /* AlgorithmVC.m */,
+				8825CF0B1ED3BA6700C59E4E /* AlgorithmVC.xib */,
+			);
+			path = "算法";
+			sourceTree = "<group>";
+		};
 		8859608A1E701FA300760090 /* UI高级（动画） */ = {
 			isa = PBXGroup;
 			children = (
@@ -847,6 +892,9 @@
 		88A6173A1E53100C00EF8AFC /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				8825CEFC1ED3B9F900C59E4E /* 设计模式 */,
+				8825CEFD1ED3B9F900C59E4E /* 数据结构 */,
+				8825CEFE1ED3B9F900C59E4E /* 算法 */,
 				88EA7A5A1EB2239E00165B37 /* UI基础（布局） */,
 				88CC32BC1EA9A26900801376 /* Demo.entitlements */,
 				8859608B1E701FA300760090 /* UI高级（绘图） */,
@@ -1413,6 +1461,7 @@
 				885960C71E7020DD00760090 /* TestGeneralAnimationVC.xib in Resources */,
 				889B2EB91E9077DB00ACD1A0 /* ConcurrencyVC.xib in Resources */,
 				88439EFC1EA79D62007DDA1B /* SystemInfoVC.xib in Resources */,
+				8825CF0D1ED3BA6700C59E4E /* AlgorithmVC.xib in Resources */,
 				889DBA751E7E71F900520C77 /* QuartzDemo-Info.plist in Resources */,
 				8849AE2D1EC2BBAE001F3218 /* FunctionVC.xib in Resources */,
 				889DBA7E1E7E71F900520C77 /* QuartzStoryboard.storyboard in Resources */,
@@ -1428,6 +1477,7 @@
 				8849AE341EC30260001F3218 /* RunloopVC.xib in Resources */,
 				88C32E881E66BFF1002753FC /* student.xml in Resources */,
 				889DBA4A1E7AC65700520C77 /* 概念.txt in Resources */,
+				8825CF031ED3BA1F00C59E4E /* DesignPatternVC.xib in Resources */,
 				882C996D1E8BC39100BFDAC7 /* EventVC.xib in Resources */,
 				889B2E961E89E98700ACD1A0 /* Demo2@2x.png in Resources */,
 				882C99751E8D0CE300BFDAC7 /* RemoteEnvetVC.xib in Resources */,
@@ -1442,6 +1492,7 @@
 				889C4A9E1E9C743000EB2C68 /* file.png in Resources */,
 				889B2EA41E8DDAB500ACD1A0 /* MediaVC.xib in Resources */,
 				889DBA801E7E71F900520C77 /* Ship.png in Resources */,
+				8825CF081ED3BA3500C59E4E /* DataStructureVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1527,12 +1578,14 @@
 				88C32E8B1E66BFF1002753FC /* FMDatabaseAdditions.m in Sources */,
 				885960C61E7020DD00760090 /* TestGeneralAnimationVC.m in Sources */,
 				889DBA771E7E71F900520C77 /* QuartzGradientViewController.m in Sources */,
+				8825CF071ED3BA3500C59E4E /* DataStructureVC.m in Sources */,
 				889C4AAB1E9C743000EB2C68 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				882C99741E8D0CE300BFDAC7 /* RemoteEnvetVC.m in Sources */,
 				889C4AA21E9C743000EB2C68 /* AFHTTPSessionManager.m in Sources */,
 				88C32E8E1E66BFF1002753FC /* FMResultSet.m in Sources */,
 				88439EFB1EA79D62007DDA1B /* SystemInfoVC.m in Sources */,
 				889C4A9D1E9C743000EB2C68 /* NetworkVC.m in Sources */,
+				8825CF021ED3BA1F00C59E4E /* DesignPatternVC.m in Sources */,
 				889C4AA61E9C743000EB2C68 /* AFURLRequestSerialization.m in Sources */,
 				889C4AA71E9C743000EB2C68 /* AFURLResponseSerialization.m in Sources */,
 				88C32E891E66BFF1002753FC /* UICKeyChainStore.m in Sources */,
@@ -1552,6 +1605,7 @@
 				889DBA721E7E71F900520C77 /* QuartzClipping.m in Sources */,
 				889B2EA31E8DDAB500ACD1A0 /* MediaVC.m in Sources */,
 				88C32E8D1E66BFF1002753FC /* FMDatabaseQueue.m in Sources */,
+				8825CF0C1ED3BA6700C59E4E /* AlgorithmVC.m in Sources */,
 				88C32E841E66BFF1002753FC /* CoreDataVC.m in Sources */,
 				889C4AB21E9C743000EB2C68 /* UIWebView+AFNetworking.m in Sources */,
 				889DBA741E7E71F900520C77 /* QuartzDashViewController.m in Sources */,
