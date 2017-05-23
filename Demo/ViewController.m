@@ -30,6 +30,9 @@
 #import "AutoLayoutVC.h"
 #import "FunctionVC.h"
 #import "RunloopVC.h"
+#import "AlgorithmVC.h"
+#import "DataStructureVC.h"
+#import "DesignPatternVC.h"
 
 @interface EntryModel : NSObject
 
@@ -84,6 +87,9 @@
                        [EntryModel modelWithName:@"SystemInfoVC" class:[SystemInfoVC class]],
                        [EntryModel modelWithName:@"NotificationVC" class:[NotificationVC class]],
                        [EntryModel modelWithName:@"H5VC" class:[H5VC class]],
+                       [EntryModel modelWithName:@"DesignPatternVC" class:[DesignPatternVC class]],
+                       [EntryModel modelWithName:@"DataStructureVC" class:[DataStructureVC class]],
+                       [EntryModel modelWithName:@"AlgorithmVC" class:[AlgorithmVC class]],
 
                        nil];
     

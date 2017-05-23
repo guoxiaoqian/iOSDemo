@@ -43,6 +43,7 @@
 		885960C71E7020DD00760090 /* TestGeneralAnimationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885960C51E7020DD00760090 /* TestGeneralAnimationVC.xib */; };
 		885960C91E70211C00760090 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885960C81E70211C00760090 /* QuartzCore.framework */; };
 		885960E11E70222000760090 /* UIView+AnimationUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960CD1E70222000760090 /* UIView+AnimationUtility.m */; };
+		886E65321ED3D4FB00C13E29 /* algorithm_sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 886E65301ED3D4FB00C13E29 /* algorithm_sort.m */; };
 		8887A3721EA83E6D005EEFAE /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8887A3711EA83E6D005EEFAE /* UserNotifications.framework */; };
 		8887A37D1EA98C5C005EEFAE /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8887A37C1EA98C5C005EEFAE /* NotificationService.m */; };
 		8887A3821EA98C5C005EEFAE /* NotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8887A3791EA98C5C005EEFAE /* NotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -314,6 +315,8 @@
 		885960CD1E70222000760090 /* UIView+AnimationUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AnimationUtility.m"; sourceTree = "<group>"; };
 		885960E91E70EB7E00760090 /* commonMacroDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commonMacroDef.h; sourceTree = "<group>"; };
 		885960EB1E70EEC400760090 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		886E65301ED3D4FB00C13E29 /* algorithm_sort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = algorithm_sort.m; sourceTree = "<group>"; };
+		886E65311ED3D4FB00C13E29 /* algorithm_sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = algorithm_sort.h; sourceTree = "<group>"; };
 		8887A3711EA83E6D005EEFAE /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		8887A3791EA98C5C005EEFAE /* NotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8887A37B1EA98C5C005EEFAE /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
@@ -640,6 +643,8 @@
 		8825CEFE1ED3B9F900C59E4E /* 算法 */ = {
 			isa = PBXGroup;
 			children = (
+				886E65301ED3D4FB00C13E29 /* algorithm_sort.m */,
+				886E65311ED3D4FB00C13E29 /* algorithm_sort.h */,
 				8825CF091ED3BA6700C59E4E /* AlgorithmVC.h */,
 				8825CF0A1ED3BA6700C59E4E /* AlgorithmVC.m */,
 				8825CF0B1ED3BA6700C59E4E /* AlgorithmVC.xib */,
@@ -1555,6 +1560,7 @@
 				889DBA701E7E71F900520C77 /* QuartzBlending.m in Sources */,
 				88439EF01E9D1466007DDA1B /* SpecialLayerVC.m in Sources */,
 				88A617431E53100C00EF8AFC /* ViewController.m in Sources */,
+				886E65321ED3D4FB00C13E29 /* algorithm_sort.m in Sources */,
 				889C4AAA1E9C743000EB2C68 /* README.md in Sources */,
 				889DBA781E7E71F900520C77 /* QuartzImages.m in Sources */,
 				88A617401E53100C00EF8AFC /* AppDelegate.m in Sources */,
