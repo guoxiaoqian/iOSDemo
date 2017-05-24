@@ -15,6 +15,8 @@
 @property CFRunLoopSourceRef workerSource;
 @property NSRunLoop* workerRunloop;
 @property dispatch_source_t timer;
+@property CFRunLoopObserverRef observerForMainRunloop;
+@property CFRunLoopObserverRef observerForWorkerRunloop;
 
 @end
 
@@ -41,8 +43,11 @@
 
 - (void)dealloc{
     [self removeSource0:self.workerRunloop source:self.workerSource];
+    [self removeObserver:self.workerRunloop observer:self.observerForWorkerRunloop];
     CFRunLoopStop([self.workerRunloop getCFRunLoop]);
     [self.workerThread cancel];
+    
+    [self removeObserver:[NSRunLoop mainRunLoop] observer:self.observerForMainRunloop];
 }
 
 #pragma mark - 主线程
@@ -50,7 +55,7 @@
 -(void)initMainThread{
     [[NSThread currentThread] setName:@"mainThread"];
     
-    [self addObserver:[NSRunLoop mainRunLoop]];
+    self.observerForMainRunloop = [self addObserver:[NSRunLoop mainRunLoop]];
     [self addSelector:[NSRunLoop mainRunLoop]];
     [self addBlock:[NSRunLoop mainRunLoop]];
     [self dispatchSource:[NSRunLoop mainRunLoop]];
@@ -72,7 +77,7 @@
         //通常情况下，调用者需要持有这个 NSMachPort (mach_port) 并在外部线程通过这个 port 发送消息到 loop 内；但此处添加 port 只是为了让 RunLoop 不至于退出，并没有用于实际的发送消息。
         [runloop addPort:[NSMachPort port] forMode:NSDefaultRunLoopMode];
         
-        [self addObserver:runloop];
+        self.observerForWorkerRunloop = [self addObserver:runloop];
         [self addTimer:runloop];
         [self addDisplayLink:runloop];
         
@@ -85,7 +90,7 @@
 
 #pragma mark - Runloop Observer
 
--(void)addObserver:(NSRunLoop*)runloop{
+-(CFRunLoopObserverRef)addObserver:(NSRunLoop*)runloop{
     //1.创建监听者
     /*
      第一个参数:怎么分配存储空间
@@ -130,6 +135,12 @@
      第三个参数:运行模式
      */
     CFRunLoopAddObserver([runloop getCFRunLoop],observer, kCFRunLoopDefaultMode);
+    return observer;
+}
+
+-(void)removeObserver:(NSRunLoop*)runloop observer:(CFRunLoopObserverRef)observer{
+    CFRunLoopRemoveObserver([runloop getCFRunLoop], observer, kCFRunLoopDefaultMode);
+    CFRelease(observer);
 }
 
 #pragma mark - 自定义输入源（Source0）
@@ -192,6 +203,7 @@ void RunLoopSourceCancelRoutine (void *info, CFRunLoopRef rl, CFStringRef mode)
 
 -(void)removeSource0:(NSRunLoop*)runloop source:(CFRunLoopSourceRef)source{
     CFRunLoopRemoveSource([runloop getCFRunLoop], source, kCFRunLoopDefaultMode);
+    CFRelease(source);
 }
 
 #pragma mark - 配置基于端口的输入源（source1）
