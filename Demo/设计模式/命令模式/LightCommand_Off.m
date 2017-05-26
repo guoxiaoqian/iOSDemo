@@ -10,4 +10,8 @@
 
 @implementation LightCommand_Off
 
+-(void)execute{
+    [self.light off];
+}
+
 @end

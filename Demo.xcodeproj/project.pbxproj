@@ -15,6 +15,20 @@
 		8825CF081ED3BA3500C59E4E /* DataStructureVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8825CF061ED3BA3500C59E4E /* DataStructureVC.xib */; };
 		8825CF0C1ED3BA6700C59E4E /* AlgorithmVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF0A1ED3BA6700C59E4E /* AlgorithmVC.m */; };
 		8825CF0D1ED3BA6700C59E4E /* AlgorithmVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8825CF0B1ED3BA6700C59E4E /* AlgorithmVC.xib */; };
+		8825CF151ED869BB00C59E4E /* CompositePattern_Light.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF141ED869BB00C59E4E /* CompositePattern_Light.m */; };
+		8825CF1B1ED86AED00C59E4E /* CompositePattern_AbstractLight.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF1A1ED86AED00C59E4E /* CompositePattern_AbstractLight.m */; };
+		8825CF1E1ED86B2B00C59E4E /* CompositePattern_CompositeLight.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF1D1ED86B2B00C59E4E /* CompositePattern_CompositeLight.m */; };
+		8825CF211ED86FB100C59E4E /* BridgePattern_AbstractLight.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF201ED86FB100C59E4E /* BridgePattern_AbstractLight.m */; };
+		8825CF241ED8701100C59E4E /* BridgePattern_AbstractColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF231ED8701100C59E4E /* BridgePattern_AbstractColor.m */; };
+		8825CF271ED8704000C59E4E /* BridgePattern_BigLight.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF261ED8704000C59E4E /* BridgePattern_BigLight.m */; };
+		8825CF2A1ED8705C00C59E4E /* BridgePattern_SmallLight.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF291ED8705C00C59E4E /* BridgePattern_SmallLight.m */; };
+		8825CF2D1ED8707500C59E4E /* BridgePattern_RedColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF2C1ED8707500C59E4E /* BridgePattern_RedColor.m */; };
+		8825CF301ED8708700C59E4E /* BridgePattern_BlueColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF2F1ED8708700C59E4E /* BridgePattern_BlueColor.m */; };
+		8825CF331ED878B400C59E4E /* DecoratorPattern_AbstractLight.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF321ED878B400C59E4E /* DecoratorPattern_AbstractLight.m */; };
+		8825CF361ED878C800C59E4E /* DecoratorPattern_Light.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF351ED878C800C59E4E /* DecoratorPattern_Light.m */; };
+		8825CF3F1ED87B4A00C59E4E /* DecoratorPattern_AbstractDecorator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF3E1ED87B4A00C59E4E /* DecoratorPattern_AbstractDecorator.m */; };
+		8825CF421ED87C6400C59E4E /* DecoratorPattern_ColorDecorator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF411ED87C6400C59E4E /* DecoratorPattern_ColorDecorator.m */; };
+		8825CF451ED87C9400C59E4E /* DecoratorPattern_HotDecorator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF441ED87C9400C59E4E /* DecoratorPattern_HotDecorator.m */; };
 		882C996C1E8BC39100BFDAC7 /* EventVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 882C996A1E8BC39100BFDAC7 /* EventVC.m */; };
 		882C996D1E8BC39100BFDAC7 /* EventVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882C996B1E8BC39100BFDAC7 /* EventVC.xib */; };
 		882C996F1E8D007500BFDAC7 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 882C996E1E8D007500BFDAC7 /* MediaPlayer.framework */; };
@@ -284,6 +298,34 @@
 		8825CF091ED3BA6700C59E4E /* AlgorithmVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlgorithmVC.h; sourceTree = "<group>"; };
 		8825CF0A1ED3BA6700C59E4E /* AlgorithmVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlgorithmVC.m; sourceTree = "<group>"; };
 		8825CF0B1ED3BA6700C59E4E /* AlgorithmVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlgorithmVC.xib; sourceTree = "<group>"; };
+		8825CF131ED869BB00C59E4E /* CompositePattern_Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompositePattern_Light.h; sourceTree = "<group>"; };
+		8825CF141ED869BB00C59E4E /* CompositePattern_Light.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompositePattern_Light.m; sourceTree = "<group>"; };
+		8825CF191ED86AED00C59E4E /* CompositePattern_AbstractLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompositePattern_AbstractLight.h; sourceTree = "<group>"; };
+		8825CF1A1ED86AED00C59E4E /* CompositePattern_AbstractLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompositePattern_AbstractLight.m; sourceTree = "<group>"; };
+		8825CF1C1ED86B2B00C59E4E /* CompositePattern_CompositeLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompositePattern_CompositeLight.h; sourceTree = "<group>"; };
+		8825CF1D1ED86B2B00C59E4E /* CompositePattern_CompositeLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompositePattern_CompositeLight.m; sourceTree = "<group>"; };
+		8825CF1F1ED86FB100C59E4E /* BridgePattern_AbstractLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgePattern_AbstractLight.h; sourceTree = "<group>"; };
+		8825CF201ED86FB100C59E4E /* BridgePattern_AbstractLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BridgePattern_AbstractLight.m; sourceTree = "<group>"; };
+		8825CF221ED8701100C59E4E /* BridgePattern_AbstractColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgePattern_AbstractColor.h; sourceTree = "<group>"; };
+		8825CF231ED8701100C59E4E /* BridgePattern_AbstractColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BridgePattern_AbstractColor.m; sourceTree = "<group>"; };
+		8825CF251ED8704000C59E4E /* BridgePattern_BigLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgePattern_BigLight.h; sourceTree = "<group>"; };
+		8825CF261ED8704000C59E4E /* BridgePattern_BigLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BridgePattern_BigLight.m; sourceTree = "<group>"; };
+		8825CF281ED8705C00C59E4E /* BridgePattern_SmallLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgePattern_SmallLight.h; sourceTree = "<group>"; };
+		8825CF291ED8705C00C59E4E /* BridgePattern_SmallLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BridgePattern_SmallLight.m; sourceTree = "<group>"; };
+		8825CF2B1ED8707500C59E4E /* BridgePattern_RedColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgePattern_RedColor.h; sourceTree = "<group>"; };
+		8825CF2C1ED8707500C59E4E /* BridgePattern_RedColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BridgePattern_RedColor.m; sourceTree = "<group>"; };
+		8825CF2E1ED8708700C59E4E /* BridgePattern_BlueColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgePattern_BlueColor.h; sourceTree = "<group>"; };
+		8825CF2F1ED8708700C59E4E /* BridgePattern_BlueColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BridgePattern_BlueColor.m; sourceTree = "<group>"; };
+		8825CF311ED878B400C59E4E /* DecoratorPattern_AbstractLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecoratorPattern_AbstractLight.h; sourceTree = "<group>"; };
+		8825CF321ED878B400C59E4E /* DecoratorPattern_AbstractLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecoratorPattern_AbstractLight.m; sourceTree = "<group>"; };
+		8825CF341ED878C800C59E4E /* DecoratorPattern_Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecoratorPattern_Light.h; sourceTree = "<group>"; };
+		8825CF351ED878C800C59E4E /* DecoratorPattern_Light.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecoratorPattern_Light.m; sourceTree = "<group>"; };
+		8825CF3D1ED87B4A00C59E4E /* DecoratorPattern_AbstractDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecoratorPattern_AbstractDecorator.h; sourceTree = "<group>"; };
+		8825CF3E1ED87B4A00C59E4E /* DecoratorPattern_AbstractDecorator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecoratorPattern_AbstractDecorator.m; sourceTree = "<group>"; };
+		8825CF401ED87C6400C59E4E /* DecoratorPattern_ColorDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecoratorPattern_ColorDecorator.h; sourceTree = "<group>"; };
+		8825CF411ED87C6400C59E4E /* DecoratorPattern_ColorDecorator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecoratorPattern_ColorDecorator.m; sourceTree = "<group>"; };
+		8825CF431ED87C9400C59E4E /* DecoratorPattern_HotDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecoratorPattern_HotDecorator.h; sourceTree = "<group>"; };
+		8825CF441ED87C9400C59E4E /* DecoratorPattern_HotDecorator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecoratorPattern_HotDecorator.m; sourceTree = "<group>"; };
 		882C99691E8BC39100BFDAC7 /* EventVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventVC.h; sourceTree = "<group>"; };
 		882C996A1E8BC39100BFDAC7 /* EventVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventVC.m; sourceTree = "<group>"; };
 		882C996B1E8BC39100BFDAC7 /* EventVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventVC.xib; sourceTree = "<group>"; };
@@ -647,6 +689,10 @@
 		8825CEFC1ED3B9F900C59E4E /* 设计模式 */ = {
 			isa = PBXGroup;
 			children = (
+				8825CF0F1ED868B300C59E4E /* 策略模式 */,
+				8825CF101ED868B300C59E4E /* 桥接模式 */,
+				8825CF111ED868B300C59E4E /* 装饰者模式 */,
+				8825CF121ED868B300C59E4E /* 组合模式 */,
 				88E8F7AB1ED5A1B900FE93B4 /* 命令模式 */,
 				88E8F79B1ED5A0FA00FE93B4 /* 状态模式 */,
 				8825CEFF1ED3BA1F00C59E4E /* DesignPatternVC.h */,
@@ -676,6 +722,62 @@
 				8825CF0B1ED3BA6700C59E4E /* AlgorithmVC.xib */,
 			);
 			path = "算法";
+			sourceTree = "<group>";
+		};
+		8825CF0F1ED868B300C59E4E /* 策略模式 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "策略模式";
+			sourceTree = "<group>";
+		};
+		8825CF101ED868B300C59E4E /* 桥接模式 */ = {
+			isa = PBXGroup;
+			children = (
+				8825CF1F1ED86FB100C59E4E /* BridgePattern_AbstractLight.h */,
+				8825CF201ED86FB100C59E4E /* BridgePattern_AbstractLight.m */,
+				8825CF221ED8701100C59E4E /* BridgePattern_AbstractColor.h */,
+				8825CF231ED8701100C59E4E /* BridgePattern_AbstractColor.m */,
+				8825CF251ED8704000C59E4E /* BridgePattern_BigLight.h */,
+				8825CF261ED8704000C59E4E /* BridgePattern_BigLight.m */,
+				8825CF281ED8705C00C59E4E /* BridgePattern_SmallLight.h */,
+				8825CF291ED8705C00C59E4E /* BridgePattern_SmallLight.m */,
+				8825CF2B1ED8707500C59E4E /* BridgePattern_RedColor.h */,
+				8825CF2C1ED8707500C59E4E /* BridgePattern_RedColor.m */,
+				8825CF2E1ED8708700C59E4E /* BridgePattern_BlueColor.h */,
+				8825CF2F1ED8708700C59E4E /* BridgePattern_BlueColor.m */,
+			);
+			path = "桥接模式";
+			sourceTree = "<group>";
+		};
+		8825CF111ED868B300C59E4E /* 装饰者模式 */ = {
+			isa = PBXGroup;
+			children = (
+				8825CF311ED878B400C59E4E /* DecoratorPattern_AbstractLight.h */,
+				8825CF321ED878B400C59E4E /* DecoratorPattern_AbstractLight.m */,
+				8825CF341ED878C800C59E4E /* DecoratorPattern_Light.h */,
+				8825CF351ED878C800C59E4E /* DecoratorPattern_Light.m */,
+				8825CF3D1ED87B4A00C59E4E /* DecoratorPattern_AbstractDecorator.h */,
+				8825CF3E1ED87B4A00C59E4E /* DecoratorPattern_AbstractDecorator.m */,
+				8825CF401ED87C6400C59E4E /* DecoratorPattern_ColorDecorator.h */,
+				8825CF411ED87C6400C59E4E /* DecoratorPattern_ColorDecorator.m */,
+				8825CF431ED87C9400C59E4E /* DecoratorPattern_HotDecorator.h */,
+				8825CF441ED87C9400C59E4E /* DecoratorPattern_HotDecorator.m */,
+			);
+			path = "装饰者模式";
+			sourceTree = "<group>";
+		};
+		8825CF121ED868B300C59E4E /* 组合模式 */ = {
+			isa = PBXGroup;
+			children = (
+				8825CF191ED86AED00C59E4E /* CompositePattern_AbstractLight.h */,
+				8825CF1A1ED86AED00C59E4E /* CompositePattern_AbstractLight.m */,
+				8825CF131ED869BB00C59E4E /* CompositePattern_Light.h */,
+				8825CF141ED869BB00C59E4E /* CompositePattern_Light.m */,
+				8825CF1C1ED86B2B00C59E4E /* CompositePattern_CompositeLight.h */,
+				8825CF1D1ED86B2B00C59E4E /* CompositePattern_CompositeLight.m */,
+			);
+			path = "组合模式";
 			sourceTree = "<group>";
 		};
 		8859608A1E701FA300760090 /* UI高级（动画） */ = {
@@ -1619,24 +1721,30 @@
 				88A617431E53100C00EF8AFC /* ViewController.m in Sources */,
 				886E65321ED3D4FB00C13E29 /* algorithm_sort.m in Sources */,
 				889C4AAA1E9C743000EB2C68 /* README.md in Sources */,
+				8825CF331ED878B400C59E4E /* DecoratorPattern_AbstractLight.m in Sources */,
 				889DBA781E7E71F900520C77 /* QuartzImages.m in Sources */,
 				88A617401E53100C00EF8AFC /* AppDelegate.m in Sources */,
 				88EA7A861EB2247500165B37 /* MASViewConstraint.m in Sources */,
 				88E8F79E1ED5A13300FE93B4 /* StatePattern_Light.m in Sources */,
+				8825CF1E1ED86B2B00C59E4E /* CompositePattern_CompositeLight.m in Sources */,
 				889C4A6E1E9C73C600EB2C68 /* NotificationVC.m in Sources */,
 				889C4AB01E9C743000EB2C68 /* UIProgressView+AFNetworking.m in Sources */,
 				88EA7A8A1EB2247500165B37 /* ViewController+MASAdditions.m in Sources */,
+				8825CF301ED8708700C59E4E /* BridgePattern_BlueColor.m in Sources */,
 				889DBA891E7EBBA700520C77 /* CoreAnimationVC.m in Sources */,
 				88EA7A821EB2247500165B37 /* MASConstraint.m in Sources */,
 				889C4AA11E9C743000EB2C68 /* AFHTTPRequestOperationManager.m in Sources */,
 				88C32E8F1E66BFF1002753FC /* FMDBVC.m in Sources */,
 				885960E11E70222000760090 /* UIView+AnimationUtility.m in Sources */,
 				88EA7A851EB2247500165B37 /* MASViewAttribute.m in Sources */,
+				8825CF211ED86FB100C59E4E /* BridgePattern_AbstractLight.m in Sources */,
+				8825CF3F1ED87B4A00C59E4E /* DecoratorPattern_AbstractDecorator.m in Sources */,
 				88E8F7AE1ED5A1E000FE93B4 /* CommandPattern_Light.m in Sources */,
 				88C32E851E66BFF1002753FC /* Model.xcdatamodeld in Sources */,
 				889B2EB81E9077DB00ACD1A0 /* ConcurrencyVC.m in Sources */,
 				88EA7A811EB2247500165B37 /* MASCompositeConstraint.m in Sources */,
 				88A6173D1E53100C00EF8AFC /* main.m in Sources */,
+				8825CF2D1ED8707500C59E4E /* BridgePattern_RedColor.m in Sources */,
 				889DBA7F1E7E71F900520C77 /* QuartzView.m in Sources */,
 				889DBA7A1E7E71F900520C77 /* QuartzLineViewController.m in Sources */,
 				889C4AB11E9C743000EB2C68 /* UIRefreshControl+AFNetworking.m in Sources */,
@@ -1644,6 +1752,7 @@
 				885960C61E7020DD00760090 /* TestGeneralAnimationVC.m in Sources */,
 				88E8F7B41ED5A21A00FE93B4 /* LightCommand_On.m in Sources */,
 				88E8F7A41ED5A17000FE93B4 /* LightState.m in Sources */,
+				8825CF421ED87C6400C59E4E /* DecoratorPattern_ColorDecorator.m in Sources */,
 				889DBA771E7E71F900520C77 /* QuartzGradientViewController.m in Sources */,
 				8825CF071ED3BA3500C59E4E /* DataStructureVC.m in Sources */,
 				889C4AAB1E9C743000EB2C68 /* AFNetworkActivityIndicatorManager.m in Sources */,
@@ -1651,6 +1760,7 @@
 				88E8F7A71ED5A18B00FE93B4 /* LightState_On.m in Sources */,
 				889C4AA21E9C743000EB2C68 /* AFHTTPSessionManager.m in Sources */,
 				88C32E8E1E66BFF1002753FC /* FMResultSet.m in Sources */,
+				8825CF451ED87C9400C59E4E /* DecoratorPattern_HotDecorator.m in Sources */,
 				88439EFB1EA79D62007DDA1B /* SystemInfoVC.m in Sources */,
 				889C4A9D1E9C743000EB2C68 /* NetworkVC.m in Sources */,
 				88E8F7B11ED5A1F600FE93B4 /* LightCommand.m in Sources */,
@@ -1664,12 +1774,15 @@
 				88EA7A881EB2247500165B37 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				88EA7A891EB2247500165B37 /* View+MASAdditions.m in Sources */,
 				88C32E8C1E66BFF1002753FC /* FMDatabasePool.m in Sources */,
+				8825CF1B1ED86AED00C59E4E /* CompositePattern_AbstractLight.m in Sources */,
 				8849AE331EC30260001F3218 /* RunloopVC.m in Sources */,
 				889B2E9B1E8A978300ACD1A0 /* CubeVC.m in Sources */,
 				88EA7A831EB2247500165B37 /* MASConstraintMaker.m in Sources */,
+				8825CF271ED8704000C59E4E /* BridgePattern_BigLight.m in Sources */,
 				88E8F7AA1ED5A1A100FE93B4 /* LightState_Off.m in Sources */,
 				889DBA7D1E7E71F900520C77 /* QuartzRendering.m in Sources */,
 				889C4AAF1E9C743000EB2C68 /* UIImageView+AFNetworking.m in Sources */,
+				8825CF241ED8701100C59E4E /* BridgePattern_AbstractColor.m in Sources */,
 				889DBA391E6BFBA200520C77 /* CoreLocationVC.m in Sources */,
 				889C4AA31E9C743000EB2C68 /* AFNetworkReachabilityManager.m in Sources */,
 				889DBA721E7E71F900520C77 /* QuartzClipping.m in Sources */,
@@ -1681,9 +1794,11 @@
 				889DBA741E7E71F900520C77 /* QuartzDashViewController.m in Sources */,
 				889C4AA01E9C743000EB2C68 /* AFHTTPRequestOperation.m in Sources */,
 				889C4AA41E9C743000EB2C68 /* AFSecurityPolicy.m in Sources */,
+				8825CF151ED869BB00C59E4E /* CompositePattern_Light.m in Sources */,
 				889DBA761E7E71F900520C77 /* QuartzDemoVC.m in Sources */,
 				8887A3B31EAEC8C7005EEFAE /* H5VC.m in Sources */,
 				889DBA711E7E71F900520C77 /* QuartzBlendingViewController.m in Sources */,
+				8825CF2A1ED8705C00C59E4E /* BridgePattern_SmallLight.m in Sources */,
 				889C4AAD1E9C743000EB2C68 /* UIAlertView+AFNetworking.m in Sources */,
 				88EA7A841EB2247500165B37 /* MASLayoutConstraint.m in Sources */,
 				889C4A691E9C6D7B00EB2C68 /* SystemAppVC.m in Sources */,
@@ -1695,6 +1810,7 @@
 				88EA7A8B1EB2247500165B37 /* README.md in Sources */,
 				889DBA791E7E71F900520C77 /* QuartzLines.m in Sources */,
 				8849AE2E1EC2BBAE001F3218 /* RuntimeVC.m in Sources */,
+				8825CF361ED878C800C59E4E /* DecoratorPattern_Light.m in Sources */,
 				88EA7A871EB2247500165B37 /* NSArray+MASAdditions.m in Sources */,
 				88C32E8A1E66BFF1002753FC /* FMDatabase.m in Sources */,
 				889C4AAC1E9C743000EB2C68 /* UIActivityIndicatorView+AFNetworking.m in Sources */,

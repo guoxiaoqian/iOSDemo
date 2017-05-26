@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CommandPattern_Light.h"
 
 @interface LightCommand : NSObject
+
+@property (strong,nonatomic) CommandPattern_Light* light;
+
+-(instancetype)initWithLight:(CommandPattern_Light*)light;
+
+-(void)execute;
 
 @end

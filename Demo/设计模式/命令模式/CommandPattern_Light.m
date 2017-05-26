@@ -10,4 +10,13 @@
 
 @implementation CommandPattern_Light
 
+-(void)on{
+    LOG_FUNCTION;
+}
+
+-(void)off{
+    LOG_FUNCTION;
+}
+
+
 @end

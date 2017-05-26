@@ -10,4 +10,7 @@
 
 @interface CommandPattern_Light : NSObject
 
+-(void)on;
+-(void)off;
+
 @end

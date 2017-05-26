@@ -10,4 +10,8 @@
 
 @implementation LightCommand_On
 
+-(void)execute{
+    [self.light on];
+}
+
 @end
