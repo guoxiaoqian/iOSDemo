@@ -9,13 +9,69 @@
 #import "FunctionVC.h"
 #import <objc/runtime.h>
 
+#pragma mark - Load & Initilize
+
+@interface ClassInit : NSObject
+
++(void)print;
+
+@end
+
+@implementation ClassInit
+
++(void)load{
+    LOG_FUNCTION;
+}
+
++(void)initialize{
+    LOG_FUNCTION;
+}
+
++(void)print{
+    LOG_FUNCTION;
+}
+
+@end
+
+@interface ClassInit (Test)
+
+@end
+
+@implementation ClassInit (Test)
+
++(void)load{
+    LOG_FUNCTION;
+}
+
++(void)initialize{
+    LOG_FUNCTION;
+}
+
+@end
+
+@interface ClassInitSub : ClassInit
+
+@end
+
+@implementation ClassInitSub
+
++(void)load{
+    LOG_FUNCTION;
+}
+
++(void)initialize{
+    LOG_FUNCTION;
+}
+
+@end
+
+#pragma mark - FunctionVC
+
 @interface FunctionVC ()
 
 @property (strong,nonatomic) NSString* age;
 
 @end
-
-
 
 
 @implementation FunctionVC
@@ -28,6 +84,8 @@
     [self testSynthesize];
     
     [self testKVO];
+    
+    [self testLoadAndInitialize];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,10 +123,21 @@
     self.age = @"100";
     [self removeObserver:self forKeyPath:@"age"];
 }
+
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
     NSLog(@"KVO class:%@ key:%@ change:%@",NSStringFromClass([object class]),keyPath,change);
 }
 
+-(void)testLoadAndInitialize{
+    [ClassInit print];
+//    ClassInit* tmp = [ClassInit new];
+    //    ClassInitSub* tmp2 = [ClassInitSub new];
+
+//    Category的load也会收到调用，但顺序上在主类及其子类的load调用之后。
+//    Category的Initialize会覆盖主类的。
+//    initialize是在第一次主动使用当前类(调用类方法或创建对象)的时候。
+//    即使子类不实现initialize方法，会把父类的实现继承过来调用一遍。
+}
 
 
 @end
