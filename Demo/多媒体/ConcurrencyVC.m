@@ -33,23 +33,23 @@
             count ++;
         }];
         
-//        在Cocoa中，每个线程(NSThread)对象中内部都有一个run loop（NSRunLoop）对象用来循环处理输入事件(子线程默认是没创建的只有去获取Runloop的时候才创建)。
+        //        在Cocoa中，每个线程(NSThread)对象中内部都有一个run loop（NSRunLoop）对象用来循环处理输入事件(子线程默认是没创建的只有去获取Runloop的时候才创建)。
         
         //首次获取，会为子线程创建Runloop并关联
         NSRunLoop* runloop = [NSRunLoop currentRunLoop];
         [runloop addTimer:timer forMode:NSRunLoopCommonModes];
         
         //执行runloop
-//        [runloop run];
+        //        [runloop run];
         [runloop runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
         
         //用runloop就不用循环了
-//        int i = 0;
-//        while (![self isCancelled] && i < 100) {
-//            [NSThread sleepForTimeInterval:1];
-//            NSLog(@"MyThread run %d",i);
-//            i++;
-//        }
+        //        int i = 0;
+        //        while (![self isCancelled] && i < 100) {
+        //            [NSThread sleepForTimeInterval:1];
+        //            NSLog(@"MyThread run %d",i);
+        //            i++;
+        //        }
     }
 }
 
@@ -172,14 +172,14 @@ typedef enum : NSUInteger {
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-//    
-//    [self operationQueueGenaral];
-//    
-//    [self operationQueueCustom];
-//    
-//    [self dispatchQueueGeneral];
+    //
+    //    [self operationQueueGenaral];
+    //
+    //    [self operationQueueCustom];
+    //
+    [self dispatchQueueGeneral];
     
-    [self thread];
+    //    [self thread];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -235,7 +235,7 @@ typedef enum : NSUInteger {
     
     [queue addOperation:operation1];
     [queue addOperation:operation2];
-
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [operation1 cancel];
     });
@@ -318,10 +318,47 @@ typedef enum : NSUInteger {
     dispatch_group_async(group, globalQueue, ^{
         NSLog(@"dispatch_group_t 2");
     });
+    
+    //Group串联依赖
+    dispatch_group_t group2 = dispatch_group_create();
+    dispatch_group_enter(group2); //手动管理Group计数，必须配套dispatch_group_leave，计数减为零则触发Notifiy;否则依赖该Group的block会直接执行
+    dispatch_group_notify(group, globalQueue, ^{
+        dispatch_async(globalQueue, ^{
+            NSLog(@"dispatch_group_t 3");
+            dispatch_group_leave(group2);
+        });
+    });
+    dispatch_group_t group3 = dispatch_group_create();
+    dispatch_group_enter(group3);
+    
+    dispatch_group_notify(group2, globalQueue, ^{
+        dispatch_async(globalQueue, ^{
+            NSLog(@"dispatch_group_t 4");
+            dispatch_group_leave(group3);
+        });
+    });
+    
+    //Group等待
     NSLog(@"dispatch_group_t 等待开始");
-    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+    dispatch_group_wait(group3, DISPATCH_TIME_FOREVER);
     NSLog(@"dispatch_group_t 等待结束");
-
+    
+    //Barrier串联依赖:????顺序不总是3在中间
+    dispatch_async(globalQueue, ^{
+        NSLog(@"dispatch_barrier 1");
+    });
+    dispatch_async(globalQueue, ^{
+        NSLog(@"dispatch_barrier 2");
+    });
+    dispatch_barrier_async(globalQueue, ^{
+        NSLog(@"dispatch_barrier 3 barrier");
+    });
+    dispatch_async(globalQueue, ^{
+        NSLog(@"dispatch_barrier 4");
+    });
+    dispatch_async(globalQueue, ^{
+        NSLog(@"dispatch_barrier 5");
+    });
 }
 
 //用顺序队列做同步操作比锁更高效
@@ -368,11 +405,11 @@ dispatch_source_t ProcessContentsOfFile(const char* filename)
         if (buffer)
         {
             
-//            ssize_t actual = read(fd, buffer, (estimated));
-//            Boolean done = MyProcessFileData(buffer, actual);  // Process the data.
-//            
-//            // Release the buffer when done.
-//            free(buffer);
+            //            ssize_t actual = read(fd, buffer, (estimated));
+            //            Boolean done = MyProcessFileData(buffer, actual);  // Process the data.
+            //
+            //            // Release the buffer when done.
+            //            free(buffer);
             
             Boolean done = YES;
             
@@ -408,13 +445,13 @@ dispatch_source_t WriteDataToFile(const char* filename)
     }
     
     dispatch_source_set_event_handler(writeSource, ^{
-//        size_t bufferSize = MyGetDataSize();
-//        void* buffer = malloc(bufferSize);
-//        
-//        size_t actual = MyGetData(buffer, bufferSize);
-//        write(fd, buffer, actual);
-//        
-//        free(buffer);
+        //        size_t bufferSize = MyGetDataSize();
+        //        void* buffer = malloc(bufferSize);
+        //
+        //        size_t actual = MyGetData(buffer, bufferSize);
+        //        write(fd, buffer, actual);
+        //
+        //        free(buffer);
         
         // Cancel and release the dispatch source when done.
         dispatch_source_cancel(writeSource);
@@ -437,16 +474,16 @@ dispatch_source_t MonitorNameChangesToFile(const char* filename)
     if (source)
     {
         // Copy the filename for later use.
-//        int length = strlen(filename);
-//        char* newString = (char*)malloc(length + 1);
-//        newString = strcpy(newString, filename);
-//        dispatch_set_context(source, newString);
-//        
-//        // Install the event handler to process the name change
-//        dispatch_source_set_event_handler(source, ^{
-//            const char*  oldFilename = (char*)dispatch_get_context(source);
-//            MyUpdateFileName(oldFilename, fd);
-//        });
+        //        int length = strlen(filename);
+        //        char* newString = (char*)malloc(length + 1);
+        //        newString = strcpy(newString, filename);
+        //        dispatch_set_context(source, newString);
+        //
+        //        // Install the event handler to process the name change
+        //        dispatch_source_set_event_handler(source, ^{
+        //            const char*  oldFilename = (char*)dispatch_get_context(source);
+        //            MyUpdateFileName(oldFilename, fd);
+        //        });
         
         // Install a cancellation handler to free the descriptor
         // and the stored string.
