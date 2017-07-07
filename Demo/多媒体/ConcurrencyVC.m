@@ -344,19 +344,19 @@ typedef enum : NSUInteger {
     NSLog(@"dispatch_group_t 等待结束");
     
     //Barrier串联依赖:????顺序不总是3在中间
-    dispatch_async(globalQueue, ^{
+    dispatch_async(cocurrentQueue, ^{
         NSLog(@"dispatch_barrier 1");
     });
-    dispatch_async(globalQueue, ^{
+    dispatch_async(cocurrentQueue, ^{
         NSLog(@"dispatch_barrier 2");
     });
-    dispatch_barrier_async(globalQueue, ^{
+    dispatch_barrier_async(cocurrentQueue, ^{
         NSLog(@"dispatch_barrier 3 barrier");
     });
-    dispatch_async(globalQueue, ^{
+    dispatch_async(cocurrentQueue, ^{
         NSLog(@"dispatch_barrier 4");
     });
-    dispatch_async(globalQueue, ^{
+    dispatch_async(cocurrentQueue, ^{
         NSLog(@"dispatch_barrier 5");
     });
 }
