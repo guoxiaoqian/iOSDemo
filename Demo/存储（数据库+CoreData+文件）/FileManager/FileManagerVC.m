@@ -9,14 +9,10 @@
 #import "FileManagerVC.h"
 #import "UICKeyChainStore.h"//KeyChain
 
-@interface UnArchiveModel : NSObject
+@interface ArchiveModel : NSObject <NSCoding>
 
 @property (strong,nonatomic) NSString *name;
 @property (assign,nonatomic) int year;
-
-@end
-
-@interface ArchiveModel : UnArchiveModel <NSCoding>
 
 @end
 

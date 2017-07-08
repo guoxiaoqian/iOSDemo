@@ -8,6 +8,9 @@
 
 #include "algorithm_sort.h"
 
+//http://www.jianshu.com/p/036feafa8e95?utm_source=tuicool&utm_medium=referral
+
+
 typedef struct{
     int array[10];
     int length;
@@ -122,6 +125,52 @@ void quik_sort(){
     printArray(arrayS, __func__);
 }
 
+//调整某个父节点下的子树成为最大堆子树
+void adjust_heap(ArrayStruct* arrayS,int parentNodeIndex,int len){
+    for (int i=parentNodeIndex;i >= 0 && (i+1)*2 - 1 < len;) {
+        int childNodeIndex = (i+1)*2 - 1;  //2k,减一是因为数组从0开始索引，而节点编号是从1开始
+        int nextChildNodeIndex = childNodeIndex + 1 ; //2k+1
+        //获取最大子节点
+        if (nextChildNodeIndex < len) {
+            if (arrayS->array[nextChildNodeIndex] > arrayS->array[childNodeIndex]) {
+                childNodeIndex = nextChildNodeIndex;
+            }
+        }
+        //如果最大子节点比父节点大，则交换
+        if (arrayS->array[parentNodeIndex] < arrayS->array[childNodeIndex]) {
+            int tmp = arrayS->array[parentNodeIndex];
+            arrayS->array[parentNodeIndex] = arrayS->array[childNodeIndex];
+            arrayS->array[childNodeIndex] = tmp;
+            
+            //继续调整交换过后的子节点
+            i = childNodeIndex;
+        }else{
+            break;
+        }
+    }
+}
+
+#warning TODO-GUO:结果不对
+void heap_sort(){
+    ArrayStruct arrayS = generateArray();
+    
+    //构建最大堆(从最后一个父节点到根节点，依次调整成最大堆)
+    for (int i=arrayS.length/2 -1; i>=0; --i) {
+        adjust_heap(&arrayS, i,arrayS.length);
+    }
+    
+    //不断取最大堆根节点，与最后子节点交换，并重新调整堆
+    for (int i=arrayS.length-1; i>0; --i) {
+        int tmp = arrayS.array[0];
+        arrayS.array[0] = arrayS.array[i];
+        arrayS.array[i] = tmp;
+        
+        adjust_heap(&arrayS, 0, i);
+    }
+
+    printArray(arrayS, __func__);
+}
+
 #pragma mark - Test
 
 void testSort(){
@@ -129,4 +178,5 @@ void testSort(){
     select_sort();
     insert_sort();
     quik_sort();
+    heap_sort();
 }

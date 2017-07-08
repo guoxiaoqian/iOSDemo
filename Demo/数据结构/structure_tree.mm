@@ -6,16 +6,16 @@
 //  Copyright © 2017年 郭晓倩. All rights reserved.
 //
 
-#include "structure_tree.hpp"
-
 struct BinaryTreeNode{
     int value;
     BinaryTreeNode* leftNode;
     BinaryTreeNode* rightNode;
 };
 
+
+//前序排序、中序排序、后序排序指的都是父节点
 BinaryTreeNode* rebuildTreeByPreOrderAndMiddleOrderArray(int preOrderArray[],int middleOrderArray[],int nodeCount){
-    if (nodeCount == 0) {
+    if (preOrderArray == NULL || middleOrderArray == NULL || nodeCount == 0) {
         return NULL;
     }
     if (nodeCount == 1) {

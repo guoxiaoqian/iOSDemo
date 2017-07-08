@@ -53,8 +53,9 @@
 		8849AE2F1EC2BBAE001F3218 /* RuntimeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8849AE2B1EC2BBAE001F3218 /* RuntimeVC.xib */; };
 		8849AE331EC30260001F3218 /* RunloopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8849AE311EC30260001F3218 /* RunloopVC.m */; };
 		8849AE341EC30260001F3218 /* RunloopVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8849AE321EC30260001F3218 /* RunloopVC.xib */; };
-		885692351F0FBA61001CECBA /* structure_list.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 885692331F0FBA61001CECBA /* structure_list.cpp */; };
-		885692381F0FC396001CECBA /* structure_tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 885692361F0FC396001CECBA /* structure_tree.cpp */; };
+		885692351F0FBA61001CECBA /* structure_list.mm in Sources */ = {isa = PBXBuildFile; fileRef = 885692331F0FBA61001CECBA /* structure_list.mm */; };
+		885692381F0FC396001CECBA /* structure_tree.mm in Sources */ = {isa = PBXBuildFile; fileRef = 885692361F0FC396001CECBA /* structure_tree.mm */; };
+		8856923B1F1060CC001CECBA /* structure_stack_queue.mm in Sources */ = {isa = PBXBuildFile; fileRef = 885692391F1060CC001CECBA /* structure_stack_queue.mm */; };
 		885960C61E7020DD00760090 /* TestGeneralAnimationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 885960C41E7020DD00760090 /* TestGeneralAnimationVC.m */; };
 		885960C71E7020DD00760090 /* TestGeneralAnimationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885960C51E7020DD00760090 /* TestGeneralAnimationVC.xib */; };
 		885960C91E70211C00760090 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885960C81E70211C00760090 /* QuartzCore.framework */; };
@@ -359,10 +360,9 @@
 		8849AE301EC30260001F3218 /* RunloopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunloopVC.h; sourceTree = "<group>"; };
 		8849AE311EC30260001F3218 /* RunloopVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunloopVC.m; sourceTree = "<group>"; };
 		8849AE321EC30260001F3218 /* RunloopVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RunloopVC.xib; sourceTree = "<group>"; };
-		885692331F0FBA61001CECBA /* structure_list.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = structure_list.cpp; sourceTree = "<group>"; };
-		885692341F0FBA61001CECBA /* structure_list.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = structure_list.hpp; sourceTree = "<group>"; };
-		885692361F0FC396001CECBA /* structure_tree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = structure_tree.cpp; sourceTree = "<group>"; };
-		885692371F0FC396001CECBA /* structure_tree.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = structure_tree.hpp; sourceTree = "<group>"; };
+		885692331F0FBA61001CECBA /* structure_list.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = structure_list.mm; sourceTree = "<group>"; };
+		885692361F0FC396001CECBA /* structure_tree.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = structure_tree.mm; sourceTree = "<group>"; };
+		885692391F1060CC001CECBA /* structure_stack_queue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = structure_stack_queue.mm; sourceTree = "<group>"; };
 		885960C31E7020DD00760090 /* TestGeneralAnimationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestGeneralAnimationVC.h; sourceTree = "<group>"; };
 		885960C41E7020DD00760090 /* TestGeneralAnimationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestGeneralAnimationVC.m; sourceTree = "<group>"; };
 		885960C51E7020DD00760090 /* TestGeneralAnimationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestGeneralAnimationVC.xib; sourceTree = "<group>"; };
@@ -714,10 +714,9 @@
 				8825CF041ED3BA3500C59E4E /* DataStructureVC.h */,
 				8825CF051ED3BA3500C59E4E /* DataStructureVC.m */,
 				8825CF061ED3BA3500C59E4E /* DataStructureVC.xib */,
-				885692341F0FBA61001CECBA /* structure_list.hpp */,
-				885692331F0FBA61001CECBA /* structure_list.cpp */,
-				885692371F0FC396001CECBA /* structure_tree.hpp */,
-				885692361F0FC396001CECBA /* structure_tree.cpp */,
+				885692331F0FBA61001CECBA /* structure_list.mm */,
+				885692361F0FC396001CECBA /* structure_tree.mm */,
+				885692391F1060CC001CECBA /* structure_stack_queue.mm */,
 			);
 			path = "数据结构";
 			sourceTree = "<group>";
@@ -1754,6 +1753,7 @@
 				889B2EB81E9077DB00ACD1A0 /* ConcurrencyVC.m in Sources */,
 				88EA7A811EB2247500165B37 /* MASCompositeConstraint.m in Sources */,
 				88A6173D1E53100C00EF8AFC /* main.m in Sources */,
+				8856923B1F1060CC001CECBA /* structure_stack_queue.mm in Sources */,
 				8825CF2D1ED8707500C59E4E /* BridgePattern_RedColor.m in Sources */,
 				889DBA7F1E7E71F900520C77 /* QuartzView.m in Sources */,
 				889DBA7A1E7E71F900520C77 /* QuartzLineViewController.m in Sources */,
@@ -1777,7 +1777,7 @@
 				8825CF021ED3BA1F00C59E4E /* DesignPatternVC.m in Sources */,
 				889C4AA61E9C743000EB2C68 /* AFURLRequestSerialization.m in Sources */,
 				889C4AA71E9C743000EB2C68 /* AFURLResponseSerialization.m in Sources */,
-				885692351F0FBA61001CECBA /* structure_list.cpp in Sources */,
+				885692351F0FBA61001CECBA /* structure_list.mm in Sources */,
 				88C32E891E66BFF1002753FC /* UICKeyChainStore.m in Sources */,
 				88CC32BA1EA8C3C900801376 /* VolumeWaveView.m in Sources */,
 				889C4AAE1E9C743000EB2C68 /* UIButton+AFNetworking.m in Sources */,
@@ -1811,7 +1811,7 @@
 				889DBA711E7E71F900520C77 /* QuartzBlendingViewController.m in Sources */,
 				8825CF2A1ED8705C00C59E4E /* BridgePattern_SmallLight.m in Sources */,
 				889C4AAD1E9C743000EB2C68 /* UIAlertView+AFNetworking.m in Sources */,
-				885692381F0FC396001CECBA /* structure_tree.cpp in Sources */,
+				885692381F0FC396001CECBA /* structure_tree.mm in Sources */,
 				88EA7A841EB2247500165B37 /* MASLayoutConstraint.m in Sources */,
 				889C4A691E9C6D7B00EB2C68 /* SystemAppVC.m in Sources */,
 				889DBA731E7E71F900520C77 /* QuartzCurves.m in Sources */,

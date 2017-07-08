@@ -6,7 +6,6 @@
 //  Copyright © 2017年 郭晓倩. All rights reserved.
 //
 
-#include "structure_list.hpp"
 
 struct ListNode{
     int value;
