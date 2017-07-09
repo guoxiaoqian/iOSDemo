@@ -125,10 +125,12 @@ void quik_sort(){
     printArray(arrayS, __func__);
 }
 
+#pragma mark - 堆排序
+
 //调整某个父节点下的子树成为最大堆子树
 void adjust_heap(ArrayStruct* arrayS,int parentNodeIndex,int len){
     for (int i=parentNodeIndex;i >= 0 && (i+1)*2 - 1 < len;) {
-        int childNodeIndex = (i+1)*2 - 1;  //2k,减一是因为数组从0开始索引，而节点编号是从1开始
+        int childNodeIndex = (i+1)*2 - 1;  //2k,减一是因为数组索引i从0开始，而节点编号k是从1开始
         int nextChildNodeIndex = childNodeIndex + 1 ; //2k+1
         //获取最大子节点
         if (nextChildNodeIndex < len) {
@@ -137,9 +139,9 @@ void adjust_heap(ArrayStruct* arrayS,int parentNodeIndex,int len){
             }
         }
         //如果最大子节点比父节点大，则交换
-        if (arrayS->array[parentNodeIndex] < arrayS->array[childNodeIndex]) {
-            int tmp = arrayS->array[parentNodeIndex];
-            arrayS->array[parentNodeIndex] = arrayS->array[childNodeIndex];
+        if (arrayS->array[i] < arrayS->array[childNodeIndex]) {
+            int tmp = arrayS->array[i];
+            arrayS->array[i] = arrayS->array[childNodeIndex];
             arrayS->array[childNodeIndex] = tmp;
             
             //继续调整交换过后的子节点
@@ -150,7 +152,6 @@ void adjust_heap(ArrayStruct* arrayS,int parentNodeIndex,int len){
     }
 }
 
-#warning TODO-GUO:结果不对
 void heap_sort(){
     ArrayStruct arrayS = generateArray();
     
@@ -171,6 +172,62 @@ void heap_sort(){
     printArray(arrayS, __func__);
 }
 
+#pragma mark - 归并排序
+
+void merge(ArrayStruct* arrayS,int tmpArray[],int startIndex,int midIndex,int endIndex){
+    int first = startIndex;
+    int second = midIndex + 1;
+    int tmpIndex = 0;
+    BOOL firstEnd = NO;
+    BOOL secondEnd = NO;
+    while (first <= midIndex && second <= endIndex) {
+        if (arrayS->array[first] < arrayS->array[second]) {
+            if (first == midIndex) {
+                firstEnd = YES;
+            }
+            tmpArray[tmpIndex++] = arrayS->array[first++];
+        }else{
+            if (second == endIndex) {
+                secondEnd = YES;
+            }
+            tmpArray[tmpIndex++] = arrayS->array[second++];
+        }
+    }
+    
+    //将剩余的追加到临时数组
+    if (firstEnd == NO) {
+        while (first<=midIndex) {
+            tmpArray[tmpIndex++] = arrayS->array[first++];
+        }
+    }
+    if (secondEnd == NO) {
+        while (second<=endIndex) {
+            tmpArray[tmpIndex++] = arrayS->array[second++];
+        }
+    }
+   
+    //排序后，从临时数组拷贝回原数组
+    for (int i=0,index=startIndex; index<=endIndex; ++i,++index) {
+        arrayS->array[index] = tmpArray[i];
+    }
+}
+
+void merge_sort_reversingly(ArrayStruct* arrayS,int tmpArray[],int startIndex,int endIndex){
+    if (startIndex < endIndex) {
+        int midIndex = (startIndex+endIndex)/2;
+        merge_sort_reversingly(arrayS, tmpArray ,startIndex, midIndex);
+        merge_sort_reversingly(arrayS, tmpArray ,midIndex+1, endIndex);
+        merge(arrayS, tmpArray, startIndex, midIndex, endIndex);
+    }
+}
+
+void merge_sort(){
+    ArrayStruct arrayS = generateArray();
+    int tmpArray[10];
+    merge_sort_reversingly(&arrayS, tmpArray, 0, arrayS.length-1);
+    printArray(arrayS, __func__);
+}
+
 #pragma mark - Test
 
 void testSort(){
@@ -179,4 +236,5 @@ void testSort(){
     insert_sort();
     quik_sort();
     heap_sort();
+    merge_sort();
 }

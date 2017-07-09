@@ -42,3 +42,54 @@ BinaryTreeNode* rebuildTreeByPreOrderAndMiddleOrderArray(int preOrderArray[],int
     node->rightNode = rebuildTreeByPreOrderAndMiddleOrderArray(preOrderArray+1+leftTreeNodeCount,middleOrderArray+leftTreeNodeCount+1,rightTreeNodeCount);
     return node;
 }
+
+//按值找到节点
+BinaryTreeNode* nodeByValue(BinaryTreeNode* tree,int value){
+    if (tree == NULL) {
+        return NULL;
+    }
+    
+    BinaryTreeNode* nodeInSubTree = nodeByValue(tree->leftNode, value);
+    if (nodeInSubTree != NULL) {
+        return nodeInSubTree;
+    }
+    nodeInSubTree = nodeByValue(tree->rightNode, value);
+    
+    return nodeInSubTree;
+}
+
+bool doesTreeAhaveTreeB(BinaryTreeNode* treeA,BinaryTreeNode* treeB){
+    if (treeB == NULL) {
+        return true;
+    }
+    if (treeA == NULL) {
+        return false;
+    }
+    
+    if (treeA->value != treeB->value) {
+        return false;
+    }
+    
+    return doesTreeAhaveTreeB(treeA->leftNode, treeB->leftNode) &&
+    doesTreeAhaveTreeB(treeA->rightNode, treeB->rightNode);
+}
+
+//判断树B是否是树A的子结构
+bool hasSubTree(BinaryTreeNode* treeA,BinaryTreeNode* treeB){
+    if (treeA == NULL || treeB == NULL) {
+        return false;
+    }
+    
+    bool result = false;
+    
+    if(treeA->value == treeB->value){
+        result = doesTreeAhaveTreeB(treeA, treeB);
+    }
+    if (result == false) {
+        result = hasSubTree(treeA->leftNode, treeB);
+    }
+    if (result == false) {
+        result = hasSubTree(treeA->rightNode, treeB);
+    }
+    return result;
+}

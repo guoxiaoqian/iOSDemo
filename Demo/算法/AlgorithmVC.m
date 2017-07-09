@@ -8,6 +8,7 @@
 
 #import "AlgorithmVC.h"
 #import "algorithm_sort.h"
+#import "algorithm_traverse.h"
 
 
 @interface AlgorithmVC ()
@@ -21,6 +22,8 @@
     // Do any additional setup after loading the view from its nib.
 
     testSort();
+    
+    testTraverse();
 }
 
 - (void)didReceiveMemoryWarning {
