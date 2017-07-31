@@ -53,6 +53,7 @@
 		8849AE2F1EC2BBAE001F3218 /* RuntimeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8849AE2B1EC2BBAE001F3218 /* RuntimeVC.xib */; };
 		8849AE331EC30260001F3218 /* RunloopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8849AE311EC30260001F3218 /* RunloopVC.m */; };
 		8849AE341EC30260001F3218 /* RunloopVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8849AE321EC30260001F3218 /* RunloopVC.xib */; };
+		885559291F1A468B000EA0C4 /* algorithm_divide.m in Sources */ = {isa = PBXBuildFile; fileRef = 885559281F1A468B000EA0C4 /* algorithm_divide.m */; };
 		885692351F0FBA61001CECBA /* structure_list.mm in Sources */ = {isa = PBXBuildFile; fileRef = 885692331F0FBA61001CECBA /* structure_list.mm */; };
 		885692381F0FC396001CECBA /* structure_tree.mm in Sources */ = {isa = PBXBuildFile; fileRef = 885692361F0FC396001CECBA /* structure_tree.mm */; };
 		8856923B1F1060CC001CECBA /* structure_stack_queue.mm in Sources */ = {isa = PBXBuildFile; fileRef = 885692391F1060CC001CECBA /* structure_stack_queue.mm */; };
@@ -362,6 +363,8 @@
 		8849AE301EC30260001F3218 /* RunloopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunloopVC.h; sourceTree = "<group>"; };
 		8849AE311EC30260001F3218 /* RunloopVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunloopVC.m; sourceTree = "<group>"; };
 		8849AE321EC30260001F3218 /* RunloopVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RunloopVC.xib; sourceTree = "<group>"; };
+		885559271F1A468B000EA0C4 /* algorithm_divide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = algorithm_divide.h; sourceTree = "<group>"; };
+		885559281F1A468B000EA0C4 /* algorithm_divide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = algorithm_divide.m; sourceTree = "<group>"; };
 		885692331F0FBA61001CECBA /* structure_list.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = structure_list.mm; sourceTree = "<group>"; };
 		885692361F0FC396001CECBA /* structure_tree.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = structure_tree.mm; sourceTree = "<group>"; };
 		885692391F1060CC001CECBA /* structure_stack_queue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = structure_stack_queue.mm; sourceTree = "<group>"; };
@@ -739,6 +742,8 @@
 				885692401F12372D001CECBA /* algorithm_search.m */,
 				885692421F123794001CECBA /* algorithm_traverse.h */,
 				885692431F123794001CECBA /* algorithm_traverse.m */,
+				885559271F1A468B000EA0C4 /* algorithm_divide.h */,
+				885559281F1A468B000EA0C4 /* algorithm_divide.m */,
 			);
 			path = "算法";
 			sourceTree = "<group>";
@@ -1270,8 +1275,8 @@
 				8849AE271EC2BBAE001F3218 /* FunctionVC.h */,
 				8849AE261EC2BBAE001F3218 /* FunctionVC.m */,
 				8849AE281EC2BBAE001F3218 /* FunctionVC.xib */,
-				8849AE291EC2BBAE001F3218 /* RuntimeVC.m */,
 				8849AE2A1EC2BBAE001F3218 /* RuntimeVC.h */,
+				8849AE291EC2BBAE001F3218 /* RuntimeVC.m */,
 				8849AE2B1EC2BBAE001F3218 /* RuntimeVC.xib */,
 			);
 			path = "OC高级（KVC+KVO+运行时）";
@@ -1746,6 +1751,7 @@
 				88EA7A861EB2247500165B37 /* MASViewConstraint.m in Sources */,
 				88E8F79E1ED5A13300FE93B4 /* StatePattern_Light.m in Sources */,
 				8825CF1E1ED86B2B00C59E4E /* CompositePattern_CompositeLight.m in Sources */,
+				885559291F1A468B000EA0C4 /* algorithm_divide.m in Sources */,
 				889C4A6E1E9C73C600EB2C68 /* NotificationVC.m in Sources */,
 				889C4AB01E9C743000EB2C68 /* UIProgressView+AFNetworking.m in Sources */,
 				88EA7A8A1EB2247500165B37 /* ViewController+MASAdditions.m in Sources */,
