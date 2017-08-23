@@ -100,6 +100,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    LOG_FUNCTION;
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    LOG_FUNCTION;
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

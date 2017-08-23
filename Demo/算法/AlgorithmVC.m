@@ -9,7 +9,7 @@
 #import "AlgorithmVC.h"
 #import "algorithm_sort.h"
 #import "algorithm_traverse.h"
-
+#import "algorithm_divide.h"
 
 @interface AlgorithmVC ()
 
@@ -24,6 +24,8 @@
     testSort();
     
     testTraverse();
+    
+    testDivide();
 }
 
 - (void)didReceiveMemoryWarning {

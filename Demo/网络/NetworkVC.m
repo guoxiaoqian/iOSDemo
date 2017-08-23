@@ -12,7 +12,7 @@
 #define Kboundary @"----WebKitFormBoundaryjv0UfA04ED44AhWx"
 
 
-@interface NetworkVC ()<NSURLSessionDownloadDelegate>
+@interface NetworkVC ()<NSURLSessionDownloadDelegate,NSURLConnectionDataDelegate>
 
 @property (strong,nonatomic) NSData* resumeDownloadData;
 
@@ -23,20 +23,51 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-//    [self sessionGeneralRequest];
-//    
-//    [self sessionDownload];
-//    
-//    [self sessionUpload];
-//    
-    [self afNetworkGeneralRequest];
     
-    [self afNetworkingMultiPartFormRequest];
+//    [self urlConnnection];
+//    
+//    [self sessionGeneralRequest];
+    
+    [self sessionDownload];
+    
+//    [self sessionUpload];
+//
+//    [self afNetworkGeneralRequest];
+//    
+//    [self afNetworkingMultiPartFormRequest];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc{
+    LOG_FUNCTION;
+}
+
+#pragma mark - URLConnection
+
+-(void)urlConnnection{
+    
+    NSURLRequest* request = [self generalRequest];
+    NSURLResponse *response = nil;
+    NSError* error = nil;
+    
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSLog(@"NSURLConnection sync response:%@ error:%@",response,error);
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+        NSLog(@"NSURLConnection async response:%@ error:%@",response,error);
+    }];
+    
+    [NSURLConnection connectionWithRequest:request delegate:self];
+}
+
+#pragma mark NSURLConnectionDataDelegate
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
+    NSLog(@"NSURLConnection delgate response:%@",response);
 }
 
 #pragma mark - URLSession
@@ -45,12 +76,7 @@
     return [NSURL URLWithString:@"https://www.baidu.com"];
 }
 
--(NSURLSession*)session{
-    NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration];
-    return [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
-}
-
--(void)sessionGeneralRequest{
+-(NSMutableURLRequest*)generalRequest{
     NSMutableURLRequest* urlRequest = [NSMutableURLRequest requestWithURL:[self url]];
     urlRequest.HTTPMethod = @"POST";
     urlRequest.timeoutInterval = 10;
@@ -59,8 +85,18 @@
     urlRequest.HTTPShouldHandleCookies = YES;
     [urlRequest setValue:@"text/plain,text/html" forHTTPHeaderField:@"Accept"];
     [urlRequest setValue:@"utf-8" forHTTPHeaderField:@"Accept-Charset"];
+
+    return urlRequest;
+}
+
+-(NSURLSession*)session{
+    NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    return [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
+}
+
+-(void)sessionGeneralRequest{
     
-    NSURLSessionTask* task = [[NSURLSession sharedSession] dataTaskWithRequest:urlRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    NSURLSessionTask* task = [[NSURLSession sharedSession] dataTaskWithRequest:[self generalRequest] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSString* responseBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"%s responseBody = %@",__FUNCTION__,responseBody);
         NSLog(@"%s responseMIMEType = %@ charset = %@",__FUNCTION__,response.MIMEType,response.textEncodingName);
@@ -70,9 +106,15 @@
 
 //简单下载
 -(NSURLSessionDownloadTask*)sessionDownload{
-    NSURLSessionDownloadTask* task = [[self session] downloadTaskWithURL:[self url] completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    __block NSURLSession* sesssion = [self session];
+    NSURLSessionDownloadTask* task = [sesssion downloadTaskWithURL:[self url] completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSString* targetURL = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:response.suggestedFilename];
         [[NSFileManager defaultManager] moveItemAtURL:location toURL:[NSURL URLWithString:targetURL] error:nil];
+        
+        //使用了Block，Delegate就不会回调
+        
+        //因为session强持有delegate，必须Invidate才能释放
+        [sesssion finishTasksAndInvalidate];
     }];
     [task resume];
     return task;
@@ -102,7 +144,7 @@
     urlRequest.HTTPMethod = @"POST";
     urlRequest.timeoutInterval = 60;
     urlRequest.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
-    [urlRequest setValue:[NSString stringWithFormat:@"multipart/form-data;charsert=utf-8;boundary=%@",Kboundary] forHTTPHeaderField:@"Content-Type"];
+    [urlRequest setValue:[NSString stringWithFormat:@"multipart/form-data;charset=utf-8;boundary=%@",Kboundary] forHTTPHeaderField:@"Content-Type"];
     [urlRequest setValue:[NSString stringWithFormat:@"%tu", [bodyData length]] forHTTPHeaderField:@"Content-Length"];
     
     
@@ -157,6 +199,8 @@
     if (error) {
         self.resumeDownloadData = [[error userInfo] objectForKey:NSURLSessionDownloadTaskResumeData];
     }
+    
+    [session finishTasksAndInvalidate];
 }
 
 #pragma mark - AFNetworking
