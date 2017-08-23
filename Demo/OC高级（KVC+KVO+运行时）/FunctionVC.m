@@ -76,16 +76,29 @@
 
 @implementation FunctionVC
 
+struct {
+    char c1;
+    int i;
+    char c2;
+}s1;
+
+struct {
+    char c1;
+    char c2;
+    int i;
+}s2;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self testSynthesize];
+//    [self testSynthesize];
+//    
+//    [self testKVO];
+//    
+//    [self testLoadAndInitialize];
     
-    [self testKVO];
-    
-    [self testLoadAndInitialize];
+    NSLog(@"s1:%d s2:%d",sizeof(s1),sizeof(s2));
 }
 
 - (void)didReceiveMemoryWarning {

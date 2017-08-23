@@ -261,7 +261,7 @@
     }
     
     
-    //==兼容==兼容IOS10之前方案
+    //==兼容==兼容IOS10之前方案（IOS10之前APNS拉起启动后没有其他回调；而IOS10可能拉起启动后立刻回调该方法；当没有category时为了统一处理，屏蔽掉此次回调）
     AppDelegate* delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     if (delegate.isIOS10ApnsLaunchCase) {
         //统一走didFinishLaunchingWithOptions中的handleAPNSLaunchOptions
