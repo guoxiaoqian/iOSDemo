@@ -108,6 +108,8 @@
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
     LOG_FUNCTION;
+    
+    NSProxy
 }
 
 #pragma mark - UITableViewDataSource

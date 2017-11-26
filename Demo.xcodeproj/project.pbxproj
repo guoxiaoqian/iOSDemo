@@ -175,6 +175,8 @@
 		88CC32C71EA9F2B100801376 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88CC32C61EA9F2B100801376 /* TodayViewController.m */; };
 		88CC32CA1EA9F2B100801376 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88CC32C81EA9F2B100801376 /* MainInterface.storyboard */; };
 		88CC32CE1EA9F2B100801376 /* TodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 88CC32C11EA9F2B100801376 /* TodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		88CEE8F51F3B53C2004A6CC1 /* MRCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88CEE8F41F3B53C2004A6CC1 /* MRCTest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		88CEE8F81F3C9186004A6CC1 /* DebugTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 88CEE8F71F3C9186004A6CC1 /* DebugTool.m */; };
 		88E8F79E1ED5A13300FE93B4 /* StatePattern_Light.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E8F79D1ED5A13300FE93B4 /* StatePattern_Light.m */; };
 		88E8F7A41ED5A17000FE93B4 /* LightState.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E8F7A31ED5A17000FE93B4 /* LightState.m */; };
 		88E8F7A71ED5A18B00FE93B4 /* LightState_On.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E8F7A61ED5A18B00FE93B4 /* LightState_On.m */; };
@@ -197,6 +199,7 @@
 		88EA7A891EB2247500165B37 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EA7A7B1EB2247500165B37 /* View+MASAdditions.m */; };
 		88EA7A8A1EB2247500165B37 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EA7A7E1EB2247500165B37 /* ViewController+MASAdditions.m */; };
 		88EA7A8B1EB2247500165B37 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 88EA7A7F1EB2247500165B37 /* README.md */; };
+		88F165861F3EDEA3001BE6E8 /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F165851F3EDEA3001BE6E8 /* Singleton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -565,6 +568,10 @@
 		88CC32C91EA9F2B100801376 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		88CC32CB1EA9F2B100801376 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88CC32D21EA9F2BD00801376 /* TodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayExtension.entitlements; sourceTree = "<group>"; };
+		88CEE8F31F3B53C2004A6CC1 /* MRCTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCTest.h; sourceTree = "<group>"; };
+		88CEE8F41F3B53C2004A6CC1 /* MRCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCTest.m; sourceTree = "<group>"; };
+		88CEE8F61F3C9186004A6CC1 /* DebugTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugTool.h; sourceTree = "<group>"; };
+		88CEE8F71F3C9186004A6CC1 /* DebugTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugTool.m; sourceTree = "<group>"; };
 		88E8F79C1ED5A13300FE93B4 /* StatePattern_Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatePattern_Light.h; sourceTree = "<group>"; };
 		88E8F79D1ED5A13300FE93B4 /* StatePattern_Light.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatePattern_Light.m; sourceTree = "<group>"; };
 		88E8F7A21ED5A17000FE93B4 /* LightState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightState.h; sourceTree = "<group>"; };
@@ -611,6 +618,8 @@
 		88EA7A7D1EB2247500165B37 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		88EA7A7E1EB2247500165B37 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		88EA7A7F1EB2247500165B37 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		88F165841F3EDEA3001BE6E8 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		88F165851F3EDEA3001BE6E8 /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1272,12 +1281,18 @@
 		88C32E821E66BFF1002753FC /* OC高级（KVC+KVO+运行时） */ = {
 			isa = PBXGroup;
 			children = (
+				88CEE8F31F3B53C2004A6CC1 /* MRCTest.h */,
+				88CEE8F41F3B53C2004A6CC1 /* MRCTest.m */,
+				88CEE8F61F3C9186004A6CC1 /* DebugTool.h */,
+				88CEE8F71F3C9186004A6CC1 /* DebugTool.m */,
 				8849AE271EC2BBAE001F3218 /* FunctionVC.h */,
 				8849AE261EC2BBAE001F3218 /* FunctionVC.m */,
 				8849AE281EC2BBAE001F3218 /* FunctionVC.xib */,
 				8849AE2A1EC2BBAE001F3218 /* RuntimeVC.h */,
 				8849AE291EC2BBAE001F3218 /* RuntimeVC.m */,
 				8849AE2B1EC2BBAE001F3218 /* RuntimeVC.xib */,
+				88F165841F3EDEA3001BE6E8 /* Singleton.h */,
+				88F165851F3EDEA3001BE6E8 /* Singleton.m */,
 			);
 			path = "OC高级（KVC+KVO+运行时）";
 			sourceTree = "<group>";
@@ -1761,6 +1776,7 @@
 				885692411F12372D001CECBA /* algorithm_search.m in Sources */,
 				889C4AA11E9C743000EB2C68 /* AFHTTPRequestOperationManager.m in Sources */,
 				88C32E8F1E66BFF1002753FC /* FMDBVC.m in Sources */,
+				88F165861F3EDEA3001BE6E8 /* Singleton.m in Sources */,
 				885960E11E70222000760090 /* UIView+AnimationUtility.m in Sources */,
 				88EA7A851EB2247500165B37 /* MASViewAttribute.m in Sources */,
 				8825CF211ED86FB100C59E4E /* BridgePattern_AbstractLight.m in Sources */,
@@ -1785,6 +1801,7 @@
 				889C4AAB1E9C743000EB2C68 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				882C99741E8D0CE300BFDAC7 /* RemoteEnvetVC.m in Sources */,
 				88E8F7A71ED5A18B00FE93B4 /* LightState_On.m in Sources */,
+				88CEE8F81F3C9186004A6CC1 /* DebugTool.m in Sources */,
 				889C4AA21E9C743000EB2C68 /* AFHTTPSessionManager.m in Sources */,
 				88C32E8E1E66BFF1002753FC /* FMResultSet.m in Sources */,
 				8825CF451ED87C9400C59E4E /* DecoratorPattern_HotDecorator.m in Sources */,
@@ -1828,6 +1845,7 @@
 				8887A3B31EAEC8C7005EEFAE /* H5VC.m in Sources */,
 				889DBA711E7E71F900520C77 /* QuartzBlendingViewController.m in Sources */,
 				8825CF2A1ED8705C00C59E4E /* BridgePattern_SmallLight.m in Sources */,
+				88CEE8F51F3B53C2004A6CC1 /* MRCTest.m in Sources */,
 				889C4AAD1E9C743000EB2C68 /* UIAlertView+AFNetworking.m in Sources */,
 				885692381F0FC396001CECBA /* structure_tree.mm in Sources */,
 				88EA7A841EB2247500165B37 /* MASLayoutConstraint.m in Sources */,

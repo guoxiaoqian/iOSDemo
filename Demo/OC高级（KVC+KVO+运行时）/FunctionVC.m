@@ -8,6 +8,9 @@
 
 #import "FunctionVC.h"
 #import <objc/runtime.h>
+#import "MRCTest.h"
+#import "DebugTool.h"
+#import "Singleton.h"
 
 #pragma mark - Load & Initilize
 
@@ -90,6 +93,12 @@
 //    [self testLoadAndInitialize];
 //    
 //    [self testBlock];
+    
+//    [MRCTest testMRC];
+    
+//    [DebugTool testDebugTool];
+    
+    [Singleton testSingleton];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

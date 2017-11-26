@@ -70,7 +70,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo/&#x7b97;&#x6cd5;/algorithm_traverse.m"
@@ -86,39 +86,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo/&#x7b97;&#x6cd5;/algorithm_traverse.m"
-            timestampString = "521289879.45157"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "printTwoDimensionArrayByClockWise()"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Demo/&#x7b97;&#x6cd5;/algorithm_traverse.m"
-            timestampString = "521289879.45157"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "generateTwoDimensionArrayAndPrintByClockWise()"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo/&#x7b97;&#x6cd5;/algorithm_traverse.m"
@@ -186,12 +154,12 @@
                   moduleName = "Demo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guoxiaoqian/iOSDemo/Demo/%E7%BD%91%E7%BB%9C/NetworkVC.m"
-                  timestampString = "522422236.195943"
+                  timestampString = "524241282.388219"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "110"
                   endingLineNumber = "110"
-                  offsetFromSymbolStart = "127">
+                  offsetFromSymbolStart = "1028">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -201,12 +169,12 @@
                   moduleName = "Demo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guoxiaoqian/iOSDemo/Demo/%E7%BD%91%E7%BB%9C/NetworkVC.m"
-                  timestampString = "522422236.198961"
+                  timestampString = "524241282.391586"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "110"
                   endingLineNumber = "110"
-                  offsetFromSymbolStart = "19">
+                  offsetFromSymbolStart = "48">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -273,6 +241,22 @@
             endingLineNumber = "135"
             landmarkName = "-forwardInvocation:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Demo/&#x7b97;&#x6cd5;/algorithm_traverse.m"
+            timestampString = "524240929.89669"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "printTwoDimensionArrayByClockWise()"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

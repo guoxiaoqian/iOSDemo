@@ -127,7 +127,13 @@ typedef enum : NSUInteger {
     return self.state == MyOperationStateExecuting;
 }
 
+//封装异步操作时，必须返回YES
 -(BOOL)isConcurrent{
+    return YES;
+}
+
+//封装异步操作时，必须返回YES,这个NSOperation执行完毕后不会自动变为finished状态，需要手动设置
+-(BOOL)isAsynchronous{
     return YES;
 }
 
@@ -359,6 +365,7 @@ typedef enum : NSUInteger {
     dispatch_async(cocurrentQueue, ^{
         NSLog(@"dispatch_barrier 5");
     });
+    
 }
 
 //用顺序队列做同步操作比锁更高效
