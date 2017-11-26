@@ -55,6 +55,16 @@
 	<string>想使用麦克风，请允许</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>想使用图片库，请允许</string>
+	<key>UIApplicationShortcutItems</key>
+	<dict>
+		<key>item 0</key>
+		<dict>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>gavin</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.qq.gavin</string>
+		</dict>
+	</dict>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>

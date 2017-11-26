@@ -32,6 +32,11 @@
 		882739191FCAF78E0011BC0B /* DebugTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 882739141FCAF78E0011BC0B /* DebugTool.m */; };
 		8827391A1FCAF78E0011BC0B /* MRCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 882739151FCAF78E0011BC0B /* MRCTest.m */; };
 		8827391B1FCAF78E0011BC0B /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 882739161FCAF78E0011BC0B /* Singleton.m */; };
+		882739251FCAFB310011BC0B /* 3DTouchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 882739231FCAFB310011BC0B /* 3DTouchVC.m */; };
+		882739261FCAFB310011BC0B /* 3DTouchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882739241FCAFB310011BC0B /* 3DTouchVC.xib */; };
+		8827392A1FCB06040011BC0B /* TouchIDVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 882739281FCB06040011BC0B /* TouchIDVC.m */; };
+		8827392B1FCB06040011BC0B /* TouchIDVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882739291FCB06040011BC0B /* TouchIDVC.xib */; };
+		8827392D1FCB07030011BC0B /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8827392C1FCB07030011BC0B /* LocalAuthentication.framework */; };
 		882C996C1E8BC39100BFDAC7 /* EventVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 882C996A1E8BC39100BFDAC7 /* EventVC.m */; };
 		882C996D1E8BC39100BFDAC7 /* EventVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882C996B1E8BC39100BFDAC7 /* EventVC.xib */; };
 		882C996F1E8D007500BFDAC7 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 882C996E1E8D007500BFDAC7 /* MediaPlayer.framework */; };
@@ -295,6 +300,13 @@
 		882739161FCAF78E0011BC0B /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
 		882739171FCAF78E0011BC0B /* DebugTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugTool.h; sourceTree = "<group>"; };
 		882739181FCAF78E0011BC0B /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		882739221FCAFB310011BC0B /* 3DTouchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 3DTouchVC.h; sourceTree = "<group>"; };
+		882739231FCAFB310011BC0B /* 3DTouchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = 3DTouchVC.m; sourceTree = "<group>"; };
+		882739241FCAFB310011BC0B /* 3DTouchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = 3DTouchVC.xib; sourceTree = "<group>"; };
+		882739271FCB06040011BC0B /* TouchIDVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchIDVC.h; sourceTree = "<group>"; };
+		882739281FCB06040011BC0B /* TouchIDVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchIDVC.m; sourceTree = "<group>"; };
+		882739291FCB06040011BC0B /* TouchIDVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TouchIDVC.xib; sourceTree = "<group>"; };
+		8827392C1FCB07030011BC0B /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		882C99691E8BC39100BFDAC7 /* EventVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventVC.h; sourceTree = "<group>"; };
 		882C996A1E8BC39100BFDAC7 /* EventVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventVC.m; sourceTree = "<group>"; };
 		882C996B1E8BC39100BFDAC7 /* EventVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventVC.xib; sourceTree = "<group>"; };
@@ -577,6 +589,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8827392D1FCB07030011BC0B /* LocalAuthentication.framework in Frameworks */,
 				8887A3B61EAED15B005EEFAE /* WebKit.framework in Frameworks */,
 				8887A3721EA83E6D005EEFAE /* UserNotifications.framework in Frameworks */,
 				88439EFE1EA79F4F007DDA1B /* AdSupport.framework in Frameworks */,
@@ -730,6 +743,19 @@
 				8825CF1D1ED86B2B00C59E4E /* CompositePattern_CompositeLight.m */,
 			);
 			path = "组合模式";
+			sourceTree = "<group>";
+		};
+		8827391C1FCAFAE80011BC0B /* 硬件特性 */ = {
+			isa = PBXGroup;
+			children = (
+				882739221FCAFB310011BC0B /* 3DTouchVC.h */,
+				882739231FCAFB310011BC0B /* 3DTouchVC.m */,
+				882739241FCAFB310011BC0B /* 3DTouchVC.xib */,
+				882739271FCB06040011BC0B /* TouchIDVC.h */,
+				882739281FCB06040011BC0B /* TouchIDVC.m */,
+				882739291FCB06040011BC0B /* TouchIDVC.xib */,
+			);
+			path = "硬件特性";
 			sourceTree = "<group>";
 		};
 		8859608A1E701FA300760090 /* UI高级（动画） */ = {
@@ -973,6 +999,7 @@
 		88A6173A1E53100C00EF8AFC /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				8827391C1FCAFAE80011BC0B /* 硬件特性 */,
 				8825CEFC1ED3B9F900C59E4E /* 设计模式 */,
 				8825CEFD1ED3B9F900C59E4E /* 数据结构 */,
 				8825CEFE1ED3B9F900C59E4E /* 算法 */,
@@ -1033,6 +1060,7 @@
 		88A617791E53EED000EF8AFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8827392C1FCB07030011BC0B /* LocalAuthentication.framework */,
 				8887A3B51EAED15B005EEFAE /* WebKit.framework */,
 				8887A3711EA83E6D005EEFAE /* UserNotifications.framework */,
 				88439EFD1EA79F4F007DDA1B /* AdSupport.framework */,
@@ -1460,6 +1488,7 @@
 				88A6174B1E53100C00EF8AFC /* LaunchScreen.storyboard in Resources */,
 				88EA7A5F1EB223D300165B37 /* AutoLayoutVC.xib in Resources */,
 				889C4AA91E9C743000EB2C68 /* LICENSE in Resources */,
+				882739261FCAFB310011BC0B /* 3DTouchVC.xib in Resources */,
 				88A617481E53100C00EF8AFC /* Assets.xcassets in Resources */,
 				889DBA8A1E7EBBA700520C77 /* CoreAnimationVC.xib in Resources */,
 				889B2E9C1E8A978300ACD1A0 /* CubeVC.xib in Resources */,
@@ -1483,6 +1512,7 @@
 				889DBA3A1E6BFBA200520C77 /* CoreLocationVC.xib in Resources */,
 				889C4A9E1E9C743000EB2C68 /* file.png in Resources */,
 				889B2EA41E8DDAB500ACD1A0 /* MediaVC.xib in Resources */,
+				8827392B1FCB06040011BC0B /* TouchIDVC.xib in Resources */,
 				889DBA801E7E71F900520C77 /* Ship.png in Resources */,
 				8825CF081ED3BA3500C59E4E /* DataStructureVC.xib in Resources */,
 			);
@@ -1536,6 +1566,7 @@
 				88C32E8F1E66BFF1002753FC /* FMDBVC.m in Sources */,
 				8827391B1FCAF78E0011BC0B /* Singleton.m in Sources */,
 				885960E11E70222000760090 /* UIView+AnimationUtility.m in Sources */,
+				8827392A1FCB06040011BC0B /* TouchIDVC.m in Sources */,
 				88EA7A851EB2247500165B37 /* MASViewAttribute.m in Sources */,
 				8825CF211ED86FB100C59E4E /* BridgePattern_AbstractLight.m in Sources */,
 				8825CF3F1ED87B4A00C59E4E /* DecoratorPattern_AbstractDecorator.m in Sources */,
@@ -1599,6 +1630,7 @@
 				882739191FCAF78E0011BC0B /* DebugTool.m in Sources */,
 				889C4AA41E9C743000EB2C68 /* AFSecurityPolicy.m in Sources */,
 				885692441F123794001CECBA /* algorithm_traverse.m in Sources */,
+				882739251FCAFB310011BC0B /* 3DTouchVC.m in Sources */,
 				8825CF151ED869BB00C59E4E /* CompositePattern_Light.m in Sources */,
 				889DBA761E7E71F900520C77 /* QuartzDemoVC.m in Sources */,
 				8887A3B31EAEC8C7005EEFAE /* H5VC.m in Sources */,
