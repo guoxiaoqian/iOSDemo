@@ -19,7 +19,7 @@
 
 @end
 
-@implementation AppDelegate
+@implementation AppDelegate (_DTouch)
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     
@@ -50,7 +50,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    UIView* touchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    UIView* touchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
     touchView.backgroundColor = [UIColor blueColor];
     [self.view addSubview:touchView];
     
@@ -81,10 +84,11 @@
     
     //设定预览的界面
     UIViewController *childVC = [[UIViewController alloc] init];
+    childVC.view.backgroundColor = [UIColor yellowColor];
     childVC.preferredContentSize = CGSizeMake(0.0f,500.0f);
     
     //调整不被虚化的范围，按压的那个cell不被虚化（轻轻按压时周边会被虚化，再少用力展示预览，再加力跳页至设定界面）
-    CGRect rect = CGRectMake(0, 0, self.view.frame.size.width,40);
+    CGRect rect = CGRectMake(0, 0, previewingContext.sourceView.frame.size.width*2,previewingContext.sourceView.frame.size.height*2);
     previewingContext.sourceRect = rect;
     //返回预览界面
     return childVC;
@@ -92,7 +96,11 @@
 
 //pop（按用点力进入）
 - (void)previewingContext:(id <UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit NS_AVAILABLE_IOS(9_0){
-    [self.navigationController pushViewController:[viewControllerToCommit copy] animated:YES];
+    
+    UIViewController *childVC = [[UIViewController alloc] init];
+    childVC.view.backgroundColor = [UIColor redColor];
+
+    [self.navigationController pushViewController:childVC animated:YES];
     
 //    不需要3DTouch时反注册
 //    [self unregisterForPreviewingWithContext:previewingContext];

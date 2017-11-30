@@ -15,12 +15,12 @@
 
 @interface QRCodeVC () <AVCaptureMetadataOutputObjectsDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
-@property (strong,nonatomic) AVCaptureDevice* device;
-@property (strong,nonatomic) AVCaptureSession* session;
+@property (strong,nonatomic) AVCaptureDevice* device; //捕获设备，默认后置摄像头
+@property (strong,nonatomic) AVCaptureSession* session;//AVFoundation框架捕获类的中心枢纽，协调输入输出设备以获得数据
 @property (strong,nonatomic) AVCaptureDeviceInput* input;
-@property (strong,nonatomic) AVCaptureMetadataOutput* output;
-@property (strong,nonatomic) AVCaptureVideoPreviewLayer* previewLayer;
-@property (strong,nonatomic) UIView* scanView;
+@property (strong,nonatomic) AVCaptureMetadataOutput* output;//输出设备，需要指定他的输出类型及扫描范围
+@property (strong,nonatomic) AVCaptureVideoPreviewLayer* previewLayer;//展示捕获图像的图层，是CALayer的子类
+@property (strong,nonatomic) UIView* scanView;//定位扫描框在哪个位置
 @end
 
 @implementation QRCodeVC
@@ -29,6 +29,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     CGFloat kScreen_Width = [UIScreen mainScreen].bounds.size.width;
     
     //定位扫描框在屏幕正中央，并且宽高为200的正方形
@@ -39,7 +43,14 @@
     TNWCameraScanView *clearView = [[TNWCameraScanView alloc]initWithFrame:self.view.frame];
     [self.view addSubview:clearView];
     
+    //开始扫描
     [self startScan];
+    
+    
+    UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(kScreen_Width-100, 50, 100, 50)];
+    [button setTitle:@"识别图片二维码" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(choicePhoto) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
 }
 
 -(AVCaptureDevice*)device{
@@ -137,6 +148,8 @@
     if ( object.stringValue == nil ){
         [self.session startRunning];
     }
+    
+    NSLog(@"识别到字符串：%@",object.stringValue);
 }
 
 #pragma mark - 识别图片二维码
@@ -169,6 +182,7 @@
     //取出探测到的数据
     for (CIQRCodeFeature *result in feature) {
         NSString *content = result.messageString;// 这个就是我们想要的值
+        NSLog(@"识别到字符串：%@",content);
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];

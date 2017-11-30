@@ -30,15 +30,12 @@
 		8825CF421ED87C6400C59E4E /* DecoratorPattern_ColorDecorator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF411ED87C6400C59E4E /* DecoratorPattern_ColorDecorator.m */; };
 		8825CF451ED87C9400C59E4E /* DecoratorPattern_HotDecorator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF441ED87C9400C59E4E /* DecoratorPattern_HotDecorator.m */; };
 		882739191FCAF78E0011BC0B /* DebugTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 882739141FCAF78E0011BC0B /* DebugTool.m */; };
-		8827391A1FCAF78E0011BC0B /* MRCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 882739151FCAF78E0011BC0B /* MRCTest.m */; };
+		8827391A1FCAF78E0011BC0B /* MRCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 882739151FCAF78E0011BC0B /* MRCTest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8827391B1FCAF78E0011BC0B /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 882739161FCAF78E0011BC0B /* Singleton.m */; };
 		882739251FCAFB310011BC0B /* 3DTouchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 882739231FCAFB310011BC0B /* 3DTouchVC.m */; };
-		882739261FCAFB310011BC0B /* 3DTouchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882739241FCAFB310011BC0B /* 3DTouchVC.xib */; };
 		8827392A1FCB06040011BC0B /* TouchIDVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 882739281FCB06040011BC0B /* TouchIDVC.m */; };
-		8827392B1FCB06040011BC0B /* TouchIDVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882739291FCB06040011BC0B /* TouchIDVC.xib */; };
 		8827392D1FCB07030011BC0B /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8827392C1FCB07030011BC0B /* LocalAuthentication.framework */; };
 		882739311FCC5EB00011BC0B /* QRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8827392F1FCC5EB00011BC0B /* QRCodeVC.m */; };
-		882739321FCC5EB00011BC0B /* QRCodeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882739301FCC5EB00011BC0B /* QRCodeVC.xib */; };
 		882739351FCC64440011BC0B /* TNWCameraScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 882739341FCC64440011BC0B /* TNWCameraScanView.m */; };
 		882C996C1E8BC39100BFDAC7 /* EventVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 882C996A1E8BC39100BFDAC7 /* EventVC.m */; };
 		882C996D1E8BC39100BFDAC7 /* EventVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882C996B1E8BC39100BFDAC7 /* EventVC.xib */; };
@@ -305,14 +302,11 @@
 		882739181FCAF78E0011BC0B /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		882739221FCAFB310011BC0B /* 3DTouchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 3DTouchVC.h; sourceTree = "<group>"; };
 		882739231FCAFB310011BC0B /* 3DTouchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = 3DTouchVC.m; sourceTree = "<group>"; };
-		882739241FCAFB310011BC0B /* 3DTouchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = 3DTouchVC.xib; sourceTree = "<group>"; };
 		882739271FCB06040011BC0B /* TouchIDVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchIDVC.h; sourceTree = "<group>"; };
 		882739281FCB06040011BC0B /* TouchIDVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchIDVC.m; sourceTree = "<group>"; };
-		882739291FCB06040011BC0B /* TouchIDVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TouchIDVC.xib; sourceTree = "<group>"; };
 		8827392C1FCB07030011BC0B /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		8827392E1FCC5EB00011BC0B /* QRCodeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRCodeVC.h; sourceTree = "<group>"; };
 		8827392F1FCC5EB00011BC0B /* QRCodeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRCodeVC.m; sourceTree = "<group>"; };
-		882739301FCC5EB00011BC0B /* QRCodeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRCodeVC.xib; sourceTree = "<group>"; };
 		882739331FCC64440011BC0B /* TNWCameraScanView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNWCameraScanView.h; sourceTree = "<group>"; };
 		882739341FCC64440011BC0B /* TNWCameraScanView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNWCameraScanView.m; sourceTree = "<group>"; };
 		882C99691E8BC39100BFDAC7 /* EventVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventVC.h; sourceTree = "<group>"; };
@@ -758,13 +752,10 @@
 			children = (
 				882739221FCAFB310011BC0B /* 3DTouchVC.h */,
 				882739231FCAFB310011BC0B /* 3DTouchVC.m */,
-				882739241FCAFB310011BC0B /* 3DTouchVC.xib */,
 				882739271FCB06040011BC0B /* TouchIDVC.h */,
 				882739281FCB06040011BC0B /* TouchIDVC.m */,
-				882739291FCB06040011BC0B /* TouchIDVC.xib */,
 				8827392E1FCC5EB00011BC0B /* QRCodeVC.h */,
 				8827392F1FCC5EB00011BC0B /* QRCodeVC.m */,
-				882739301FCC5EB00011BC0B /* QRCodeVC.xib */,
 				882739331FCC64440011BC0B /* TNWCameraScanView.h */,
 				882739341FCC64440011BC0B /* TNWCameraScanView.m */,
 			);
@@ -1419,6 +1410,7 @@
 				TargetAttributes = {
 					88A617371E53100C00EF8AFC = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = N9MGHU8KN7;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
@@ -1501,7 +1493,6 @@
 				88A6174B1E53100C00EF8AFC /* LaunchScreen.storyboard in Resources */,
 				88EA7A5F1EB223D300165B37 /* AutoLayoutVC.xib in Resources */,
 				889C4AA91E9C743000EB2C68 /* LICENSE in Resources */,
-				882739261FCAFB310011BC0B /* 3DTouchVC.xib in Resources */,
 				88A617481E53100C00EF8AFC /* Assets.xcassets in Resources */,
 				889DBA8A1E7EBBA700520C77 /* CoreAnimationVC.xib in Resources */,
 				889B2E9C1E8A978300ACD1A0 /* CubeVC.xib in Resources */,
@@ -1514,7 +1505,6 @@
 				8825CF031ED3BA1F00C59E4E /* DesignPatternVC.xib in Resources */,
 				882C996D1E8BC39100BFDAC7 /* EventVC.xib in Resources */,
 				889B2E961E89E98700ACD1A0 /* Demo2@2x.png in Resources */,
-				882739321FCC5EB00011BC0B /* QRCodeVC.xib in Resources */,
 				882C99751E8D0CE300BFDAC7 /* RemoteEnvetVC.xib in Resources */,
 				889DBA851E7E724500520C77 /* CoreGraphicVC.xib in Resources */,
 				88EA7A801EB2247500165B37 /* LICENSE in Resources */,
@@ -1526,7 +1516,6 @@
 				889DBA3A1E6BFBA200520C77 /* CoreLocationVC.xib in Resources */,
 				889C4A9E1E9C743000EB2C68 /* file.png in Resources */,
 				889B2EA41E8DDAB500ACD1A0 /* MediaVC.xib in Resources */,
-				8827392B1FCB06040011BC0B /* TouchIDVC.xib in Resources */,
 				889DBA801E7E71F900520C77 /* Ship.png in Resources */,
 				8825CF081ED3BA3500C59E4E /* DataStructureVC.xib in Resources */,
 			);
@@ -1852,8 +1841,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yang Li (GHRTP6V39W)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yang Li (GHRTP6V39W)";
+				DEVELOPMENT_TEAM = N9MGHU8KN7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Demo/多媒体",
@@ -1863,10 +1853,10 @@
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.qq.iosdemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.iosdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "4a57f1da-9a55-4802-8c6a-625c5d6a806f";
+				PROVISIONING_PROFILE_SPECIFIER = ChesterDevPro1104;
 				SWIFT_OBJC_BRIDGING_HEADER = "Demo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1890,9 +1880,9 @@
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.qq.iosdemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.iosdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = DeveloperWildcardProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Demo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

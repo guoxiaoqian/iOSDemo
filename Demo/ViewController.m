@@ -33,6 +33,9 @@
 #import "AlgorithmVC.h"
 #import "DataStructureVC.h"
 #import "DesignPatternVC.h"
+#import "3DTouchVC.h"
+#import "TouchIDVC.h"
+#import "QRCodeVC.h"
 
 @interface EntryModel : NSObject
 
@@ -90,6 +93,9 @@
                        [EntryModel modelWithName:@"DesignPatternVC" class:[DesignPatternVC class]],
                        [EntryModel modelWithName:@"DataStructureVC" class:[DataStructureVC class]],
                        [EntryModel modelWithName:@"AlgorithmVC" class:[AlgorithmVC class]],
+                       [EntryModel modelWithName:@"3DTouchVC" class:[_DTouchVC class]],
+                       [EntryModel modelWithName:@"TouchIDVC" class:[TouchIDVC class]],
+                       [EntryModel modelWithName:@"QRCodeVC" class:[QRCodeVC class]],
 
                        nil];
     
@@ -107,9 +113,7 @@
 
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-    LOG_FUNCTION;
-    
-    NSProxy
+    LOG_FUNCTION;    
 }
 
 #pragma mark - UITableViewDataSource
