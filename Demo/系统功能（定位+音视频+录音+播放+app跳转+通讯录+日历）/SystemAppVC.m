@@ -513,6 +513,69 @@
     }else{
         url= [NSURL URLWithString:@"prefs:root=NOTIFICATIONS_ID"];
     }
+    
+//**********************************iOS系统版本 <= iOS7 , 只能跳转到 系统设置页面
+//    系统设置:prefs:root=INTERNET_TETHERING
+//    WIFI设置:prefs:root=WIFI
+//    蓝牙设置:prefs:root=Bluetooth
+//    系统通知:prefs:root=NOTIFICATIONS_ID
+//    通用设置:prefs:root=General
+//    显示设置:prefs:root=DISPLAY&BRIGHTNESS
+//    壁纸设置:prefs:root=Wallpaper
+//    声音设置:prefs:root=Sounds
+//    隐私设置:prefs:root=privacy
+//    蜂窝网路:prefs:root=MOBILE_DATA_SETTINGS_ID
+//    音乐:prefs:root=MUSIC
+//    APP Store:prefs:root=STORE
+//    Notes:prefs:root=NOTES
+//    Safari:prefs:root=Safari
+//    Music:prefs:root=MUSIC
+//    photo":prefs:root=Photos
+    
+//**********************************iOS系统版本 >= iOS8 ，支持跳转到第三方应用的设置界面中使用
+//    prefs:root=bundleID ,bundleID是你第三方应用工程的唯一ID
+//    局限性：只支持iOS8,iOS9系统,在iOS10系统上，不会跳转。
+//    如果需要继续向项目内层进行跳转，可以通过添加path路径的方式，如下：
+//    关于本机:prefs:root=General&path=About
+//    软件升级:prefs:root=General&path=SOFTWARE_UPDATE_LINK
+//    日期时间:prefs:root=General&path=DATE_AND_TIME
+//    Accessibility:prefs:root=General&path=ACCESSIBILITY
+//    键盘设置:prefs:root=General&path=Keyboard
+//    VPN:prefs:root=General&path=VPN
+//    壁纸设置:@"prefs:root=Wallpaper
+//    声音设置:prefs:root=Sounds
+//    隐私设置:prefs:root=privacy
+//    APP Store:prefs:root=STORE
+//    还原设置:prefs:root=General&path=Reset
+//    应用通知:prefs:root=NOTIFICATIONS_ID&path=应用的boundleId
+    
+    
+//**********************************iOS系统版本 >= iOS10，支持跳转到自己应用设置，不支持跳转到系统设置
+//    NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+//
+//    Wi-Fi: App-Prefs:root=WIFI
+//    蓝牙: App-Prefs:root=Bluetooth
+//    蜂窝移动网络: App-Prefs:root=MOBILE_DATA_SETTINGS_ID
+//    个人热点: App-Prefs:root=INTERNET_TETHERING
+//    运营商: App-Prefs:root=Carrier
+//    通知: App-Prefs:root=NOTIFICATIONS_ID
+//    通用: App-Prefs:root=General
+//    通用-关于本机: App-Prefs:root=General&path=About
+//    通用-键盘: App-Prefs:root=General&path=Keyboard
+//    通用-辅助功能: App-Prefs:root=General&path=ACCESSIBILITY
+//    通用-语言与地区: App-Prefs:root=General&path=INTERNATIONAL
+//    通用-还原: App-Prefs:root=Reset
+//    墙纸: App-Prefs:root=Wallpaper
+//    Siri: App-Prefs:root=SIRI
+//    隐私: App-Prefs:root=Privacy
+//    定位: App-Prefs:root=LOCATION_SERVICES
+//    Safari: App-Prefs:root=SAFARI
+//    音乐: App-Prefs:root=MUSIC
+//    音乐-均衡器: App-Prefs:root=MUSIC&path=com.apple.Music:EQ
+//    照片与相机: App-Prefs:root=Photos
+//    FaceTime: App-Prefs:root=FACETIME    
+    
+    //开始跳转
     if([[UIApplication sharedApplication] canOpenURL:url]) {
         if ([UIDevice currentDevice].systemVersion.floatValue >= 10.0) {
             [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {
