@@ -29,10 +29,21 @@ typedef enum : NSUInteger {
 
 @implementation MyGesture
 
+- (instancetype)initWithTarget:(id)target action:(SEL)action {
+    if (self = [super initWithTarget:target action:action]) {
+        // Gesture不属于响应链的一部分，但是他可以在hitTest过程后，发送Action前，观察它的view和子view的touch事件。
+        // 默认识别过程touch会透传，识别成功后会透传touchCancel,即不会触发view的事件了。
+        self.cancelsTouchesInView = NO; //默认YES，当Gesture识别成功后，给View发送touchesCancelled:withEvent:
+        self.delaysTouchesBegan = NO; // 默认NO，仅当Gesture识别失败后，再给View发送所有touch事件？
+        self.delaysTouchesEnded = YES; // 默认YES，仅当Gesture识别失败后，再给View发送送touchesEnded
+    }
+    return self;
+}
+
 //UITouch代表手指触摸，连续滑动时，UITouch对象不变，只是LocationInView变了；在Began中忽略掉Touch,后续就收不到了
 //You cannot simply store references to the UITouch objects that you receive because UIKit reuses those objects and overwrites any old values. Instead, you must define custom data structures to store the touch information you need.
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [super touchesBegan:touches withEvent:event];
+//    [super touchesBegan:touches withEvent:event];
     
     if (touches.count != 1) {
         self.state = UIGestureRecognizerStateFailed;
@@ -55,7 +66,7 @@ typedef enum : NSUInteger {
 }
 
 -(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [super touchesMoved:touches withEvent:event];
+//    [super touchesMoved:touches withEvent:event];
     
     UITouch* currentTouch = [touches anyObject];
     CGPoint currentPoint = [currentTouch locationInView:self.view];
@@ -96,7 +107,7 @@ typedef enum : NSUInteger {
 }
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [super touchesEnded:touches withEvent:event];
+//    [super touchesEnded:touches withEvent:event];
     
     UITouch* currentTouch = [touches anyObject];
     CGPoint currentPoint = [currentTouch locationInView:self.view];
@@ -173,6 +184,11 @@ typedef enum : NSUInteger {
     return self;
 }
 
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
+    NSLog(@"TouchView hitTest point %@ ",NSStringFromCGPoint(point));
+    return [super hitTest:point withEvent:event];
+}
+
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     self.currentTouch = [touches anyObject];
     NSLog(@"TouchView touchesBegan touch point %@ ",NSStringFromCGPoint([self.currentTouch locationInView:self]));
@@ -223,6 +239,7 @@ typedef enum : NSUInteger {
 @interface EventVC () <UIGestureRecognizerDelegate>
 
 @property (strong,nonatomic) TouchView* touchView;
+@property (strong,nonatomic) UIButton* touchButton;
 @property (strong,nonatomic) MyGesture* myGesture;
 @property (strong,nonatomic) UISwipeGestureRecognizer* swipeGesture;
 
@@ -252,6 +269,17 @@ typedef enum : NSUInteger {
 - (void)touchEvent{
     self.touchView = [[TouchView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 300)];
     [self.view addSubview:self.touchView];
+    
+    self.touchButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.touchButton.frame = CGRectMake(20, 20, 100, 50);
+    [self.touchButton setTitle:@"按钮" forState:UIControlStateNormal];
+    [self.touchButton addTarget:self action:@selector(didClickButton) forControlEvents:UIControlEventTouchUpInside];
+    [self.touchButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [self.touchView addSubview:self.touchButton];
+}
+
+- (void)didClickButton{
+    NSLog(@"didClickButton");
 }
 
 - (void)gesture{
