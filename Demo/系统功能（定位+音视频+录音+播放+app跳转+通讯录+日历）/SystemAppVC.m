@@ -573,8 +573,13 @@
 //    音乐: App-Prefs:root=MUSIC
 //    音乐-均衡器: App-Prefs:root=MUSIC&path=com.apple.Music:EQ
 //    照片与相机: App-Prefs:root=Photos
-//    FaceTime: App-Prefs:root=FACETIME    
+//    FaceTime: App-Prefs:root=FACETIME
     
+
+// !!!注意iOS10之前跳转系统设置，需要在Info.plist增加URLType: prefs, 否则canOpenURL返回false
+//    url = [NSURL URLWithString:@"prefs:root=WIFI"];
+     url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+
     //开始跳转
     if([[UIApplication sharedApplication] canOpenURL:url]) {
         if ([UIDevice currentDevice].systemVersion.floatValue >= 10.0) {
