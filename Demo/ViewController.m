@@ -36,6 +36,7 @@
 #import "3DTouchVC.h"
 #import "TouchIDVC.h"
 #import "QRCodeVC.h"
+#import "ReactiveVC.h"
 
 @interface EntryModel : NSObject
 
@@ -96,6 +97,7 @@
                        [EntryModel modelWithName:@"3DTouchVC" class:[_DTouchVC class]],
                        [EntryModel modelWithName:@"TouchIDVC" class:[TouchIDVC class]],
                        [EntryModel modelWithName:@"QRCodeVC" class:[QRCodeVC class]],
+                        [EntryModel modelWithName:@"ReactiveVC" class:[ReactiveVC class]],
 
                        nil];
     
