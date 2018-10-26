@@ -9,6 +9,13 @@
 #import "SystemInfoVC.h"
 #import <AdSupport/AdSupport.h>
 
+#import <sys/types.h>
+#import <sys/sysctl.h>
+#import <mach/host_info.h>
+#import <mach/mach_host.h>
+#import <mach/task_info.h>
+#import <mach/task.h>
+
 @interface SystemInfoVC ()
 
 @end
@@ -111,6 +118,72 @@
     [UIDevice currentDevice].batteryMonitoringEnabled = YES;
     //处理监听通知：UIDeviceBatteryStateDidChangeNotification，UIDeviceBatteryLevelDidChangeNotification
 }
+
+// 打印设备内存信息
++ (void) logMemoryInfo {
+    int mib[6];
+    mib[0] = CTL_HW;
+    mib[1] = HW_PAGESIZE;
+    
+    int pagesize;
+    size_t length;
+    length = sizeof (pagesize);
+    if (sysctl (mib, 2, &pagesize, &length, NULL, 0) < 0)
+    {
+        fprintf (stderr, "getting page size");
+    }
+    
+    mach_msg_type_number_t count = HOST_VM_INFO_COUNT;
+    
+    vm_statistics_data_t vmstat;
+    if (host_statistics (mach_host_self (), HOST_VM_INFO, (host_info_t) &vmstat, &count) != KERN_SUCCESS)
+    {
+        fprintf (stderr, "Failed to get VM statistics.");
+    }
+    task_basic_info_64_data_t info;
+    unsigned size = sizeof (info);
+    task_info (mach_task_self (), TASK_BASIC_INFO_64, (task_info_t) &info, &size);
+    
+    double unit = 1024 * 1024;
+    double total = (vmstat.wire_count + vmstat.active_count + vmstat.inactive_count + vmstat.free_count) * pagesize / unit;
+    double wired = vmstat.wire_count * pagesize / unit;
+    double active = vmstat.active_count * pagesize / unit;
+    double inactive = vmstat.inactive_count * pagesize / unit;
+    double free = vmstat.free_count * pagesize / unit;
+    double resident = info.resident_size / unit;
+    NSLog(@"===================================================");
+    NSLog(@"Total:%.2lfMb", total);
+    NSLog(@"Wired:%.2lfMb", wired);
+    NSLog(@"Active:%.2lfMb", active);
+    NSLog(@"Inactive:%.2lfMb", inactive);
+    NSLog(@"Free:%.2lfMb", free);
+    NSLog(@"Resident:%.2lfMb", resident);
+}
+
+// 获取当前设备可用内存(单位：MB)
++ (double)availableMemory
+{
+    vm_statistics_data_t vmStats;
+    mach_msg_type_number_t infoCount = HOST_VM_INFO_COUNT;
+    kern_return_t kernReturn = host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&vmStats, &infoCount);
+    if (kernReturn != KERN_SUCCESS) {
+        return NSNotFound;
+    }
+    return ((vm_page_size *vmStats.free_count)/1024.0)/1024.0;
+}
+
+// 获取当前任务所占用的内存（单位：MB）
++ (double)usedMemory
+{
+    task_basic_info_data_t taskInfo;
+    mach_msg_type_number_t infoCount = TASK_BASIC_INFO_COUNT;
+    kern_return_t kernReturn = task_info(mach_task_self(),TASK_BASIC_INFO,(task_info_t)&taskInfo, &infoCount);
+    if(kernReturn!=KERN_SUCCESS) {
+        return NSNotFound;
+    }
+    return taskInfo.resident_size / 1024.0 / 1024.0;
+}
+
 
 #pragma mark 自动转屏
 

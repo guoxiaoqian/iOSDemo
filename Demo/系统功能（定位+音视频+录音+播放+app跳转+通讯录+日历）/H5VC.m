@@ -9,10 +9,17 @@
 #import "H5VC.h"
 #import <WebKit/WebKit.h>
 
+#import "SystemInfoVC.h"
+
+#define TEST_LOAD_URL 1
+#define TEST_ITEM_HEGITH 100
+#define TEST_ITEM_NUM 10
+
 @interface H5VC () <UIWebViewDelegate,WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler>
 
 @property (strong,nonatomic) UIWebView* uiWebView;
 @property (strong,nonatomic) WKWebView* wkWebView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -24,14 +31,16 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
+    //
+    //    [self showUIWebView];
+    //
+    //    [self UIWebViewWithJS];
+    //
+    //    [self showWKWebView];
+    //
+    //    [self WKWebViewWithJS];
     
-    [self showUIWebView];
-    
-    [self UIWebViewWithJS];
-    
-    [self showWKWebView];
-    
-    [self WKWebViewWithJS];
+    [self testWKWebView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,7 +67,7 @@
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]];
     [webView loadRequest:request];
     
-    [self.view addSubview:webView];
+    [self.scrollView addSubview:webView];
     
     self.uiWebView = webView;
 }
@@ -143,7 +152,7 @@
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]];
     [webView loadRequest:request];
     
-    [self.view addSubview:webView];
+    [self.scrollView addSubview:webView];
     
     self.wkWebView = webView;
 }
@@ -192,7 +201,7 @@
     webview.navigationDelegate = self;
     
     [webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
-    [self.view addSubview:webview];
+    [self.scrollView addSubview:webview];
     
     //2.webView 执行JS代码
     
@@ -289,4 +298,36 @@
     completionHandler();
 }
 
+#pragma mark - 性能测试
+
+- (void)addScrollWKWebViewAtY:(CGFloat)y {
+    
+    WKWebView* webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, y, kScreenWidth, TEST_ITEM_HEGITH)];
+    webView.UIDelegate = self;
+    webView.navigationDelegate = self;
+    
+#if TEST_LOAD_URL
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]];
+    [webView loadRequest:request];
+#endif
+    
+    [self.scrollView addSubview:webView];
+    self.scrollView.contentSize = CGSizeMake(kScreenWidth, y+TEST_ITEM_HEGITH);
+}
+
+- (void)testWKWebView {
+    CGFloat contentY = 0;
+    
+    double firstMem = [SystemInfoVC usedMemory];
+    double lastMem = 0;
+    
+    for (int i=0; i < TEST_ITEM_NUM; i++) {
+        [self addScrollWKWebViewAtY:contentY];
+        lastMem = [SystemInfoVC usedMemory];
+        NSLog(@"wkwebview%d:%.2fM",i,(lastMem-firstMem));
+        firstMem = lastMem;
+        
+        contentY += TEST_ITEM_HEGITH;
+    }
+}
 @end

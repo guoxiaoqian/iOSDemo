@@ -271,7 +271,6 @@
 		88E8F7B71ED5A23100FE93B4 /* LightCommand_Off.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E8F7B61ED5A23100FE93B4 /* LightCommand_Off.m */; };
 		88EA7A5E1EB223D300165B37 /* AutoLayoutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EA7A5C1EB223D300165B37 /* AutoLayoutVC.m */; };
 		88EA7A5F1EB223D300165B37 /* AutoLayoutVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88EA7A5D1EB223D300165B37 /* AutoLayoutVC.xib */; };
-		88EA7A801EB2247500165B37 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 88EA7A641EB2247500165B37 /* LICENSE */; };
 		88EA7A811EB2247500165B37 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EA7A671EB2247500165B37 /* MASCompositeConstraint.m */; };
 		88EA7A821EB2247500165B37 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EA7A6A1EB2247500165B37 /* MASConstraint.m */; };
 		88EA7A831EB2247500165B37 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EA7A6C1EB2247500165B37 /* MASConstraintMaker.m */; };
@@ -841,7 +840,6 @@
 		88EA7A5B1EB223D300165B37 /* AutoLayoutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLayoutVC.h; sourceTree = "<group>"; };
 		88EA7A5C1EB223D300165B37 /* AutoLayoutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutVC.m; sourceTree = "<group>"; };
 		88EA7A5D1EB223D300165B37 /* AutoLayoutVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutoLayoutVC.xib; sourceTree = "<group>"; };
-		88EA7A641EB2247500165B37 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		88EA7A661EB2247500165B37 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		88EA7A671EB2247500165B37 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
 		88EA7A681EB2247500165B37 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -1800,7 +1798,6 @@
 		88EA7A631EB2247500165B37 /* Masonry */ = {
 			isa = PBXGroup;
 			children = (
-				88EA7A641EB2247500165B37 /* LICENSE */,
 				88EA7A651EB2247500165B37 /* Masonry */,
 				88EA7A7F1EB2247500165B37 /* README.md */,
 			);
@@ -2007,7 +2004,6 @@
 				889B2E961E89E98700ACD1A0 /* Demo2@2x.png in Resources */,
 				882C99751E8D0CE300BFDAC7 /* RemoteEnvetVC.xib in Resources */,
 				889DBA851E7E724500520C77 /* CoreGraphicVC.xib in Resources */,
-				88EA7A801EB2247500165B37 /* LICENSE in Resources */,
 				889DBA6F1E7E71F900520C77 /* Quartz.pdf in Resources */,
 				889C4A6F1E9C73C600EB2C68 /* NotificationVC.xib in Resources */,
 				889C4A9F1E9C743000EB2C68 /* NetworkVC.xib in Resources */,
@@ -2448,7 +2444,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.iosdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4a57f1da-9a55-4802-8c6a-625c5d6a806f";
-				PROVISIONING_PROFILE_SPECIFIER = ChesterDevPro1104;
+				PROVISIONING_PROFILE_SPECIFIER = ChesterDev1114;
 				SWIFT_OBJC_BRIDGING_HEADER = "Demo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;

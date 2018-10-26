@@ -10,4 +10,6 @@
 
 @interface SystemInfoVC : UIViewController
 
++ (double)usedMemory;
+
 @end
