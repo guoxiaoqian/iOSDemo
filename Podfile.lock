@@ -1,0 +1,16 @@
+PODS:
+  - TTT (1.0.3)
+
+DEPENDENCIES:
+  - TTT (= 1.0.3)
+
+SPEC REPOS:
+  "git@github.com:guoxiaoqian/SpecsRepo.git":
+    - TTT
+
+SPEC CHECKSUMS:
+  TTT: 457503283d9013f4228e6be6b8c90ca7f56c564b
+
+PODFILE CHECKSUM: 2931ff912437fa8d86b906076686bb47864c1eeb
+
+COCOAPODS: 1.5.3

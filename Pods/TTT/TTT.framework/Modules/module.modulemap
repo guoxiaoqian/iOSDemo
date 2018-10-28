@@ -1,0 +1,6 @@
+framework module TTT {
+  umbrella header "TTT.h"
+
+  export *
+  module * { export * }
+}
