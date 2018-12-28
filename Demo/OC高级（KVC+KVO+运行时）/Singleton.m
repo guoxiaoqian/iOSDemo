@@ -38,4 +38,45 @@
     return self;
 }
 
+#pragma mark - MRC下
+
+#if ! __has_feature(objc_arc)
+- (id)retain {
+    return self;
+}
+
+- (oneway void)release {
+}
+
+- (id)autorelease {
+    return self;
+}
+
+- (NSUInteger)retainCount {
+    return NSUIntegerMax;
+}
+#endif
+
+@end
+
+
+
+@implementation Singleton2
+
++ (instancetype)sharedInstance {
+    static id sharedInstance = nil;
+    static dispatch_once_t onceToken = 0;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[super alloc] initInstance];
+    });
+    return sharedInstance;
+}
+
+- (id)initInstance{
+    if (self = [super init]) {
+        
+    }
+    return self;
+}
+
 @end

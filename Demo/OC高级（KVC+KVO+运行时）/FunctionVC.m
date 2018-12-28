@@ -75,6 +75,10 @@
 @property (strong,nonatomic) NSString* age;
 @property (strong,nonatomic) NSString* name;
 
+//KVC
+@property (assign,nonatomic) CGFloat grade;
+@property (assign,nonatomic) BOOL isBoy;
+
 @end
 
 @implementation FunctionVC
@@ -96,7 +100,11 @@
     
 //    [MRCTest testMRC];
     
+    [[MRCTest new] testMRCObj];
+    
 //    [DebugTool testDebugTool];
+    
+    [self testKVC];
     
     [Singleton testSingleton];
 }
@@ -187,6 +195,29 @@
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
     NSLog(@"KVO class:%@ key:%@ change:%@",NSStringFromClass([object class]),keyPath,change);
 }
+
+#pragma mark - KVC
+
+- (void)testKVC {
+    NSDictionary* attributes = @{
+                                 @"grade":@"11",
+                                 @"isBoy":@"true",
+                                 @"height":@"10" //undefined key
+                                 };
+    [self setValuesForKeysWithDictionary:attributes];
+    
+    //同名key，value类型不同会自动转换，比如@"true"转换成YES
+    
+    NSLog(@"KVC grade:%f isBoy:%d",self.grade,self.isBoy);
+}
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+    NSLog(@"KVC UndefinedKey:%@",key);
+}
+
+
+
+#pragma mark - Load & Initialize
 
 -(void)testLoadAndInitialize{
     [ClassInit print];
