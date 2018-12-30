@@ -37,6 +37,8 @@
 #import "TouchIDVC.h"
 #import "QRCodeVC.h"
 #import "ReactiveVC.h"
+#import "CrashSignalVC.h"
+#import "TableViewVC.h"
 
 @interface EntryModel : NSObject
 
@@ -52,6 +54,10 @@
     model.name = name;
     model.targetVCClass = class;
     return model;
+}
+
++(EntryModel*)modelWithClass:(Class)class{
+    return [self modelWithName:NSStringFromClass(class) class:class];
 }
 
 @end
@@ -97,10 +103,11 @@
                        [EntryModel modelWithName:@"3DTouchVC" class:[_DTouchVC class]],
                        [EntryModel modelWithName:@"TouchIDVC" class:[TouchIDVC class]],
                        [EntryModel modelWithName:@"QRCodeVC" class:[QRCodeVC class]],
-                        [EntryModel modelWithName:@"ReactiveVC" class:[ReactiveVC class]],
-
+                       [EntryModel modelWithName:@"ReactiveVC" class:[ReactiveVC class]],
+                       [EntryModel modelWithClass:[CrashSignalVC class]],
+                       [EntryModel modelWithClass:[TableViewVC class]],
+                       
                        nil];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -115,7 +122,7 @@
 
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-    LOG_FUNCTION;    
+    LOG_FUNCTION;
 }
 
 #pragma mark - UITableViewDataSource

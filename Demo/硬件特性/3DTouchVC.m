@@ -23,11 +23,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     
-   UIApplicationShortcutItem* shortcutItem = launchOptions[UIApplicationLaunchOptionsShortcutItemKey];
-    if ([shortcutItem.type isEqualToString:@"com.qq.gavin"]) {
-        NSLog(@"启动点击了3DTouch中的gavin");
+    if(@available(iOS 9.0,*)) {
+        UIApplicationShortcutItem* shortcutItem = launchOptions[UIApplicationLaunchOptionsShortcutItemKey];
+        if ([shortcutItem.type isEqualToString:@"com.qq.gavin"]) {
+            NSLog(@"启动点击了3DTouch中的gavin");
+        }
     }
-
+    
     return YES;
 }
 
@@ -80,7 +82,7 @@
 - (nullable UIViewController *)previewingContext:(id <UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location NS_AVAILABLE_IOS(9_0){
     
     //获取按压的cell所在行，[previewingContext sourceView]就是按压的那个视图
-//    NSIndexPath *indexPath = [_myTableView indexPathForCell:(UITableViewCell* )[previewingContext sourceView]];
+    //    NSIndexPath *indexPath = [_myTableView indexPathForCell:(UITableViewCell* )[previewingContext sourceView]];
     
     //设定预览的界面
     UIViewController *childVC = [[UIViewController alloc] init];
@@ -99,11 +101,11 @@
     
     UIViewController *childVC = [[UIViewController alloc] init];
     childVC.view.backgroundColor = [UIColor redColor];
-
+    
     [self.navigationController pushViewController:childVC animated:YES];
     
-//    不需要3DTouch时反注册
-//    [self unregisterForPreviewingWithContext:previewingContext];
+    //    不需要3DTouch时反注册
+    //    [self unregisterForPreviewingWithContext:previewingContext];
 }
 
 #pragma mark - 当弹出预览时，上滑预览视图，出现预览视图中快捷选项

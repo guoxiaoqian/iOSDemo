@@ -154,12 +154,12 @@
                   moduleName = "Demo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guoxiaoqian/iOSDemo/Demo/%E7%BD%91%E7%BB%9C/NetworkVC.m"
-                  timestampString = "562241194.372107"
+                  timestampString = "567845262.0073889"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "110"
                   endingLineNumber = "110"
-                  offsetFromSymbolStart = "124">
+                  offsetFromSymbolStart = "127">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -169,12 +169,12 @@
                   moduleName = "Demo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guoxiaoqian/iOSDemo/Demo/%E7%BD%91%E7%BB%9C/NetworkVC.m"
-                  timestampString = "562241194.373472"
+                  timestampString = "567845262.009118"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "110"
                   endingLineNumber = "110"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "19">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -184,12 +184,12 @@
                   moduleName = "Demo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guoxiaoqian/iOSDemo/Demo/%E7%BD%91%E7%BB%9C/NetworkVC.m"
-                  timestampString = "562241194.374823"
+                  timestampString = "567845262.011073"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "110"
                   endingLineNumber = "110"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "17">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -281,11 +281,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo/&#x786c;&#x4ef6;&#x7279;&#x6027;/3DTouchVC.m"
-            timestampString = "533743250.023316"
+            timestampString = "567845261.901024"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -297,11 +297,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo/&#x786c;&#x4ef6;&#x7279;&#x6027;/3DTouchVC.m"
-            timestampString = "533743250.024024"
+            timestampString = "567845261.901085"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -313,11 +313,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo/&#x786c;&#x4ef6;&#x7279;&#x6027;/3DTouchVC.m"
-            timestampString = "533743250.024499"
+            timestampString = "567845261.9011281"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "_DTouchVC"
             landmarkType = "3">
          </BreakpointContent>
@@ -329,11 +329,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo/&#x786c;&#x4ef6;&#x7279;&#x6027;/3DTouchVC.m"
-            timestampString = "533743250.024953"
+            timestampString = "567845261.901167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "_DTouchVC"
             landmarkType = "3">
          </BreakpointContent>
