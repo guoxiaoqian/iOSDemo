@@ -30,9 +30,113 @@ void  protobuf_AddDesc_Person_2eproto();
 void protobuf_AssignDesc_Person_2eproto();
 void protobuf_ShutdownFile_Person_2eproto();
 
+class PBPersonAttribute;
 class PBPerson;
 
 // ===================================================================
+
+class PBPersonAttribute : public ::google::protobuf::MessageLite {
+ public:
+  PBPersonAttribute();
+  virtual ~PBPersonAttribute();
+
+  PBPersonAttribute(const PBPersonAttribute& from);
+
+  inline PBPersonAttribute& operator=(const PBPersonAttribute& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const PBPersonAttribute& default_instance();
+
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  // Returns the internal default instance pointer. This function can
+  // return NULL thus should not be used by the user. This is intended
+  // for Protobuf internal code. Please use default_instance() declared
+  // above instead.
+  static inline const PBPersonAttribute* internal_default_instance() {
+    return default_instance_;
+  }
+  #endif
+
+  void Swap(PBPersonAttribute* other);
+
+  // implements Message ----------------------------------------------
+
+  PBPersonAttribute* New() const;
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const PBPersonAttribute& from);
+  void MergeFrom(const PBPersonAttribute& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::std::string GetTypeName() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string key = 1;
+  inline bool has_key() const;
+  inline void clear_key();
+  static const int kKeyFieldNumber = 1;
+  inline const ::std::string& key() const;
+  inline void set_key(const ::std::string& value);
+  inline void set_key(const char* value);
+  inline void set_key(const char* value, size_t size);
+  inline ::std::string* mutable_key();
+  inline ::std::string* release_key();
+  inline void set_allocated_key(::std::string* key);
+
+  // required string value = 2;
+  inline bool has_value() const;
+  inline void clear_value();
+  static const int kValueFieldNumber = 2;
+  inline const ::std::string& value() const;
+  inline void set_value(const ::std::string& value);
+  inline void set_value(const char* value);
+  inline void set_value(const char* value, size_t size);
+  inline ::std::string* mutable_value();
+  inline ::std::string* release_value();
+  inline void set_allocated_value(::std::string* value);
+
+  // @@protoc_insertion_point(class_scope:PBPersonAttribute)
+ private:
+  inline void set_has_key();
+  inline void clear_has_key();
+  inline void set_has_value();
+  inline void clear_has_value();
+
+  ::std::string* key_;
+  ::std::string* value_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  friend void  protobuf_AddDesc_Person_2eproto_impl();
+  #else
+  friend void  protobuf_AddDesc_Person_2eproto();
+  #endif
+  friend void protobuf_AssignDesc_Person_2eproto();
+  friend void protobuf_ShutdownFile_Person_2eproto();
+
+  void InitAsDefaultInstance();
+  static PBPersonAttribute* default_instance_;
+};
+// -------------------------------------------------------------------
 
 class PBPerson : public ::google::protobuf::MessageLite {
  public:
@@ -87,7 +191,7 @@ class PBPerson : public ::google::protobuf::MessageLite {
 
   // accessors -------------------------------------------------------
 
-  // required string name = 1;
+  // optional string name = 1;
   inline bool has_name() const;
   inline void clear_name();
   static const int kNameFieldNumber = 1;
@@ -137,6 +241,18 @@ class PBPerson : public ::google::protobuf::MessageLite {
   inline ::google::protobuf::RepeatedPtrField< ::PBPerson >*
       mutable_children();
 
+  // repeated .PBPersonAttribute attributes = 6;
+  inline int attributes_size() const;
+  inline void clear_attributes();
+  static const int kAttributesFieldNumber = 6;
+  inline const ::PBPersonAttribute& attributes(int index) const;
+  inline ::PBPersonAttribute* mutable_attributes(int index);
+  inline ::PBPersonAttribute* add_attributes();
+  inline const ::google::protobuf::RepeatedPtrField< ::PBPersonAttribute >&
+      attributes() const;
+  inline ::google::protobuf::RepeatedPtrField< ::PBPersonAttribute >*
+      mutable_attributes();
+
   // @@protoc_insertion_point(class_scope:PBPerson)
  private:
   inline void set_has_name();
@@ -153,9 +269,10 @@ class PBPerson : public ::google::protobuf::MessageLite {
   ::google::protobuf::int32 sex_;
   ::std::string* phone_;
   ::google::protobuf::RepeatedPtrField< ::PBPerson > children_;
+  ::google::protobuf::RepeatedPtrField< ::PBPersonAttribute > attributes_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
   #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   friend void  protobuf_AddDesc_Person_2eproto_impl();
@@ -173,9 +290,153 @@ class PBPerson : public ::google::protobuf::MessageLite {
 
 // ===================================================================
 
+// PBPersonAttribute
+
+// required string key = 1;
+inline bool PBPersonAttribute::has_key() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PBPersonAttribute::set_has_key() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PBPersonAttribute::clear_has_key() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PBPersonAttribute::clear_key() {
+  if (key_ != &::google::protobuf::internal::kEmptyString) {
+    key_->clear();
+  }
+  clear_has_key();
+}
+inline const ::std::string& PBPersonAttribute::key() const {
+  return *key_;
+}
+inline void PBPersonAttribute::set_key(const ::std::string& value) {
+  set_has_key();
+  if (key_ == &::google::protobuf::internal::kEmptyString) {
+    key_ = new ::std::string;
+  }
+  key_->assign(value);
+}
+inline void PBPersonAttribute::set_key(const char* value) {
+  set_has_key();
+  if (key_ == &::google::protobuf::internal::kEmptyString) {
+    key_ = new ::std::string;
+  }
+  key_->assign(value);
+}
+inline void PBPersonAttribute::set_key(const char* value, size_t size) {
+  set_has_key();
+  if (key_ == &::google::protobuf::internal::kEmptyString) {
+    key_ = new ::std::string;
+  }
+  key_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* PBPersonAttribute::mutable_key() {
+  set_has_key();
+  if (key_ == &::google::protobuf::internal::kEmptyString) {
+    key_ = new ::std::string;
+  }
+  return key_;
+}
+inline ::std::string* PBPersonAttribute::release_key() {
+  clear_has_key();
+  if (key_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = key_;
+    key_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void PBPersonAttribute::set_allocated_key(::std::string* key) {
+  if (key_ != &::google::protobuf::internal::kEmptyString) {
+    delete key_;
+  }
+  if (key) {
+    set_has_key();
+    key_ = key;
+  } else {
+    clear_has_key();
+    key_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// required string value = 2;
+inline bool PBPersonAttribute::has_value() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PBPersonAttribute::set_has_value() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PBPersonAttribute::clear_has_value() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PBPersonAttribute::clear_value() {
+  if (value_ != &::google::protobuf::internal::kEmptyString) {
+    value_->clear();
+  }
+  clear_has_value();
+}
+inline const ::std::string& PBPersonAttribute::value() const {
+  return *value_;
+}
+inline void PBPersonAttribute::set_value(const ::std::string& value) {
+  set_has_value();
+  if (value_ == &::google::protobuf::internal::kEmptyString) {
+    value_ = new ::std::string;
+  }
+  value_->assign(value);
+}
+inline void PBPersonAttribute::set_value(const char* value) {
+  set_has_value();
+  if (value_ == &::google::protobuf::internal::kEmptyString) {
+    value_ = new ::std::string;
+  }
+  value_->assign(value);
+}
+inline void PBPersonAttribute::set_value(const char* value, size_t size) {
+  set_has_value();
+  if (value_ == &::google::protobuf::internal::kEmptyString) {
+    value_ = new ::std::string;
+  }
+  value_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* PBPersonAttribute::mutable_value() {
+  set_has_value();
+  if (value_ == &::google::protobuf::internal::kEmptyString) {
+    value_ = new ::std::string;
+  }
+  return value_;
+}
+inline ::std::string* PBPersonAttribute::release_value() {
+  clear_has_value();
+  if (value_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = value_;
+    value_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void PBPersonAttribute::set_allocated_value(::std::string* value) {
+  if (value_ != &::google::protobuf::internal::kEmptyString) {
+    delete value_;
+  }
+  if (value) {
+    set_has_value();
+    value_ = value;
+  } else {
+    clear_has_value();
+    value_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
 // PBPerson
 
-// required string name = 1;
+// optional string name = 1;
 inline bool PBPerson::has_name() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -382,6 +643,31 @@ PBPerson::children() const {
 inline ::google::protobuf::RepeatedPtrField< ::PBPerson >*
 PBPerson::mutable_children() {
   return &children_;
+}
+
+// repeated .PBPersonAttribute attributes = 6;
+inline int PBPerson::attributes_size() const {
+  return attributes_.size();
+}
+inline void PBPerson::clear_attributes() {
+  attributes_.Clear();
+}
+inline const ::PBPersonAttribute& PBPerson::attributes(int index) const {
+  return attributes_.Get(index);
+}
+inline ::PBPersonAttribute* PBPerson::mutable_attributes(int index) {
+  return attributes_.Mutable(index);
+}
+inline ::PBPersonAttribute* PBPerson::add_attributes() {
+  return attributes_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::PBPersonAttribute >&
+PBPerson::attributes() const {
+  return attributes_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::PBPersonAttribute >*
+PBPerson::mutable_attributes() {
+  return &attributes_;
 }
 
 

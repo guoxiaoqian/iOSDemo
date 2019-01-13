@@ -9,20 +9,27 @@
 #import "SerializeVC.h"
 #import "Person.pb.h"
 
+#define kSerializeSpecial  0
+
 #define kCodeKeyName @"name"
 #define kCodeKeyAge @"age"
 #define kCodeKeySex @"sex"
 #define kCodeKeyPhone @"phone"
 #define kCodeKeyChildren @"children"
+#define kCodeKeyAttributes @"attributes"
 
 @interface Person : NSObject <NSCoding>
+
+@property (strong,nonatomic) NSDictionary* attributes;
 
 @property (strong,nonatomic) NSString* name;
 @property (assign,nonatomic) int age;
 @property (assign,nonatomic) int sex;
 @property (strong,nonatomic) NSString* phone;
+
 @property (strong,nonatomic) NSArray<Person*>* children;
 
+//XML解析辅助
 @property (assign,nonatomic) BOOL parsing;
 
 @end
@@ -31,29 +38,37 @@
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [self init]) {
+#if kSerializeSpecial
         self.name = [aDecoder decodeObjectForKey:kCodeKeyName];
         self.age = [aDecoder decodeIntForKey:kCodeKeyAge];
         self.sex = [aDecoder decodeIntForKey:kCodeKeySex];
         self.phone = [aDecoder decodeObjectForKey:kCodeKeyPhone];
+#endif
         self.children = [aDecoder decodeObjectForKey:kCodeKeyChildren];
+        self.attributes = [aDecoder decodeObjectForKey:kCodeKeyAttributes];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
+#if kSerializeSpecial
     [aCoder encodeObject:self.name forKey:kCodeKeyName];
     [aCoder encodeInt:self.age forKey:kCodeKeyAge];
     [aCoder encodeInt:self.sex forKey:kCodeKeySex];
     [aCoder encodeObject:self.phone forKey:kCodeKeyPhone];
+#endif
     [aCoder encodeObject:self.children forKey:kCodeKeyChildren];
+    [aCoder encodeObject:self.attributes forKey:kCodeKeyAttributes];
 }
 
 - (instancetype)initWithPBPerson:(const PBPerson&)pbPerson {
     if (self = [super init]) {
+#if kSerializeSpecial
         self.name = [NSString stringWithUTF8String:pbPerson.name().c_str()];
         self.age = pbPerson.age();
         self.sex = pbPerson.sex();
         self.phone = [NSString stringWithUTF8String:pbPerson.phone().c_str()];
+#endif
         if (pbPerson.children_size() > 0) {
             NSMutableArray* children = [NSMutableArray new];
             for (int i=0; i < pbPerson.children_size(); ++i) {
@@ -62,11 +77,22 @@
             }
             self.children = children;
         }
+        if (pbPerson.attributes_size() > 0) {
+            NSMutableDictionary* attributes = [NSMutableDictionary new];
+            for (int i=0; i < pbPerson.attributes_size(); ++i) {
+                const PBPersonAttribute& pbAttribute = pbPerson.attributes(i);
+                NSString* key = [NSString stringWithUTF8String:pbAttribute.key().c_str()];
+                NSString* value = [NSString stringWithUTF8String:pbAttribute.value().c_str()];
+                attributes[key] = value;
+            }
+            self.attributes = attributes;
+        }
     }
     return self;
 }
 
 - (void)encodePBPerson:(PBPerson&)pbPerson {
+#if kSerializeSpecial
     if (self.name.length) {
         pbPerson.set_name([self.name UTF8String]);
     }
@@ -75,10 +101,21 @@
     if (self.phone.length) {
         pbPerson.set_phone([self.phone UTF8String]);
     }
+#endif
     for (Person* child in self.children) {
-        PBPerson* p_pbPerson = pbPerson.add_children();
-        [child encodePBPerson:*p_pbPerson];
+        PBPerson& pbChild = *pbPerson.add_children();
+        [child encodePBPerson:pbChild];
     }
+    
+    [self.attributes enumerateKeysAndObjectsUsingBlock:^(NSString*  _Nonnull key, NSString*  _Nonnull obj, BOOL * _Nonnull stop) {
+        PBPersonAttribute& pbAttribute = *pbPerson.add_attributes();
+        pbAttribute.set_key([key UTF8String]);
+        pbAttribute.set_value([obj UTF8String]);
+    }];
+}
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+    //处理未知字段
 }
 
 @end
@@ -111,7 +148,7 @@
     NSData* xmlData = [NSData dataWithContentsOfURL:xmlURL];
     NSXMLParser* parser = [[NSXMLParser alloc] initWithData:xmlData];
     parser.delegate = self;
-    NSLog(@"Parse XML Length %@",@(xmlData.length));
+    NSLog(@"Length XML %@",@(xmlData.length));
     TIME_MONITOR_BEIGIN(@"Parse XML");
     [parser parse];
     TIME_MONITOR_END(@"Parse XML");
@@ -121,22 +158,11 @@
     TIME_MONITOR_BEIGIN(@"Serialize Archive");
     NSData* archiveData = [NSKeyedArchiver archivedDataWithRootObject:self.personFromXML];
     TIME_MONITOR_END(@"Serialize Archive");
-    NSLog(@"Parse Archive Length %@",@(archiveData.length));
+    NSLog(@"Length Archive %@",@(archiveData.length));
 
     TIME_MONITOR_BEIGIN(@"Parse Archive");
     self.personFromArchive = [NSKeyedUnarchiver unarchiveObjectWithData:archiveData];
     TIME_MONITOR_END(@"Parse Archive");
-    
-//    NSString* filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-//    NSString* archivePath = [filePath stringByAppendingPathComponent:@"Person.archive"];
-//    if ([[NSFileManager defaultManager] fileExistsAtPath:archivePath] == NO) {
-//        BOOL ret = [NSKeyedArchiver archiveRootObject:self.personFromXML toFile:archivePath];
-//        if (ret == NO) {
-//            return;
-//        }
-//    } else {
-//        self.personFromArchive = [NSKeyedUnarchiver unarchiveObjectWithFile:archivePath];
-//    }
 }
 
 - (void)parsePB {
@@ -147,7 +173,7 @@
     std::string pbData = person.SerializeAsString();
     TIME_MONITOR_END(@"Serialize PB");
     
-    NSLog(@"Parse PB Length %@",@(pbData.size()));
+    NSLog(@"Length PB %@",@(pbData.size()));
     
     TIME_MONITOR_BEIGIN(@"Parse PB");
     PBPerson person2;
@@ -168,7 +194,6 @@
 #pragma mark - NSXMLParser
 
 -(void)parserDidStartDocument:(NSXMLParser *)parser{
-    NSLog(@"xml parse start");
     self.personStack = [NSMutableArray new];
 }
 
@@ -177,7 +202,10 @@
 
     if ([elementName isEqualToString:@"Person"]) {
         Person* person = [Person new];
+        person.attributes = attributeDict;
+#if kSerializeSpecial
         [person setValuesForKeysWithDictionary:attributeDict];
+#endif
         person.parsing = YES;
         [self.personStack addObject:person];
     }
@@ -209,7 +237,6 @@
 
 -(void)parserDidEndDocument:(NSXMLParser *)parser{
     self.personFromXML = self.personStack.firstObject;
-    NSLog(@"xml parse over");
 }
 
 @end
