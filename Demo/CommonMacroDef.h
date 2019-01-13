@@ -9,6 +9,8 @@
 #ifndef commonMacroDef_h
 #define commonMacroDef_h
 
+#import "TimeMonitor.h"
+
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 
@@ -22,5 +24,8 @@
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
+
+#define  TIME_MONITOR_BEIGIN(_name_) [TimeMonitor beginMonitor:_name_];
+#define  TIME_MONITOR_END(_name_) [TimeMonitor endMonitor:_name_];
 
 #endif /* commonMacroDef_h */

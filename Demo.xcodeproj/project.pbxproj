@@ -249,6 +249,12 @@
 		88A6177B1E53EED000EF8AFC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A6177A1E53EED000EF8AFC /* CoreData.framework */; };
 		88A6180A1E5466F200EF8AFC /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A618091E5466F200EF8AFC /* libsqlite3.0.tbd */; };
 		88A6182D1E5ABE9200EF8AFC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A6182C1E5ABE9200EF8AFC /* Security.framework */; };
+		88A8C9A821EB379A00B70032 /* Person.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 88A8C9A421EB379900B70032 /* Person.pb.cc */; };
+		88A8C9A921EB379A00B70032 /* Person.xml in Resources */ = {isa = PBXBuildFile; fileRef = 88A8C9A621EB379900B70032 /* Person.xml */; };
+		88A8C9AA21EB379A00B70032 /* Person.proto in Sources */ = {isa = PBXBuildFile; fileRef = 88A8C9A721EB379900B70032 /* Person.proto */; };
+		88A8CB2C21EB40D800B70032 /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A8C9C521EB3C2800B70032 /* libprotobuf.a */; };
+		88A8CB2F21EB433A00B70032 /* SerializeVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 88A8CB2E21EB433A00B70032 /* SerializeVC.mm */; };
+		88A8CB3221EB4D3300B70032 /* TimeMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A8CB3121EB4D3300B70032 /* TimeMonitor.m */; };
 		88C32E841E66BFF1002753FC /* CoreDataVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C32E351E66BFF1002753FC /* CoreDataVC.m */; };
 		88C32E851E66BFF1002753FC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88C32E361E66BFF1002753FC /* Model.xcdatamodeld */; };
 		88C32E861E66BFF1002753FC /* FileManagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C32E3A1E66BFF1002753FC /* FileManagerVC.m */; };
@@ -322,6 +328,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 88A617371E53100C00EF8AFC;
 			remoteInfo = Demo;
+		};
+		88A8C9C421EB3C2800B70032 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88A8C9C021EB3C2600B70032 /* protobuf.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 88A8C9B421EB3C2600B70032;
+			remoteInfo = protobuf;
+		};
+		88A8CB2A21EB40CD00B70032 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88A8C9C021EB3C2600B70032 /* protobuf.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 88A8C9B321EB3C2600B70032;
+			remoteInfo = protobuf;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -797,6 +817,15 @@
 		88A6177A1E53EED000EF8AFC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		88A618091E5466F200EF8AFC /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		88A6182C1E5ABE9200EF8AFC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		88A8C9A421EB379900B70032 /* Person.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Person.pb.cc; sourceTree = "<group>"; };
+		88A8C9A521EB379900B70032 /* Person.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.pb.h; sourceTree = "<group>"; };
+		88A8C9A621EB379900B70032 /* Person.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Person.xml; sourceTree = "<group>"; };
+		88A8C9A721EB379900B70032 /* Person.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = Person.proto; sourceTree = "<group>"; };
+		88A8C9C021EB3C2600B70032 /* protobuf.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = protobuf.xcodeproj; path = protobuf/protobuf.xcodeproj; sourceTree = "<group>"; };
+		88A8CB2D21EB433A00B70032 /* SerializeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SerializeVC.h; sourceTree = "<group>"; };
+		88A8CB2E21EB433A00B70032 /* SerializeVC.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SerializeVC.mm; sourceTree = "<group>"; };
+		88A8CB3021EB4D3300B70032 /* TimeMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeMonitor.h; sourceTree = "<group>"; };
+		88A8CB3121EB4D3300B70032 /* TimeMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeMonitor.m; sourceTree = "<group>"; };
 		88C32E341E66BFF1002753FC /* CoreDataVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataVC.h; sourceTree = "<group>"; };
 		88C32E351E66BFF1002753FC /* CoreDataVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataVC.m; sourceTree = "<group>"; };
 		88C32E371E66BFF1002753FC /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -883,6 +912,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88A8CB2C21EB40D800B70032 /* libprotobuf.a in Frameworks */,
 				8827392D1FCB07030011BC0B /* LocalAuthentication.framework in Frameworks */,
 				8887A3B61EAED15B005EEFAE /* WebKit.framework in Frameworks */,
 				8887A3721EA83E6D005EEFAE /* UserNotifications.framework in Frameworks */,
@@ -1554,6 +1584,8 @@
 				88A6173F1E53100C00EF8AFC /* AppDelegate.m */,
 				885960EB1E70EEC400760090 /* PrefixHeader.pch */,
 				885960E91E70EB7E00760090 /* CommonMacroDef.h */,
+				88A8CB3021EB4D3300B70032 /* TimeMonitor.h */,
+				88A8CB3121EB4D3300B70032 /* TimeMonitor.m */,
 				88A617411E53100C00EF8AFC /* ViewController.h */,
 				88A617421E53100C00EF8AFC /* ViewController.m */,
 				88A617441E53100C00EF8AFC /* Main.storyboard */,
@@ -1625,9 +1657,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		88A8C9A321EB379900B70032 /* Serialize */ = {
+			isa = PBXGroup;
+			children = (
+				88A8C9C021EB3C2600B70032 /* protobuf.xcodeproj */,
+				88A8C9A421EB379900B70032 /* Person.pb.cc */,
+				88A8C9A521EB379900B70032 /* Person.pb.h */,
+				88A8C9A621EB379900B70032 /* Person.xml */,
+				88A8C9A721EB379900B70032 /* Person.proto */,
+				88A8CB2D21EB433A00B70032 /* SerializeVC.h */,
+				88A8CB2E21EB433A00B70032 /* SerializeVC.mm */,
+			);
+			path = Serialize;
+			sourceTree = "<group>";
+		};
+		88A8C9C121EB3C2600B70032 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88A8C9C521EB3C2800B70032 /* libprotobuf.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		88C32E321E66BFF1002753FC /* 存储（数据库+CoreData+文件） */ = {
 			isa = PBXGroup;
 			children = (
+				88A8C9A321EB379900B70032 /* Serialize */,
 				88C32E331E66BFF1002753FC /* CoreData */,
 				88C32E381E66BFF1002753FC /* FileManager */,
 				88C32E401E66BFF1002753FC /* FMDB */,
@@ -1896,6 +1951,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				88A8CB2B21EB40CD00B70032 /* PBXTargetDependency */,
 				8801319C1E8F7C980087EBBD /* PBXTargetDependency */,
 				880131A01E8F7CB40087EBBD /* PBXTargetDependency */,
 			);
@@ -1994,6 +2050,10 @@
 					ProductGroup = 880131961E8F7C8B0087EBBD /* Products */;
 					ProjectRef = 880131951E8F7C8B0087EBBD /* FreeStreamer.xcodeproj */;
 				},
+				{
+					ProductGroup = 88A8C9C121EB3C2600B70032 /* Products */;
+					ProjectRef = 88A8C9C021EB3C2600B70032 /* protobuf.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -2012,6 +2072,13 @@
 			remoteRef = 880131991E8F7C8B0087EBBD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		88A8C9C521EB3C2800B70032 /* libprotobuf.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libprotobuf.a;
+			remoteRef = 88A8C9C421EB3C2800B70032 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -2027,6 +2094,7 @@
 				885960C71E7020DD00760090 /* TestGeneralAnimationVC.xib in Resources */,
 				889B2EB91E9077DB00ACD1A0 /* ConcurrencyVC.xib in Resources */,
 				88439EFC1EA79D62007DDA1B /* SystemInfoVC.xib in Resources */,
+				88A8C9A921EB379A00B70032 /* Person.xml in Resources */,
 				8825CF0D1ED3BA6700C59E4E /* AlgorithmVC.xib in Resources */,
 				889DBA751E7E71F900520C77 /* QuartzDemo-Info.plist in Resources */,
 				8849AE2D1EC2BBAE001F3218 /* FunctionVC.xib in Resources */,
@@ -2152,8 +2220,10 @@
 				885559291F1A468B000EA0C4 /* algorithm_divide.m in Sources */,
 				886860B62172453000C88C1A /* RACEmptySequence.m in Sources */,
 				886860DC2172453000C88C1A /* UIAlertView+RACSignalSupport.m in Sources */,
+				88A8C9A821EB379A00B70032 /* Person.pb.cc in Sources */,
 				889C4A6E1E9C73C600EB2C68 /* NotificationVC.m in Sources */,
 				886860E22172453000C88C1A /* UIDatePicker+RACSignalSupport.m in Sources */,
+				88A8CB2F21EB433A00B70032 /* SerializeVC.mm in Sources */,
 				889C4AB01E9C743000EB2C68 /* UIProgressView+AFNetworking.m in Sources */,
 				88EA7A8A1EB2247500165B37 /* ViewController+MASAdditions.m in Sources */,
 				886860D52172453000C88C1A /* RACTestScheduler.m in Sources */,
@@ -2194,6 +2264,7 @@
 				886860BE2172453000C88C1A /* RACKVOProxy.m in Sources */,
 				88A6173D1E53100C00EF8AFC /* main.m in Sources */,
 				886860C02172453000C88C1A /* RACMulticastConnection.m in Sources */,
+				88A8CB3221EB4D3300B70032 /* TimeMonitor.m in Sources */,
 				886860D02172453000C88C1A /* RACSubject.m in Sources */,
 				886860A22172453000C88C1A /* NSObject+RACSelectorSignal.m in Sources */,
 				886860B72172453000C88C1A /* RACEmptySignal.m in Sources */,
@@ -2301,6 +2372,7 @@
 				886860A62172453000C88C1A /* NSString+RACSequenceAdditions.m in Sources */,
 				889C4AA41E9C743000EB2C68 /* AFSecurityPolicy.m in Sources */,
 				885692441F123794001CECBA /* algorithm_traverse.m in Sources */,
+				88A8C9AA21EB379A00B70032 /* Person.proto in Sources */,
 				886860CA2172453000C88C1A /* RACSignal+Operations.m in Sources */,
 				886860B12172453000C88C1A /* RACDelegateProxy.m in Sources */,
 				882739251FCAFB310011BC0B /* 3DTouchVC.m in Sources */,
@@ -2380,6 +2452,11 @@
 			isa = PBXTargetDependency;
 			target = 88A617371E53100C00EF8AFC /* Demo */;
 			targetProxy = 88A6175D1E53100C00EF8AFC /* PBXContainerItemProxy */;
+		};
+		88A8CB2B21EB40CD00B70032 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = protobuf;
+			targetProxy = 88A8CB2A21EB40CD00B70032 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2544,6 +2621,8 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Demo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
+				SYSTEM_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Demo/存储（数据库+CoreData+文件）/Serialize/protobuf-2.5.0/src\"";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2572,6 +2651,8 @@
 				PROVISIONING_PROFILE_SPECIFIER = DeveloperWildcardProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Demo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
+				SYSTEM_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Demo/存储（数据库+CoreData+文件）/Serialize/protobuf-2.5.0/src\"";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

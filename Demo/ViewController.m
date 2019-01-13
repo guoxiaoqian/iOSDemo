@@ -39,6 +39,7 @@
 #import "ReactiveVC.h"
 #import "CrashSignalVC.h"
 #import "TableViewVC.h"
+#import "SerializeVC.h"
 
 @interface EntryModel : NSObject
 
@@ -106,7 +107,8 @@
                        [EntryModel modelWithName:@"ReactiveVC" class:[ReactiveVC class]],
                        [EntryModel modelWithClass:[CrashSignalVC class]],
                        [EntryModel modelWithClass:[TableViewVC class]],
-                       
+                       [EntryModel modelWithClass:[SerializeVC class]],
+
                        nil];
 }
 

@@ -1,0 +1,9 @@
+option optimize_for = LITE_RUNTIME;
+
+message PBPerson {
+    required string name = 1;
+    optional int32 age = 2;
+    optional int32 sex = 3;
+    optional string phone = 4;
+    repeated PBPerson children = 5;
+}

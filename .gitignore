@@ -1,2 +1,5 @@
 *.xcuserstate
 *.xcbkptlist
+*.lo
+*.o
+*/.deps

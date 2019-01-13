@@ -337,6 +337,10 @@
     }
 }
 
+- (void)parser:(NSXMLParser *)parser foundAttributeDeclarationWithName:(NSString *)attributeName forElement:(NSString *)elementName type:(nullable NSString *)type defaultValue:(nullable NSString *)defaultValue {
+    
+}
+
 //节点值
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
     if (self.currentElement.length) {
