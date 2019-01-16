@@ -12,66 +12,20 @@
 #include <google/protobuf/wire_format_lite_inl.h>
 // @@protoc_insertion_point(includes)
 
-void protobuf_ShutdownFile_Person_2eproto() {
-  delete PBPersonAttribute::default_instance_;
-  delete PBPerson::default_instance_;
-}
-
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-void protobuf_AddDesc_Person_2eproto_impl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-#else
-void protobuf_AddDesc_Person_2eproto() {
-  static bool already_here = false;
-  if (already_here) return;
-  already_here = true;
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-#endif
-  PBPersonAttribute::default_instance_ = new PBPersonAttribute();
-  PBPerson::default_instance_ = new PBPerson();
-  PBPersonAttribute::default_instance_->InitAsDefaultInstance();
-  PBPerson::default_instance_->InitAsDefaultInstance();
-  ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Person_2eproto);
-}
-
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AddDesc_Person_2eproto_once_);
-void protobuf_AddDesc_Person_2eproto() {
-  ::google::protobuf::::google::protobuf::GoogleOnceInit(&protobuf_AddDesc_Person_2eproto_once_,
-                 &protobuf_AddDesc_Person_2eproto_impl);
-}
-#else
-// Force AddDescriptors() to be called at static initialization time.
-struct StaticDescriptorInitializer_Person_2eproto {
-  StaticDescriptorInitializer_Person_2eproto() {
-    protobuf_AddDesc_Person_2eproto();
-  }
-} static_descriptor_initializer_Person_2eproto_;
-#endif
-
 // ===================================================================
 
-#ifndef _MSC_VER
-const int PBPersonAttribute::kKeyFieldNumber;
-const int PBPersonAttribute::kValueFieldNumber;
-#endif  // !_MSC_VER
-
+const google::protobuf::FieldInfo* PBPersonAttribute::GetFieldInfoArray(int& count) const{
+    static const google::protobuf::FieldInfo __array[] = {
+        {1, GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PBPersonAttribute, key_),::google::protobuf::internal::WireFormatLite::TYPE_STRING, 0},
+        {2, GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PBPersonAttribute, value_),::google::protobuf::internal::WireFormatLite::TYPE_STRING, 0},
+};
+    count = sizeof(__array) / sizeof(google::protobuf::FieldInfo);
+    return &__array[0];
+}
 PBPersonAttribute::PBPersonAttribute()
   : ::google::protobuf::MessageLite() {
   SharedCtor();
 }
-
-void PBPersonAttribute::InitAsDefaultInstance() {
-}
-
-PBPersonAttribute::PBPersonAttribute(const PBPersonAttribute& from)
-  : ::google::protobuf::MessageLite() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
 void PBPersonAttribute::SharedCtor() {
   _cached_size_ = 0;
   key_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
@@ -83,168 +37,20 @@ PBPersonAttribute::~PBPersonAttribute() {
   SharedDtor();
 }
 
-void PBPersonAttribute::SharedDtor() {
-  if (key_ != &::google::protobuf::internal::kEmptyString) {
-    delete key_;
-  }
-  if (value_ != &::google::protobuf::internal::kEmptyString) {
-    delete value_;
-  }
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
-  if (this != default_instance_) {
-  #endif
-  }
-}
-
 void PBPersonAttribute::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const PBPersonAttribute& PBPersonAttribute::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_Person_2eproto();
-#else
-  if (default_instance_ == NULL) protobuf_AddDesc_Person_2eproto();
-#endif
-  return *default_instance_;
-}
-
-PBPersonAttribute* PBPersonAttribute::default_instance_ = NULL;
-
 PBPersonAttribute* PBPersonAttribute::New() const {
   return new PBPersonAttribute;
 }
 
-void PBPersonAttribute::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (has_key()) {
-      if (key_ != &::google::protobuf::internal::kEmptyString) {
-        key_->clear();
-      }
-    }
-    if (has_value()) {
-      if (value_ != &::google::protobuf::internal::kEmptyString) {
-        value_->clear();
-      }
-    }
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
 
-bool PBPersonAttribute::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required string key = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_key()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(18)) goto parse_value;
-        break;
-      }
 
-      // required string value = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_value:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_value()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
 
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
 
-void PBPersonAttribute::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // required string key = 1;
-  if (has_key()) {
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      1, this->key(), output);
-  }
 
-  // required string value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->value(), output);
-  }
-
-}
-
-int PBPersonAttribute::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required string key = 1;
-    if (has_key()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->key());
-    }
-
-    // required string value = 2;
-    if (has_value()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->value());
-    }
-
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void PBPersonAttribute::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const PBPersonAttribute*>(&from));
-}
-
-void PBPersonAttribute::MergeFrom(const PBPersonAttribute& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_key()) {
-      set_key(from.key());
-    }
-    if (from.has_value()) {
-      set_value(from.value());
-    }
-  }
-}
-
-void PBPersonAttribute::CopyFrom(const PBPersonAttribute& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
 
 bool PBPersonAttribute::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
@@ -252,14 +58,6 @@ bool PBPersonAttribute::IsInitialized() const {
   return true;
 }
 
-void PBPersonAttribute::Swap(PBPersonAttribute* other) {
-  if (other != this) {
-    std::swap(key_, other->key_);
-    std::swap(value_, other->value_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
 
 ::std::string PBPersonAttribute::GetTypeName() const {
   return "PBPersonAttribute";
@@ -268,29 +66,22 @@ void PBPersonAttribute::Swap(PBPersonAttribute* other) {
 
 // ===================================================================
 
-#ifndef _MSC_VER
-const int PBPerson::kNameFieldNumber;
-const int PBPerson::kAgeFieldNumber;
-const int PBPerson::kSexFieldNumber;
-const int PBPerson::kPhoneFieldNumber;
-const int PBPerson::kChildrenFieldNumber;
-const int PBPerson::kAttributesFieldNumber;
-#endif  // !_MSC_VER
-
+const google::protobuf::FieldInfo* PBPerson::GetFieldInfoArray(int& count) const{
+    static const google::protobuf::FieldInfo __array[] = {
+        {1, GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PBPerson, name_),::google::protobuf::internal::WireFormatLite::TYPE_STRING, 0},
+        {2, GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PBPerson, age_),::google::protobuf::internal::WireFormatLite::TYPE_INT32, 0},
+        {3, GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PBPerson, sex_),::google::protobuf::internal::WireFormatLite::TYPE_INT32, 0},
+        {4, GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PBPerson, phone_),::google::protobuf::internal::WireFormatLite::TYPE_STRING, 0},
+        {5, GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PBPerson, children_),::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE, 1},
+        {6, GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PBPerson, attributes_),::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE, 1},
+};
+    count = sizeof(__array) / sizeof(google::protobuf::FieldInfo);
+    return &__array[0];
+}
 PBPerson::PBPerson()
   : ::google::protobuf::MessageLite() {
   SharedCtor();
 }
-
-void PBPerson::InitAsDefaultInstance() {
-}
-
-PBPerson::PBPerson(const PBPerson& from)
-  : ::google::protobuf::MessageLite() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
 void PBPerson::SharedCtor() {
   _cached_size_ = 0;
   name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
@@ -304,294 +95,20 @@ PBPerson::~PBPerson() {
   SharedDtor();
 }
 
-void PBPerson::SharedDtor() {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    delete name_;
-  }
-  if (phone_ != &::google::protobuf::internal::kEmptyString) {
-    delete phone_;
-  }
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
-  if (this != default_instance_) {
-  #endif
-  }
-}
-
 void PBPerson::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const PBPerson& PBPerson::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_Person_2eproto();
-#else
-  if (default_instance_ == NULL) protobuf_AddDesc_Person_2eproto();
-#endif
-  return *default_instance_;
-}
-
-PBPerson* PBPerson::default_instance_ = NULL;
-
 PBPerson* PBPerson::New() const {
   return new PBPerson;
 }
 
-void PBPerson::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (has_name()) {
-      if (name_ != &::google::protobuf::internal::kEmptyString) {
-        name_->clear();
-      }
-    }
-    age_ = 0;
-    sex_ = 0;
-    if (has_phone()) {
-      if (phone_ != &::google::protobuf::internal::kEmptyString) {
-        phone_->clear();
-      }
-    }
-  }
-  children_.Clear();
-  attributes_.Clear();
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
 
-bool PBPerson::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string name = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_name()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_age;
-        break;
-      }
 
-      // optional int32 age = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_age:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &age_)));
-          set_has_age();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(24)) goto parse_sex;
-        break;
-      }
 
-      // optional int32 sex = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_sex:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &sex_)));
-          set_has_sex();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(34)) goto parse_phone;
-        break;
-      }
 
-      // optional string phone = 4;
-      case 4: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_phone:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_phone()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(42)) goto parse_children;
-        break;
-      }
 
-      // repeated .PBPerson children = 5;
-      case 5: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_children:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_children()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(42)) goto parse_children;
-        if (input->ExpectTag(50)) goto parse_attributes;
-        break;
-      }
-
-      // repeated .PBPersonAttribute attributes = 6;
-      case 6: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_attributes:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_attributes()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(50)) goto parse_attributes;
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void PBPerson::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional string name = 1;
-  if (has_name()) {
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      1, this->name(), output);
-  }
-
-  // optional int32 age = 2;
-  if (has_age()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->age(), output);
-  }
-
-  // optional int32 sex = 3;
-  if (has_sex()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->sex(), output);
-  }
-
-  // optional string phone = 4;
-  if (has_phone()) {
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      4, this->phone(), output);
-  }
-
-  // repeated .PBPerson children = 5;
-  for (int i = 0; i < this->children_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
-      5, this->children(i), output);
-  }
-
-  // repeated .PBPersonAttribute attributes = 6;
-  for (int i = 0; i < this->attributes_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
-      6, this->attributes(i), output);
-  }
-
-}
-
-int PBPerson::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional string name = 1;
-    if (has_name()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->name());
-    }
-
-    // optional int32 age = 2;
-    if (has_age()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->age());
-    }
-
-    // optional int32 sex = 3;
-    if (has_sex()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->sex());
-    }
-
-    // optional string phone = 4;
-    if (has_phone()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->phone());
-    }
-
-  }
-  // repeated .PBPerson children = 5;
-  total_size += 1 * this->children_size();
-  for (int i = 0; i < this->children_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->children(i));
-  }
-
-  // repeated .PBPersonAttribute attributes = 6;
-  total_size += 1 * this->attributes_size();
-  for (int i = 0; i < this->attributes_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->attributes(i));
-  }
-
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void PBPerson::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const PBPerson*>(&from));
-}
-
-void PBPerson::MergeFrom(const PBPerson& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  children_.MergeFrom(from.children_);
-  attributes_.MergeFrom(from.attributes_);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_name()) {
-      set_name(from.name());
-    }
-    if (from.has_age()) {
-      set_age(from.age());
-    }
-    if (from.has_sex()) {
-      set_sex(from.sex());
-    }
-    if (from.has_phone()) {
-      set_phone(from.phone());
-    }
-  }
-}
-
-void PBPerson::CopyFrom(const PBPerson& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
 
 bool PBPerson::IsInitialized() const {
 
@@ -604,18 +121,6 @@ bool PBPerson::IsInitialized() const {
   return true;
 }
 
-void PBPerson::Swap(PBPerson* other) {
-  if (other != this) {
-    std::swap(name_, other->name_);
-    std::swap(age_, other->age_);
-    std::swap(sex_, other->sex_);
-    std::swap(phone_, other->phone_);
-    children_.Swap(&other->children_);
-    attributes_.Swap(&other->attributes_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
 
 ::std::string PBPerson::GetTypeName() const {
   return "PBPerson";

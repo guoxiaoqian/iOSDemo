@@ -238,6 +238,7 @@
 		889DBA851E7E724500520C77 /* CoreGraphicVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889DBA831E7E724500520C77 /* CoreGraphicVC.xib */; };
 		889DBA891E7EBBA700520C77 /* CoreAnimationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889DBA871E7EBBA700520C77 /* CoreAnimationVC.m */; };
 		889DBA8A1E7EBBA700520C77 /* CoreAnimationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889DBA881E7EBBA700520C77 /* CoreAnimationVC.xib */; };
+		88A3F69D21EEC2AF009B619A /* libprotobuf-lite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CDF01021EC909D00CD0C7F /* libprotobuf-lite.a */; };
 		88A6173D1E53100C00EF8AFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A6173C1E53100C00EF8AFC /* main.m */; };
 		88A617401E53100C00EF8AFC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A6173F1E53100C00EF8AFC /* AppDelegate.m */; };
 		88A617431E53100C00EF8AFC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A617421E53100C00EF8AFC /* ViewController.m */; };
@@ -252,7 +253,6 @@
 		88A8C9A821EB379A00B70032 /* Person.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 88A8C9A421EB379900B70032 /* Person.pb.cc */; };
 		88A8C9A921EB379A00B70032 /* Person.xml in Resources */ = {isa = PBXBuildFile; fileRef = 88A8C9A621EB379900B70032 /* Person.xml */; };
 		88A8C9AA21EB379A00B70032 /* Person.proto in Sources */ = {isa = PBXBuildFile; fileRef = 88A8C9A721EB379900B70032 /* Person.proto */; };
-		88A8CB2C21EB40D800B70032 /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A8C9C521EB3C2800B70032 /* libprotobuf.a */; };
 		88A8CB2F21EB433A00B70032 /* SerializeVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 88A8CB2E21EB433A00B70032 /* SerializeVC.mm */; };
 		88A8CB3221EB4D3300B70032 /* TimeMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A8CB3121EB4D3300B70032 /* TimeMonitor.m */; };
 		88C32E841E66BFF1002753FC /* CoreDataVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C32E351E66BFF1002753FC /* CoreDataVC.m */; };
@@ -315,6 +315,13 @@
 			remoteGlobalIDString = 969D3AA01C6DE48F00DF5410;
 			remoteInfo = FreeStreamer;
 		};
+		88A3F69921EEC294009B619A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88CDF00821EC909D00CD0C7F /* protobuff.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C69A5941853163400238481;
+			remoteInfo = "protobuf-lite";
+		};
 		88A617521E53100C00EF8AFC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 88A617301E53100C00EF8AFC /* Project object */;
@@ -329,19 +336,19 @@
 			remoteGlobalIDString = 88A617371E53100C00EF8AFC;
 			remoteInfo = Demo;
 		};
-		88A8C9C421EB3C2800B70032 /* PBXContainerItemProxy */ = {
+		88CDF00D21EC909D00CD0C7F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 88A8C9C021EB3C2600B70032 /* protobuf.xcodeproj */;
+			containerPortal = 88CDF00821EC909D00CD0C7F /* protobuff.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 88A8C9B421EB3C2600B70032;
-			remoteInfo = protobuf;
+			remoteGlobalIDString = 5D0E8A881718128E0041980E;
+			remoteInfo = protobuff;
 		};
-		88A8CB2A21EB40CD00B70032 /* PBXContainerItemProxy */ = {
+		88CDF00F21EC909D00CD0C7F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 88A8C9C021EB3C2600B70032 /* protobuf.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 88A8C9B321EB3C2600B70032;
-			remoteInfo = protobuf;
+			containerPortal = 88CDF00821EC909D00CD0C7F /* protobuff.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2C69A5BB1853163400238481;
+			remoteInfo = "protobuf-lite";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -821,7 +828,6 @@
 		88A8C9A521EB379900B70032 /* Person.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.pb.h; sourceTree = "<group>"; };
 		88A8C9A621EB379900B70032 /* Person.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Person.xml; sourceTree = "<group>"; };
 		88A8C9A721EB379900B70032 /* Person.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = Person.proto; sourceTree = "<group>"; };
-		88A8C9C021EB3C2600B70032 /* protobuf.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = protobuf.xcodeproj; path = protobuf/protobuf.xcodeproj; sourceTree = "<group>"; };
 		88A8CB2D21EB433A00B70032 /* SerializeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SerializeVC.h; sourceTree = "<group>"; };
 		88A8CB2E21EB433A00B70032 /* SerializeVC.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SerializeVC.mm; sourceTree = "<group>"; };
 		88A8CB3021EB4D3300B70032 /* TimeMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeMonitor.h; sourceTree = "<group>"; };
@@ -859,6 +865,7 @@
 		88CC32C91EA9F2B100801376 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		88CC32CB1EA9F2B100801376 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88CC32D21EA9F2BD00801376 /* TodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayExtension.entitlements; sourceTree = "<group>"; };
+		88CDF00821EC909D00CD0C7F /* protobuff.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = protobuff.xcodeproj; path = ProtoBuff/protobuff.xcodeproj; sourceTree = "<group>"; };
 		88E8F79C1ED5A13300FE93B4 /* StatePattern_Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatePattern_Light.h; sourceTree = "<group>"; };
 		88E8F79D1ED5A13300FE93B4 /* StatePattern_Light.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatePattern_Light.m; sourceTree = "<group>"; };
 		88E8F7A21ED5A17000FE93B4 /* LightState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightState.h; sourceTree = "<group>"; };
@@ -912,7 +919,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88A8CB2C21EB40D800B70032 /* libprotobuf.a in Frameworks */,
+				88A3F69D21EEC2AF009B619A /* libprotobuf-lite.a in Frameworks */,
 				8827392D1FCB07030011BC0B /* LocalAuthentication.framework in Frameworks */,
 				8887A3B61EAED15B005EEFAE /* WebKit.framework in Frameworks */,
 				8887A3721EA83E6D005EEFAE /* UserNotifications.framework in Frameworks */,
@@ -1660,23 +1667,15 @@
 		88A8C9A321EB379900B70032 /* Serialize */ = {
 			isa = PBXGroup;
 			children = (
-				88A8C9C021EB3C2600B70032 /* protobuf.xcodeproj */,
 				88A8C9A421EB379900B70032 /* Person.pb.cc */,
 				88A8C9A521EB379900B70032 /* Person.pb.h */,
 				88A8C9A621EB379900B70032 /* Person.xml */,
 				88A8C9A721EB379900B70032 /* Person.proto */,
 				88A8CB2D21EB433A00B70032 /* SerializeVC.h */,
 				88A8CB2E21EB433A00B70032 /* SerializeVC.mm */,
+				88CDF00821EC909D00CD0C7F /* protobuff.xcodeproj */,
 			);
 			path = Serialize;
-			sourceTree = "<group>";
-		};
-		88A8C9C121EB3C2600B70032 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				88A8C9C521EB3C2800B70032 /* libprotobuf.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		88C32E321E66BFF1002753FC /* 存储（数据库+CoreData+文件） */ = {
@@ -1842,6 +1841,15 @@
 			path = TodayExtension;
 			sourceTree = "<group>";
 		};
+		88CDF00921EC909D00CD0C7F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88CDF00E21EC909D00CD0C7F /* libprotobuff.a */,
+				88CDF01021EC909D00CD0C7F /* libprotobuf-lite.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		88E8F79B1ED5A0FA00FE93B4 /* 状态模式 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1951,7 +1959,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				88A8CB2B21EB40CD00B70032 /* PBXTargetDependency */,
+				88A3F69A21EEC294009B619A /* PBXTargetDependency */,
 				8801319C1E8F7C980087EBBD /* PBXTargetDependency */,
 				880131A01E8F7CB40087EBBD /* PBXTargetDependency */,
 			);
@@ -2051,8 +2059,8 @@
 					ProjectRef = 880131951E8F7C8B0087EBBD /* FreeStreamer.xcodeproj */;
 				},
 				{
-					ProductGroup = 88A8C9C121EB3C2600B70032 /* Products */;
-					ProjectRef = 88A8C9C021EB3C2600B70032 /* protobuf.xcodeproj */;
+					ProductGroup = 88CDF00921EC909D00CD0C7F /* Products */;
+					ProjectRef = 88CDF00821EC909D00CD0C7F /* protobuff.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -2072,11 +2080,18 @@
 			remoteRef = 880131991E8F7C8B0087EBBD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		88A8C9C521EB3C2800B70032 /* libprotobuf.a */ = {
+		88CDF00E21EC909D00CD0C7F /* libprotobuff.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libprotobuf.a;
-			remoteRef = 88A8C9C421EB3C2800B70032 /* PBXContainerItemProxy */;
+			path = libprotobuff.a;
+			remoteRef = 88CDF00D21EC909D00CD0C7F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		88CDF01021EC909D00CD0C7F /* libprotobuf-lite.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libprotobuf-lite.a";
+			remoteRef = 88CDF00F21EC909D00CD0C7F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -2443,6 +2458,11 @@
 			name = FreeStreamer;
 			targetProxy = 8801319F1E8F7CB40087EBBD /* PBXContainerItemProxy */;
 		};
+		88A3F69A21EEC294009B619A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "protobuf-lite";
+			targetProxy = 88A3F69921EEC294009B619A /* PBXContainerItemProxy */;
+		};
 		88A617531E53100C00EF8AFC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 88A617371E53100C00EF8AFC /* Demo */;
@@ -2452,11 +2472,6 @@
 			isa = PBXTargetDependency;
 			target = 88A617371E53100C00EF8AFC /* Demo */;
 			targetProxy = 88A6175D1E53100C00EF8AFC /* PBXContainerItemProxy */;
-		};
-		88A8CB2B21EB40CD00B70032 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = protobuf;
-			targetProxy = 88A8CB2A21EB40CD00B70032 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2614,6 +2629,10 @@
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Demo/Third",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.iosdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4a57f1da-9a55-4802-8c6a-625c5d6a806f";
@@ -2622,7 +2641,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
-				SYSTEM_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Demo/存储（数据库+CoreData+文件）/Serialize/protobuf-2.5.0/src\"";
+				SYSTEM_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Demo/存储（数据库+CoreData+文件）/Serialize/ProtoBuff/src\"";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2646,13 +2665,17 @@
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Demo/Third",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.iosdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = DeveloperWildcardProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Demo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
-				SYSTEM_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Demo/存储（数据库+CoreData+文件）/Serialize/protobuf-2.5.0/src\"";
+				SYSTEM_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Demo/存储（数据库+CoreData+文件）/Serialize/ProtoBuff/src\"";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
