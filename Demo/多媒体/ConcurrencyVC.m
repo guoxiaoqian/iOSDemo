@@ -261,7 +261,10 @@ typedef enum : NSUInteger {
     //创建新队列(文档中说要释放,结果ARC中禁用？？？)
     dispatch_queue_t cocurrentQueue = dispatch_queue_create("concurrent queue", DISPATCH_QUEUE_CONCURRENT);
     dispatch_queue_t serialQueue = dispatch_queue_create("serial queue", DISPATCH_QUEUE_SERIAL);
-    
+    //label可以为NULL，没有索引关系。 即可创建多个相同label的队列。
+    dispatch_queue_t serialQueue2 = dispatch_queue_create("serial queue", DISPATCH_QUEUE_SERIAL);
+    NSLog(@"create queue1:%p  queue2:%p",serialQueue,serialQueue2);
+
     
     //分发任务(同步和异步)
     dispatch_async(globalQueue, ^{

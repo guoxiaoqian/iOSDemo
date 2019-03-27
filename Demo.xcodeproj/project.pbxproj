@@ -171,6 +171,8 @@
 		8887A3B31EAEC8C7005EEFAE /* H5VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8887A3B11EAEC8C7005EEFAE /* H5VC.m */; };
 		8887A3B41EAEC8C7005EEFAE /* H5VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8887A3B21EAEC8C7005EEFAE /* H5VC.xib */; };
 		8887A3B61EAED15B005EEFAE /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8887A3B51EAED15B005EEFAE /* WebKit.framework */; };
+		8892E9D9224B6025000746C9 /* AutoCodingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8892E9D8224B6025000746C9 /* AutoCodingModel.m */; };
+		8892E9DD224B640F000746C9 /* AutoMD5Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 8892E9DC224B640F000746C9 /* AutoMD5Model.m */; };
 		889B2E961E89E98700ACD1A0 /* Demo2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 889B2E941E89E98700ACD1A0 /* Demo2@2x.png */; };
 		889B2E971E89E98700ACD1A0 /* Demo2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 889B2E951E89E98700ACD1A0 /* Demo2@3x.png */; };
 		889B2E9B1E8A978300ACD1A0 /* CubeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889B2E991E8A978300ACD1A0 /* CubeVC.m */; };
@@ -695,6 +697,10 @@
 		8887A3B11EAEC8C7005EEFAE /* H5VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = H5VC.m; path = "Demo/系统功能（定位+音视频+录音+播放+app跳转+通讯录+日历）/H5VC.m"; sourceTree = SOURCE_ROOT; };
 		8887A3B21EAEC8C7005EEFAE /* H5VC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = H5VC.xib; path = "Demo/系统功能（定位+音视频+录音+播放+app跳转+通讯录+日历）/H5VC.xib"; sourceTree = SOURCE_ROOT; };
 		8887A3B51EAED15B005EEFAE /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		8892E9D7224B6025000746C9 /* AutoCodingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoCodingModel.h; sourceTree = "<group>"; };
+		8892E9D8224B6025000746C9 /* AutoCodingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoCodingModel.m; sourceTree = "<group>"; };
+		8892E9DB224B640F000746C9 /* AutoMD5Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoMD5Model.h; sourceTree = "<group>"; };
+		8892E9DC224B640F000746C9 /* AutoMD5Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoMD5Model.m; sourceTree = "<group>"; };
 		889B2E941E89E98700ACD1A0 /* Demo2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Demo2@2x.png"; sourceTree = "<group>"; };
 		889B2E951E89E98700ACD1A0 /* Demo2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Demo2@3x.png"; sourceTree = "<group>"; };
 		889B2E981E8A978300ACD1A0 /* CubeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CubeVC.h; sourceTree = "<group>"; };
@@ -1825,6 +1831,10 @@
 				8849AE2A1EC2BBAE001F3218 /* RuntimeVC.h */,
 				8849AE291EC2BBAE001F3218 /* RuntimeVC.m */,
 				8849AE2B1EC2BBAE001F3218 /* RuntimeVC.xib */,
+				8892E9D7224B6025000746C9 /* AutoCodingModel.h */,
+				8892E9D8224B6025000746C9 /* AutoCodingModel.m */,
+				8892E9DB224B640F000746C9 /* AutoMD5Model.h */,
+				8892E9DC224B640F000746C9 /* AutoMD5Model.m */,
 			);
 			path = "OC高级（KVC+KVO+运行时）";
 			sourceTree = "<group>";
@@ -2301,6 +2311,7 @@
 				886860A92172453000C88C1A /* NSUserDefaults+RACSupport.m in Sources */,
 				886860E42172453000C88C1A /* UIImagePickerController+RACSignalSupport.m in Sources */,
 				886860CD2172453000C88C1A /* RACSignalSequence.m in Sources */,
+				8892E9DD224B640F000746C9 /* AutoMD5Model.m in Sources */,
 				88E8F7B41ED5A21A00FE93B4 /* LightCommand_On.m in Sources */,
 				8868609E2172452F00C88C1A /* NSObject+RACDescription.m in Sources */,
 				886860D82172453000C88C1A /* RACUnarySequence.m in Sources */,
@@ -2385,6 +2396,7 @@
 				882739191FCAF78E0011BC0B /* DebugTool.m in Sources */,
 				886860E52172453000C88C1A /* UIRefreshControl+RACCommandSupport.m in Sources */,
 				886860A62172453000C88C1A /* NSString+RACSequenceAdditions.m in Sources */,
+				8892E9D9224B6025000746C9 /* AutoCodingModel.m in Sources */,
 				889C4AA41E9C743000EB2C68 /* AFSecurityPolicy.m in Sources */,
 				885692441F123794001CECBA /* algorithm_traverse.m in Sources */,
 				88A8C9AA21EB379A00B70032 /* Person.proto in Sources */,
