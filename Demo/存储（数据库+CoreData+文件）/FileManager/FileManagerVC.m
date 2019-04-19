@@ -61,6 +61,8 @@
 @property (strong,nonatomic) NSOutputStream *outputStream;
 
 
+@property (strong,nonatomic) NSFileManager* fileManager;
+
 @end
 
 @implementation FileManagerVC
@@ -68,6 +70,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.fileManager = [NSFileManager defaultManager];
+    
+    [self testURL];
     
     [self plist];
     
@@ -93,11 +99,79 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - File Path
+
 -(NSString*)filePath{
     NSString* filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 //    filePath = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] absoluteString];
     return filePath;
 }
+
+
+- (void)testURL {
+    NSString* filePath = [self filePath];
+    NSLog(@"[testURL] filePath=%@",filePath);
+    NSURL* fileUrl = [NSURL fileURLWithPath:filePath];
+    NSLog(@"[testURL] fileUrl.absoluteString=%@",fileUrl.absoluteString);
+    NSLog(@"[testURL] fileUrl.filePathURL=%@",fileUrl.filePathURL.absoluteString);
+    NSLog(@"[testURL] fileUrl.path=%@",fileUrl.path);
+    NSLog(@"[testURL] fileUrl.fileURL=%d  isFileURL=%d",fileUrl.fileURL,fileUrl.isFileURL);
+
+    NSURL* fileUrl2 = [NSURL URLWithString:filePath];
+    NSLog(@"[testURL] fileUrl2.absoluteString=%@",fileUrl2.absoluteString);
+    NSLog(@"[testURL] fileUrl2.filePathURL=%@",fileUrl2.filePathURL.absoluteString);
+    NSLog(@"[testURL] fileUrl2.fileURL=%d  isFileURL=%d",fileUrl2.fileURL,fileUrl2.isFileURL);
+
+}
+
+#pragma mark - File Attribute
+
+- (void)testFileAttribute {
+    NSString* filePath = [self filePath];
+
+    [self totalSizeWithDirPath:filePath];
+    
+    [self totalCountWithDirPath:filePath];
+}
+
+- (NSUInteger)totalSizeWithDirPath:(NSString*)dirPath {
+    NSUInteger size = 0;
+    NSDirectoryEnumerator *fileEnumerator = [self.fileManager enumeratorAtPath:dirPath];
+    for (NSString *fileName in fileEnumerator) {
+        NSString *filePath = [dirPath stringByAppendingPathComponent:fileName];
+        NSDictionary<NSString *, id> *attrs = [self.fileManager attributesOfItemAtPath:filePath error:nil];
+        size += [attrs fileSize];
+    }
+    return size;
+}
+
+- (NSUInteger)totalCountWithDirPath:(NSString*)dirPath {
+    NSUInteger count = 0;
+    NSDirectoryEnumerator *fileEnumerator = [self.fileManager enumeratorAtPath:dirPath];
+    count = fileEnumerator.allObjects.count;
+    return count;
+}
+
+- (NSUInteger)fileSizeWithFileURL:(NSURL*)fileURL {
+    NSArray<NSString *> *resourceKeys = @[NSURLIsDirectoryKey, NSURLContentAccessDateKey, NSURLContentModificationDateKey,NSURLTotalFileSizeKey, NSURLTotalFileAllocatedSizeKey]; //NSURLTotalFileAllocatedSizeKey可能更小，比如被压缩了
+    NSDictionary<NSString *, id> *resourceValues = [fileURL resourceValuesForKeys:resourceKeys error:nil];
+    NSNumber *totalAllocatedSize = resourceValues[NSURLTotalFileAllocatedSizeKey];
+    return totalAllocatedSize.unsignedIntegerValue;
+}
+
+- (void)removeAllFileInDir:(NSString*)dirPath {
+    [self.fileManager removeItemAtPath:dirPath error:nil];
+    [self.fileManager createDirectoryAtPath:dirPath
+                withIntermediateDirectories:YES
+                                 attributes:nil
+                                      error:NULL];
+}
+
+- (void)disableICloudBackup:(NSURL*)fileURL {
+    [fileURL setResourceValue:@YES forKey:NSURLIsExcludedFromBackupKey error:nil];
+}
+
+#pragma mark - Other
 
 -(void)plist{
     NSString* plistPath = [[self filePath] stringByAppendingPathComponent:@"dic.plist"];

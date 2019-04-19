@@ -340,6 +340,7 @@ typedef enum : NSUInteger {
     dispatch_group_t group3 = dispatch_group_create();
     dispatch_group_enter(group3);
     
+    //待任务组执行完毕时调用，不会阻塞当前线程
     dispatch_group_notify(group2, globalQueue, ^{
         dispatch_async(globalQueue, ^{
             NSLog(@"dispatch_group_t 4");
@@ -348,6 +349,7 @@ typedef enum : NSUInteger {
     });
     
     //Group等待
+    //等待组任务完成，会阻塞当前线程，当任务组执行完毕时，才会解除阻塞当前线程；建议用dispatch_group_notify代替
     NSLog(@"dispatch_group_t 等待开始");
     dispatch_group_wait(group3, DISPATCH_TIME_FOREVER);
     NSLog(@"dispatch_group_t 等待结束");
