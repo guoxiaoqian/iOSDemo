@@ -245,7 +245,18 @@
 /// 1 在发送请求之前，决定是否跳转
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
     LOG_FUNCTION;
-    decisionHandler(WKNavigationActionPolicyAllow);
+    
+    // 拦截scheme方式跳转
+    if([[UIApplication sharedApplication] openURL:navigationAction.request.URL])
+    {
+        decisionHandler(WKNavigationActionPolicyCancel);
+    }
+    else
+    {
+        decisionHandler(WKNavigationActionPolicyAllow);
+    }
+    
+//    decisionHandler(WKNavigationActionPolicyAllow);
 }
 
 //追踪加载过程函数:
