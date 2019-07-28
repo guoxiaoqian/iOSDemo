@@ -37,9 +37,10 @@
 #import "TouchIDVC.h"
 #import "QRCodeVC.h"
 #import "ReactiveVC.h"
-#import "CrashSignalVC.h"
+#import "UnixSignalVC.h"
 #import "TableViewVC.h"
 #import "SerializeVC.h"
+#import "MachExceptionVC.h"
 
 @interface EntryModel : NSObject
 
@@ -105,9 +106,10 @@
                        [EntryModel modelWithName:@"TouchIDVC" class:[TouchIDVC class]],
                        [EntryModel modelWithName:@"QRCodeVC" class:[QRCodeVC class]],
                        [EntryModel modelWithName:@"ReactiveVC" class:[ReactiveVC class]],
-                       [EntryModel modelWithClass:[CrashSignalVC class]],
+                       [EntryModel modelWithClass:[UnixSignalVC class]],
                        [EntryModel modelWithClass:[TableViewVC class]],
                        [EntryModel modelWithClass:[SerializeVC class]],
+                       [EntryModel modelWithClass:[MachExceptionVC class]],
 
                        nil];
 }
