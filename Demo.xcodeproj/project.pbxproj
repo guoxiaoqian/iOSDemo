@@ -293,6 +293,7 @@
 		88EA7A891EB2247500165B37 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EA7A7B1EB2247500165B37 /* View+MASAdditions.m */; };
 		88EA7A8A1EB2247500165B37 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EA7A7E1EB2247500165B37 /* ViewController+MASAdditions.m */; };
 		88EA7A8B1EB2247500165B37 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 88EA7A7F1EB2247500165B37 /* README.md */; };
+		88FE73DA22EA94A000E48078 /* CrashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FE73D922EA94A000E48078 /* CrashVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -917,6 +918,8 @@
 		88EA7A7D1EB2247500165B37 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		88EA7A7E1EB2247500165B37 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		88EA7A7F1EB2247500165B37 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		88FE73D822EA94A000E48078 /* CrashVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CrashVC.h; sourceTree = "<group>"; };
+		88FE73D922EA94A000E48078 /* CrashVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CrashVC.m; sourceTree = "<group>"; };
 		8AADC944FDB703726642A1B4 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1571,6 +1574,7 @@
 		88A6173A1E53100C00EF8AFC /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				88FE73D622EA947700E48078 /* Crash */,
 				880D8DB221D7705D00B3FE2C /* Unix API */,
 				887E4FDA21D467E1004FB380 /* 系统控件 */,
 				88685FD22172452E00C88C1A /* 响应式编程 */,
@@ -1942,6 +1946,15 @@
 			path = Masonry;
 			sourceTree = "<group>";
 		};
+		88FE73D622EA947700E48078 /* Crash */ = {
+			isa = PBXGroup;
+			children = (
+				88FE73D822EA94A000E48078 /* CrashVC.h */,
+				88FE73D922EA94A000E48078 /* CrashVC.m */,
+			);
+			path = Crash;
+			sourceTree = "<group>";
+		};
 		CEEEDA49D3D873FF52AD5D0B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2057,6 +2070,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -2254,6 +2268,7 @@
 				886860D52172453000C88C1A /* RACTestScheduler.m in Sources */,
 				886860992172452F00C88C1A /* NSFileHandle+RACSupport.m in Sources */,
 				886860A32172453000C88C1A /* NSOrderedSet+RACSequenceAdditions.m in Sources */,
+				88FE73DA22EA94A000E48078 /* CrashVC.m in Sources */,
 				886860B32172453000C88C1A /* RACDynamicSequence.m in Sources */,
 				8825CF301ED8708700C59E4E /* BridgePattern_BlueColor.m in Sources */,
 				889DBA891E7EBBA700520C77 /* CoreAnimationVC.m in Sources */,

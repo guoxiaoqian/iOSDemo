@@ -40,6 +40,7 @@
 #import "CrashSignalVC.h"
 #import "TableViewVC.h"
 #import "SerializeVC.h"
+#import "CrashVC.h"
 
 @interface EntryModel : NSObject
 
@@ -108,6 +109,7 @@
                        [EntryModel modelWithClass:[CrashSignalVC class]],
                        [EntryModel modelWithClass:[TableViewVC class]],
                        [EntryModel modelWithClass:[SerializeVC class]],
+                       [EntryModel modelWithClass:[CrashVC class]],
 
                        nil];
 }
