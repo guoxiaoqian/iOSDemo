@@ -6,7 +6,7 @@
 //  Copyright © 2018年 郭晓倩. All rights reserved.
 //
 
-#import "CrashSignalVC.h"
+#import "UnixSignalVC.h"
 #import <signal.h>
 
 static struct {int no; const char* v;} rqd_signal_names[] = {
@@ -127,11 +127,11 @@ static void signal_handler(int signal, siginfo_t *info, void *uap) {
 
 
 
-@interface CrashSignalVC ()
+@interface UnixSignalVC ()
 
 @end
 
-@implementation CrashSignalVC
+@implementation UnixSignalVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
