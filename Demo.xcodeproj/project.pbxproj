@@ -54,8 +54,7 @@
 		88439EFC1EA79D62007DDA1B /* SystemInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88439EFA1EA79D62007DDA1B /* SystemInfoVC.xib */; };
 		88439EFE1EA79F4F007DDA1B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88439EFD1EA79F4F007DDA1B /* AdSupport.framework */; };
 		88486C881EA624A800AA842F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C871EA624A800AA842F /* MessageUI.framework */; };
-		88486C8A1EA6341300AA842F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C891EA6341300AA842F /* AddressBook.framework */; };
-		88486C8C1EA6344100AA842F /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C8B1EA6344100AA842F /* Contacts.framework */; };
+		88486C8A1EA6341300AA842F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C891EA6341300AA842F /* AddressBook.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		88486C8F1EA63DCF00AA842F /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C8E1EA63DCF00AA842F /* EventKit.framework */; };
 		8849AE2C1EC2BBAE001F3218 /* FunctionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8849AE261EC2BBAE001F3218 /* FunctionVC.m */; };
 		8849AE2D1EC2BBAE001F3218 /* FunctionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8849AE281EC2BBAE001F3218 /* FunctionVC.xib */; };
@@ -294,7 +293,7 @@
 		88EA7A891EB2247500165B37 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EA7A7B1EB2247500165B37 /* View+MASAdditions.m */; };
 		88EA7A8A1EB2247500165B37 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EA7A7E1EB2247500165B37 /* ViewController+MASAdditions.m */; };
 		88EA7A8B1EB2247500165B37 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 88EA7A7F1EB2247500165B37 /* README.md */; };
-		88FE73DA22EA94A000E48078 /* CrashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FE73D922EA94A000E48078 /* CrashVC.m */; };
+		88FE73DA22EA94A000E48078 /* CrashVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 88FE73D922EA94A000E48078 /* CrashVC.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -922,7 +921,7 @@
 		88EA7A7E1EB2247500165B37 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		88EA7A7F1EB2247500165B37 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		88FE73D822EA94A000E48078 /* CrashVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CrashVC.h; sourceTree = "<group>"; };
-		88FE73D922EA94A000E48078 /* CrashVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CrashVC.m; sourceTree = "<group>"; };
+		88FE73D922EA94A000E48078 /* CrashVC.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CrashVC.mm; sourceTree = "<group>"; };
 		8AADC944FDB703726642A1B4 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -941,7 +940,6 @@
 				88439EF61EA6E9BD007DDA1B /* CoreBluetooth.framework in Frameworks */,
 				88439EF41EA6E9B3007DDA1B /* MultipeerConnectivity.framework in Frameworks */,
 				88486C8F1EA63DCF00AA842F /* EventKit.framework in Frameworks */,
-				88486C8C1EA6344100AA842F /* Contacts.framework in Frameworks */,
 				88486C8A1EA6341300AA842F /* AddressBook.framework in Frameworks */,
 				88486C881EA624A800AA842F /* MessageUI.framework in Frameworks */,
 				889B2EA61E8DDDCC00ACD1A0 /* AudioToolbox.framework in Frameworks */,
@@ -1955,7 +1953,7 @@
 			isa = PBXGroup;
 			children = (
 				88FE73D822EA94A000E48078 /* CrashVC.h */,
-				88FE73D922EA94A000E48078 /* CrashVC.m */,
+				88FE73D922EA94A000E48078 /* CrashVC.mm */,
 			);
 			path = Crash;
 			sourceTree = "<group>";
@@ -2273,7 +2271,7 @@
 				886860D52172453000C88C1A /* RACTestScheduler.m in Sources */,
 				886860992172452F00C88C1A /* NSFileHandle+RACSupport.m in Sources */,
 				886860A32172453000C88C1A /* NSOrderedSet+RACSequenceAdditions.m in Sources */,
-				88FE73DA22EA94A000E48078 /* CrashVC.m in Sources */,
+				88FE73DA22EA94A000E48078 /* CrashVC.mm in Sources */,
 				886860B32172453000C88C1A /* RACDynamicSequence.m in Sources */,
 				8825CF301ED8708700C59E4E /* BridgePattern_BlueColor.m in Sources */,
 				889DBA891E7EBBA700520C77 /* CoreAnimationVC.m in Sources */,
