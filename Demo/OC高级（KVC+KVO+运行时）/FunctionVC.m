@@ -12,6 +12,23 @@
 #import "DebugTool.h"
 #import "Singleton.h"
 
+@interface MyEqualObj : NSObject
+
+@property (nonatomic,assign) int value;
+
+@end
+
+@implementation MyEqualObj
+
+- (BOOL)isEqual:(MyEqualObj*)object {
+    if (object && self.value == object.value) {
+        return YES;
+    }
+    return [super isEqual:object];
+}
+
+@end
+
 #pragma mark - Load & Initilize
 
 @interface ClassInit : NSObject
@@ -100,13 +117,17 @@
     
 //    [MRCTest testMRC];
     
-    [[MRCTest new] testMRCObj];
+//    [[MRCTest new] testMRCObj];
     
 //    [DebugTool testDebugTool];
     
-    [self testKVC];
+//    [self testKVC];
     
-    [Singleton testSingleton];
+//    [Singleton testSingleton];
+    
+//    [self testCollectionEqual];
+    
+    [self testNSStringClass];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -276,5 +297,40 @@
     //基本类型和对象类型使用__block声明，而没被任何block引用，则原始变量还是存储在栈里；若被block引用了，则原始变量会拷贝到堆上
 }
 
+#pragma mark - CollectionEqual
+
+- (void)testCollectionEqual {
+    MyEqualObj* obj1 = [MyEqualObj new];
+    obj1.value = 1;
+    MyEqualObj* obj2 = [MyEqualObj new];
+    obj2.value = 1;
+    NSMutableArray* array = [NSMutableArray new];
+    [array addObject:obj1];
+    [array removeObject:obj2];
+    NSLog(@"testCollectionEqual count=%d",(int)array.count);
+}
+
+#pragma mark - NSStringClass
+
+- (void)testNSStringClass {
+    
+    //存储类型参考文章： https://www.jianshu.com/p/dcbf48a733f9
+    //存储长度参考文章：https://www.jianshu.com/p/df630e78df32
+    
+    NSString *str = @"abc"; // __NSCFConstantString
+    NSString *str1 = @"abc"; //__NSCFConstantString
+    NSString *str2 = [NSString stringWithFormat:@"%@", str]; // NSTaggedPointerString
+    NSString *str3 = [str copy]; // __NSCFConstantString
+    NSString *str4 = [str mutableCopy]; // __NSCFString
+
+    NSString *str5 = [NSString stringWithFormat:@"%tu",300703443];
+
+    NSLog(@"str(%@<%p>: %p): %@", [str class], &str, str, str);
+    NSLog(@"str1(%@<%p>: %p): %@", [str1 class], &str1, str1, str1);
+    NSLog(@"str2(%@<%p>: %p): %@", [str2 class], &str2, str2, str2);
+    NSLog(@"str3(%@<%p>: %p): %@", [str3 class], &str3, str3, str3);
+    NSLog(@"str4(%@<%p>: %p): %@", [str4 class], &str4, str4, str4);
+    NSLog(@"str5(%@<%p>: %p): %@", [str5 class], &str5, str5, str5);
+}
 
 @end

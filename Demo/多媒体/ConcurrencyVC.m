@@ -183,9 +183,11 @@ typedef enum : NSUInteger {
     //
     //    [self operationQueueCustom];
     //
-    [self dispatchQueueGeneral];
+//    [self dispatchQueueGeneral];
     
     //    [self thread];
+    
+    [self testPerformSelector];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -557,6 +559,18 @@ dispatch_source_t MonitorNameChangesToFile(const char* filename)
     NSLog(@"NSThread %@ start",[NSThread currentThread]);
     [NSThread sleepForTimeInterval:2];
     NSLog(@"NSThread %@ end",[NSThread currentThread]);
+}
+
+#pragma mark - PerformSelector
+
+- (void)testPerformSelector {
+    [self performSelector:@selector(delayToShowLoginUIWithType:) withObject:@(4) afterDelay:0.3];
+    //object必须一样，才能取消掉
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(delayToShowLoginUIWithType:) object:nil];
+}
+
+- (void)delayToShowLoginUIWithType:(int)type {
+    NSLog(@"delayToShowLoginUIWithType");
 }
 
 @end
