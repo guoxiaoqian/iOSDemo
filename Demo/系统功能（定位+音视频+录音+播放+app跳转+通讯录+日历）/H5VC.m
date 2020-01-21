@@ -446,35 +446,35 @@
 - (void)testJSCoreDemo {
     JSContext* context = self.jsContext;
 
-    context[@"log"] = ^(NSString* b) {
+    
+    //注入Native API
+    context[@"bridge_log"] = ^(NSString* b) {
         NSLog(b);
     };
     
-//    NSString* injectContextId = @"function injectContextID(obj) {"
-//        @"Object.defineProperty(obj, 'msgId', {"
-//            @"enumerable: true,"
-//            @"configurable: true,"
-//        @"})"
-//    @"}";
-//    [context evaluateScript:injectContextId];
+    __weak typeof(self) weakSelf = self;
+    context[@"bridge_callNativeMethod"] = ^(NSString* method,NSArray* params, NSString* contextID) {
+        [weakSelf onJSCall:method params:params contextId:contextID];
+    };
     
-//    NSString* injectMethodAPI = @"function callNativeMethod() {"
-//        @"log(JSON.stringify(caller));"
-//        @"log(JSON.stringify(arguments[0]));"
-//        @"log(JSON.stringify(arguments[1]));"
-//        @"log(''+arguments.length);"
-//        @"var params = [];"
-//        @"for (var i = 1; i < arguments.length; i++) {"
-//             @"params.push(arguments[i]);"
-//        @"}"
-//    @"}";
-//    [context evaluateScript:injectMethodAPI];
-//
-//    __weak typeof(self) weakSelf = self;
-//    context[@"private_callNativeMethod"] = ^(NSString* method,NSArray* params, NSString* contextID) {
-//        [weakSelf onJSCall:method params:params contextId:contextID];
-//    };
-    
+    //注入JS API（封装NativeAPI, 封装各端差异）
+    NSString* injectJSAPI_callNativeMethod = @"function callNativeMethod() {"
+        @"var msgId = this.msgId;"
+        @"var method = arguments[0];"
+        @"var params = [];"
+        @"for (var i = 1; i < arguments.length; i++) {"
+             @"params.push(arguments[i]);"
+        @"}"
+        @"bridge_callNativeMethod(method,params,msgId);"
+    @"}";
+    NSString* injectJSAPI_log = @"function log() {"
+        @"bridge_log.apply(this,arguments);"
+    @"}";
+    [context evaluateScript:injectJSAPI_callNativeMethod];
+    [context evaluateScript:injectJSAPI_log];
+
+
+    //模拟构建多条消息
     int msgId = 1000;
     CGFloat originY = 0;
     for (int index = 0; index < 3; index ++) {
@@ -498,15 +498,9 @@
     NSString* injectScript = @"var msg = { times : 0, click : function(){ this.times++; log('clickTimes='+this.times); if(this.times >= 3){ this.callNativeMethod('disableButton');}}}";
     [context evaluateScript:injectScript];
     
-    //隔离存储
+    //隔离存储 & 关联上下文信息
     NSString* newVarName = [NSString stringWithFormat:@"msg_%d",msgId];
-    [context evaluateScript:[NSString stringWithFormat:@"var %@ = msg; %@.msgId='%d'",newVarName,newVarName,msgId]];
-    
-    //隔离方法
-    __weak typeof(self) weakSelf = self;
-    context[newVarName][@"callNativeMethod"] = ^(NSString* method,NSArray* params) {
-        [weakSelf onJSCall:method params:params contextId:@(msgId).stringValue];
-    };
+    [context evaluateScript:[NSString stringWithFormat:@"var %@ = msg; %@.msgId='%d'; %@.callNativeMethod = callNativeMethod",newVarName,newVarName,msgId,newVarName]];
 }
 
 
