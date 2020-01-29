@@ -24,7 +24,19 @@ void print(id self,SEL _cmd){
 
 @end
 
+@interface RuntimeObject () {
+    NSString* _privateAddress;
+}
+@end
+
 @implementation RuntimeObject
+
+- (instancetype)init {
+    if (self = [super init]) {
+        _privateAddress = @"hello word";
+    }
+    return self;
+}
 
 -(void)run{
     NSLog(@"run execute");
@@ -32,6 +44,23 @@ void print(id self,SEL _cmd){
 
 @end
 
+#pragma mark - 通过扩展读属性
+
+@interface RuntimeObject (ReadPrivateProperty)
+
+//@property (strong,nonatomic) NSString* privateAddress;
+
+- (void)printPrivateProperty;
+
+@end
+
+@implementation RuntimeObject (ReadPrivateProperty)
+
+- (void)printPrivateProperty {
+    NSLog(@"private property=%@",_privateAddress);
+}
+
+@end
 
 #pragma mark - 通过扩展加属性
 
@@ -195,9 +224,11 @@ void clasMethodImplemention(id self,SEL _cmd){
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self messageDeliver];
+//    [self messageDeliver];
     
-    [self runtimeModify];
+    [self runtimeRead];
+    
+//    [self runtimeModify];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -227,6 +258,13 @@ void clasMethodImplemention(id self,SEL _cmd){
     [deliver methodNotImplemented3]; //消息转发第二步和第三步
     
     [[deliver class] classMethodNotImplemented]; //动态方法解析（类方法）
+}
+
+#pragma mark - 运行时访问属性
+
+-(void)runtimeRead {
+    RuntimeObject* obj = [RuntimeObject new];
+    [obj printPrivateProperty];
 }
 
 #pragma mark - 运行时修改属性、方法、类

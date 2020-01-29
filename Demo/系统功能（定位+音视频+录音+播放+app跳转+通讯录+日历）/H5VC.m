@@ -11,6 +11,8 @@
 
 #import "SystemInfoVC.h"
 
+#import <JavaScriptCore/JavaScriptCore.h>
+
 #define TEST_LOAD_URL 1
 #define TEST_ITEM_HEGITH 100
 #define TEST_ITEM_NUM 10
@@ -20,6 +22,7 @@
 @property (strong,nonatomic) UIWebView* uiWebView;
 @property (strong,nonatomic) WKWebView* wkWebView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong,nonatomic) JSContext* jsContext;
 
 @end
 
@@ -40,7 +43,9 @@
     //
     //    [self WKWebViewWithJS];
     
-    [self testWKWebView];
+//    [self testWKWebView];
+    
+    [self testJSCoreDemo];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -245,7 +250,18 @@
 /// 1 在发送请求之前，决定是否跳转
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
     LOG_FUNCTION;
-    decisionHandler(WKNavigationActionPolicyAllow);
+    
+    // 拦截scheme方式跳转
+    if([[UIApplication sharedApplication] openURL:navigationAction.request.URL])
+    {
+        decisionHandler(WKNavigationActionPolicyCancel);
+    }
+    else
+    {
+        decisionHandler(WKNavigationActionPolicyAllow);
+    }
+    
+//    decisionHandler(WKNavigationActionPolicyAllow);
 }
 
 //追踪加载过程函数:
@@ -330,4 +346,162 @@
         contentY += TEST_ITEM_HEGITH;
     }
 }
+
+
+#pragma mark - JavaScriptCore
+
+- (JSContext*)jsContext {
+    if (_jsContext == nil) {
+        //AIO打开时创建创建虚拟机和上下文
+        TIME_MONITOR_BEIGIN(@"CreateJSMachine");
+        JSVirtualMachine *vm = [[JSVirtualMachine alloc] init];
+        TIME_MONITOR_END(@"CreateJSMachine")
+        TIME_MONITOR_BEIGIN(@"CreateJSContext")
+        JSContext *context = [[JSContext alloc] initWithVirtualMachine:vm];
+        TIME_MONITOR_END(@"CreateJSContext");
+        _jsContext = context;
+    }
+    return _jsContext;
+}
+
+- (void)testJSCoreValueType {
+    
+    JSContext* context = self.jsContext;
+
+    //执行JavaScript代码并获取返回值
+    JSValue *value = [context evaluateScript:@"1+2*3"];
+    NSLog(@"value = %d", [value toInt32]);
+
+
+    //数据传输
+    [context evaluateScript:@"var color = {red:230, green:90, blue:100}"];
+
+    //js->native 给你看我的颜色
+    JSValue *colorValue = context[@"color"];
+    NSLog(@"r=%@, g=%@, b=%@", colorValue[@"red"], colorValue[@"green"], colorValue[@"blue"]);
+    NSDictionary *colorDic = [colorValue toDictionary];
+    NSLog(@"r=%@, g=%@, b=%@", colorDic[@"red"], colorDic[@"green"], colorDic[@"blue"]);
+
+    //native->js 给你点颜色看看
+    context[@"color"] = @{@"red":@(0), @"green":@(0), @"blue":@(0)};
+    [context evaluateScript:@"log('r:'+color.red+'g:'+color.green+' b:'+color.blue)"];
+}
+
+- (void)testJSCorePerformance {
+    
+    JSContext* context = self.jsContext;
+
+    //注入Native的API，供JS调用
+    TIME_MONITOR_BEIGIN(@"InjectNativeAPI")
+    context[@"log"] = ^(NSString* b) {
+        NSLog(b);
+    };
+    TIME_MONITOR_END(@"InjectNativeAPI")
+
+    //跟随消息XML下发的JS代码，里面封装了交互逻辑
+    NSString* jsVarValue = @"{ name:'gavin', print : function(name){ console.log('hello '+name); } }";
+    
+    //注入JS代码，根据消息ID隔离存储，即AIO所有消息共享同一个conext
+    int msgId = 886;
+    NSString* jsVarName = [NSString stringWithFormat:@"msg_%d",msgId];
+    NSString* injectScript = [NSString stringWithFormat:@"var %@ = %@",jsVarName,jsVarValue];
+    TIME_MONITOR_BEIGIN(@"InjectJSLogic");
+    [context evaluateScript:injectScript];
+    TIME_MONITOR_END(@"InjectJSLogic");
+    
+    //取得当前消息的JS上下文
+    JSValue* jsMsg = context[jsVarName];
+    
+    //访问JS属性
+    NSLog(@"property value = %@", jsMsg[@"name"]);
+
+    //调用JS方法
+    TIME_MONITOR_BEIGIN(@"NativeCallJS");
+    [jsMsg[@"print"] callWithArguments:@[@"chester"]];
+    TIME_MONITOR_END(@"NativeCallJS");
+    
+    //调用Native方法
+    TIME_MONITOR_BEIGIN(@"JSCallNative");
+    [context evaluateScript:@"log('hello world')"];
+    TIME_MONITOR_END(@"NativeCallJS");
+}
+
+
+- (void)onClickBtn:(UIButton*)btn {
+    JSContext* context = self.jsContext;
+
+    NSString* newVarName = [NSString stringWithFormat:@"msg_%d",(int)btn.tag];
+    [context evaluateScript:[NSString stringWithFormat:@"%@.click()",newVarName]];
+
+}
+
+- (void)onJSCall:(NSString*)method params:(NSArray*)params contextId:(NSString*)contextId {
+    if ([method isEqualToString:@"disableButton"]) {
+        UIButton* targetBtn = [self.view viewWithTag:contextId.intValue];
+        [targetBtn setEnabled:NO];
+        [targetBtn setBackgroundColor:[UIColor grayColor]];
+    }
+}
+
+- (void)testJSCoreDemo {
+    JSContext* context = self.jsContext;
+
+    
+    //注入Native API
+    context[@"bridge_log"] = ^(NSString* b) {
+        NSLog(b);
+    };
+    
+    __weak typeof(self) weakSelf = self;
+    context[@"bridge_callNativeMethod"] = ^(NSString* method,NSArray* params, NSString* contextID) {
+        [weakSelf onJSCall:method params:params contextId:contextID];
+    };
+    
+    //注入JS API（封装NativeAPI, 封装各端差异）
+    NSString* injectJSAPI_callNativeMethod = @"function callNativeMethod() {"
+        @"var msgId = this.msgId;"
+        @"var method = arguments[0];"
+        @"var params = [];"
+        @"for (var i = 1; i < arguments.length; i++) {"
+             @"params.push(arguments[i]);"
+        @"}"
+        @"bridge_callNativeMethod(method,params,msgId);"
+    @"}";
+    NSString* injectJSAPI_log = @"function log() {"
+        @"bridge_log.apply(this,arguments);"
+    @"}";
+    [context evaluateScript:injectJSAPI_callNativeMethod];
+    [context evaluateScript:injectJSAPI_log];
+
+
+    //模拟构建多条消息
+    int msgId = 1000;
+    CGFloat originY = 0;
+    for (int index = 0; index < 3; index ++) {
+        [self createButtonWithMsgId:msgId originY:originY];
+        msgId ++;
+        originY += 200;
+    }
+}
+
+- (void)createButtonWithMsgId:(int)msgId originY:(CGFloat)originY {
+    JSContext* context = self.jsContext;
+
+    UIButton* btn = [[UIButton alloc] initWithFrame:CGRectMake(0, originY, 200, 200)];
+    [btn setTitle:@"点击三次置灰" forState:UIControlStateNormal];
+    [btn setBackgroundColor:[UIColor blueColor]];
+    btn.tag = msgId;
+    [btn addTarget:self action:@selector(onClickBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+    
+    //跟随消息XML下发的JS代码，里面封装了交互逻辑
+    NSString* injectScript = @"var msg = { times : 0, click : function(){ this.times++; log('clickTimes='+this.times); if(this.times >= 3){ this.callNativeMethod('disableButton');}}}";
+    [context evaluateScript:injectScript];
+    
+    //隔离存储 & 关联上下文信息
+    NSString* newVarName = [NSString stringWithFormat:@"msg_%d",msgId];
+    [context evaluateScript:[NSString stringWithFormat:@"var %@ = msg; %@.msgId='%d'; %@.callNativeMethod = callNativeMethod",newVarName,newVarName,msgId,newVarName]];
+}
+
+
 @end

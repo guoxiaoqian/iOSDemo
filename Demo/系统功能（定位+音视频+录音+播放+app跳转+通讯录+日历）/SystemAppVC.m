@@ -9,7 +9,7 @@
 #import "SystemAppVC.h"
 #import <MessageUI/MessageUI.h>
 #import <AddressBook/AddressBook.h>
-#import <Contacts/Contacts.h>
+//#import <Contacts/Contacts.h>
 #import <EventKit/EventKit.h>
 
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
@@ -241,37 +241,39 @@
 //Contacts.framework ios9之后
 //info.plist文件中加入如下描述：Privacy - Contacts Usage Description
 -(IBAction)getContactsNew:(id)sender{
-    CNContactStore* store = [[CNContactStore alloc] init];
-    
-    switch ([CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts])
-    {
-            //存在权限
-        case CNAuthorizationStatusAuthorized:{
-            //获取通讯录
-            CNContactFetchRequest* request = [[CNContactFetchRequest alloc] initWithKeysToFetch:@[CNContactGivenNameKey]];
-            [store enumerateContactsWithFetchRequest:request error:nil usingBlock:^(CNContact * _Nonnull contact, BOOL * _Nonnull stop) {
-                for (CNLabeledValue<CNPhoneNumber*> * phoneValue in contact.phoneNumbers){
-                    
-                    NSLog(@"contact name:%@ phoneNumber:%@",contact.givenName,phoneValue.value);
-                }
-            }];
-            
-        }
-            break;
-            
-            //权限未知
-        case CNAuthorizationStatusNotDetermined:
-            //请求权限
-            [store requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
-                
-            }];
-            break;
-            
-            //如果没有权限
-        case CNAuthorizationStatusRestricted:
-        case CNAuthorizationStatusDenied://需要提示
-            break;
-    }
+//    if(@available(iOS 9.0,*)) {
+//        CNContactStore* store = [[CNContactStore alloc] init];
+//
+//        switch ([CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts])
+//        {
+//                //存在权限
+//            case CNAuthorizationStatusAuthorized:{
+//                //获取通讯录
+//                CNContactFetchRequest* request = [[CNContactFetchRequest alloc] initWithKeysToFetch:@[CNContactGivenNameKey]];
+//                [store enumerateContactsWithFetchRequest:request error:nil usingBlock:^(CNContact * _Nonnull contact, BOOL * _Nonnull stop) {
+//                    for (CNLabeledValue<CNPhoneNumber*> * phoneValue in contact.phoneNumbers){
+//
+//                        NSLog(@"contact name:%@ phoneNumber:%@",contact.givenName,phoneValue.value);
+//                    }
+//                }];
+//
+//            }
+//                break;
+//
+//                //权限未知
+//            case CNAuthorizationStatusNotDetermined:
+//                //请求权限
+//                [store requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
+//
+//                }];
+//                break;
+//
+//                //如果没有权限
+//            case CNAuthorizationStatusRestricted:
+//            case CNAuthorizationStatusDenied://需要提示
+//                break;
+//        }
+//    }
 }
 
 #pragma mark - 日历

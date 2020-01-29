@@ -42,6 +42,7 @@
 #import "SerializeVC.h"
 #import "MachExceptionVC.h"
 #import "BankCompare.h"
+#import "CrashVC.h"
 
 @interface EntryModel : NSObject
 
@@ -112,6 +113,7 @@
                        [EntryModel modelWithClass:[SerializeVC class]],
                        [EntryModel modelWithClass:[MachExceptionVC class]],
                        [EntryModel modelWithClass:[BankCompare class]],
+                       [EntryModel modelWithClass:[CrashVC class]],
                        nil];
 }
 

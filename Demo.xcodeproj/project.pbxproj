@@ -54,8 +54,7 @@
 		88439EFC1EA79D62007DDA1B /* SystemInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88439EFA1EA79D62007DDA1B /* SystemInfoVC.xib */; };
 		88439EFE1EA79F4F007DDA1B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88439EFD1EA79F4F007DDA1B /* AdSupport.framework */; };
 		88486C881EA624A800AA842F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C871EA624A800AA842F /* MessageUI.framework */; };
-		88486C8A1EA6341300AA842F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C891EA6341300AA842F /* AddressBook.framework */; };
-		88486C8C1EA6344100AA842F /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C8B1EA6344100AA842F /* Contacts.framework */; };
+		88486C8A1EA6341300AA842F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C891EA6341300AA842F /* AddressBook.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		88486C8F1EA63DCF00AA842F /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C8E1EA63DCF00AA842F /* EventKit.framework */; };
 		8849AE2C1EC2BBAE001F3218 /* FunctionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8849AE261EC2BBAE001F3218 /* FunctionVC.m */; };
 		8849AE2D1EC2BBAE001F3218 /* FunctionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8849AE281EC2BBAE001F3218 /* FunctionVC.xib */; };
@@ -274,6 +273,7 @@
 		88CC32B01EA7405300801376 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CC32AF1EA7405300801376 /* iAd.framework */; };
 		88CC32BA1EA8C3C900801376 /* VolumeWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88CC32B81EA8C3C900801376 /* VolumeWaveView.m */; };
 		88E7129F231284620087913F /* BankCompare.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E7129E231284620087913F /* BankCompare.m */; };
+		88DBB8EE23C70CE4006C4338 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DBB8EC23C70CE4006C4338 /* JavaScriptCore.framework */; };
 		88E8F79E1ED5A13300FE93B4 /* StatePattern_Light.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E8F79D1ED5A13300FE93B4 /* StatePattern_Light.m */; };
 		88E8F7A41ED5A17000FE93B4 /* LightState.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E8F7A31ED5A17000FE93B4 /* LightState.m */; };
 		88E8F7A71ED5A18B00FE93B4 /* LightState_On.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E8F7A61ED5A18B00FE93B4 /* LightState_On.m */; };
@@ -295,6 +295,7 @@
 		88EA7A891EB2247500165B37 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EA7A7B1EB2247500165B37 /* View+MASAdditions.m */; };
 		88EA7A8A1EB2247500165B37 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EA7A7E1EB2247500165B37 /* ViewController+MASAdditions.m */; };
 		88EA7A8B1EB2247500165B37 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 88EA7A7F1EB2247500165B37 /* README.md */; };
+		88FE73DA22EA94A000E48078 /* CrashVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 88FE73D922EA94A000E48078 /* CrashVC.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -878,6 +879,7 @@
 		88CDF00821EC909D00CD0C7F /* protobuff.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = protobuff.xcodeproj; path = ProtoBuff/protobuff.xcodeproj; sourceTree = "<group>"; };
 		88E7129D231284620087913F /* BankCompare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankCompare.h; sourceTree = "<group>"; };
 		88E7129E231284620087913F /* BankCompare.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankCompare.m; sourceTree = "<group>"; };
+		88DBB8EC23C70CE4006C4338 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		88E8F79C1ED5A13300FE93B4 /* StatePattern_Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatePattern_Light.h; sourceTree = "<group>"; };
 		88E8F79D1ED5A13300FE93B4 /* StatePattern_Light.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatePattern_Light.m; sourceTree = "<group>"; };
 		88E8F7A21ED5A17000FE93B4 /* LightState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightState.h; sourceTree = "<group>"; };
@@ -923,6 +925,8 @@
 		88EA7A7D1EB2247500165B37 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		88EA7A7E1EB2247500165B37 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		88EA7A7F1EB2247500165B37 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		88FE73D822EA94A000E48078 /* CrashVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CrashVC.h; sourceTree = "<group>"; };
+		88FE73D922EA94A000E48078 /* CrashVC.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CrashVC.mm; sourceTree = "<group>"; };
 		8AADC944FDB703726642A1B4 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -931,6 +935,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88DBB8EE23C70CE4006C4338 /* JavaScriptCore.framework in Frameworks */,
 				88A3F69D21EEC2AF009B619A /* libprotobuf-lite.a in Frameworks */,
 				8827392D1FCB07030011BC0B /* LocalAuthentication.framework in Frameworks */,
 				8887A3B61EAED15B005EEFAE /* WebKit.framework in Frameworks */,
@@ -941,7 +946,6 @@
 				88439EF61EA6E9BD007DDA1B /* CoreBluetooth.framework in Frameworks */,
 				88439EF41EA6E9B3007DDA1B /* MultipeerConnectivity.framework in Frameworks */,
 				88486C8F1EA63DCF00AA842F /* EventKit.framework in Frameworks */,
-				88486C8C1EA6344100AA842F /* Contacts.framework in Frameworks */,
 				88486C8A1EA6341300AA842F /* AddressBook.framework in Frameworks */,
 				88486C881EA624A800AA842F /* MessageUI.framework in Frameworks */,
 				889B2EA61E8DDDCC00ACD1A0 /* AudioToolbox.framework in Frameworks */,
@@ -1580,6 +1584,7 @@
 			isa = PBXGroup;
 			children = (
 				88E7129B231284110087913F /* 贷款计算 */,
+				88FE73D622EA947700E48078 /* Crash */,
 				880D8DB221D7705D00B3FE2C /* Unix API */,
 				887E4FDA21D467E1004FB380 /* 系统控件 */,
 				88685FD22172452E00C88C1A /* 响应式编程 */,
@@ -1648,6 +1653,7 @@
 		88A617791E53EED000EF8AFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88DBB8EC23C70CE4006C4338 /* JavaScriptCore.framework */,
 				8827392C1FCB07030011BC0B /* LocalAuthentication.framework */,
 				8887A3B51EAED15B005EEFAE /* WebKit.framework */,
 				8887A3711EA83E6D005EEFAE /* UserNotifications.framework */,
@@ -1960,6 +1966,15 @@
 			path = Masonry;
 			sourceTree = "<group>";
 		};
+		88FE73D622EA947700E48078 /* Crash */ = {
+			isa = PBXGroup;
+			children = (
+				88FE73D822EA94A000E48078 /* CrashVC.h */,
+				88FE73D922EA94A000E48078 /* CrashVC.mm */,
+			);
+			path = Crash;
+			sourceTree = "<group>";
+		};
 		CEEEDA49D3D873FF52AD5D0B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2075,6 +2090,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -2272,6 +2288,7 @@
 				886860D52172453000C88C1A /* RACTestScheduler.m in Sources */,
 				886860992172452F00C88C1A /* NSFileHandle+RACSupport.m in Sources */,
 				886860A32172453000C88C1A /* NSOrderedSet+RACSequenceAdditions.m in Sources */,
+				88FE73DA22EA94A000E48078 /* CrashVC.mm in Sources */,
 				886860B32172453000C88C1A /* RACDynamicSequence.m in Sources */,
 				8825CF301ED8708700C59E4E /* BridgePattern_BlueColor.m in Sources */,
 				889DBA891E7EBBA700520C77 /* CoreAnimationVC.m in Sources */,
@@ -2668,7 +2685,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.iosdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4a57f1da-9a55-4802-8c6a-625c5d6a806f";
-				PROVISIONING_PROFILE_SPECIFIER = chester20181106;
+				PROVISIONING_PROFILE_SPECIFIER = ChesterDev20200108;
 				SWIFT_OBJC_BRIDGING_HEADER = "Demo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -2687,7 +2704,7 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = N9MGHU8KN7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Demo/多媒体",
@@ -2703,7 +2720,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.iosdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = DeveloperWildcardProfile;
+				PROVISIONING_PROFILE_SPECIFIER = ChesterDev20200108;
 				SWIFT_OBJC_BRIDGING_HEADER = "Demo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
