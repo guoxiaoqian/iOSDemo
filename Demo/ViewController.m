@@ -41,6 +41,7 @@
 #import "TableViewVC.h"
 #import "SerializeVC.h"
 #import "MachExceptionVC.h"
+#import "BankCompare.h"
 
 @interface EntryModel : NSObject
 
@@ -110,7 +111,7 @@
                        [EntryModel modelWithClass:[TableViewVC class]],
                        [EntryModel modelWithClass:[SerializeVC class]],
                        [EntryModel modelWithClass:[MachExceptionVC class]],
-
+                       [EntryModel modelWithClass:[BankCompare class]],
                        nil];
 }
 

@@ -273,6 +273,7 @@
 		88CC32AE1EA72CCA00801376 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CC32AD1EA72CCA00801376 /* Social.framework */; };
 		88CC32B01EA7405300801376 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CC32AF1EA7405300801376 /* iAd.framework */; };
 		88CC32BA1EA8C3C900801376 /* VolumeWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88CC32B81EA8C3C900801376 /* VolumeWaveView.m */; };
+		88E7129F231284620087913F /* BankCompare.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E7129E231284620087913F /* BankCompare.m */; };
 		88E8F79E1ED5A13300FE93B4 /* StatePattern_Light.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E8F79D1ED5A13300FE93B4 /* StatePattern_Light.m */; };
 		88E8F7A41ED5A17000FE93B4 /* LightState.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E8F7A31ED5A17000FE93B4 /* LightState.m */; };
 		88E8F7A71ED5A18B00FE93B4 /* LightState_On.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E8F7A61ED5A18B00FE93B4 /* LightState_On.m */; };
@@ -875,6 +876,8 @@
 		88CC32CB1EA9F2B100801376 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88CC32D21EA9F2BD00801376 /* TodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayExtension.entitlements; sourceTree = "<group>"; };
 		88CDF00821EC909D00CD0C7F /* protobuff.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = protobuff.xcodeproj; path = ProtoBuff/protobuff.xcodeproj; sourceTree = "<group>"; };
+		88E7129D231284620087913F /* BankCompare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankCompare.h; sourceTree = "<group>"; };
+		88E7129E231284620087913F /* BankCompare.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankCompare.m; sourceTree = "<group>"; };
 		88E8F79C1ED5A13300FE93B4 /* StatePattern_Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatePattern_Light.h; sourceTree = "<group>"; };
 		88E8F79D1ED5A13300FE93B4 /* StatePattern_Light.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatePattern_Light.m; sourceTree = "<group>"; };
 		88E8F7A21ED5A17000FE93B4 /* LightState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightState.h; sourceTree = "<group>"; };
@@ -1576,6 +1579,7 @@
 		88A6173A1E53100C00EF8AFC /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				88E7129B231284110087913F /* 贷款计算 */,
 				880D8DB221D7705D00B3FE2C /* Unix API */,
 				887E4FDA21D467E1004FB380 /* 系统控件 */,
 				88685FD22172452E00C88C1A /* 响应式编程 */,
@@ -1863,6 +1867,15 @@
 				88CDF01021EC909D00CD0C7F /* libprotobuf-lite.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		88E7129B231284110087913F /* 贷款计算 */ = {
+			isa = PBXGroup;
+			children = (
+				88E7129D231284620087913F /* BankCompare.h */,
+				88E7129E231284620087913F /* BankCompare.m */,
+			);
+			path = "贷款计算";
 			sourceTree = "<group>";
 		};
 		88E8F79B1ED5A0FA00FE93B4 /* 状态模式 */ = {
@@ -2438,6 +2451,7 @@
 				886860A42172453000C88C1A /* NSSet+RACSequenceAdditions.m in Sources */,
 				886860C52172453000C88C1A /* RACReturnSignal.m in Sources */,
 				8825CF361ED878C800C59E4E /* DecoratorPattern_Light.m in Sources */,
+				88E7129F231284620087913F /* BankCompare.m in Sources */,
 				8868609B2172452F00C88C1A /* NSInvocation+RACTypeParsing.m in Sources */,
 				886860B02172453000C88C1A /* RACCompoundDisposableProvider.d in Sources */,
 				88EA7A871EB2247500165B37 /* NSArray+MASAdditions.m in Sources */,
