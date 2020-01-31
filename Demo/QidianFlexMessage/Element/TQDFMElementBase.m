@@ -235,6 +235,24 @@
     _marginRight = TQDFM_WIDTH_FROM_PIXEL(marginRight);
 }
 
+#pragma mark - 可变属性保护
+
+- (void)setSubElements:(NSMutableArray *)subElements {
+    if (subElements == nil || [subElements isKindOfClass:[NSMutableArray class]]) {
+        _subElements = subElements;
+    } else if ([subElements isKindOfClass:[NSArray class]]) {
+        _subElements = [subElements mutableCopy];
+    }
+}
+
+- (void)setAttributes:(NSMutableDictionary *)attributes {
+    if (attributes == nil || [attributes isKindOfClass:[NSMutableDictionary class]]) {
+        _attributes = attributes;
+    } else if ([attributes isKindOfClass:[NSDictionary class]]) {
+        _attributes = [attributes mutableCopy];
+    }
+}
+
 #pragma mark - 辅助计算属性
 
 - (BOOL)isHiddenForever {
@@ -329,14 +347,14 @@
         return nil;
     }
     
-    int red = ((intColor & 0x00FF0000) >> 16);
-    int green = ((intColor & 0x0000FF00) >> 8);
-    int blue = (intColor & 0x000000FF);
+    float red = ((float)((intColor & 0x00FF0000) >> 16))/0xFF;
+    float green = ((float)((intColor & 0x0000FF00) >> 8))/0xFF;
+    float blue = ((float)(intColor & 0x000000FF))/0xFF;
     float alpha = 1;
     if (colorStr.length >= 9) {
-        alpha  = (float)((intColor & 0xFF000000) >> 24) / 0xFF;
+        alpha  = ((float)((intColor & 0xFF000000) >> 24))/0xFF;
     }
-    return [UIColor colorWithRed:red/255.0 green:green/255.0 blue:blue/255.0 alpha:alpha/255.0];
+    return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
 - (TQDFMElementBase *)findFirstParentElementOfClass:(Class)parentClass {
@@ -550,3 +568,8 @@
 
 
 @end
+
+@implementation TQDFMElementLoadingHolder
+
+@end
+

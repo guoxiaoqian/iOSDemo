@@ -58,10 +58,10 @@ typedef NS_ENUM(NSUInteger, TQDFMMessageLoadStatus) {
 - (CGFloat)defaultFontSize;
 - (UIColor*)defaultFontColor;
 
-//MARK: 网络下载/缓存
-
+//MARK: 网络下载
 - (void)loadImageAsyncWithUrl:(NSString*)url complete:(void(^)(UIImage* image, NSError* error))complete;
 
+//MARK: 加载系统资源
 - (uint64_t)getNowTimestamp;
 - (UIImage*)getBundleImageWithPath:(NSString*)path;
 

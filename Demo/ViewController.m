@@ -43,6 +43,7 @@
 #import "MachExceptionVC.h"
 #import "BankCompare.h"
 #import "CrashVC.h"
+#import "FlexMessageVC.h"
 
 @interface EntryModel : NSObject
 
@@ -114,6 +115,7 @@
                        [EntryModel modelWithClass:[MachExceptionVC class]],
                        [EntryModel modelWithClass:[BankCompare class]],
                        [EntryModel modelWithClass:[CrashVC class]],
+                       [EntryModel modelWithClass:[FlexMessageVC class]],
                        nil];
 }
 

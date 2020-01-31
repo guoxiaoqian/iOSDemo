@@ -195,6 +195,11 @@
 		8887A3B41EAEC8C7005EEFAE /* H5VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8887A3B21EAEC8C7005EEFAE /* H5VC.xib */; };
 		8887A3B61EAED15B005EEFAE /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8887A3B51EAED15B005EEFAE /* WebKit.framework */; };
 		888E1BED22EDD1A200837F85 /* MachExceptionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 888E1BEC22EDD1A200837F85 /* MachExceptionVC.m */; };
+		88920A7D23E45BE200CA94D5 /* FlexMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88920A7C23E45BE200CA94D5 /* FlexMessageVC.m */; };
+		88920A8123E46D8200CA94D5 /* longmsgloading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88920A7F23E46D8100CA94D5 /* longmsgloading@2x.png */; };
+		88920A8223E46D8200CA94D5 /* longmsgfail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88920A8023E46D8200CA94D5 /* longmsgfail@2x.png */; };
+		88920A8523E4715500CA94D5 /* TQDFMElementLoadingHolderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88920A8423E4715500CA94D5 /* TQDFMElementLoadingHolderView.m */; };
+		88920A8823E47D0400CA94D5 /* TQDFMElementMsgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88920A8723E47D0400CA94D5 /* TQDFMElementMsgView.m */; };
 		8892E9D9224B6025000746C9 /* AutoCodingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8892E9D8224B6025000746C9 /* AutoCodingModel.m */; };
 		8892E9DD224B640F000746C9 /* AutoMD5Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 8892E9DC224B640F000746C9 /* AutoMD5Model.m */; };
 		889B2E961E89E98700ACD1A0 /* Demo2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 889B2E941E89E98700ACD1A0 /* Demo2@2x.png */; };
@@ -768,6 +773,14 @@
 		8887A3B51EAED15B005EEFAE /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		888E1BEB22EDD1A200837F85 /* MachExceptionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MachExceptionVC.h; sourceTree = "<group>"; };
 		888E1BEC22EDD1A200837F85 /* MachExceptionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MachExceptionVC.m; sourceTree = "<group>"; };
+		88920A7B23E45BE200CA94D5 /* FlexMessageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlexMessageVC.h; sourceTree = "<group>"; };
+		88920A7C23E45BE200CA94D5 /* FlexMessageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlexMessageVC.m; sourceTree = "<group>"; };
+		88920A7F23E46D8100CA94D5 /* longmsgloading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "longmsgloading@2x.png"; sourceTree = "<group>"; };
+		88920A8023E46D8200CA94D5 /* longmsgfail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "longmsgfail@2x.png"; sourceTree = "<group>"; };
+		88920A8323E4715500CA94D5 /* TQDFMElementLoadingHolderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQDFMElementLoadingHolderView.h; sourceTree = "<group>"; };
+		88920A8423E4715500CA94D5 /* TQDFMElementLoadingHolderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQDFMElementLoadingHolderView.m; sourceTree = "<group>"; };
+		88920A8623E47D0400CA94D5 /* TQDFMElementMsgView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQDFMElementMsgView.h; sourceTree = "<group>"; };
+		88920A8723E47D0400CA94D5 /* TQDFMElementMsgView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQDFMElementMsgView.m; sourceTree = "<group>"; };
 		8892E9D7224B6025000746C9 /* AutoCodingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoCodingModel.h; sourceTree = "<group>"; };
 		8892E9D8224B6025000746C9 /* AutoCodingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoCodingModel.m; sourceTree = "<group>"; };
 		8892E9DB224B640F000746C9 /* AutoMD5Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoMD5Model.h; sourceTree = "<group>"; };
@@ -1519,6 +1532,10 @@
 				8876017123E3FED300B12706 /* TQDFMElementLinearView.m */,
 				8876017E23E3FED300B12706 /* TQDFMElementTextView.h */,
 				8876017523E3FED300B12706 /* TQDFMElementTextView.m */,
+				88920A8623E47D0400CA94D5 /* TQDFMElementMsgView.h */,
+				88920A8723E47D0400CA94D5 /* TQDFMElementMsgView.m */,
+				88920A8323E4715500CA94D5 /* TQDFMElementLoadingHolderView.h */,
+				88920A8423E4715500CA94D5 /* TQDFMElementLoadingHolderView.m */,
 			);
 			path = ElementView;
 			sourceTree = "<group>";
@@ -1526,13 +1543,15 @@
 		8876019823E4367000B12706 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8876019923E4367000B12706 /* qidian_flex_arrow_down@2x.png */,
-				8876019A23E4367000B12706 /* user_avatar_default@2x.png */,
-				8876019B23E4367000B12706 /* Demo.xml */,
+				8876019F23E4367100B12706 /* aio_image_default@2x.png */,
 				8876019C23E4367100B12706 /* bubble_below_pressed@2x 2.png */,
 				8876019D23E4367100B12706 /* bubble_below_pressed@2x.png */,
+				8876019B23E4367000B12706 /* Demo.xml */,
+				88920A8023E46D8200CA94D5 /* longmsgfail@2x.png */,
+				88920A7F23E46D8100CA94D5 /* longmsgloading@2x.png */,
+				8876019923E4367000B12706 /* qidian_flex_arrow_down@2x.png */,
 				8876019E23E4367100B12706 /* qidian_flex_arrow_right@2x.png */,
-				8876019F23E4367100B12706 /* aio_image_default@2x.png */,
+				8876019A23E4367000B12706 /* user_avatar_default@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -2061,6 +2080,8 @@
 				88EA7A5B1EB223D300165B37 /* AutoLayoutVC.h */,
 				88EA7A5C1EB223D300165B37 /* AutoLayoutVC.m */,
 				88EA7A5D1EB223D300165B37 /* AutoLayoutVC.xib */,
+				88920A7B23E45BE200CA94D5 /* FlexMessageVC.h */,
+				88920A7C23E45BE200CA94D5 /* FlexMessageVC.m */,
 			);
 			path = "UI基础（布局）";
 			sourceTree = "<group>";
@@ -2320,10 +2341,12 @@
 				882C996D1E8BC39100BFDAC7 /* EventVC.xib in Resources */,
 				889B2E961E89E98700ACD1A0 /* Demo2@2x.png in Resources */,
 				887601A223E4367100B12706 /* Demo.xml in Resources */,
+				88920A8223E46D8200CA94D5 /* longmsgfail@2x.png in Resources */,
 				882C99751E8D0CE300BFDAC7 /* RemoteEnvetVC.xib in Resources */,
 				889DBA851E7E724500520C77 /* CoreGraphicVC.xib in Resources */,
 				889DBA6F1E7E71F900520C77 /* Quartz.pdf in Resources */,
 				889C4A6F1E9C73C600EB2C68 /* NotificationVC.xib in Resources */,
+				88920A8123E46D8200CA94D5 /* longmsgloading@2x.png in Resources */,
 				889C4A9F1E9C743000EB2C68 /* NetworkVC.xib in Resources */,
 				889B2EA91E8DE13B00ACD1A0 /* msg.wav in Resources */,
 				88439EF11E9D1466007DDA1B /* SpecialLayerVC.xib in Resources */,
@@ -2480,6 +2503,7 @@
 				88A8CB3221EB4D3300B70032 /* TimeMonitor.m in Sources */,
 				886860D02172453000C88C1A /* RACSubject.m in Sources */,
 				886860A22172453000C88C1A /* NSObject+RACSelectorSignal.m in Sources */,
+				88920A7D23E45BE200CA94D5 /* FlexMessageVC.m in Sources */,
 				8876019723E42A0C00B12706 /* TQDFMEvent.m in Sources */,
 				886860B72172453000C88C1A /* RACEmptySignal.m in Sources */,
 				882739351FCC64440011BC0B /* TNWCameraScanView.m in Sources */,
@@ -2549,6 +2573,7 @@
 				886860DA2172453000C88C1A /* RACValueTransformer.m in Sources */,
 				886860CE2172453000C88C1A /* RACStream.m in Sources */,
 				88EA7A891EB2247500165B37 /* View+MASAdditions.m in Sources */,
+				88920A8523E4715500CA94D5 /* TQDFMElementLoadingHolderView.m in Sources */,
 				8876018C23E3FED400B12706 /* TQDFMElementImageView.m in Sources */,
 				88C32E8C1E66BFF1002753FC /* FMDatabasePool.m in Sources */,
 				8825CF1B1ED86AED00C59E4E /* CompositePattern_AbstractLight.m in Sources */,
@@ -2596,6 +2621,7 @@
 				889C4AA41E9C743000EB2C68 /* AFSecurityPolicy.m in Sources */,
 				885692441F123794001CECBA /* algorithm_traverse.m in Sources */,
 				88A8C9AA21EB379A00B70032 /* Person.proto in Sources */,
+				88920A8823E47D0400CA94D5 /* TQDFMElementMsgView.m in Sources */,
 				8876018523E3FED400B12706 /* TQDFMLayoutTree.m in Sources */,
 				886860CA2172453000C88C1A /* RACSignal+Operations.m in Sources */,
 				886860B12172453000C88C1A /* RACDelegateProxy.m in Sources */,

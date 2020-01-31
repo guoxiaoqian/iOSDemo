@@ -27,7 +27,7 @@
         return nil;
     }
     
-    return self.rootElem;
+    return (TQDFMElementMsg*)self.rootElem;
 }
 
 #pragma mark - NSXMLParser
@@ -55,18 +55,15 @@
     
     //入栈
     [self.elemStack addObject:elem];
-}
-
-//节点属性
-- (void)parser:(NSXMLParser *)parser foundAttributeDeclarationWithName:(NSString *)attributeName forElement:(NSString *)elementName type:(nullable NSString *)type defaultValue:(nullable NSString *)defaultValue {
-    TQDFMElementBase* elem = self.elemStack.lastObject;
-
+    if (self.elemStack.count == 1) {
+        self.rootElem = elem;
+    }
 }
 
 //节点内容
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    TQDFMElementBase* elem = self.elemStack.lastObject;
-    [elem handleInnerText:string];
+//    TQDFMElementBase* elem = self.elemStack.lastObject;
+//    [elem handleInnerText:string];
 }
 
 //节点尾部
@@ -76,7 +73,6 @@
 
 //解析结束
 -(void)parserDidEndDocument:(NSXMLParser *)parser{
-    self.rootElem = self.elemStack.firstObject;
     self.elemStack = nil;
 }
 

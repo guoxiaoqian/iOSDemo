@@ -172,3 +172,11 @@ typedef enum : NSUInteger {
 @property (nonatomic,strong) NSString* orientation;
 
 @end
+
+// MARK: - 内部使用
+
+@interface TQDFMElementLoadingHolder : TQDFMElementBase
+
+@property (nonatomic,assign) TQDFMMessageLoadStatus loadStatus;
+
+@end

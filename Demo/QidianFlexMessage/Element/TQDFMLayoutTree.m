@@ -11,11 +11,12 @@
 
 #import "TQDFMLayoutTree.h"
 #import "TQDFMXMLParser.h"
+#import "TQDFMElementBase.h"
 
 @interface TQDFMLayoutTree ()
 
-@property (assign,nonatomic) BOOL needArchiveTree;
 @property (strong,nonatomic) id<TQDFMMessageModel> msgModel;
+
 @end
 
 @implementation TQDFMLayoutTree
@@ -59,9 +60,9 @@
             
             // 辅助状态: 优先用ExInfo里存储的status,其次是结构化消息初始的status
             layoutContext.status = elementTree.attributes[@"status"];
-//            NSString* uiStatus = [messageModel.exInfo getQidianFlexMessageUIStatus];
+            //            NSString* uiStatus = [messageModel.exInfo getQidianFlexMessageUIStatus];
             NSString* uiStatus = [messageModel getFMUIStatus];
-
+            
             if (uiStatus.length > 0) {
                 layoutContext.status = uiStatus;
             }
@@ -80,17 +81,24 @@
             [[self class] adjustElementTree:elementTree layoutContext:layoutContext];
             
             // 加载中和加载失败效果
-//            LongMsg_Kind downloadState = [messageModel.exInfo getQidianFlexMessageState];
-//            if (downloadState == LongMsg_No_Content || downloadState == LongMsg_Content_Fail) {
-//                QQLongMsgHolder *holder  = [QQLongMsgHolder new];
-//                holder.holderType = downloadState;
-//                elementTree.subElements = @[holder];
-//                layoutContext.isHolder = YES;
-//            } else {
-//                layoutContext.isHolder = NO;
-//            }
+            //            LongMsg_Kind downloadState = [messageModel.exInfo getQidianFlexMessageState];
+            //            if (downloadState == LongMsg_No_Content || downloadState == LongMsg_Content_Fail) {
+            //                QQLongMsgHolder *holder  = [QQLongMsgHolder new];
+            //                holder.holderType = downloadState;
+            //                elementTree.subElements = @[holder];
+            //                layoutContext.isHolder = YES;
+            //            } else {
+            //                layoutContext.isHolder = NO;
+            //            }
             
-            //TODO-GAVIN:加载中 getFMLoadStatus
+            TQDFMMessageLoadStatus loadStaus = [messageModel getFMLoadStatus];
+            if (loadStaus == TQDFMMessageLoadStatus_NotLoad || loadStaus == TQDFMMessageLoadStatus_Fail) {
+                TQDFMElementLoadingHolder *holder  = [TQDFMElementLoadingHolder new];
+                holder.loadStatus = loadStaus;
+                elementTree.subElements = [NSMutableArray arrayWithObject:holder];
+                layoutContext.isHolder = YES;
+                
+            }
             
         }
         

@@ -23,6 +23,8 @@
 #import "TQDFMElementText.h"
 #import "TQDFMElementButton.h"
 #import "TQDFMElementImage.h"
+#import "TQDFMElementLoadingHolderView.h"
+#import "TQDFMElementMsgView.h"
 
 @interface TQDFMElementBaseView ()
 
@@ -61,6 +63,10 @@
         baseView = [[TQDFMElementImageView alloc] initWithFrame:frame];
     } else if ([baseMsg isKindOfClass:[TQDFMElementDivider class]]) {
         baseView = [[TQDFMElementDividerView alloc] initWithFrame:frame];
+    } else if ([baseMsg isKindOfClass:[TQDFMElementLoadingHolder class]]) {
+        baseView = [[TQDFMElementLoadingHolderView alloc] initWithFrame:frame];
+    }  else if ([baseMsg isKindOfClass:[TQDFMElementMsg class]]) {
+        baseView = [[TQDFMElementMsgView alloc] initWithFrame:frame];
     } else {
         TQDFM_INFOP_ELEMENT(baseMsg,@"Unknow Element Type");
         baseView = [[TQDFMElementBaseView alloc] initWithFrame:frame];
@@ -97,7 +103,7 @@
     
     // 布局优化：复用上次布局结果
 #if TQDFM_REUSE_LAYOUT
-    if (baseMsg.layoutContext.isDirty == NO) {
+    if (baseMsg.layoutContext && baseMsg.layoutContext.isDirty == NO) {
         [baseMsg setLayoutFrameForSure:baseMsg.layoutFrameBackup];
         return [baseMsg getLayoutSizeWithMaxSize:maxSize];
     }
@@ -155,6 +161,10 @@
             [TQDFMElementTextView layoutSpecialQDFMElement:(TQDFMElementText*)baseMsg withMaxSize:adjustedMaxSize];
         } else if ([baseMsg isKindOfClass:[TQDFMElementImage class]]) {
             [TQDFMElementImageView layoutSpecialQDFMElement:(TQDFMElementImage*)baseMsg withMaxSize:adjustedMaxSize];
+        } else if ([baseMsg isKindOfClass:[TQDFMElementLoadingHolder class]]) {
+            [TQDFMElementLoadingHolderView layoutSpecialQDFMElement:(TQDFMElementLoadingHolder*)baseMsg withMaxSize:adjustedMaxSize];
+        } else if ([baseMsg isKindOfClass:[TQDFMElementMsg class]]) {
+            [TQDFMElementMsgView layoutSpecialQDFMElement:(TQDFMElementMsg*)baseMsg withMaxSize:adjustedMaxSize];
         }
         
         // 再检查一遍宽高比, 若有调整则重试一遍子元素布局
