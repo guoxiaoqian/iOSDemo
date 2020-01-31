@@ -165,6 +165,30 @@
 		886860ED2172453000C88C1A /* UITextView+RACSignalSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 886860922172452F00C88C1A /* UITextView+RACSignalSupport.m */; };
 		886860F12172456C00C88C1A /* ReactiveVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 886860EF2172456C00C88C1A /* ReactiveVC.m */; };
 		886E65321ED3D4FB00C13E29 /* algorithm_sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 886E65301ED3D4FB00C13E29 /* algorithm_sort.m */; };
+		8876018123E3FED400B12706 /* TQDFMLayoutContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 8876016023E3FED300B12706 /* TQDFMLayoutContext.m */; };
+		8876018223E3FED400B12706 /* TQDFMElementImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8876016123E3FED300B12706 /* TQDFMElementImage.m */; };
+		8876018323E3FED400B12706 /* TQDFMElementButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8876016423E3FED300B12706 /* TQDFMElementButton.m */; };
+		8876018423E3FED400B12706 /* TQDFMElementText.m in Sources */ = {isa = PBXBuildFile; fileRef = 8876016523E3FED300B12706 /* TQDFMElementText.m */; };
+		8876018523E3FED400B12706 /* TQDFMLayoutTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 8876016723E3FED300B12706 /* TQDFMLayoutTree.m */; };
+		8876018623E3FED400B12706 /* TQDFMElementBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8876016823E3FED300B12706 /* TQDFMElementBase.m */; };
+		8876018723E3FED400B12706 /* TQDFMPlatformBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8876016D23E3FED300B12706 /* TQDFMPlatformBridge.m */; };
+		8876018823E3FED400B12706 /* TQDFMElementBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8876017023E3FED300B12706 /* TQDFMElementBaseView.m */; };
+		8876018923E3FED400B12706 /* TQDFMElementLinearView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8876017123E3FED300B12706 /* TQDFMElementLinearView.m */; };
+		8876018A23E3FED400B12706 /* TQDFMElementButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8876017223E3FED300B12706 /* TQDFMElementButtonView.m */; };
+		8876018B23E3FED400B12706 /* TQDFMElementContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8876017323E3FED300B12706 /* TQDFMElementContainerView.m */; };
+		8876018C23E3FED400B12706 /* TQDFMElementImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8876017423E3FED300B12706 /* TQDFMElementImageView.m */; };
+		8876018D23E3FED400B12706 /* TQDFMElementTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8876017523E3FED300B12706 /* TQDFMElementTextView.m */; };
+		8876018E23E3FED400B12706 /* TQDFMElementFoldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8876017D23E3FED300B12706 /* TQDFMElementFoldView.m */; };
+		8876018F23E3FED400B12706 /* TQDFMElementDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8876017F23E3FED300B12706 /* TQDFMElementDividerView.m */; };
+		8876019223E3FF6600B12706 /* TQDFMXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8876019123E3FF6600B12706 /* TQDFMXMLParser.m */; };
+		8876019723E42A0C00B12706 /* TQDFMEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8876019623E42A0C00B12706 /* TQDFMEvent.m */; };
+		887601A023E4367100B12706 /* qidian_flex_arrow_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8876019923E4367000B12706 /* qidian_flex_arrow_down@2x.png */; };
+		887601A123E4367100B12706 /* user_avatar_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8876019A23E4367000B12706 /* user_avatar_default@2x.png */; };
+		887601A223E4367100B12706 /* Demo.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8876019B23E4367000B12706 /* Demo.xml */; };
+		887601A323E4367100B12706 /* bubble_below_pressed@2x 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8876019C23E4367100B12706 /* bubble_below_pressed@2x 2.png */; };
+		887601A423E4367100B12706 /* bubble_below_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8876019D23E4367100B12706 /* bubble_below_pressed@2x.png */; };
+		887601A523E4367100B12706 /* qidian_flex_arrow_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8876019E23E4367100B12706 /* qidian_flex_arrow_right@2x.png */; };
+		887601A623E4367100B12706 /* aio_image_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8876019F23E4367100B12706 /* aio_image_default@2x.png */; };
 		887E4FDD21D4682D004FB380 /* TableViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 887E4FDC21D4682D004FB380 /* TableViewVC.m */; };
 		8887A3721EA83E6D005EEFAE /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8887A3711EA83E6D005EEFAE /* UserNotifications.framework */; };
 		8887A3B31EAEC8C7005EEFAE /* H5VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8887A3B11EAEC8C7005EEFAE /* H5VC.m */; };
@@ -272,8 +296,8 @@
 		88CC32AE1EA72CCA00801376 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CC32AD1EA72CCA00801376 /* Social.framework */; };
 		88CC32B01EA7405300801376 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CC32AF1EA7405300801376 /* iAd.framework */; };
 		88CC32BA1EA8C3C900801376 /* VolumeWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88CC32B81EA8C3C900801376 /* VolumeWaveView.m */; };
-		88E7129F231284620087913F /* BankCompare.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E7129E231284620087913F /* BankCompare.m */; };
 		88DBB8EE23C70CE4006C4338 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DBB8EC23C70CE4006C4338 /* JavaScriptCore.framework */; };
+		88E7129F231284620087913F /* BankCompare.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E7129E231284620087913F /* BankCompare.m */; };
 		88E8F79E1ED5A13300FE93B4 /* StatePattern_Light.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E8F79D1ED5A13300FE93B4 /* StatePattern_Light.m */; };
 		88E8F7A41ED5A17000FE93B4 /* LightState.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E8F7A31ED5A17000FE93B4 /* LightState.m */; };
 		88E8F7A71ED5A18B00FE93B4 /* LightState_On.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E8F7A61ED5A18B00FE93B4 /* LightState_On.m */; };
@@ -681,6 +705,48 @@
 		886860EF2172456C00C88C1A /* ReactiveVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactiveVC.m; sourceTree = "<group>"; };
 		886E65301ED3D4FB00C13E29 /* algorithm_sort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = algorithm_sort.m; sourceTree = "<group>"; };
 		886E65311ED3D4FB00C13E29 /* algorithm_sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = algorithm_sort.h; sourceTree = "<group>"; };
+		8876016023E3FED300B12706 /* TQDFMLayoutContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQDFMLayoutContext.m; sourceTree = "<group>"; };
+		8876016123E3FED300B12706 /* TQDFMElementImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQDFMElementImage.m; sourceTree = "<group>"; };
+		8876016223E3FED300B12706 /* TQDFMElementBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQDFMElementBase.h; sourceTree = "<group>"; };
+		8876016323E3FED300B12706 /* TQDFMLayoutTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQDFMLayoutTree.h; sourceTree = "<group>"; };
+		8876016423E3FED300B12706 /* TQDFMElementButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQDFMElementButton.m; sourceTree = "<group>"; };
+		8876016523E3FED300B12706 /* TQDFMElementText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQDFMElementText.m; sourceTree = "<group>"; };
+		8876016623E3FED300B12706 /* TQDFMElementButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQDFMElementButton.h; sourceTree = "<group>"; };
+		8876016723E3FED300B12706 /* TQDFMLayoutTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQDFMLayoutTree.m; sourceTree = "<group>"; };
+		8876016823E3FED300B12706 /* TQDFMElementBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQDFMElementBase.m; sourceTree = "<group>"; };
+		8876016923E3FED300B12706 /* TQDFMElementImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQDFMElementImage.h; sourceTree = "<group>"; };
+		8876016A23E3FED300B12706 /* TQDFMLayoutContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQDFMLayoutContext.h; sourceTree = "<group>"; };
+		8876016B23E3FED300B12706 /* TQDFMElementText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQDFMElementText.h; sourceTree = "<group>"; };
+		8876016C23E3FED300B12706 /* TQDFMCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQDFMCommon.h; sourceTree = "<group>"; };
+		8876016D23E3FED300B12706 /* TQDFMPlatformBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQDFMPlatformBridge.m; sourceTree = "<group>"; };
+		8876016E23E3FED300B12706 /* TQDFMPlatformBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQDFMPlatformBridge.h; sourceTree = "<group>"; };
+		8876017023E3FED300B12706 /* TQDFMElementBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQDFMElementBaseView.m; sourceTree = "<group>"; };
+		8876017123E3FED300B12706 /* TQDFMElementLinearView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQDFMElementLinearView.m; sourceTree = "<group>"; };
+		8876017223E3FED300B12706 /* TQDFMElementButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQDFMElementButtonView.m; sourceTree = "<group>"; };
+		8876017323E3FED300B12706 /* TQDFMElementContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQDFMElementContainerView.m; sourceTree = "<group>"; };
+		8876017423E3FED300B12706 /* TQDFMElementImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQDFMElementImageView.m; sourceTree = "<group>"; };
+		8876017523E3FED300B12706 /* TQDFMElementTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQDFMElementTextView.m; sourceTree = "<group>"; };
+		8876017623E3FED300B12706 /* TQDFMElementFoldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQDFMElementFoldView.h; sourceTree = "<group>"; };
+		8876017723E3FED300B12706 /* TQDFMElementDividerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQDFMElementDividerView.h; sourceTree = "<group>"; };
+		8876017823E3FED300B12706 /* TQDFMElementLinearView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQDFMElementLinearView.h; sourceTree = "<group>"; };
+		8876017923E3FED300B12706 /* TQDFMElementBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQDFMElementBaseView.h; sourceTree = "<group>"; };
+		8876017A23E3FED300B12706 /* TQDFMElementContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQDFMElementContainerView.h; sourceTree = "<group>"; };
+		8876017B23E3FED300B12706 /* TQDFMElementImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQDFMElementImageView.h; sourceTree = "<group>"; };
+		8876017C23E3FED300B12706 /* TQDFMElementButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQDFMElementButtonView.h; sourceTree = "<group>"; };
+		8876017D23E3FED300B12706 /* TQDFMElementFoldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQDFMElementFoldView.m; sourceTree = "<group>"; };
+		8876017E23E3FED300B12706 /* TQDFMElementTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQDFMElementTextView.h; sourceTree = "<group>"; };
+		8876017F23E3FED300B12706 /* TQDFMElementDividerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQDFMElementDividerView.m; sourceTree = "<group>"; };
+		8876019023E3FF6600B12706 /* TQDFMXMLParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQDFMXMLParser.h; sourceTree = "<group>"; };
+		8876019123E3FF6600B12706 /* TQDFMXMLParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQDFMXMLParser.m; sourceTree = "<group>"; };
+		8876019523E42A0C00B12706 /* TQDFMEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQDFMEvent.h; sourceTree = "<group>"; };
+		8876019623E42A0C00B12706 /* TQDFMEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQDFMEvent.m; sourceTree = "<group>"; };
+		8876019923E4367000B12706 /* qidian_flex_arrow_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qidian_flex_arrow_down@2x.png"; sourceTree = "<group>"; };
+		8876019A23E4367000B12706 /* user_avatar_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_avatar_default@2x.png"; sourceTree = "<group>"; };
+		8876019B23E4367000B12706 /* Demo.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Demo.xml; sourceTree = "<group>"; };
+		8876019C23E4367100B12706 /* bubble_below_pressed@2x 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bubble_below_pressed@2x 2.png"; sourceTree = "<group>"; };
+		8876019D23E4367100B12706 /* bubble_below_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bubble_below_pressed@2x.png"; sourceTree = "<group>"; };
+		8876019E23E4367100B12706 /* qidian_flex_arrow_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qidian_flex_arrow_right@2x.png"; sourceTree = "<group>"; };
+		8876019F23E4367100B12706 /* aio_image_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aio_image_default@2x.png"; sourceTree = "<group>"; };
 		887E4FDB21D4682D004FB380 /* TableViewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewVC.h; sourceTree = "<group>"; };
 		887E4FDC21D4682D004FB380 /* TableViewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewVC.m; sourceTree = "<group>"; };
 		8887A3711EA83E6D005EEFAE /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
@@ -877,9 +943,9 @@
 		88CC32CB1EA9F2B100801376 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88CC32D21EA9F2BD00801376 /* TodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayExtension.entitlements; sourceTree = "<group>"; };
 		88CDF00821EC909D00CD0C7F /* protobuff.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = protobuff.xcodeproj; path = ProtoBuff/protobuff.xcodeproj; sourceTree = "<group>"; };
+		88DBB8EC23C70CE4006C4338 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		88E7129D231284620087913F /* BankCompare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankCompare.h; sourceTree = "<group>"; };
 		88E7129E231284620087913F /* BankCompare.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankCompare.m; sourceTree = "<group>"; };
-		88DBB8EC23C70CE4006C4338 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		88E8F79C1ED5A13300FE93B4 /* StatePattern_Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatePattern_Light.h; sourceTree = "<group>"; };
 		88E8F79D1ED5A13300FE93B4 /* StatePattern_Light.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatePattern_Light.m; sourceTree = "<group>"; };
 		88E8F7A21ED5A17000FE93B4 /* LightState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightState.h; sourceTree = "<group>"; };
@@ -1398,6 +1464,79 @@
 			path = extobjc;
 			sourceTree = "<group>";
 		};
+		8876015E23E3FED200B12706 /* QidianFlexMessage */ = {
+			isa = PBXGroup;
+			children = (
+				8876019823E4367000B12706 /* Resources */,
+				8876015F23E3FED300B12706 /* Element */,
+				8876016F23E3FED300B12706 /* ElementView */,
+				8876016E23E3FED300B12706 /* TQDFMPlatformBridge.h */,
+				8876016D23E3FED300B12706 /* TQDFMPlatformBridge.m */,
+				8876019023E3FF6600B12706 /* TQDFMXMLParser.h */,
+				8876019123E3FF6600B12706 /* TQDFMXMLParser.m */,
+				8876019523E42A0C00B12706 /* TQDFMEvent.h */,
+				8876019623E42A0C00B12706 /* TQDFMEvent.m */,
+			);
+			path = QidianFlexMessage;
+			sourceTree = "<group>";
+		};
+		8876015F23E3FED300B12706 /* Element */ = {
+			isa = PBXGroup;
+			children = (
+				8876016C23E3FED300B12706 /* TQDFMCommon.h */,
+				8876016223E3FED300B12706 /* TQDFMElementBase.h */,
+				8876016823E3FED300B12706 /* TQDFMElementBase.m */,
+				8876016623E3FED300B12706 /* TQDFMElementButton.h */,
+				8876016423E3FED300B12706 /* TQDFMElementButton.m */,
+				8876016923E3FED300B12706 /* TQDFMElementImage.h */,
+				8876016123E3FED300B12706 /* TQDFMElementImage.m */,
+				8876016B23E3FED300B12706 /* TQDFMElementText.h */,
+				8876016523E3FED300B12706 /* TQDFMElementText.m */,
+				8876016A23E3FED300B12706 /* TQDFMLayoutContext.h */,
+				8876016023E3FED300B12706 /* TQDFMLayoutContext.m */,
+				8876016323E3FED300B12706 /* TQDFMLayoutTree.h */,
+				8876016723E3FED300B12706 /* TQDFMLayoutTree.m */,
+			);
+			path = Element;
+			sourceTree = "<group>";
+		};
+		8876016F23E3FED300B12706 /* ElementView */ = {
+			isa = PBXGroup;
+			children = (
+				8876017923E3FED300B12706 /* TQDFMElementBaseView.h */,
+				8876017023E3FED300B12706 /* TQDFMElementBaseView.m */,
+				8876017C23E3FED300B12706 /* TQDFMElementButtonView.h */,
+				8876017223E3FED300B12706 /* TQDFMElementButtonView.m */,
+				8876017A23E3FED300B12706 /* TQDFMElementContainerView.h */,
+				8876017323E3FED300B12706 /* TQDFMElementContainerView.m */,
+				8876017723E3FED300B12706 /* TQDFMElementDividerView.h */,
+				8876017F23E3FED300B12706 /* TQDFMElementDividerView.m */,
+				8876017623E3FED300B12706 /* TQDFMElementFoldView.h */,
+				8876017D23E3FED300B12706 /* TQDFMElementFoldView.m */,
+				8876017B23E3FED300B12706 /* TQDFMElementImageView.h */,
+				8876017423E3FED300B12706 /* TQDFMElementImageView.m */,
+				8876017823E3FED300B12706 /* TQDFMElementLinearView.h */,
+				8876017123E3FED300B12706 /* TQDFMElementLinearView.m */,
+				8876017E23E3FED300B12706 /* TQDFMElementTextView.h */,
+				8876017523E3FED300B12706 /* TQDFMElementTextView.m */,
+			);
+			path = ElementView;
+			sourceTree = "<group>";
+		};
+		8876019823E4367000B12706 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8876019923E4367000B12706 /* qidian_flex_arrow_down@2x.png */,
+				8876019A23E4367000B12706 /* user_avatar_default@2x.png */,
+				8876019B23E4367000B12706 /* Demo.xml */,
+				8876019C23E4367100B12706 /* bubble_below_pressed@2x 2.png */,
+				8876019D23E4367100B12706 /* bubble_below_pressed@2x.png */,
+				8876019E23E4367100B12706 /* qidian_flex_arrow_right@2x.png */,
+				8876019F23E4367100B12706 /* aio_image_default@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		887E4FDA21D467E1004FB380 /* 系统控件 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1583,6 +1722,7 @@
 		88A6173A1E53100C00EF8AFC /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				8876015E23E3FED200B12706 /* QidianFlexMessage */,
 				88E7129B231284110087913F /* 贷款计算 */,
 				88FE73D622EA947700E48078 /* Crash */,
 				880D8DB221D7705D00B3FE2C /* Unix API */,
@@ -2147,6 +2287,7 @@
 			files = (
 				889DBA6E1E7E71F900520C77 /* Demo.png in Resources */,
 				8887A3B41EAEC8C7005EEFAE /* H5VC.xib in Resources */,
+				887601A423E4367100B12706 /* bubble_below_pressed@2x.png in Resources */,
 				889C4A6A1E9C6D7B00EB2C68 /* SystemAppVC.xib in Resources */,
 				889B2E971E89E98700ACD1A0 /* Demo2@3x.png in Resources */,
 				882C99791E8E267700BFDAC7 /* music.mp3 in Resources */,
@@ -2158,9 +2299,14 @@
 				889DBA751E7E71F900520C77 /* QuartzDemo-Info.plist in Resources */,
 				8849AE2D1EC2BBAE001F3218 /* FunctionVC.xib in Resources */,
 				889DBA7E1E7E71F900520C77 /* QuartzStoryboard.storyboard in Resources */,
+				887601A323E4367100B12706 /* bubble_below_pressed@2x 2.png in Resources */,
 				88A6174B1E53100C00EF8AFC /* LaunchScreen.storyboard in Resources */,
+				887601A123E4367100B12706 /* user_avatar_default@2x.png in Resources */,
 				88EA7A5F1EB223D300165B37 /* AutoLayoutVC.xib in Resources */,
+				887601A623E4367100B12706 /* aio_image_default@2x.png in Resources */,
+				887601A023E4367100B12706 /* qidian_flex_arrow_down@2x.png in Resources */,
 				889C4AA91E9C743000EB2C68 /* LICENSE in Resources */,
+				887601A523E4367100B12706 /* qidian_flex_arrow_right@2x.png in Resources */,
 				88A617481E53100C00EF8AFC /* Assets.xcassets in Resources */,
 				889DBA8A1E7EBBA700520C77 /* CoreAnimationVC.xib in Resources */,
 				889B2E9C1E8A978300ACD1A0 /* CubeVC.xib in Resources */,
@@ -2173,6 +2319,7 @@
 				8825CF031ED3BA1F00C59E4E /* DesignPatternVC.xib in Resources */,
 				882C996D1E8BC39100BFDAC7 /* EventVC.xib in Resources */,
 				889B2E961E89E98700ACD1A0 /* Demo2@2x.png in Resources */,
+				887601A223E4367100B12706 /* Demo.xml in Resources */,
 				882C99751E8D0CE300BFDAC7 /* RemoteEnvetVC.xib in Resources */,
 				889DBA851E7E724500520C77 /* CoreGraphicVC.xib in Resources */,
 				889DBA6F1E7E71F900520C77 /* Quartz.pdf in Resources */,
@@ -2260,6 +2407,7 @@
 				886860AB2172453000C88C1A /* RACBehaviorSubject.m in Sources */,
 				8849AE2C1EC2BBAE001F3218 /* FunctionVC.m in Sources */,
 				88E8F7B71ED5A23100FE93B4 /* LightCommand_Off.m in Sources */,
+				8876018423E3FED400B12706 /* TQDFMElementText.m in Sources */,
 				889DBA7C1E7E71F900520C77 /* QuartzPolyViewController.m in Sources */,
 				886860A52172453000C88C1A /* NSString+RACKeyPathUtilities.m in Sources */,
 				889DBA701E7E71F900520C77 /* QuartzBlending.m in Sources */,
@@ -2270,6 +2418,7 @@
 				889C4AAA1E9C743000EB2C68 /* README.md in Sources */,
 				8825CF331ED878B400C59E4E /* DecoratorPattern_AbstractLight.m in Sources */,
 				886860A82172453000C88C1A /* NSURLConnection+RACSupport.m in Sources */,
+				8876018623E3FED400B12706 /* TQDFMElementBase.m in Sources */,
 				889DBA781E7E71F900520C77 /* QuartzImages.m in Sources */,
 				886860D92172453000C88C1A /* RACUnit.m in Sources */,
 				88A617401E53100C00EF8AFC /* AppDelegate.m in Sources */,
@@ -2292,6 +2441,8 @@
 				886860B32172453000C88C1A /* RACDynamicSequence.m in Sources */,
 				8825CF301ED8708700C59E4E /* BridgePattern_BlueColor.m in Sources */,
 				889DBA891E7EBBA700520C77 /* CoreAnimationVC.m in Sources */,
+				8876018823E3FED400B12706 /* TQDFMElementBaseView.m in Sources */,
+				8876018D23E3FED400B12706 /* TQDFMElementTextView.m in Sources */,
 				886860C42172453000C88C1A /* RACReplaySubject.m in Sources */,
 				886860DF2172453000C88C1A /* UICollectionReusableView+RACSignalSupport.m in Sources */,
 				886860BF2172453000C88C1A /* RACKVOTrampoline.m in Sources */,
@@ -2299,6 +2450,7 @@
 				885692411F12372D001CECBA /* algorithm_search.m in Sources */,
 				889C4AA11E9C743000EB2C68 /* AFHTTPRequestOperationManager.m in Sources */,
 				886860BB2172453000C88C1A /* RACImmediateScheduler.m in Sources */,
+				8876019223E3FF6600B12706 /* TQDFMXMLParser.m in Sources */,
 				887E4FDD21D4682D004FB380 /* TableViewVC.m in Sources */,
 				886860BA2172453000C88C1A /* RACGroupedSignal.m in Sources */,
 				886860D22172453000C88C1A /* RACSubscriptingAssignmentTrampoline.m in Sources */,
@@ -2318,6 +2470,7 @@
 				886860B52172453000C88C1A /* RACEagerSequence.m in Sources */,
 				88E8F7AE1ED5A1E000FE93B4 /* CommandPattern_Light.m in Sources */,
 				886860972172452F00C88C1A /* NSDictionary+RACSequenceAdditions.m in Sources */,
+				8876018F23E3FED400B12706 /* TQDFMElementDividerView.m in Sources */,
 				88C32E851E66BFF1002753FC /* Model.xcdatamodeld in Sources */,
 				889B2EB81E9077DB00ACD1A0 /* ConcurrencyVC.m in Sources */,
 				88EA7A811EB2247500165B37 /* MASCompositeConstraint.m in Sources */,
@@ -2327,6 +2480,7 @@
 				88A8CB3221EB4D3300B70032 /* TimeMonitor.m in Sources */,
 				886860D02172453000C88C1A /* RACSubject.m in Sources */,
 				886860A22172453000C88C1A /* NSObject+RACSelectorSignal.m in Sources */,
+				8876019723E42A0C00B12706 /* TQDFMEvent.m in Sources */,
 				886860B72172453000C88C1A /* RACEmptySignal.m in Sources */,
 				882739351FCC64440011BC0B /* TNWCameraScanView.m in Sources */,
 				8856923B1F1060CC001CECBA /* structure_stack_queue.mm in Sources */,
@@ -2349,6 +2503,7 @@
 				8892E9DD224B640F000746C9 /* AutoMD5Model.m in Sources */,
 				88E8F7B41ED5A21A00FE93B4 /* LightCommand_On.m in Sources */,
 				8868609E2172452F00C88C1A /* NSObject+RACDescription.m in Sources */,
+				8876018E23E3FED400B12706 /* TQDFMElementFoldView.m in Sources */,
 				886860D82172453000C88C1A /* RACUnarySequence.m in Sources */,
 				88E8F7A41ED5A17000FE93B4 /* LightState.m in Sources */,
 				886860AF2172453000C88C1A /* RACCompoundDisposable.m in Sources */,
@@ -2374,13 +2529,17 @@
 				8827391A1FCAF78E0011BC0B /* MRCTest.m in Sources */,
 				8825CF021ED3BA1F00C59E4E /* DesignPatternVC.m in Sources */,
 				889C4AA61E9C743000EB2C68 /* AFURLRequestSerialization.m in Sources */,
+				8876018723E3FED400B12706 /* TQDFMPlatformBridge.m in Sources */,
 				888E1BED22EDD1A200837F85 /* MachExceptionVC.m in Sources */,
 				889C4AA71E9C743000EB2C68 /* AFURLResponseSerialization.m in Sources */,
 				885692351F0FBA61001CECBA /* structure_list.mm in Sources */,
 				886860C22172453000C88C1A /* RACPassthroughSubscriber.m in Sources */,
+				8876018123E3FED400B12706 /* TQDFMLayoutContext.m in Sources */,
+				8876018923E3FED400B12706 /* TQDFMElementLinearView.m in Sources */,
 				88C32E891E66BFF1002753FC /* UICKeyChainStore.m in Sources */,
 				886860C82172453000C88C1A /* RACSequence.m in Sources */,
 				886860C62172453000C88C1A /* RACScheduler.m in Sources */,
+				8876018A23E3FED400B12706 /* TQDFMElementButtonView.m in Sources */,
 				88CC32BA1EA8C3C900801376 /* VolumeWaveView.m in Sources */,
 				889C4AAE1E9C743000EB2C68 /* UIButton+AFNetworking.m in Sources */,
 				886860AC2172453000C88C1A /* RACBlockTrampoline.m in Sources */,
@@ -2390,6 +2549,7 @@
 				886860DA2172453000C88C1A /* RACValueTransformer.m in Sources */,
 				886860CE2172453000C88C1A /* RACStream.m in Sources */,
 				88EA7A891EB2247500165B37 /* View+MASAdditions.m in Sources */,
+				8876018C23E3FED400B12706 /* TQDFMElementImageView.m in Sources */,
 				88C32E8C1E66BFF1002753FC /* FMDatabasePool.m in Sources */,
 				8825CF1B1ED86AED00C59E4E /* CompositePattern_AbstractLight.m in Sources */,
 				8849AE331EC30260001F3218 /* RunloopVC.m in Sources */,
@@ -2436,6 +2596,7 @@
 				889C4AA41E9C743000EB2C68 /* AFSecurityPolicy.m in Sources */,
 				885692441F123794001CECBA /* algorithm_traverse.m in Sources */,
 				88A8C9AA21EB379A00B70032 /* Person.proto in Sources */,
+				8876018523E3FED400B12706 /* TQDFMLayoutTree.m in Sources */,
 				886860CA2172453000C88C1A /* RACSignal+Operations.m in Sources */,
 				886860B12172453000C88C1A /* RACDelegateProxy.m in Sources */,
 				882739251FCAFB310011BC0B /* 3DTouchVC.m in Sources */,
@@ -2448,15 +2609,18 @@
 				882739311FCC5EB00011BC0B /* QRCodeVC.m in Sources */,
 				8825CF2A1ED8705C00C59E4E /* BridgePattern_SmallLight.m in Sources */,
 				889C4AAD1E9C743000EB2C68 /* UIAlertView+AFNetworking.m in Sources */,
+				8876018B23E3FED400B12706 /* TQDFMElementContainerView.m in Sources */,
 				886860B92172453000C88C1A /* RACEvent.m in Sources */,
 				886860CF2172453000C88C1A /* RACStringSequence.m in Sources */,
 				885692381F0FC396001CECBA /* structure_tree.mm in Sources */,
 				886860E82172453000C88C1A /* UIStepper+RACSignalSupport.m in Sources */,
 				886860EA2172453000C88C1A /* UITableViewCell+RACSignalSupport.m in Sources */,
+				8876018223E3FED400B12706 /* TQDFMElementImage.m in Sources */,
 				88EA7A841EB2247500165B37 /* MASLayoutConstraint.m in Sources */,
 				886860B22172453000C88C1A /* RACDisposable.m in Sources */,
 				889C4A691E9C6D7B00EB2C68 /* SystemAppVC.m in Sources */,
 				889DBA731E7E71F900520C77 /* QuartzCurves.m in Sources */,
+				8876018323E3FED400B12706 /* TQDFMElementButton.m in Sources */,
 				88EA7A5E1EB223D300165B37 /* AutoLayoutVC.m in Sources */,
 				889C4AA81E9C743000EB2C68 /* AFURLSessionManager.m in Sources */,
 				886860CB2172453000C88C1A /* RACSignal.m in Sources */,

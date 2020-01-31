@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<msg msgID="1234" brief="企点结构化消息" flag="55" serviceID="115" templateID="1" status="1" expireTime="1555090400" expireStatus="4" action="web" actionData="https://www.baidu.com"> 
+  <linear height="-2" width="410" orientation="vertical" platform="pc"> 
+    <linear height="-2" name="FirstLinear" width="-2"> 
+      <image width="30" height="30" src="http://file.qqkj.cn/upload/avatar/201410/29/21/11/54432855c9c14351.jpg%21200x200.jpg" name="imageTitle" margin="5" gravity="left|centerVertical"/>  
+      <text height="-2" width="285" text="报价单：03101" color="0x000000" size="13" style="bold" gravity="centerHorizontal|centerVertical" margin="5"/>  
+      <button width="-2" height="-2" name="btnViewDetail" text="查看详情>" normalColor="0xFFFF0000" highlightColor="0xFFFF0000" pushedColor="0xFFFF0000" margin="" gravity="right|centerVertical" normalBackgroundSrc="" highlightBackgroundSrc="" pushedBackgroundSrc="" enable="true" normalBackground="Transparent" highlightBackground="Transparent" pushedBackground="Transparent" action.pc="browser" actionData.pc="www.baidu.com"/> 
+    </linear>  
+    <linear width="-2" height="-2"> 
+      <text width="-2" height="-2" text="供应商名称：" name="providerName" gravity="centerHorizontal|centerVertical" margin="10,2,2,2" color="0x5e5e5e"/>  
+      <text width="-2" height="-2" text="常州市红标紧固件有限公司" name="Text3" gravity="centerHorizontal|centerVertical"/> 
+    </linear>  
+    <linear width="-2" height="-2"> 
+      <text width="-2" height="-2" text="供应商地址：" gravity="centerHorizontal|centerVertical" margin="10,2,2,2" color="0x5e5e5e"/>  
+      <text width="-2" height="-2" text="中国/江苏/常州市 武进区湖塘科技产业园A2" gravity="centerHorizontal|centerVertical"/> 
+    </linear>  
+    <linear width="-2" height="-2"> 
+      <text width="-2" height="-2" text="发货时间：" gravity="centerHorizontal|centerVertical" margin="10,2,2,2" color="0x5e5e5e"/>  
+      <text width="-2" height="-2" text="2018/09/20" gravity="centerHorizontal|centerVertical"/> 
+    </linear>  
+    <linear width="-2" height="-2"> 
+      <text width="-2" height="-2" text="联系电话：" gravity="centerHorizontal|centerVertical" margin="10,2,2,2" color="0x5e5e5e"/>  
+      <text width="-2" height="-2" text="1897557899" gravity="centerHorizontal|centerVertical"/> 
+    </linear>  
+    <linear width="-2" height="-2"> 
+      <text width="-2" height="-2" text="备注：" gravity="centerHorizontal|centerVertical" margin="10,2,2,2" color="0x5e5e5e"/>  
+      <text width="-2" height="-2" text="请在货物标满粘贴我司订单条码" gravity="centerHorizontal|centerVertical"/> 
+    </linear>  
+    <linear width="-2" height="-2"> 
+      <text width="-2" height="-2" text="..." gravity="centerHorizontal|centerVertical" margin="10,2,2,2" color="0x5e5e5e"/> 
+    </linear>  
+    <image width="-1" height="1" src="" margin="10,5,10,5" icon="divider"/>  
+    <linear height="-2" width="-2"> 
+      <linear height="-2" width="110" orientation="vertical" margin="10,0,0,0"> 
+        <text height="-2" width="-2" text="产品" color="0x5e5e5e" margin="5"/>  
+        <text height="-2" width="-2" text="冷轧卷/冷卷" margin="5"/>  
+        <text height="-2" width="-2" text="无花镀锌卷" margin="5"/>  
+        <text height="-2" width="-2" text="B0101X-主齿轮" margin="5"/>  
+        <text height="-2" width="-2" text="..." margin="5"/> 
+      </linear>  
+      <linear height="-2" width="60" orientation="vertical" margin="10,0,0,0"> 
+        <text height="-2" width="-2" text="编号" color="0x5e5e5e" margin="5"/>  
+        <text height="-2" width="-2" text="ST12-MB" margin="5"/>  
+        <text height="-2" width="-2" text="SGCC" margin="5"/>  
+        <text height="-2" width="-2" text="181225" margin="5"/>  
+        <text height="-2" width="-2" text="..." margin="5"/> 
+      </linear>  
+      <linear height="-2" width="60" orientation="vertical" margin="10,0,0,0"> 
+        <text height="-2" width="-2" text="数量" color="0x5e5e5e" margin="5"/>  
+        <text height="-2" width="-2" text="1000PCS" margin="5"/>  
+        <text height="-2" width="-2" text="600KG" margin="5"/>  
+        <text height="-2" width="-2" text="1000PCS" margin="5"/>  
+        <text height="-2" width="-2" text="..." margin="5"/> 
+      </linear>  
+      <linear height="-2" width="60" orientation="vertical" margin="10,0,0,0"> 
+        <text height="-2" width="-2" text="单价" color="0x5e5e5e" margin="5"/>  
+        <text height="-2" width="-2" text="1200" margin="5"/>  
+        <text height="-2" width="-2" text="1200" margin="5"/>  
+        <text height="-2" width="-2" text="1200" margin="5"/>  
+        <text height="-2" width="-2" text="..." margin="5"/> 
+      </linear>  
+      <linear height="-2" width="60" orientation="vertical" margin="10,0,0,0"> 
+        <text height="-2" width="-2" text="总价" color="0x5e5e5e" margin="5"/>  
+        <text height="-2" width="-2" text="313700" margin="5"/>  
+        <text height="-2" width="-2" text="250000" margin="5"/>  
+        <text height="-2" width="-2" text="313700" margin="5"/>  
+        <text height="-2" width="-2" text="..." margin="5"/> 
+      </linear> 
+    </linear>  
+    <linear width="-2" height="-2" gravity="right|centerVertical" margin="0,0,10,0"> 
+      <text width="-2" height="-2" text="总计：" margin="5" gravity="bottom|left"/>  
+      <text width="-2" height="-2" text="563700" margin="5" size="13" style="bold"/> 
+    </linear>  
+    <image width="-1" height="1" src="" margin="10,5,10,5" icon="divider"/>  
+    <linear width="-2" height="-2" gravity="right|centerVertical"> 
+      <button width="-2" height="-2" name="btnRefuse" text="拒绝" margin="10" normalColor="0xFF000000" highlightColor="0xFF000000" pushedColor="0xFF000000" normalBackground="WhiteNormal" highlightBackground="WhiteHover" pushedBackground="WhiteClick" status="1" action.pc="svrCmd" actionData.pc="testDataXXX" successStatus="3" failStatus="4"/>  
+      <button width="-2" height="-2" name="btnAccept" text="下单" margin="10" normalColor="0xFFFFFFFF" highlightColor="0xFFFFFFFF" pushedColor="0xFFFFFFFF" action.pc="websidebar" actionData.pc="qidian.qq.com//?sidebarwidth=500&amp;sidebarheight=600&amp;sidebartitletext=测试" status="1"/>  
+      <button width="80" height="25" name="button4" text="已成交" margin="10" normalColor="0xFFFFFFFF" highlightColor="0xFFFFFFFF" pushedColor="0xFFFFFFFF" enable="false" status="2"/>  
+      <button width="80" height="25" name="button5" text="已拒绝" margin="10" normalColor="0xFFFFFFFF" highlightColor="0xFFFFFFFF" pushedColor="0xFFFFFFFF" enable="false" status="3"/>  
+      <button width="80" height="25" name="button6" text="已失效" margin="10" normalColor="0xFFFFFFFF" highlightColor="0xFFFFFFFF" pushedColor="0xFFFFFFFF" status="4" enable="false"/> 
+    </linear> 
+  </linear>  
+<!--移动端版本-->
+  <linear width="-1" orientation="vertical" platform="mobile"> 
+    <linear width="-1" padding="28" orientation="vertical"> 
+      <linear width="-1" gravity="centerVertical"> 
+        <image width="80" height="80" cornerRadius="40" src="http://file.qqkj.cn/upload/avatar/201410/29/21/11/54432855c9c14351.jpg%21200x200.jpg" icon="user_default"/>  
+        <text width="0" weight="1" margin="16,0,0,0" text="报价单SZ20180803101" size="30" style="bold" maxLine="1"/>  
+        <image width="28" height="28" margin="10,0,0,0" icon="qidian_flex_arrow_right"/> 
+      </linear>  
+      <linear width="-1" margin="0,20,0,0"> 
+        <text text="供应商名称：" color="#FF9199AD"/>  
+        <text text="常州市红标紧固件有限公司"/> 
+      </linear>  
+      <linear width="-1" margin="0,10,0,0"> 
+        <text text="供应商地址：" color="#FF9199AD"/>  
+        <text text="中国/江苏/常州市 武进区湖塘科技产业园A2"/> 
+      </linear>  
+      <linear width="-1" margin="0,10,0,0"> 
+        <text text="发货时间：" color="#FF9199AD"/>  
+        <text text="2018/09/20"/> 
+      </linear>  
+      <linear width="-1" margin="0,10,0,0"> 
+        <text text="联系电话：" color="#FF9199AD"/>  
+        <text text="1897557899"/> 
+      </linear>  
+      <linear width="-1" margin="0,10,0,0"> 
+        <text text="备注：" color="#FF9199AD"/>  
+        <text text="请在货物标满粘贴我司订单条码"/> 
+      </linear>  
+      <text text="..."/>  
+      <divider width="-1" height="1" margin="0,10,0,6" style="dot"/>  
+      <fold width="-1" action="none" expand="0"> 
+        <container width="-1" height="60" gravity="left|centerVertical"> 
+          <image width="22" height="22" icon="qidian_flex_arrow_right"/>  
+          <text text="冷轧卷/冷卷" marginLeft="50"/> 
+        </container>  
+        <linear width="-1" orientation="vertical"> 
+          <container width="-1" height="60" gravity="left|centerVertical"> 
+            <image width="22" height="23" icon="qidian_flex_arrow_down"/>  
+            <text text="冷轧卷/冷卷" marginLeft="50"/> 
+          </container>  
+          <container width="-1" height="50" gravity="left|centerVertical"> 
+            <text text="编号" marginLeft="50" color="#FF9199AD"/>  
+            <text text="ST12-MB" marginLeft="150"/> 
+          </container>  
+          <container width="-1" height="50" gravity="left|centerVertical"> 
+            <text text="数量" marginLeft="50" color="#FF9199AD"/>  
+            <text text="1000PCS" marginLeft="150"/> 
+          </container>  
+          <container width="-1" height="50" gravity="left|centerVertical"> 
+            <text text="单价" marginLeft="50" color="#FF9199AD"/>  
+            <text text="1200" marginLeft="150"/> 
+          </container>  
+          <container width="-1" height="50" gravity="left|centerVertical"> 
+            <text text="总价" marginLeft="50" color="#FF9199AD"/>  
+            <text text="313700" marginLeft="150"/> 
+          </container> 
+        </linear> 
+      </fold>  
+      <fold width="-1" action="none" expand="0"> 
+        <container width="-1" height="60" gravity="left|centerVertical"> 
+          <image width="22" height="22" icon="qidian_flex_arrow_right"/>  
+          <text text="无花镀锌卷" marginLeft="50"/> 
+        </container>  
+        <linear width="-1" orientation="vertical"> 
+          <container width="-1" height="60" gravity="left|centerVertical"> 
+            <image width="22" height="23" icon="qidian_flex_arrow_down"/>  
+            <text text="无花镀锌卷" marginLeft="50"/> 
+          </container>  
+          <container width="-1" height="50" gravity="left|centerVertical"> 
+            <text text="编号" marginLeft="50" color="#FF9199AD"/>  
+            <text text="SGCC" marginLeft="150"/> 
+          </container>  
+          <container width="-1" height="50" gravity="left|centerVertical"> 
+            <text text="数量" marginLeft="50" color="#FF9199AD"/>  
+            <text text="600KG" marginLeft="150"/> 
+          </container>  
+          <container width="-1" height="50" gravity="left|centerVertical"> 
+            <text text="单价" marginLeft="50" color="#FF9199AD"/>  
+            <text text="1100" marginLeft="150"/> 
+          </container>  
+          <container width="-1" height="50" gravity="left|centerVertical"> 
+            <text text="总价" marginLeft="50" color="#FF9199AD"/>  
+            <text text="250000" marginLeft="150"/> 
+          </container> 
+        </linear> 
+      </fold>  
+      <fold width="-1" action="none" expand="0"> 
+        <container width="-1" height="60" gravity="left|centerVertical"> 
+          <image width="22" height="22" icon="qidian_flex_arrow_right"/>  
+          <text text="B0101X-主齿轮" marginLeft="50"/> 
+        </container>  
+        <linear width="-1" orientation="vertical"> 
+          <container width="-1" height="60" gravity="left|centerVertical"> 
+            <image width="22" height="23" icon="qidian_flex_arrow_down"/>  
+            <text text="B0101X-主齿轮" marginLeft="50"/> 
+          </container>  
+          <container width="-1" height="50" gravity="left|centerVertical"> 
+            <text text="编号" marginLeft="50" color="#FF9199AD"/>  
+            <text text="181225" marginLeft="150"/> 
+          </container>  
+          <container width="-1" height="50" gravity="left|centerVertical"> 
+            <text text="数量" marginLeft="50" color="#FF9199AD"/>  
+            <text text="1000PCS" marginLeft="150"/> 
+          </container>  
+          <container width="-1" height="50" gravity="left|centerVertical"> 
+            <text text="单价" marginLeft="50" color="#FF9199AD"/>  
+            <text text="1200" marginLeft="150"/> 
+          </container>  
+          <container width="-1" height="50" gravity="left|centerVertical"> 
+            <text text="总价" marginLeft="50" color="#FF9199AD"/>  
+            <text text="313700" marginLeft="150"/> 
+          </container> 
+        </linear> 
+      </fold>  
+      <text text="..." marginLeft="50"/>  
+      <linear width="-1" gravity="right|bottom"> 
+        <text text="总价：" margin="0,0,0,4" size="20"/>  
+        <text text="563700" size="36"/> 
+      </linear> 
+    </linear>  
+    <divider width="-1" height="1"/>  
+    <linear width="-1"> 
+      <linear width="-1" height="80" status="1"> 
+        <button width="0" height="-1" weight="1" action="svrCmd" actionData="mqqwpa://im/qdmenu?version=1&amp;src_type=app&amp;isNeedReply=true&amp;isExt=false&amp;QidianKfUin=2852199818&amp;QidianPubID=0&amp;VerNo=1543289718&amp;menuId=17&amp;menutp=3" successStatus="2" text="拒绝" backgroundIcon="aio_structmsg_button_bg_left"/>  
+        <divider width="1" height="-1"/>  
+        <button width="0" height="-1" weight="1" action="svrCmd" actionData="mqqwpa://im/qdmenu?version=1&amp;src_type=app&amp;isNeedReply=true&amp;isExt=false&amp;QidianKfUin=2852199818&amp;QidianPubID=0&amp;VerNo=1543289718&amp;menuId=17&amp;menutp=3" successStatus="3" text="下单" backgroundIcon="aio_structmsg_button_bg_right"/> 
+      </linear>  
+      <linear width="-1" height="80" status="2"> 
+        <button width="-1" height="-1" color="#FFAFB5C3" enable="false" text="已拒绝" backgroundIcon="aio_structmsg_item_bottom"/> 
+      </linear>  
+      <linear width="-1" height="80" status="3"> 
+        <button width="-1" height="-1" color="#FFAFB5C3" enable="false" text="已成交" backgroundIcon="aio_structmsg_item_bottom"/> 
+      </linear>  
+      <linear width="-1" height="80" status="4"> 
+        <button width="-1" height="-1" color="#FFAFB5C3" enable="false" text="已失效" backgroundIcon="aio_structmsg_item_bottom"/> 
+      </linear> 
+    </linear> 
+  </linear> 
+</msg>
