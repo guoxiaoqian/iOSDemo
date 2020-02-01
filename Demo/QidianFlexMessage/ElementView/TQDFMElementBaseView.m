@@ -28,10 +28,8 @@
 
 @interface TQDFMElementBaseView ()
 
-@property (strong,nonatomic) TQDFMElementBase *baseMsg;
-@property (strong,nonatomic) NSMutableArray* elementViews;
-@property (strong,nonatomic) TQDFMEvent* actionEvent;
 @property (assign,nonatomic) BOOL isHandleTouch;
+@property (strong,nonatomic) TQDFMEvent* actionEvent;
 
 @end
 
@@ -256,8 +254,8 @@
         // 优先复用子元素视图
         TQDFMElementBaseView *elementView = nil;
 #if TQDFM_REUSE_VIEW
-        if ([element shouldReuse] && [element.layoutContext.cell respondsToSelector:@selector(dequeueReusableElementViewWithIdentifier:)]) {
-            elementView = (TQDFMElementBaseView *)[element.layoutContext.cell dequeueReusableElementViewWithIdentifier:element.reuseIdentifier];
+        if ([element shouldReuse] && [element.layoutContext.cell respondsToSelector:@selector(fm_dequeueReusableElementViewWithIdentifier:)]) {
+            elementView = (TQDFMElementBaseView *)[element.layoutContext.cell fm_dequeueReusableElementViewWithIdentifier:element.reuseIdentifier];
         }
 #endif
         if (!elementView) {
@@ -267,16 +265,13 @@
         // 渲染子元素
         elementView.frame = element.layoutFrame;
         [elementView renderQDFMElement:element];
-        
-        // 事件响应支持
-        elementView.actionDelegate = self.actionDelegate;
-        
+                
         // 添加子元素视图
         if (elementView != nil) {
             [self addSubview:elementView];
             [_elementViews addObject:elementView];
         } else {
-            TQDFM_INFOP_ASSERT_ELEMENT(element, @"create element view failed");
+            TQDFM_EVENT_ELEMENT(element, @"create element view failed");
         }
     }
     
@@ -311,6 +306,15 @@
 
 - (NSString *)reuseIdentifier {
     return ((TQDFMElementBase*)self.baseMsg).reuseIdentifier;
+}
+
+#pragma mark - ReLayout
+
+- (void)markDirtyAndReLayout {
+    self.baseMsg.layoutContext.isDirty = YES;
+    if ([self.baseMsg.layoutContext.cell respondsToSelector:@selector(fm_reLayout)]) {
+        [self.baseMsg.layoutContext.cell fm_reLayout];
+    }
 }
 
 #pragma mark - Event
@@ -384,7 +388,7 @@
     
     if (_actionEvent != nil) {
         // 自己有事件，直接抛给事件处理者
-        [self.actionDelegate TQDFMElementView:self didAction:_actionEvent];
+        [self handleEvent:_actionEvent];
         return YES;
     } else {
         // 自己没事件，尝试抛给父视图处理
@@ -392,6 +396,26 @@
             [((TQDFMElementBaseView*)self.superview) didAction:point];
         }
         return NO;
+    }
+}
+
+- (void)handleEvent:(TQDFMEvent*)event {
+    
+    if ([event.action isEqualToString:@"expand"]) {    // Fold展开操作
+        //找到父元素为fold的,并修改expand属性
+        if ([self.baseMsg isKindOfClass:[TQDFMElementBase class]]) {
+            TQDFMElementFold* foldElement = (TQDFMElementFold*)[((TQDFMElementBase*)self.baseMsg) findFirstParentElementOfClass:[TQDFMElementFold class]];
+            if (foldElement) {
+                foldElement.expand = foldElement.expand.intValue == 0 ? @"1" : @"0";
+                //重新布局
+                [self markDirtyAndReLayout];
+                return;
+            }
+        }
+    } else { //其他事件扔给代理处理
+        if ([self.baseMsg.layoutContext.cell respondsToSelector:@selector(fm_elementView:didAction:)]) {
+            [self.baseMsg.layoutContext.cell fm_elementView:self didAction:event];
+        }
     }
 }
 

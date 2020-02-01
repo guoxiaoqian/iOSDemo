@@ -12,6 +12,7 @@
 
 #import "TQDFMElementFoldView.h"
 #import "TQDFMElementBase.h"
+#import "TQDFMEvent.h"
 
 @implementation TQDFMElementFoldView
 

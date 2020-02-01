@@ -32,8 +32,8 @@
 }
 
 - (void)log:(NSString*)logStr {
-    if ([self.delegate respondsToSelector:@selector(onFMLog:)]) {
-        [self.delegate onFMLog:logStr];
+    if ([self.delegate respondsToSelector:@selector(fm_log:)]) {
+        [self.delegate fm_log:logStr];
     } else {
         NSLog(@"FMLog: %@",logStr);
     }
@@ -95,8 +95,8 @@
 }
 
 - (void)loadImageAsyncWithUrl:(NSString*)url complete:(void(^)(UIImage* image, NSError* error))complete {
-    if ([self.delegate respondsToSelector:@selector(onFMLoadImageAsyncWithUrl:complete:)]) {
-        [self.delegate onFMLoadImageAsyncWithUrl:url complete:complete];
+    if ([self.delegate respondsToSelector:@selector(fm_loadImageAsyncWithUrl:complete:)]) {
+        [self.delegate fm_loadImageAsyncWithUrl:url complete:complete];
     }
 }
 

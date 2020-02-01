@@ -31,8 +31,7 @@
 //日志
 #define TQDFM_EVENT(str) [[TQDFMPlatformBridge sharedInstance] log:str]; //QLog_Event("Qidian_Flex", "%s",[str UTF8String]);
 #define TQDFM_INFOP(str) [[TQDFMPlatformBridge sharedInstance] log:str];//QLog_InfoP("Qidian_Flex", "%s",[str UTF8String]);
-#define TQDFM_INFOP_ASSERT(str) TQDFM_INFOP(str); \
-                                NSLog(str);//NSAssert(NO,str);
+#define TQDFM_INFOP_ASSERT(str) TQDFM_INFOP(str);NSLog(str);//NSAssert(NO,str);
 
 #define TQDFM_ELEMENT_LOGSTR(element, logStr) ([NSString stringWithFormat:@"%@ -- element:%@", logStr, element])
 #define TQDFM_EVENT_ELEMENT(element, logStr)  TQDFM_EVENT(TQDFM_ELEMENT_LOGSTR(element, logStr));

@@ -18,31 +18,34 @@
 
 @implementation TestMessageModel
 
-- (BOOL)isFMSender {
+- (BOOL)fm_isSelfSender {
     return YES;
 }
-- (NSString*)getFMXMLContent {
+- (NSString*)fm_getXMLContent {
     NSURL* xmlURL = [[NSBundle mainBundle] URLForResource:@"Demo" withExtension:@"xml"];
     NSData* data = [NSData dataWithContentsOfURL:xmlURL];
     NSString* xmlContent = [[NSString alloc] initWithCString:data.bytes encoding:NSUTF8StringEncoding];
     return xmlContent;
 }
 
-- (NSString*)getFMUIStatus {
+- (NSString*)fm_getUIStatus {
     return @"1";
 }
 
-- (TQDFMMessageLoadStatus)getFMLoadStatus {
+- (TQDFMMessageLoadStatus)fm_getLoadStatus {
     return TQDFMMessageLoadStatus_Success;
 }
 
 @end
 
-@interface FlexMessageVC ()
+@interface FlexMessageVC () <TQDFMMessageCell>
 
 @property (strong,nonatomic) TestMessageModel* msgModel;
 @property (strong,nonatomic) TQDFMLayoutTree* layoutTree;
 @property (strong,nonatomic) TQDFMElementMsg* flexMsg;
+
+@property (strong,nonatomic) UIView* flexMsgView;
+
 
 @end
 
@@ -58,6 +61,16 @@
     self.msgModel = [TestMessageModel new];
     self.layoutTree = [[TQDFMLayoutTree alloc] initWithMessageModel:self.msgModel elementTree:nil];
     self.flexMsg = self.layoutTree.elementTree;
+    self.layoutTree.layoutContext.cell = self;
+  
+    [self fm_reLayout];
+}
+
+- (void)fm_reLayout {
+    if (self.flexMsgView) {
+        [self.flexMsgView removeFromSuperview];
+        self.flexMsgView = nil;
+    }
     
     //开始布局
     CGSize maxSize = CGSizeMake([UIScreen mainScreen].bounds.size.width,MAXFLOAT);
@@ -68,8 +81,8 @@
     TQDFMElementBaseView* msgView = [TQDFMElementBaseView createQDFMElementView:self.flexMsg withFrame:rectForMsg];
     [msgView renderQDFMElement:self.flexMsg];
     
+    self.flexMsgView = msgView;
     [self.view addSubview:msgView];
-    
 }
 
 

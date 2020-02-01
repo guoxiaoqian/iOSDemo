@@ -21,7 +21,7 @@
 
 @implementation TQDFMLayoutTree
 
-- (instancetype)initWithMessageModel:(id<TQDFMMessageModel>)messageModel elementTree:(TQDFMElementMsg*)elementTree {
+- (instancetype)initWithMessageModel:(id<TQDFMMessageModel>)messageModel elementTree:(nullable TQDFMElementMsg*)elementTree {
     if (self = [super init]) {
         self.msgModel = messageModel;
         NSString* content = nil;
@@ -30,7 +30,7 @@
         
         if (elementTree == nil) {
             
-            content = [messageModel getFMXMLContent];
+            content = [messageModel fm_getXMLContent];
             
             hasXmlContent = content.length > 0;
             
@@ -61,7 +61,7 @@
             // 辅助状态: 优先用ExInfo里存储的status,其次是结构化消息初始的status
             layoutContext.status = elementTree.attributes[@"status"];
             //            NSString* uiStatus = [messageModel.exInfo getQidianFlexMessageUIStatus];
-            NSString* uiStatus = [messageModel getFMUIStatus];
+            NSString* uiStatus = [messageModel fm_getUIStatus];
             
             if (uiStatus.length > 0) {
                 layoutContext.status = uiStatus;
@@ -91,7 +91,7 @@
             //                layoutContext.isHolder = NO;
             //            }
             
-            TQDFMMessageLoadStatus loadStaus = [messageModel getFMLoadStatus];
+            TQDFMMessageLoadStatus loadStaus = [messageModel fm_getLoadStatus];
             if (loadStaus == TQDFMMessageLoadStatus_NotLoad || loadStaus == TQDFMMessageLoadStatus_Fail) {
                 TQDFMElementLoadingHolder *holder  = [TQDFMElementLoadingHolder new];
                 holder.loadStatus = loadStaus;

@@ -10,16 +10,11 @@
 @class TQDFMElementBaseView;
 @class TQDFMEvent;
 
-@protocol TQDFMElementViewDelegate <NSObject>
-@required
-- (void)TQDFMElementView:(TQDFMElementBaseView *)elementView didAction:(TQDFMEvent*)event;
-
-@end
-
 @interface TQDFMElementBaseView : UIView
 
-@property (nonatomic, weak) id<TQDFMElementViewDelegate> actionDelegate;
 @property (nonatomic, assign) BOOL highlighted;
+@property (strong,nonatomic) TQDFMElementBase *baseMsg;
+@property (strong,nonatomic) NSMutableArray* elementViews;
 
 #pragma mark - Common Layout & Render
 
@@ -37,6 +32,10 @@
 + (CGSize)layoutSpecialQDFMElement:(TQDFMElementBase *)baseMsg withMaxSize:(CGSize)maxSize;
 
 - (void)renderSpecialQDFMElement:(TQDFMElementBase *)baseMsg;
+
+#pragma mark - Event
+
+- (void)handleEvent:(TQDFMEvent*)event;
 
 #pragma mark - Reuse
 

@@ -260,11 +260,11 @@
         return YES;
     }
     
-    if (_senderNotShow && [_senderNotShow boolValue] && self.layoutContext.msgModel.isFMSender == YES) {
+    if (_senderNotShow && [_senderNotShow boolValue] && self.layoutContext.msgModel.fm_isSelfSender == YES) {
         return YES;
     }
     
-    if (_receiverNotShow && [_receiverNotShow boolValue] && self.layoutContext.msgModel.isFMSender == NO) {
+    if (_receiverNotShow && [_receiverNotShow boolValue] && self.layoutContext.msgModel.fm_isSelfSender == NO) {
         return YES;
     }
     

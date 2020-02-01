@@ -24,6 +24,7 @@
     [parser parse];
     
     if ([self.rootElem isKindOfClass:[TQDFMElementMsg class]] == NO) {
+        TQDFM_EVENT(@"[parse] root elem is invalid");
         return nil;
     }
     
@@ -76,11 +77,19 @@
     self.elemStack = nil;
 }
 
+- (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
+    TQDFM_EVENT(@"[parse] parseErrorOccurred");
+}
+
+- (void)parser:(NSXMLParser *)parser validationErrorOccurred:(NSError *)validationError {
+    TQDFM_EVENT(@"[parse] validationErrorOccurred");
+}
+
 //MARK: - Create Node
 
 + (TQDFMElementBase*)createNodeWithElementName:(NSString *)elementName {
     if ([elementName length] < 1) {
-        TQDFM_INFOP_ASSERT(@"empty elementName");
+        TQDFM_EVENT( ([NSString stringWithFormat: @"[parse] empty elementName %@",elementName]) );
         return nil;
     }
     
@@ -93,13 +102,13 @@
     if (nil == TQDFMNodeClass) {
         isUnknownElement = YES;
         TQDFMNodeClass = [TQDFMElementBase class];
-        TQDFM_INFOP_ASSERT( ([NSString stringWithFormat:@"unknwon element %@",elementName]) );
+        TQDFM_EVENT( ([NSString stringWithFormat:@"[parse] unknwon element %@",elementName]) );
     }
     
     if ([TQDFMNodeClass isSubclassOfClass:[TQDFMElementBase class]] == NO) {
         isUnknownElement = YES;
         TQDFMNodeClass = [TQDFMElementBase class];
-        TQDFM_INFOP_ASSERT(([NSString stringWithFormat:@"wrong element %@",elementName]));
+        TQDFM_EVENT(([NSString stringWithFormat:@"[parse] wrong element %@",elementName]));
     }
     
     TQDFMElementBase* element = [[TQDFMNodeClass alloc] initWithElementName:elementName];

@@ -12,8 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TQDFMEvent : NSObject
 
-@property (nonatomic, retain) NSString *action;
-@property (nonatomic, retain) NSString *actionData;
+@property (nonatomic, strong) NSString *action;
+@property (nonatomic, strong) NSString *actionData;
 
 @end
 

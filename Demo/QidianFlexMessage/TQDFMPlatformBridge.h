@@ -18,25 +18,34 @@ typedef NS_ENUM(NSUInteger, TQDFMMessageLoadStatus) {
 
 @protocol TQDFMMessageModel <NSObject>
 
-- (BOOL)isFMSender;
-- (NSString*)getFMXMLContent;
-- (NSString*)getFMUIStatus; //支持UI状态切换
-- (TQDFMMessageLoadStatus)getFMLoadStatus; //加载中/加载失败
+- (BOOL)fm_isSelfSender;
+- (NSString*)fm_getXMLContent;
+- (NSString*)fm_getUIStatus; //支持UI状态切换
+- (TQDFMMessageLoadStatus)fm_getLoadStatus; //加载中/加载失败
 
 @end
 
+@class TQDFMElementBaseView;
+@class TQDFMEvent;
 @protocol TQDFMMessageCell <NSObject>
 
-- (UIView*)dequeueReusableElementViewWithIdentifier:(NSString*)identifier;
+//视图刷新
+- (void)fm_reLayout;
+
+//视图复用
+- (UIView*)fm_dequeueReusableElementViewWithIdentifier:(NSString*)identifier;
+
+//事件处理
+- (void)fm_elementView:(TQDFMElementBaseView *)elementView didAction:(TQDFMEvent*)event;
 
 @end
 
 
 @protocol TQDFMPlatformBridgeDelegate <NSObject>
 
-- (void)onFMLog:(NSString*)logStr;
+- (void)fm_log:(NSString*)logStr;
 
-- (void)onFMLoadImageAsyncWithUrl:(NSString*)url complete:(void(^)(UIImage* image, NSError* error))complete;
+- (void)fm_loadImageAsyncWithUrl:(NSString*)url complete:(void(^)(UIImage* image, NSError* error))complete;
 @end
 
 @interface TQDFMPlatformBridge : NSObject
