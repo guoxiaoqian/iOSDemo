@@ -569,7 +569,16 @@
 
 @end
 
+
 @implementation TQDFMElementLoadingHolder
+
+-(instancetype)initWithElementName:(NSString *)elementName {
+    if (self = [super initWithElementName:elementName]) {
+        self.width =  -1;
+        self.height = 75 * 2; //固定高度
+    }
+    return self;
+}
 
 @end
 

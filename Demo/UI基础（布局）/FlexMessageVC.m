@@ -14,8 +14,6 @@
 
 @interface TestMessageModel : NSObject <TQDFMMessageDataSource>
 
-@property (strong,nonatomic) NSString* flexMsgUIStatus;
-
 @end
 
 @implementation TestMessageModel
@@ -32,7 +30,7 @@
 }
 
 - (NSString*)fm_getUIStatus {
-    return self.flexMsgUIStatus;
+    return nil;
 }
 
 - (TQDFMMessageLoadStatus)fm_getLoadStatus {
@@ -45,7 +43,6 @@
 
 @property (strong,nonatomic) TestMessageModel* msgModel;
 @property (strong,nonatomic) TQDFMLayoutTree* layoutTree;
-
 @property (strong,nonatomic) TQDFMElementBaseView* flexMsgView;
 
 
@@ -57,7 +54,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor greenColor];
     
     //构建元素树
     self.msgModel = [TestMessageModel new];
@@ -79,7 +76,7 @@
     CGSize fitSize = [TQDFMElementBaseView layoutQDFMElement:elementTree withMaxSize:maxSize];
     
     //开始渲染
-    CGRect rectForMsg = CGRectMake(0,0,fitSize.width,fitSize.height);
+    CGRect rectForMsg = CGRectMake(0,100,fitSize.width,fitSize.height);
     TQDFMElementBaseView* msgView = [TQDFMElementBaseView createQDFMElementView:elementTree withFrame:rectForMsg];
     [msgView renderQDFMElement:elementTree];
     

@@ -54,7 +54,7 @@
             // 加载中和加载失败效果
             TQDFMMessageLoadStatus loadStaus = [messageModel fm_getLoadStatus];
             if (loadStaus == TQDFMMessageLoadStatus_NotLoad || loadStaus == TQDFMMessageLoadStatus_Fail) {
-                TQDFMElementLoadingHolder *holder  = [TQDFMElementLoadingHolder new];
+                TQDFMElementLoadingHolder *holder  = [[TQDFMElementLoadingHolder alloc] initWithElementName:@"loadingHolder"];
                 holder.loadStatus = loadStaus;
                 elementTree.subElements = [NSMutableArray arrayWithObject:holder];
                 layoutContext.isHolder = YES;
