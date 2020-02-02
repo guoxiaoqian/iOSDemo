@@ -190,6 +190,7 @@
 		887601A523E4367100B12706 /* qidian_flex_arrow_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8876019E23E4367100B12706 /* qidian_flex_arrow_right@2x.png */; };
 		887601A623E4367100B12706 /* aio_image_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8876019F23E4367100B12706 /* aio_image_default@2x.png */; };
 		887E4FDD21D4682D004FB380 /* TableViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 887E4FDC21D4682D004FB380 /* TableViewVC.m */; };
+		88872FD623E70865000983DF /* TQDFMElementScrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88872FD523E70865000983DF /* TQDFMElementScrollerView.m */; };
 		8887A3721EA83E6D005EEFAE /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8887A3711EA83E6D005EEFAE /* UserNotifications.framework */; };
 		8887A3B31EAEC8C7005EEFAE /* H5VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8887A3B11EAEC8C7005EEFAE /* H5VC.m */; };
 		8887A3B41EAEC8C7005EEFAE /* H5VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8887A3B21EAEC8C7005EEFAE /* H5VC.xib */; };
@@ -754,6 +755,8 @@
 		8876019F23E4367100B12706 /* aio_image_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aio_image_default@2x.png"; sourceTree = "<group>"; };
 		887E4FDB21D4682D004FB380 /* TableViewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewVC.h; sourceTree = "<group>"; };
 		887E4FDC21D4682D004FB380 /* TableViewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewVC.m; sourceTree = "<group>"; };
+		88872FD423E70865000983DF /* TQDFMElementScrollerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQDFMElementScrollerView.h; sourceTree = "<group>"; };
+		88872FD523E70865000983DF /* TQDFMElementScrollerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQDFMElementScrollerView.m; sourceTree = "<group>"; };
 		8887A3711EA83E6D005EEFAE /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		8887A37B1EA98C5C005EEFAE /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
 		8887A37C1EA98C5C005EEFAE /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
@@ -1536,6 +1539,8 @@
 				88920A8723E47D0400CA94D5 /* TQDFMElementMsgView.m */,
 				88920A8323E4715500CA94D5 /* TQDFMElementLoadingHolderView.h */,
 				88920A8423E4715500CA94D5 /* TQDFMElementLoadingHolderView.m */,
+				88872FD423E70865000983DF /* TQDFMElementScrollerView.h */,
+				88872FD523E70865000983DF /* TQDFMElementScrollerView.m */,
 			);
 			path = ElementView;
 			sourceTree = "<group>";
@@ -2476,6 +2481,7 @@
 				8876019223E3FF6600B12706 /* TQDFMXMLParser.m in Sources */,
 				887E4FDD21D4682D004FB380 /* TableViewVC.m in Sources */,
 				886860BA2172453000C88C1A /* RACGroupedSignal.m in Sources */,
+				88872FD623E70865000983DF /* TQDFMElementScrollerView.m in Sources */,
 				886860D22172453000C88C1A /* RACSubscriptingAssignmentTrampoline.m in Sources */,
 				88C32E8F1E66BFF1002753FC /* FMDBVC.m in Sources */,
 				8827391B1FCAF78E0011BC0B /* Singleton.m in Sources */,

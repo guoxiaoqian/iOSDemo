@@ -160,6 +160,10 @@ typedef enum : NSUInteger {
 
 @end
 
+@interface TQDFMElementScroller : TQDFMElementLinear
+
+@end
+
 @interface TQDFMElementFold : TQDFMElementBase
 
 @property (nonatomic,strong) NSString* expand;

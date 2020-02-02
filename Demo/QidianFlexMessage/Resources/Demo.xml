@@ -199,7 +199,11 @@
         <text text="总价：" margin="0,0,0,4" size="20"/>  
         <text text="563700" size="36"/> 
       </linear> 
-    </linear>  
+    </linear>
+    <scroller width="-1">
+        <container width="-1" height="100" background="#FF0000FF"></container>
+        <container width="-1" height="100" background="#FF00FFFF"></container>
+    </scroller>
     <divider width="-1" height="1"/>  
     <linear width="-1"> 
       <linear width="-1" height="80" status="1"> 

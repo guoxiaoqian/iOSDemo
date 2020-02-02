@@ -12,19 +12,7 @@
 
 #import "TQDFMElementBaseView.h"
 #import "TQDFMEvent.h"
-#import "TQDFMElementLinearView.h"
-#import "TQDFMElementContainerView.h"
-#import "TQDFMElementFoldView.h"
-#import "TQDFMElementTextView.h"
-#import "TQDFMElementImageView.h"
-#import "TQDFMElementButtonView.h"
-#import "TQDFMElementDividerView.h"
 #import "TQDFMElementBase.h"
-#import "TQDFMElementText.h"
-#import "TQDFMElementButton.h"
-#import "TQDFMElementImage.h"
-#import "TQDFMElementLoadingHolderView.h"
-#import "TQDFMElementMsgView.h"
 
 @interface TQDFMElementBaseView ()
 
@@ -46,25 +34,13 @@
 #pragma mark - Common Layout & Render
 
 + (TQDFMElementBaseView *)createQDFMElementView:(TQDFMElementBase *)baseMsg withFrame:(CGRect)frame {
+    
     TQDFMElementBaseView *baseView = nil;
-    if ([baseMsg isKindOfClass:[TQDFMElementLinear class]]) {
-        baseView = [[TQDFMElementLinearView alloc] initWithFrame:frame];
-    } else if ([baseMsg isKindOfClass:[TQDFMElementContainer class]]) {
-        baseView = [[TQDFMElementContainerView alloc] initWithFrame:frame];
-    } else if ([baseMsg isKindOfClass:[TQDFMElementFold class]]) {
-        baseView = [[TQDFMElementFoldView alloc] initWithFrame:frame];
-    } else if ([baseMsg isKindOfClass:[TQDFMElementButton class]]) {
-        baseView = [[TQDFMElementButtonView alloc] initWithFrame:frame];
-    } else if ([baseMsg isKindOfClass:[TQDFMElementText class]]) {
-        baseView = [[TQDFMElementTextView alloc] initWithFrame:frame];
-    } else if ([baseMsg isKindOfClass:[TQDFMElementImage class]]) {
-        baseView = [[TQDFMElementImageView alloc] initWithFrame:frame];
-    } else if ([baseMsg isKindOfClass:[TQDFMElementDivider class]]) {
-        baseView = [[TQDFMElementDividerView alloc] initWithFrame:frame];
-    } else if ([baseMsg isKindOfClass:[TQDFMElementLoadingHolder class]]) {
-        baseView = [[TQDFMElementLoadingHolderView alloc] initWithFrame:frame];
-    }  else if ([baseMsg isKindOfClass:[TQDFMElementMsg class]]) {
-        baseView = [[TQDFMElementMsgView alloc] initWithFrame:frame];
+    NSString* elemClassStr = NSStringFromClass(baseMsg.class);
+    Class elemViewClass = NSClassFromString([elemClassStr stringByAppendingString:@"View"]);
+    
+    if (elemViewClass) {
+        baseView = [[elemViewClass alloc] initWithFrame:frame];
     } else {
         TQDFM_INFOP_ELEMENT(baseMsg,@"Unknow Element Type");
         baseView = [[TQDFMElementBaseView alloc] initWithFrame:frame];
@@ -146,23 +122,11 @@
             adjustedMaxSize.height = ceilf(baseMsg.layoutFrame.size.height);
         }
         
-        // 调用特殊类型的布局接口
-        if ([baseMsg isKindOfClass:[TQDFMElementLinear class]]){
-            [TQDFMElementLinearView layoutSpecialQDFMElement:(TQDFMElementLinear*)baseMsg withMaxSize:adjustedMaxSize];
-        } else if ([baseMsg isKindOfClass:[TQDFMElementContainer class]]){
-            [TQDFMElementContainerView layoutSpecialQDFMElement:(TQDFMElementContainer*)baseMsg withMaxSize:adjustedMaxSize];
-        } else if ([baseMsg isKindOfClass:[TQDFMElementFold class]]){
-            [TQDFMElementFoldView layoutSpecialQDFMElement:(TQDFMElementFold*)baseMsg withMaxSize:adjustedMaxSize];
-        } else if ([baseMsg isKindOfClass:[TQDFMElementButton class]]) { // Button可能继承Text，放在前面
-            [TQDFMElementButtonView layoutSpecialQDFMElement:(TQDFMElementButton*)baseMsg withMaxSize:adjustedMaxSize];
-        } else if ([baseMsg isKindOfClass:[TQDFMElementText class]]){
-            [TQDFMElementTextView layoutSpecialQDFMElement:(TQDFMElementText*)baseMsg withMaxSize:adjustedMaxSize];
-        } else if ([baseMsg isKindOfClass:[TQDFMElementImage class]]) {
-            [TQDFMElementImageView layoutSpecialQDFMElement:(TQDFMElementImage*)baseMsg withMaxSize:adjustedMaxSize];
-        } else if ([baseMsg isKindOfClass:[TQDFMElementLoadingHolder class]]) {
-            [TQDFMElementLoadingHolderView layoutSpecialQDFMElement:(TQDFMElementLoadingHolder*)baseMsg withMaxSize:adjustedMaxSize];
-        } else if ([baseMsg isKindOfClass:[TQDFMElementMsg class]]) {
-            [TQDFMElementMsgView layoutSpecialQDFMElement:(TQDFMElementMsg*)baseMsg withMaxSize:adjustedMaxSize];
+        //        // 调用特殊类型的布局接口
+        NSString* elemClassStr = NSStringFromClass(baseMsg.class);
+        Class elemViewClass = NSClassFromString([elemClassStr stringByAppendingString:@"View"]);
+        if (elemViewClass && [elemViewClass respondsToSelector:@selector(layoutSpecialQDFMElement:withMaxSize:)]) {
+            [elemViewClass layoutSpecialQDFMElement:baseMsg withMaxSize:adjustedMaxSize];
         }
         
         // 再检查一遍宽高比, 若有调整则重试一遍子元素布局
@@ -265,10 +229,10 @@
         // 渲染子元素
         elementView.frame = element.layoutFrame;
         [elementView renderQDFMElement:element];
-                
+        
         // 添加子元素视图
         if (elementView != nil) {
-            [self addSubview:elementView];
+            [[self contentViewToRenderChildren] addSubview:elementView];
             [_elementViews addObject:elementView];
         } else {
             TQDFM_EVENT_ELEMENT(element, @"create element view failed");
@@ -277,7 +241,7 @@
     
     // STEP4: 设置事件
     if (baseMsg.action.length > 0) {
-       _actionEvent = [[TQDFMEvent alloc] init];
+        _actionEvent = [[TQDFMEvent alloc] init];
         _actionEvent.action = baseMsg.action;
         _actionEvent.actionData = baseMsg.actionData;
     }
@@ -291,6 +255,10 @@
 
 - (void)renderSpecialQDFMElement:(TQDFMElementBase *)baseMsg {
     return;
+}
+
+- (UIView*)contentViewToRenderChildren {
+    return self;
 }
 
 #pragma mark - Reuse
@@ -340,7 +308,7 @@
     if ([self shouldRespondToTouch:point]) {
         [self setHighlighted:YES];
         [self performSelector:@selector(setHighlighted:) withObject:nil afterDelay:0.3];
-
+        
     } else {
         
         if ([self shouldDeliverEventToNextResponder]) {
@@ -354,16 +322,18 @@
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    UITouch* touch = [touches anyObject];
+    CGPoint  point = [touch locationInView:self];
     if (_isHandleTouch == NO) {
         // 抛给上一层处理
-        [self setHighlighted:NO];
+        if ([self shouldRespondToTouch:point]) {
+            [self setHighlighted:NO];
+        }
         
         [super touchesEnded:touches withEvent:event];
         return;
     }
     
-    UITouch* touch = [touches anyObject];
-    CGPoint  point = [touch locationInView:self];
     _isHandleTouch = NO;
     
     [self didAction:point];
@@ -580,7 +550,7 @@
                 [baseMsg setLayoutFrameHeight:maxHeightConsumedByChild + extraPadding];
             } else {
                 //父Wrap,子Match，应该把子压成0，跟Android表现一致
-//                [baseMsg setLayoutFrameHeight:maxAvailableHeight];
+                //                [baseMsg setLayoutFrameHeight:maxAvailableHeight];
                 [baseMsg setLayoutFrameHeight:extraPadding];
             }
         }
@@ -605,7 +575,7 @@
                 [baseMsg setLayoutFrameWidth:maxWidthConsumedByChild + extraPadding];
             } else {
                 //父Wrap,子Match，应该把子压成0，跟Android表现一致
-//                [baseMsg setLayoutFrameWidth:maxAvailableWidth];
+                //                [baseMsg setLayoutFrameWidth:maxAvailableWidth];
                 [baseMsg setLayoutFrameWidth:extraPadding];
             }
         }

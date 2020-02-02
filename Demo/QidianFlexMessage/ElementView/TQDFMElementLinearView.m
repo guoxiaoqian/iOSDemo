@@ -122,8 +122,9 @@
         }
     }
     
-    //第四次遍历：计算宽match的可见子元素的大小: 如果子元素有多个，则平分剩余空间
-    CGFloat widthUnitPerMatch = contentWidthRemained / visibleWidthMatchedElements.count;
+    //第四次遍历：计算宽match的可见子元素的大小
+//    CGFloat widthUnitPerMatch = contentWidthRemained / visibleWidthMatchedElements.count;
+    CGFloat widthUnitPerMatch = contentWidthRemained;
     for (TQDFMElementBase * element in visibleWidthMatchedElements) {
         CGFloat maxWidthForChild = widthUnitPerMatch;
         if ([visibleHeightMatchedElements containsObject:element]) {
@@ -295,7 +296,8 @@
     }
     
     //第四次遍历：计算高match的可见子元素的大小: 如果子元素有多个，则平分剩余空间
-    CGFloat heightUnitPerMatch = contentHeightRemained / visibleHeightMatchedElements.count;
+//    CGFloat heightUnitPerMatch = contentHeightRemained / visibleHeightMatchedElements.count;
+    CGFloat heightUnitPerMatch = contentHeightRemained;
     for (TQDFMElementBase * element in visibleHeightMatchedElements) {
         CGFloat maxHeightForChild = heightUnitPerMatch;
         if ([visibleWidthMatchedElements containsObject:element]) {

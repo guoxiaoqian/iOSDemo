@@ -33,6 +33,8 @@
 
 - (void)renderSpecialQDFMElement:(TQDFMElementBase *)baseMsg;
 
+- (UIView*)contentViewToRenderChildren;
+
 #pragma mark - Event
 
 - (void)handleHighlited:(BOOL)highlited;

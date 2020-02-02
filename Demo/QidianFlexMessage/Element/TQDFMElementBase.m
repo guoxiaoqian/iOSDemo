@@ -531,6 +531,10 @@
 
 @end
 
+@implementation TQDFMElementScroller
+
+@end
+
 @implementation TQDFMElementFold
 
 - (void)elementTreeDidBuild {
