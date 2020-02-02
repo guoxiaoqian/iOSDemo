@@ -40,4 +40,14 @@
     }
 }
 
+- (void)handleHighlited:(BOOL)highlited {
+    [super handleHighlited:highlited];
+    //TODO-GAVIN: 点击高亮处理
+    if (highlited) {
+        self.backgroundColor = [UIColor grayColor];
+    } else {
+        self.backgroundColor = [UIColor whiteColor];
+    }
+}
+
 @end

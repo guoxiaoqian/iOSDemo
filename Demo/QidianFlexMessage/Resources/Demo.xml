@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<msg msgID="1234" brief="企点结构化消息" flag="55" serviceID="115" templateID="1" status="1" expireTime="1555090400" expireStatus="4" action="web" actionData="https://www.baidu.com"> 
+<msg msgID="1234" brief="企点结构化消息" flag="55" serviceID="115" templateID="1" status="1" expireTime="1596361412" expireStatus="4" action="web" actionData="https://www.baidu.com"> 
   <linear height="-2" width="410" orientation="vertical" platform="pc"> 
     <linear height="-2" name="FirstLinear" width="-2"> 
       <image width="30" height="30" src="http://file.qqkj.cn/upload/avatar/201410/29/21/11/54432855c9c14351.jpg%21200x200.jpg" name="imageTitle" margin="5" gravity="left|centerVertical"/>  

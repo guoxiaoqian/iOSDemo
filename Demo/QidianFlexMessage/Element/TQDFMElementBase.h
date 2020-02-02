@@ -34,7 +34,7 @@ typedef enum : NSUInteger {
 
 @interface TQDFMElementBase : NSObject <TQDFMNode>
 
-@property (nonatomic,weak) TQDFMLayoutContext* layoutContext; //布局上下文，包括id<TQDFMMessageModel>
+@property (nonatomic,weak) TQDFMLayoutContext* layoutContext; //布局上下文，包括id<TQDFMMessageDataSource>
 @property (nonatomic,weak) TQDFMElementBase* parentElement;
 @property (nonatomic,assign) BOOL isUnknownElement;  //标记为未知元素
 

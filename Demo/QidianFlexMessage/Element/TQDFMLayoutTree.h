@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) TQDFMLayoutContext* layoutContext;
 @property (nonatomic,strong) TQDFMElementMsg* elementTree;
 
-- (instancetype)initWithMessageModel:(id<TQDFMMessageModel>)messageModel elementTree:(nullable TQDFMElementMsg*)elementTree;
+- (instancetype)initWithMessageModel:(id<TQDFMMessageDataSource>)messageModel elementTree:(nullable TQDFMElementMsg*)elementTree;
 
 @end
 

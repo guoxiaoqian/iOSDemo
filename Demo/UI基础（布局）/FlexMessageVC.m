@@ -8,11 +8,13 @@
 
 #import "FlexMessageVC.h"
 #import "TQDFMElementBase.h"
-#import "TQDFMXMLParser.h"
 #import "TQDFMElementBaseView.h"
 #import "TQDFMLayoutTree.h"
+#import "TQDFMEvent.h"
 
-@interface TestMessageModel : NSObject <TQDFMMessageModel>
+@interface TestMessageModel : NSObject <TQDFMMessageDataSource>
+
+@property (strong,nonatomic) NSString* flexMsgUIStatus;
 
 @end
 
@@ -21,6 +23,7 @@
 - (BOOL)fm_isSelfSender {
     return YES;
 }
+
 - (NSString*)fm_getXMLContent {
     NSURL* xmlURL = [[NSBundle mainBundle] URLForResource:@"Demo" withExtension:@"xml"];
     NSData* data = [NSData dataWithContentsOfURL:xmlURL];
@@ -29,7 +32,7 @@
 }
 
 - (NSString*)fm_getUIStatus {
-    return @"1";
+    return self.flexMsgUIStatus;
 }
 
 - (TQDFMMessageLoadStatus)fm_getLoadStatus {
@@ -38,13 +41,12 @@
 
 @end
 
-@interface FlexMessageVC () <TQDFMMessageCell>
+@interface FlexMessageVC () <TQDFMMessageUIDelegate>
 
 @property (strong,nonatomic) TestMessageModel* msgModel;
 @property (strong,nonatomic) TQDFMLayoutTree* layoutTree;
-@property (strong,nonatomic) TQDFMElementMsg* flexMsg;
 
-@property (strong,nonatomic) UIView* flexMsgView;
+@property (strong,nonatomic) TQDFMElementBaseView* flexMsgView;
 
 
 @end
@@ -60,8 +62,7 @@
     //构建元素树
     self.msgModel = [TestMessageModel new];
     self.layoutTree = [[TQDFMLayoutTree alloc] initWithMessageModel:self.msgModel elementTree:nil];
-    self.flexMsg = self.layoutTree.elementTree;
-    self.layoutTree.layoutContext.cell = self;
+    self.layoutTree.layoutContext.uiDelegate = self;
   
     [self fm_reLayout];
 }
@@ -73,17 +74,28 @@
     }
     
     //开始布局
+    TQDFMElementBase* elementTree = self.layoutTree.elementTree;
     CGSize maxSize = CGSizeMake([UIScreen mainScreen].bounds.size.width,MAXFLOAT);
-    CGSize fitSize = [TQDFMElementBaseView layoutQDFMElement:self.flexMsg withMaxSize:maxSize];
+    CGSize fitSize = [TQDFMElementBaseView layoutQDFMElement:elementTree withMaxSize:maxSize];
     
     //开始渲染
     CGRect rectForMsg = CGRectMake(0,0,fitSize.width,fitSize.height);
-    TQDFMElementBaseView* msgView = [TQDFMElementBaseView createQDFMElementView:self.flexMsg withFrame:rectForMsg];
-    [msgView renderQDFMElement:self.flexMsg];
+    TQDFMElementBaseView* msgView = [TQDFMElementBaseView createQDFMElementView:elementTree withFrame:rectForMsg];
+    [msgView renderQDFMElement:elementTree];
     
     self.flexMsgView = msgView;
     [self.view addSubview:msgView];
 }
 
+//事件处理
+- (void)fm_elementView:(TQDFMElementBaseView *)elementView didAction:(TQDFMEvent*)event {
+    if ([event.action isEqualToString:@"svrCmd"]) {
+        //修改状态 & 重新布局
+        self.layoutTree.layoutContext.status = @"3";
+        self.layoutTree.layoutContext.isDirty = YES;
+        
+        [self fm_reLayout];
+    }
+}
 
 @end

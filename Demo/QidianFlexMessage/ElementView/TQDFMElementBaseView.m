@@ -254,8 +254,8 @@
         // 优先复用子元素视图
         TQDFMElementBaseView *elementView = nil;
 #if TQDFM_REUSE_VIEW
-        if ([element shouldReuse] && [element.layoutContext.cell respondsToSelector:@selector(fm_dequeueReusableElementViewWithIdentifier:)]) {
-            elementView = (TQDFMElementBaseView *)[element.layoutContext.cell fm_dequeueReusableElementViewWithIdentifier:element.reuseIdentifier];
+        if ([element shouldReuse] && [element.layoutContext.uiDelegate respondsToSelector:@selector(fm_dequeueReusableElementViewWithIdentifier:)]) {
+            elementView = (TQDFMElementBaseView *)[element.layoutContext.uiDelegate fm_dequeueReusableElementViewWithIdentifier:element.reuseIdentifier];
         }
 #endif
         if (!elementView) {
@@ -312,8 +312,8 @@
 
 - (void)markDirtyAndReLayout {
     self.baseMsg.layoutContext.isDirty = YES;
-    if ([self.baseMsg.layoutContext.cell respondsToSelector:@selector(fm_reLayout)]) {
-        [self.baseMsg.layoutContext.cell fm_reLayout];
+    if ([self.baseMsg.layoutContext.uiDelegate respondsToSelector:@selector(fm_reLayout)]) {
+        [self.baseMsg.layoutContext.uiDelegate fm_reLayout];
     }
 }
 
@@ -382,6 +382,7 @@
 - (void)setHighlighted:(BOOL)highlighted {
     _highlighted = highlighted;
     //TODO-GAVIN: 点击高亮
+    [self handleHighlited:highlighted];
 }
 
 - (BOOL)didAction:(CGPoint)point{
@@ -399,6 +400,10 @@
     }
 }
 
+- (void)handleHighlited:(BOOL)highlited {
+    return;
+}
+
 - (void)handleEvent:(TQDFMEvent*)event {
     
     if ([event.action isEqualToString:@"expand"]) {    // Fold展开操作
@@ -413,8 +418,8 @@
             }
         }
     } else { //其他事件扔给代理处理
-        if ([self.baseMsg.layoutContext.cell respondsToSelector:@selector(fm_elementView:didAction:)]) {
-            [self.baseMsg.layoutContext.cell fm_elementView:self didAction:event];
+        if ([self.baseMsg.layoutContext.uiDelegate respondsToSelector:@selector(fm_elementView:didAction:)]) {
+            [self.baseMsg.layoutContext.uiDelegate fm_elementView:self didAction:event];
         }
     }
 }

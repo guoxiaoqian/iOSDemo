@@ -15,101 +15,78 @@
 
 @interface TQDFMLayoutTree ()
 
-@property (strong,nonatomic) id<TQDFMMessageModel> msgModel;
+@property (strong,nonatomic) id<TQDFMMessageDataSource> msgModel;
 
 @end
 
 @implementation TQDFMLayoutTree
 
-- (instancetype)initWithMessageModel:(id<TQDFMMessageModel>)messageModel elementTree:(nullable TQDFMElementMsg*)elementTree {
+- (instancetype)initWithMessageModel:(id<TQDFMMessageDataSource>)messageModel elementTree:(nullable TQDFMElementMsg*)elementTree {
     if (self = [super init]) {
         self.msgModel = messageModel;
-        NSString* content = nil;
-        BOOL hasXmlContent = elementTree != nil;
-        TQDFMLayoutContext* layoutContext = nil;
         
         if (elementTree == nil) {
             
-            content = [messageModel fm_getXMLContent];
-            
-            hasXmlContent = content.length > 0;
+            NSString* content = [messageModel fm_getXMLContent];
             
             // 首次加载时，确保XML解析流程能走通
             if (content.length == 0) {
                 content = @"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<msg flag=\"37\" brief=\"收到一条新消息\"></msg>";
             }
             
-            if (hasXmlContent) {
-                NSLog(@"Serialize LengthXML %d",(int)[content dataUsingEncoding:NSUTF8StringEncoding].length);
-                TQDFM_TIME_BEGIN(@"Serialize ParseXML");
-            }
-            
             elementTree = [[TQDFMXMLParser new] parseByString:content];
-            
-            if (hasXmlContent) {
-                TQDFM_TIME_END(@"Serialize ParseXML");
-            }
         }
         
         if (elementTree) {
-            // 布局上下文
-            if (layoutContext == nil) {
-                layoutContext = [TQDFMLayoutContext new];
-            }
+            // 创建布局上下文
+            TQDFMLayoutContext* layoutContext = [TQDFMLayoutContext new];
             layoutContext.msgModel = messageModel;
             
-            // 辅助状态: 优先用ExInfo里存储的status,其次是结构化消息初始的status
-            layoutContext.status = elementTree.attributes[@"status"];
-            //            NSString* uiStatus = [messageModel.exInfo getQidianFlexMessageUIStatus];
-            NSString* uiStatus = [messageModel fm_getUIStatus];
+            self.elementTree = elementTree;
+            self.layoutContext = layoutContext;
             
-            if (uiStatus.length > 0) {
-                layoutContext.status = uiStatus;
-            }
+            // 初始化UI状态
+            [self initUIStatusInLayoutContext:layoutContext withMessageModel:messageModel elementTree:elementTree];
             
-            // 过期状态优先级最高
-            if (elementTree.attributes[@"expireTime"] && elementTree.attributes[@"expireStatus"]) {
-                uint64_t  nowTime =  [[TQDFMPlatformBridge sharedInstance] getNowTimestamp];
-                uint64_t  expireTime = [elementTree.attributes[@"expireTime"] longLongValue];
-                if(nowTime >= expireTime) {
-                    layoutContext.isExpired = YES;
-                    layoutContext.status = elementTree.attributes[@"expireStatus"];
-                }
-            }
-            
-            // 构建索引等信息
-            [[self class] adjustElementTree:elementTree layoutContext:layoutContext];
+            // 调整元素树：构建索引、删除不可见节点、绑定布局上下文
+            [self adjustElementTree:elementTree layoutContext:layoutContext];
             
             // 加载中和加载失败效果
-            //            LongMsg_Kind downloadState = [messageModel.exInfo getQidianFlexMessageState];
-            //            if (downloadState == LongMsg_No_Content || downloadState == LongMsg_Content_Fail) {
-            //                QQLongMsgHolder *holder  = [QQLongMsgHolder new];
-            //                holder.holderType = downloadState;
-            //                elementTree.subElements = @[holder];
-            //                layoutContext.isHolder = YES;
-            //            } else {
-            //                layoutContext.isHolder = NO;
-            //            }
-            
             TQDFMMessageLoadStatus loadStaus = [messageModel fm_getLoadStatus];
             if (loadStaus == TQDFMMessageLoadStatus_NotLoad || loadStaus == TQDFMMessageLoadStatus_Fail) {
                 TQDFMElementLoadingHolder *holder  = [TQDFMElementLoadingHolder new];
                 holder.loadStatus = loadStaus;
                 elementTree.subElements = [NSMutableArray arrayWithObject:holder];
                 layoutContext.isHolder = YES;
-                
             }
-            
         }
-        
-        self.elementTree = elementTree;
-        self.layoutContext = layoutContext;
     }
     return self;
 }
 
+- (void)initUIStatusInLayoutContext:(TQDFMLayoutContext*)layoutContext withMessageModel:(id<TQDFMMessageDataSource>)messageModel elementTree:(TQDFMElementBase*)elementTree {
+    // 辅助状态: 优先用ExInfo里存储的status,其次是结构化消息初始的status
+    layoutContext.status = elementTree.attributes[@"status"];
+    //            NSString* uiStatus = [messageModel.exInfo getQidianFlexMessageUIStatus];
+    NSString* uiStatus = [messageModel fm_getUIStatus];
+    
+    if (uiStatus.length > 0) {
+        layoutContext.status = uiStatus;
+    }
+    
+    // 过期状态优先级最高
+    if (elementTree.attributes[@"expireTime"] && elementTree.attributes[@"expireStatus"]) {
+        uint64_t  nowTime =  [[TQDFMPlatformBridge sharedInstance] getNowTimestamp];
+        uint64_t  expireTime = [elementTree.attributes[@"expireTime"] longLongValue];
+        if(nowTime >= expireTime) {
+            layoutContext.isExpired = YES;
+            layoutContext.status = elementTree.attributes[@"expireStatus"];
+        }
+    }
+}
+
 // 调整整体结构，包括索引、父元素、布局上下文
-+ (void)adjustElementTree:(TQDFMElementBase*)baseMsg layoutContext:(TQDFMLayoutContext*)layoutContext{
+- (void)adjustElementTree:(TQDFMElementBase*)baseMsg layoutContext:(TQDFMLayoutContext*)layoutContext{
     if (!baseMsg.elemIndex) {
         baseMsg.elemIndex = @"0";
     }

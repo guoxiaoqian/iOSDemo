@@ -16,7 +16,7 @@ typedef NS_ENUM(NSUInteger, TQDFMMessageLoadStatus) {
     TQDFMMessageLoadStatus_Fail,
 };
 
-@protocol TQDFMMessageModel <NSObject>
+@protocol TQDFMMessageDataSource <NSObject>
 
 - (BOOL)fm_isSelfSender;
 - (NSString*)fm_getXMLContent;
@@ -27,7 +27,7 @@ typedef NS_ENUM(NSUInteger, TQDFMMessageLoadStatus) {
 
 @class TQDFMElementBaseView;
 @class TQDFMEvent;
-@protocol TQDFMMessageCell <NSObject>
+@protocol TQDFMMessageUIDelegate <NSObject>
 
 //视图刷新
 - (void)fm_reLayout;

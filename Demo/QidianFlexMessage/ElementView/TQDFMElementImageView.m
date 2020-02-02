@@ -100,7 +100,7 @@
 //            BOOL bWillDownload = [g_var_QQAppSetting FlowAvailable];
 //
 //            NSDictionary *exInfo = nil;
-//            id<TQDFMMessageModel> msgRef = ((TQDFMElementImage*)self.baseMsg).layoutContext.msgModel;
+//            id<TQDFMMessageDataSource> msgRef = ((TQDFMElementImage*)self.baseMsg).layoutContext.msgModel;
 //            if (msgRef != nil) {
 //                exInfo = @{@"msg" : msgRef, @"callerSource" : @"xml"/*表示从结构化消息调过去下载*/,@"size":NSStringFromCGSize(self.imageView.frame.size)};
 //            }

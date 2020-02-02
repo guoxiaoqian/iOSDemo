@@ -35,6 +35,8 @@
 
 #pragma mark - Event
 
+- (void)handleHighlited:(BOOL)highlited;
+
 - (void)handleEvent:(TQDFMEvent*)event;
 
 #pragma mark - Reuse
