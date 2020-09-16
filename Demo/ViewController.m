@@ -43,6 +43,11 @@
 #import "MachExceptionVC.h"
 #import "BankCompare.h"
 #import "CrashVC.h"
+#import "MakeFuzzyVC.h"
+#import "SelfSizingVC.h"
+#import "BlurEffectVC.h"
+#import "CppTestVC.h"
+#import "PresentVC.h"
 #import "FlexMessageVC.h"
 
 @interface EntryModel : NSObject
@@ -115,6 +120,11 @@
                        [EntryModel modelWithClass:[MachExceptionVC class]],
                        [EntryModel modelWithClass:[BankCompare class]],
                        [EntryModel modelWithClass:[CrashVC class]],
+                       [EntryModel modelWithClass:[MakeFuzzyVC class]],
+                       [EntryModel modelWithClass:[SelfSizingVC class]],
+                       [EntryModel modelWithClass:[BlurEffectVC class]],
+                       [EntryModel modelWithClass:[CppTestVC class]],
+                       [EntryModel modelWithClass:[PresentVC class]],
                        [EntryModel modelWithClass:[FlexMessageVC class]],
                        nil];
 }

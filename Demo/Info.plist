@@ -63,6 +63,10 @@
 	<string>想使用麦克风，请允许</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>想使用图片库，请允许</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>iconfont.ttf</string>
+	</array>
 	<key>UIApplicationShortcutItems</key>
 	<dict>
 		<key>item 0</key>

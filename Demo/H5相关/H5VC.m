@@ -435,8 +435,11 @@
 
 }
 
+// Native事件分发
 - (void)onJSCall:(NSString*)method params:(NSArray*)params contextId:(NSString*)contextId {
-    if ([method isEqualToString:@"disableButton"]) {
+    if ([method isEqualToString:@"log"]) {
+        NSLog(@"%@",params.firstObject);
+    } else if ([method isEqualToString:@"disableButton"]) {
         UIButton* targetBtn = [self.view viewWithTag:contextId.intValue];
         [targetBtn setEnabled:NO];
         [targetBtn setBackgroundColor:[UIColor grayColor]];
@@ -448,16 +451,12 @@
 
     
     //注入Native API
-    context[@"bridge_log"] = ^(NSString* b) {
-        NSLog(b);
-    };
-    
     __weak typeof(self) weakSelf = self;
     context[@"bridge_callNativeMethod"] = ^(NSString* method,NSArray* params, NSString* contextID) {
         [weakSelf onJSCall:method params:params contextId:contextID];
     };
     
-    //注入JS API（封装NativeAPI, 封装各端差异）
+    //注入JS API（封装NativeAPI, 及各端差异）
     NSString* injectJSAPI_callNativeMethod = @"function callNativeMethod() {"
         @"var msgId = this.msgId;"
         @"var method = arguments[0];"
@@ -468,7 +467,7 @@
         @"bridge_callNativeMethod(method,params,msgId);"
     @"}";
     NSString* injectJSAPI_log = @"function log() {"
-        @"bridge_log.apply(this,arguments);"
+        @"bridge_callNativeMethod('log',arguments);"
     @"}";
     [context evaluateScript:injectJSAPI_callNativeMethod];
     [context evaluateScript:injectJSAPI_log];
