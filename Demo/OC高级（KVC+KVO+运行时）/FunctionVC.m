@@ -115,9 +115,9 @@
 //    
 //    [self testBlock];
     
-    [MRCTest testMRC];
+//    [MRCTest testMRC];
     
-//    [[MRCTest new] testMRCObj];
+    [[MRCTest new] testMRCObj];
     
 //    [DebugTool testDebugTool];
     

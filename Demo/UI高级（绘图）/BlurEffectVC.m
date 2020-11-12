@@ -60,11 +60,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor yellowColor];
+    self.view.backgroundColor = [UIColor whiteColor];
 
     // Do any additional setup after loading the view from its nib.
-    BlurView * blurView = [[BlurView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-    [self.view addSubview:blurView];
+//    BlurView * blurView = [[BlurView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+//    [self.view addSubview:blurView];
+    
+    UIView* circleView = [[UIView alloc] initWithFrame:CGRectMake(0, 100, 200, 200)];
+    circleView.layer.backgroundColor = [UIColor whiteColor].CGColor;
+    circleView.layer.cornerRadius = circleView.frame.size.height/2;
+    circleView.layer.masksToBounds = NO;
+    circleView.layer.shadowOffset = CGSizeMake(0, 0);
+    circleView.layer.shadowPath = [UIBezierPath bezierPathWithOvalInRect:circleView.bounds].CGPath;
+    circleView.layer.shadowOpacity = 0.2;
+    circleView.layer.shadowColor = [[UIColor blackColor] colorWithAlphaComponent:0.3].CGColor;
+    
+    [self.view addSubview:circleView];
 }
 
 /*

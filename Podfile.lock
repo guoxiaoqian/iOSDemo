@@ -1,16 +1,20 @@
 PODS:
-  - TTT (1.0.3)
+  - LookinServer (1.0.0)
+  - WeexSDK (0.26.0)
 
 DEPENDENCIES:
-  - TTT (= 1.0.3)
+  - LookinServer
+  - WeexSDK
 
 SPEC REPOS:
-  "git@github.com:guoxiaoqian/SpecsRepo.git":
-    - TTT
+  trunk:
+    - LookinServer
+    - WeexSDK
 
 SPEC CHECKSUMS:
-  TTT: 457503283d9013f4228e6be6b8c90ca7f56c564b
+  LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
+  WeexSDK: 55b67d1c411eb28ec1e356f763a335d0ddcc5324
 
-PODFILE CHECKSUM: 2931ff912437fa8d86b906076686bb47864c1eeb
+PODFILE CHECKSUM: d475a351249760d642bffd6b27fdb860662bf293
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.9.3

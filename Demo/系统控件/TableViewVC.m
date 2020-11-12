@@ -19,7 +19,7 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.height = 200;
+        self.height = 50;
     }
     return self;
 }
@@ -62,7 +62,16 @@
     [btn_reloadFirstOnly addTarget:self action:@selector(reloadFirstItemOnly) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn_reloadFirstOnly];
     
+    UIButton* btn_edit = [[UIButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(btn_reloadFirstOnly.frame) + 10, 80, 50)];
+    [btn_edit setTitle:@"edit" forState:UIControlStateNormal];
+    [btn_edit addTarget:self action:@selector(editTable) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn_edit];
+    
     self.modelArray = [NSMutableArray new];
+    NSMutableArray* section1 = [NSMutableArray new];
+    [section1 addObject:[TableViewCellModel new]];
+    [self.modelArray addObject:section1];
+
     for (int i = 0; i < 2; ++i) {
         NSMutableArray* section = [NSMutableArray new];
         for (int j = 0; j < 4; ++j) {
@@ -70,7 +79,7 @@
         }
         [self.modelArray addObject:section];
     }
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(btn_reload.frame), self.view.bounds.size.width, viewHeight - CGRectGetHeight(btn_reload.frame)) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(btn_edit.frame), self.view.bounds.size.width, viewHeight - CGRectGetHeight(btn_reload.frame)) style:UITableViewStyleGrouped];
     self.tableView.contentInset = UIEdgeInsetsZero;
     [self addObserver:self forKeyPath:@"tableView.contentSize" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
     [self addObserver:self forKeyPath:@"tableView.contentOffset" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
@@ -116,11 +125,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%s section %zd row %zd",__FUNCTION__,indexPath.section,indexPath.row);
     
-    TableViewCellModel* model = self.modelArray[indexPath.section][indexPath.row];
-    UITableViewCell* cell = [[UITableViewCell alloc] init];
-    cell.textLabel.text = [NSString stringWithFormat:@"%d",model.height];
-    
-    return cell;
+    if (indexPath.section == 0) {
+        UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"UITableViewCellStyleSubtitle"];
+        cell.textLabel.text = @"我是大标题";
+        cell.detailTextLabel.text = @"我是小标题";
+        cell.accessoryView = [[UISwitch alloc] init];
+        return cell;
+    } else {
+        TableViewCellModel* model = self.modelArray[indexPath.section][indexPath.row];
+        UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCellStyleDefault"];
+        cell.imageView.image = [UIImage imageNamed:@"Demo.png"];
+        cell.textLabel.text = [NSString stringWithFormat:@"%d",model.height];
+        return cell;
+    }
 }
 
 //- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -128,9 +145,54 @@
 //}
 //- (nullable NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
 //
-//}
+//
+
+// Individual rows can opt out of having the -editing property set for them. If not implemented, all rows are assumed to be editable.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s section %zd row %zd",__FUNCTION__,indexPath.section,indexPath.row);
+    if (indexPath.section > 0) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+// Moving/reordering
+
+// Allows the reorder accessory view to optionally be shown for a particular row. By default, the reorder control will be shown only if the datasource implements -tableView:moveRowAtIndexPath:toIndexPath:
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s section %zd row %zd",__FUNCTION__,indexPath.section,indexPath.row);
+    if (indexPath.section == 1) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s section %zd row %zd",__FUNCTION__,indexPath.section,indexPath.row);
+}
+
+// Data manipulation - reorder / moving support  拖拽移动必要条件1
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    NSLog(@"%s section %zd row %zd",__FUNCTION__,sourceIndexPath.section,sourceIndexPath.row);
+
+}
 
 #pragma mark - UITableViewDelegate
+
+//- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+//
+//}
+
+- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return @"快捷栏";
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 20;
+}
 
 // Display customization
 
@@ -179,6 +241,33 @@
 //
 //}
 
+// Editing
+
+// Allows customization of the editingStyle for a particular cell located at 'indexPath'. If not implemented, all editable cells will have UITableViewCellEditingStyleDelete set for them when the table has editing property set to YES.
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s section %zd row %zd",__FUNCTION__,indexPath.section,indexPath.row);
+    if (indexPath.section == 1) {
+       return UITableViewCellEditingStyleDelete;
+    } else if(indexPath.section == 2) {
+       return UITableViewCellEditingStyleInsert;
+    }
+    return UITableViewCellEditingStyleNone;
+}
+- (nullable NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"删除";
+}
+
+// The willBegin/didEnd methods are called whenever the 'editing' property is automatically changed by the table (allowing insert/delete/move). This is done by a swipe activating a single row
+- (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s section %zd row %zd",__FUNCTION__,indexPath.section,indexPath.row);
+
+}
+- (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(nullable NSIndexPath *)indexPath {
+    NSLog(@"%s section %zd row %zd",__FUNCTION__,indexPath.section,indexPath.row);
+}
+
+//MARK:- Action
+
 - (void)reloadData {
     [self.tableView reloadData];
 }
@@ -199,6 +288,10 @@
     TableViewCellModel* firstModel = self.modelArray[0][0];
     firstModel.height = 300;
     [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+- (void)editTable {
+    [self.tableView setEditing:!self.tableView.editing animated:YES]; //拖拽移动必要条件3
 }
 
 @end

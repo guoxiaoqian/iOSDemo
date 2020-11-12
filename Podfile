@@ -5,6 +5,10 @@ use_frameworks!
 
 target 'Demo' do
 	#pod 'TTT', '1.0.3'
-	pod 'WeexSDK','0.28.0'
+	pod 'WeexSDK'
+    pod 'LookinServer'
 end
 
+target 'SwiftUITest' do
+  pod 'LookinServer'
+end

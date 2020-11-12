@@ -1,8 +1,11 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/TTT"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/WeexSDK" "${PODS_ROOT}/LookinServer" '$(PODS_ROOT)/WeexSDK'
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/WeexSDK/WeexSDK.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_LDFLAGS = $(inherited) -framework "TTT"
+OTHER_LDFLAGS = $(inherited) -l"c++" -framework "AVFoundation" -framework "AVKit" -framework "CoreGraphics" -framework "CoreMedia" -framework "CoreText" -framework "GLKit" -framework "JavaScriptCore" -framework "LookinServer" -framework "MediaPlayer" -framework "OpenGLES" -framework "QuartzCore" -framework "UIKit" -framework "WeexSDK"
+OTHER_LINK_FLAG = $(inherited) -ObjC
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
 PODS_ROOT = ${SRCROOT}/Pods
+USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES

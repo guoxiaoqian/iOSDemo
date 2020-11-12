@@ -19,6 +19,7 @@
 
 @interface MRCTest ()
 @property (retain) NSNumber* num;
+@property (retain) NSString* str;
 @end
 
 @implementation MRCTest
@@ -58,6 +59,18 @@
     NSLog(@"retainCount %zd",self.num.retainCount);
     [self.num release];
     NSLog(@"retainCount %zd",self.num.retainCount);
+    
+    @autoreleasepool {
+        _str = @"";
+        [_str release];
+        NSLog(@"str retainCount %zd",_str.retainCount);
+    }
+    NSLog(@"str retainCount %zd",_str.retainCount);
+}
+- (void)dealloc {
+    [_str release];
+    
+    [super dealloc];
 }
 
 @end
