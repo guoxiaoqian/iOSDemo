@@ -493,7 +493,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "protobuf-lite";
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = "arm64 armv7 i386";
+				VALID_ARCHS = "arm64 armv7 x86_64";
 			};
 			name = Debug;
 		};
@@ -514,7 +514,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "protobuf-lite";
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = "arm64 armv7 i386";
+				VALID_ARCHS = "arm64 armv7 x86_64";
 			};
 			name = Release;
 		};

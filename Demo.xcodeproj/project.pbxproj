@@ -2301,6 +2301,7 @@
 			buildConfigurationList = 88A617651E53100C00EF8AFC /* Build configuration list for PBXNativeTarget "Demo" */;
 			buildPhases = (
 				1C1AF59B8F7F3BD55507DC30 /* [CP] Check Pods Manifest.lock */,
+				F170F697D1DADF4FFFF54C91 /* [CP-User] Run Flutter Build my_flutter Script */,
 				88A617341E53100C00EF8AFC /* Sources */,
 				88A617351E53100C00EF8AFC /* Frameworks */,
 				88A617361E53100C00EF8AFC /* Resources */,
@@ -2668,6 +2669,22 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		F170F697D1DADF4FFFF54C91 /* [CP-User] Run Flutter Build my_flutter Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/./my_flutter/.metadata",
+				"${SRCROOT}/my_flutter/.ios/Flutter/App.framework/App",
+				"${SRCROOT}/my_flutter/.ios/Flutter/engine/Flutter.framework/Flutter",
+				"${SRCROOT}/my_flutter/.ios/Flutter/flutter_export_environment.sh",
+			);
+			name = "[CP-User] Run Flutter Build my_flutter Script";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/my_flutter/.ios/Flutter/flutter_export_environment.sh\"\n\"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh build";
 		};
 /* End PBXShellScriptBuildPhase section */
 

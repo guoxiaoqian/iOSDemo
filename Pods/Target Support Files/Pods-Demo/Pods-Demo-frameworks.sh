@@ -197,12 +197,16 @@ if [ -r "${ARTIFACT_LIST_FILE}" ]; then
 fi
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${PODS_ROOT}/../my_flutter/.ios/Flutter/engine/Flutter.framework"
   install_framework "${PODS_ROOT}/LookinServer/LookinServer.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/WeexSDK/WeexSDK.framework"
+  install_framework "${PODS_ROOT}/../my_flutter/.ios/Flutter/App.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${PODS_ROOT}/../my_flutter/.ios/Flutter/engine/Flutter.framework"
   install_framework "${PODS_ROOT}/LookinServer/LookinServer.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/WeexSDK/WeexSDK.framework"
+  install_framework "${PODS_ROOT}/../my_flutter/.ios/Flutter/App.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
