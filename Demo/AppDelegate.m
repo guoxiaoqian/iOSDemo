@@ -5,6 +5,7 @@
 //  Created by 郭晓倩 on 17/2/14.
 //  Copyright © 2017年 郭晓倩. All rights reserved.
 //
+#import <FlutterPluginRegistrant/GeneratedPluginRegistrant.h>
 
 #import "AppDelegate.h"
 
@@ -17,8 +18,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+      self.flutterEngine = [[FlutterEngine alloc] initWithName:@"my flutter engine"];
+    // Runs the default Dart entrypoint with a default Flutter route.
+    [self.flutterEngine run];
+    NSLog(@"flutter engine=%@",self.flutterEngine);
+    // Used to connect plugins (only if you have plugins with iOS platform code).
+    [GeneratedPluginRegistrant registerWithRegistry:self.flutterEngine];
     
-    return YES;
+    return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
 
