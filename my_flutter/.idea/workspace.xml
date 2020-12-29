@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cd09dd68-ceea-4aeb-8745-de598270b14e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Demo/Flutter/FlutterTestVC.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Demo/Flutter/FlutterTestVC.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Demo/H5相关/urltest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Demo/系统控件/AlertVC.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Demo/系统控件/AlertVC.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Demo.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Demo.xcodeproj/xcuserdata/guoxiaoqian.xcuserdatad/xcschemes/Demo.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo.xcodeproj/xcuserdata/guoxiaoqian.xcuserdatad/xcschemes/Demo.xcscheme" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Demo.xcodeproj/xcuserdata/guoxiaoqian.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo.xcodeproj/xcuserdata/guoxiaoqian.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Demo/AppDelegate.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo/AppDelegate.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Demo/AppDelegate.m" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo/AppDelegate.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Demo/Demo.entitlements" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo/Demo.entitlements" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Demo/H5相关/H5VC.m" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo/H5相关/H5VC.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Demo/OC高级（KVC+KVO+运行时）/CppTestVC.mm" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo/OC高级（KVC+KVO+运行时）/CppTestVC.mm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Demo/ViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo/ViewController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/../Podfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Podfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pods/Manifest.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Manifest.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pods/Pods.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Pods.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pods/Pods.xcodeproj/xcuserdata/guoxiaoqian.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Pods.xcodeproj/xcuserdata/guoxiaoqian.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks-Debug-input-files.xcfilelist" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks-Debug-input-files.xcfilelist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks-Debug-output-files.xcfilelist" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks-Debug-output-files.xcfilelist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks-Release-input-files.xcfilelist" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks-Release-input-files.xcfilelist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks-Release-output-files.xcfilelist" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks-Release-output-files.xcfilelist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1lj9m8GWePC5VSM3nTTuJB5fqbR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="dart.analysis.tool.window.force.activate" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cd09dd68-ceea-4aeb-8745-de598270b14e" name="Default Changelist" comment="" />
+      <created>1608099790100</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608099790100</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="392" y="305" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608100339442">
+      <screen x="0" y="23" width="2560" height="1343" />
+    </state>
+    <state x="392" y="305" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.2560.1343@0.23.2560.1343" timestamp="1608100339442" />
+  </component>
+</project>
