@@ -1,16 +1,20 @@
 PODS:
-  - TTT (1.0.3)
+  - GRMustache (7.3.2):
+    - JRSwizzle (~> 1.0)
+  - JRSwizzle (1.0)
 
 DEPENDENCIES:
-  - TTT (= 1.0.3)
+  - GRMustache (~> 7.3.2)
 
 SPEC REPOS:
-  "git@github.com:guoxiaoqian/SpecsRepo.git":
-    - TTT
+  trunk:
+    - GRMustache
+    - JRSwizzle
 
 SPEC CHECKSUMS:
-  TTT: 457503283d9013f4228e6be6b8c90ca7f56c564b
+  GRMustache: ebe6104fd30a6d22c1f36af131e19e2dbf7cd292
+  JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
 
-PODFILE CHECKSUM: 2931ff912437fa8d86b906076686bb47864c1eeb
+PODFILE CHECKSUM: 9baee0d6cd438f0444ab6225fc8a8ae034941cb5
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.4

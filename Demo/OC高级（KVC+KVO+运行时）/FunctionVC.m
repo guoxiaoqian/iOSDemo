@@ -333,4 +333,45 @@
     NSLog(@"str5(%@<%p>: %p): %@", [str5 class], &str5, str5, str5);
 }
 
+// MARK:- 视图查找
+
++ (id)findNextObjectOfClass:(Class)class fromObject:(id)fromObj byNextBlock:(id(^)(id fromObj))nextBlock {
+    if ([fromObj isKindOfClass:class]) {
+        return fromObj;
+    }
+    id nextObj = nextBlock(fromObj);
+    while (nextObj && [nextObj isKindOfClass:class] == NO) {
+        nextObj = nextBlock(nextObj);
+    }
+    return nextObj;
+}
+
++ (UIView*)findSuperViewOfClass:(Class)class fromView:(UIView*)fromView {
+    return [self findNextObjectOfClass:class fromObject:fromView byNextBlock:^id(id fromObj) {
+        if ([fromObj isKindOfClass:[UIView class]]) {
+            return ((UIView*)fromObj).superview;
+        } else {
+            return nil;
+        }
+    }];
+}
+
++ (UIView*)findNextResponderOfClass:(Class)class fromResponder:(UIResponder*)fromResponder {
+    return [self findNextObjectOfClass:class fromObject:fromResponder byNextBlock:^id(id fromObj) {
+        if ([fromObj isKindOfClass:[UIResponder class]]) {
+            return ((UIResponder*)fromObj).nextResponder;
+        } else {
+            return nil;
+        }
+    }];
+}
+
++ (UIViewController*)getCurrentViewControllerWithView:(UIView*)view {
+    return (UIViewController*)[self findNextResponderOfClass:[UIViewController class] fromResponder:view];
+}
+
++ (UINavigationController*)getCurrentNavigationViewControllerWithView:(UIView*)view {
+    return (UINavigationController*)[self findNextResponderOfClass:[UINavigationController class] fromResponder:view];
+}
+
 @end
