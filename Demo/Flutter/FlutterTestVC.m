@@ -20,9 +20,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    std::string str;
-    NSString* str1 = [NSString stringWithUTF8String:str.c_str()];
-    
     [self showFlutter];
 }
 

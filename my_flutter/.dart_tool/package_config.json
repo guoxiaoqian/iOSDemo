@@ -80,6 +80,12 @@
       "languageVersion": "2.10"
     },
     {
+      "name": "provider",
+      "rootUri": "file:///Users/guoxiaoqian/flutter/.pub-cache/hosted/pub.dartlang.org/provider-3.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///Users/guoxiaoqian/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -140,7 +146,7 @@
       "languageVersion": "2.1"
     }
   ],
-  "generated": "2020-12-29T04:53:05.263370Z",
+  "generated": "2020-12-30T02:46:33.331115Z",
   "generator": "pub",
   "generatorVersion": "2.10.4"
 }

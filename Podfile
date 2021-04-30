@@ -10,6 +10,7 @@ target 'Demo' do
 	#pod 'TTT', '1.0.3'
 	pod 'WeexSDK'
   pod 'LookinServer'
+  pod 'protobuf'
   install_all_flutter_pods(flutter_application_path)
 #  pod 'Protobuf-C++'
 end

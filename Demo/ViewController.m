@@ -49,6 +49,7 @@
 #import "CppTestVC.h"
 #import "PresentVC.h"
 #import "FlexMessageVC.h"
+#import "FlutterTestVC.h"
 
 @interface EntryModel : NSObject
 
@@ -126,6 +127,7 @@
                        [EntryModel modelWithClass:[CppTestVC class]],
                        [EntryModel modelWithClass:[PresentVC class]],
                        [EntryModel modelWithClass:[FlexMessageVC class]],
+                       [EntryModel modelWithClass:[FlutterTestVC class]],
                        nil];
 }
 

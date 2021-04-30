@@ -2,32 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd09dd68-ceea-4aeb-8745-de598270b14e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Demo/Flutter/FlutterTestVC.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Demo/Flutter/FlutterTestVC.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Demo/H5相关/urltest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Demo/系统控件/AlertVC.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Demo/系统控件/AlertVC.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Demo/DemoDebug.entitlements" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Demo.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Demo.xcodeproj/xcuserdata/guoxiaoqian.xcuserdatad/xcschemes/Demo.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo.xcodeproj/xcuserdata/guoxiaoqian.xcuserdatad/xcschemes/Demo.xcscheme" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Demo.xcodeproj/xcuserdata/guoxiaoqian.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo.xcodeproj/xcuserdata/guoxiaoqian.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Demo/AppDelegate.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo/AppDelegate.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Demo/AppDelegate.m" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo/AppDelegate.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Demo/Demo.entitlements" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo/Demo.entitlements" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Demo/H5相关/H5VC.m" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo/H5相关/H5VC.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Demo/OC高级（KVC+KVO+运行时）/CppTestVC.mm" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo/OC高级（KVC+KVO+运行时）/CppTestVC.mm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Demo/Flutter/FlutterTestVC.m" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo/Flutter/FlutterTestVC.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Demo/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo/Info.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Demo/ViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo/ViewController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/../Podfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Pods/Manifest.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Manifest.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Pods/Pods.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Pods.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Pods/Pods.xcodeproj/xcuserdata/guoxiaoqian.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Pods.xcodeproj/xcuserdata/guoxiaoqian.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks-Debug-input-files.xcfilelist" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks-Debug-input-files.xcfilelist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks-Debug-output-files.xcfilelist" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks-Debug-output-files.xcfilelist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks-Release-input-files.xcfilelist" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks-Release-input-files.xcfilelist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks-Release-output-files.xcfilelist" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks-Release-output-files.xcfilelist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ios/Flutter/Generated.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.ios/Flutter/Generated.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ios/Flutter/flutter_export_environment.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.ios/Flutter/flutter_export_environment.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/.ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +35,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -68,5 +65,49 @@
       <screen x="0" y="23" width="2560" height="1343" />
     </state>
     <state x="392" y="305" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.2560.1343@0.23.2560.1343" timestamp="1608100339442" />
+    <state width="1559" height="271" key="GridCell.Tab.0.bottom" timestamp="1609318871715">
+      <screen x="0" y="23" width="2560" height="1337" />
+    </state>
+    <state width="1559" height="271" key="GridCell.Tab.0.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1609318871715" />
+    <state width="1527" height="201" key="GridCell.Tab.0.bottom/0.23.2560.1342@0.23.2560.1342" timestamp="1609298928138" />
+    <state width="1559" height="271" key="GridCell.Tab.0.center" timestamp="1609318871715">
+      <screen x="0" y="23" width="2560" height="1337" />
+    </state>
+    <state width="1559" height="271" key="GridCell.Tab.0.center/0.23.2560.1337@0.23.2560.1337" timestamp="1609318871715" />
+    <state width="1527" height="201" key="GridCell.Tab.0.center/0.23.2560.1342@0.23.2560.1342" timestamp="1609298928138" />
+    <state width="1559" height="271" key="GridCell.Tab.0.left" timestamp="1609318871715">
+      <screen x="0" y="23" width="2560" height="1337" />
+    </state>
+    <state width="1559" height="271" key="GridCell.Tab.0.left/0.23.2560.1337@0.23.2560.1337" timestamp="1609318871715" />
+    <state width="1527" height="201" key="GridCell.Tab.0.left/0.23.2560.1342@0.23.2560.1342" timestamp="1609298928138" />
+    <state width="1559" height="271" key="GridCell.Tab.0.right" timestamp="1609318871715">
+      <screen x="0" y="23" width="2560" height="1337" />
+    </state>
+    <state width="1559" height="271" key="GridCell.Tab.0.right/0.23.2560.1337@0.23.2560.1337" timestamp="1609318871715" />
+    <state width="1527" height="201" key="GridCell.Tab.0.right/0.23.2560.1342@0.23.2560.1342" timestamp="1609298928138" />
+    <state width="1559" height="271" key="GridCell.Tab.1.bottom" timestamp="1609318871716">
+      <screen x="0" y="23" width="2560" height="1337" />
+    </state>
+    <state width="1559" height="271" key="GridCell.Tab.1.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1609318871716" />
+    <state width="1559" height="271" key="GridCell.Tab.1.bottom/0.23.2560.1342@0.23.2560.1342" timestamp="1609298467152" />
+    <state width="1559" height="271" key="GridCell.Tab.1.center" timestamp="1609318871716">
+      <screen x="0" y="23" width="2560" height="1337" />
+    </state>
+    <state width="1559" height="271" key="GridCell.Tab.1.center/0.23.2560.1337@0.23.2560.1337" timestamp="1609318871716" />
+    <state width="1559" height="271" key="GridCell.Tab.1.center/0.23.2560.1342@0.23.2560.1342" timestamp="1609298467152" />
+    <state width="1559" height="271" key="GridCell.Tab.1.left" timestamp="1609318871716">
+      <screen x="0" y="23" width="2560" height="1337" />
+    </state>
+    <state width="1559" height="271" key="GridCell.Tab.1.left/0.23.2560.1337@0.23.2560.1337" timestamp="1609318871716" />
+    <state width="1559" height="271" key="GridCell.Tab.1.left/0.23.2560.1342@0.23.2560.1342" timestamp="1609298467152" />
+    <state width="1559" height="271" key="GridCell.Tab.1.right" timestamp="1609318871716">
+      <screen x="0" y="23" width="2560" height="1337" />
+    </state>
+    <state width="1559" height="271" key="GridCell.Tab.1.right/0.23.2560.1337@0.23.2560.1337" timestamp="1609318871716" />
+    <state width="1559" height="271" key="GridCell.Tab.1.right/0.23.2560.1342@0.23.2560.1342" timestamp="1609298467152" />
+    <state x="1563" y="388" key="SettingsEditor" timestamp="1609298325970">
+      <screen x="0" y="23" width="2560" height="1340" />
+    </state>
+    <state x="1563" y="388" key="SettingsEditor/0.23.2560.1340@0.23.2560.1340" timestamp="1609298325970" />
   </component>
 </project>

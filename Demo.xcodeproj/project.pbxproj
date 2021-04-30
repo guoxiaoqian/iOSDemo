@@ -323,6 +323,7 @@
 		88D7EA55255CE76D00129B50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88D7EA54255CE76D00129B50 /* Assets.xcassets */; };
 		88D7EA58255CE76D00129B50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88D7EA56255CE76D00129B50 /* LaunchScreen.storyboard */; };
 		88D7EA61255CE86600129B50 /* OCView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D7EA60255CE86600129B50 /* OCView.m */; };
+		88DA073F259AF89B00D13365 /* FlutterTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DA073D259AF89B00D13365 /* FlutterTestVC.m */; };
 		88DBB8EE23C70CE4006C4338 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DBB8EC23C70CE4006C4338 /* JavaScriptCore.framework */; };
 		88E7129F231284620087913F /* BankCompare.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E7129E231284620087913F /* BankCompare.m */; };
 		88E8F79E1ED5A13300FE93B4 /* StatePattern_Light.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E8F79D1ED5A13300FE93B4 /* StatePattern_Light.m */; };
@@ -347,6 +348,8 @@
 		88EA7A8A1EB2247500165B37 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EA7A7E1EB2247500165B37 /* ViewController+MASAdditions.m */; };
 		88EA7A8B1EB2247500165B37 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 88EA7A7F1EB2247500165B37 /* README.md */; };
 		88FE73DA22EA94A000E48078 /* CrashVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 88FE73D922EA94A000E48078 /* CrashVC.mm */; };
+		88FF5185263BB4A8009238CA /* ImageDecodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FF5184263BB4A8009238CA /* ImageDecodeVC.m */; };
+		88FF5188263BB4D8009238CA /* sendingBmp@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 88FF5187263BB4D7009238CA /* sendingBmp@2x.gif */; };
 		B53FA1D74D0B34DB4B6579F5 /* Pods_SwiftUITest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B1F7754A11FE9EDC777EA8 /* Pods_SwiftUITest.framework */; };
 /* End PBXBuildFile section */
 
@@ -1016,6 +1019,9 @@
 		88D7EA5E255CE86600129B50 /* SwiftTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftTest-Bridging-Header.h"; sourceTree = "<group>"; };
 		88D7EA5F255CE86600129B50 /* OCView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCView.h; sourceTree = "<group>"; };
 		88D7EA60255CE86600129B50 /* OCView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCView.m; sourceTree = "<group>"; };
+		88DA073C259AF89B00D13365 /* FlutterTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlutterTestVC.h; sourceTree = "<group>"; };
+		88DA073D259AF89B00D13365 /* FlutterTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlutterTestVC.m; sourceTree = "<group>"; };
+		88DA0748259B00B200D13365 /* DemoDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DemoDebug.entitlements; sourceTree = "<group>"; };
 		88DBB8EC23C70CE4006C4338 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		88E7129D231284620087913F /* BankCompare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankCompare.h; sourceTree = "<group>"; };
 		88E7129E231284620087913F /* BankCompare.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankCompare.m; sourceTree = "<group>"; };
@@ -1066,6 +1072,9 @@
 		88EA7A7F1EB2247500165B37 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		88FE73D822EA94A000E48078 /* CrashVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CrashVC.h; sourceTree = "<group>"; };
 		88FE73D922EA94A000E48078 /* CrashVC.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CrashVC.mm; sourceTree = "<group>"; };
+		88FF5183263BB4A8009238CA /* ImageDecodeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageDecodeVC.h; sourceTree = "<group>"; };
+		88FF5184263BB4A8009238CA /* ImageDecodeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageDecodeVC.m; sourceTree = "<group>"; };
+		88FF5187263BB4D7009238CA /* sendingBmp@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "sendingBmp@2x.gif"; sourceTree = "<group>"; };
 		8AADC944FDB703726642A1B4 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		C6B1F7754A11FE9EDC777EA8 /* Pods_SwiftUITest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftUITest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED499541B14DC58FEF21B4D /* Pods-SwiftUITest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUITest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftUITest/Pods-SwiftUITest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1693,12 +1702,15 @@
 		889B2E9F1E8DDA7000ACD1A0 /* 多媒体 */ = {
 			isa = PBXGroup;
 			children = (
+				88FF5187263BB4D7009238CA /* sendingBmp@2x.gif */,
 				880131951E8F7C8B0087EBBD /* FreeStreamer.xcodeproj */,
 				882C99781E8E267700BFDAC7 /* music.mp3 */,
 				889B2EA81E8DE13B00ACD1A0 /* msg.wav */,
 				889B2EA01E8DDAB500ACD1A0 /* MediaVC.h */,
 				889B2EA11E8DDAB500ACD1A0 /* MediaVC.m */,
 				889B2EA21E8DDAB500ACD1A0 /* MediaVC.xib */,
+				88FF5183263BB4A8009238CA /* ImageDecodeVC.h */,
+				88FF5184263BB4A8009238CA /* ImageDecodeVC.m */,
 			);
 			path = "多媒体";
 			sourceTree = "<group>";
@@ -1838,6 +1850,8 @@
 		88A6173A1E53100C00EF8AFC /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				88DA0748259B00B200D13365 /* DemoDebug.entitlements */,
+				88DA073B259AF89B00D13365 /* Flutter */,
 				887184B52512388200351ED3 /* 安全加密 */,
 				8876015E23E3FED200B12706 /* QidianFlexMessage */,
 				88E7129B231284110087913F /* 贷款计算 */,
@@ -2176,6 +2190,15 @@
 				88D7EA5E255CE86600129B50 /* SwiftTest-Bridging-Header.h */,
 			);
 			path = SwiftTest;
+			sourceTree = "<group>";
+		};
+		88DA073B259AF89B00D13365 /* Flutter */ = {
+			isa = PBXGroup;
+			children = (
+				88DA073C259AF89B00D13365 /* FlutterTestVC.h */,
+				88DA073D259AF89B00D13365 /* FlutterTestVC.m */,
+			);
+			path = Flutter;
 			sourceTree = "<group>";
 		};
 		88E7129B231284110087913F /* 贷款计算 */ = {
@@ -2519,6 +2542,7 @@
 				88A6174B1E53100C00EF8AFC /* LaunchScreen.storyboard in Resources */,
 				887601A123E4367100B12706 /* user_avatar_default@2x.png in Resources */,
 				88EA7A5F1EB223D300165B37 /* AutoLayoutVC.xib in Resources */,
+				88FF5188263BB4D8009238CA /* sendingBmp@2x.gif in Resources */,
 				887601A623E4367100B12706 /* aio_image_default@2x.png in Resources */,
 				887601A023E4367100B12706 /* qidian_flex_arrow_down@2x.png in Resources */,
 				889C4AA91E9C743000EB2C68 /* LICENSE in Resources */,
@@ -2847,6 +2871,7 @@
 				886860BD2172453000C88C1A /* RACKVOChannel.m in Sources */,
 				886860DA2172453000C88C1A /* RACValueTransformer.m in Sources */,
 				886860CE2172453000C88C1A /* RACStream.m in Sources */,
+				88FF5185263BB4A8009238CA /* ImageDecodeVC.m in Sources */,
 				88EA7A891EB2247500165B37 /* View+MASAdditions.m in Sources */,
 				88920A8523E4715500CA94D5 /* TQDFMElementLoadingHolderView.m in Sources */,
 				8876018C23E3FED400B12706 /* TQDFMElementImageView.m in Sources */,
@@ -2860,6 +2885,7 @@
 				88E8F7AA1ED5A1A100FE93B4 /* LightState_Off.m in Sources */,
 				889DBA7D1E7E71F900520C77 /* QuartzRendering.m in Sources */,
 				886860AA2172453000C88C1A /* RACArraySequence.m in Sources */,
+				88DA073F259AF89B00D13365 /* FlutterTestVC.m in Sources */,
 				889C4AAF1E9C743000EB2C68 /* UIImageView+AFNetworking.m in Sources */,
 				886860B82172453000C88C1A /* RACErrorSignal.m in Sources */,
 				886860942172452F00C88C1A /* MKAnnotationView+RACSignalSupport.m in Sources */,
@@ -3175,7 +3201,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = Demo/Demo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Demo/DemoDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yang Li (GHRTP6V39W)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yang Li (GHRTP6V39W)";
 				DEVELOPMENT_TEAM = N9MGHU8KN7;
@@ -3198,7 +3224,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.iosdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4a57f1da-9a55-4802-8c6a-625c5d6a806f";
-				PROVISIONING_PROFILE_SPECIFIER = ChesterDev20200108;
+				PROVISIONING_PROFILE_SPECIFIER = 20200210iOS;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Demo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
