@@ -1,8 +1,10 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/GRMustache" "${PODS_CONFIGURATION_BUILD_DIR}/JRSwizzle"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FlutterPluginRegistrant" "${PODS_CONFIGURATION_BUILD_DIR}/WeexSDK" "${PODS_ROOT}/../my_flutter/.ios/Flutter" "${PODS_ROOT}/../my_flutter/.ios/Flutter/engine" "${PODS_ROOT}/LookinServer" '$(PODS_ROOT)/WeexSDK'
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/GRMustache/GRMustache.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/JRSwizzle/JRSwizzle.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FlutterPluginRegistrant/FlutterPluginRegistrant.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/WeexSDK/WeexSDK.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_LDFLAGS = $(inherited) -framework "Foundation" -framework "GRMustache" -framework "JRSwizzle"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_CONFIGURATION_BUILD_DIR}/FlutterPluginRegistrant/FlutterPluginRegistrant.framework/Headers" -iframework "${PODS_ROOT}/../my_flutter/.ios/Flutter/engine" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/FlutterPluginRegistrant" -iframework "${PODS_ROOT}/../my_flutter/.ios/Flutter"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -framework "AVFoundation" -framework "AVKit" -framework "App" -framework "CoreGraphics" -framework "CoreMedia" -framework "CoreText" -framework "Flutter" -framework "FlutterPluginRegistrant" -framework "GLKit" -framework "JavaScriptCore" -framework "LookinServer" -framework "MediaPlayer" -framework "OpenGLES" -framework "QuartzCore" -framework "UIKit" -framework "WeexSDK"
+OTHER_LINK_FLAG = $(inherited) -ObjC
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.

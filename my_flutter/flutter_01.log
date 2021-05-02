@@ -1,0 +1,86 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter attach
+
+## exception
+
+SocketException: SocketException: Failed to create datagram socket (OS Error: Address already in use, errno = 48), address = , port = 5353
+
+```
+#0      _NativeSocket.bindDatagram (dart:io-patch/socket_patch.dart:798:7)
+<asynchronous suspension>
+#1      _RawDatagramSocket.bind (dart:io-patch/socket_patch.dart:2155:26)
+#2      RawDatagramSocket.bind (dart:io-patch/socket_patch.dart:2113:31)
+#3      MDnsClient.start (package:multicast_dns/multicast_dns.dart:127:71)
+<asynchronous suspension>
+#4      MDnsObservatoryDiscovery.query (package:flutter_tools/src/mdns_discovery.dart:59:20)
+#5      MDnsObservatoryDiscovery.getObservatoryUri (package:flutter_tools/src/mdns_discovery.dart:146:57)
+#6      AttachCommand._attachToDevice (package:flutter_tools/src/commands/attach.dart:262:51)
+<asynchronous suspension>
+#7      AttachCommand.runCommand.<anonymous closure> (package:flutter_tools/src/commands/attach.dart:201:19)
+#8      AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:150:29)
+#9      _rootRun (dart:async/zone.dart:1190:13)
+#10     _CustomZone.run (dart:async/zone.dart:1093:19)
+#11     _runZoned (dart:async/zone.dart:1630:10)
+#12     runZoned (dart:async/zone.dart:1550:10)
+#13     AppContext.run (package:flutter_tools/src/base/context.dart:149:18)
+#14     AttachCommand.runCommand (package:flutter_tools/src/commands/attach.dart:200:19)
+<asynchronous suspension>
+#15     FlutterCommand.verifyThenRunCommand (package:flutter_tools/src/runner/flutter_command.dart:977:18)
+#16     _rootRunUnary (dart:async/zone.dart:1198:47)
+#17     _CustomZone.runUnary (dart:async/zone.dart:1100:19)
+#18     _FutureListener.handleValue (dart:async/future_impl.dart:143:18)
+#19     Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:696:45)
+#20     Future._propagateToListeners (dart:async/future_impl.dart:725:32)
+#21     Future._completeWithValue (dart:async/future_impl.dart:529:5)
+#22     Future._asyncCompleteWithValue.<anonymous closure> (dart:async/future_impl.dart:567:7)
+#23     _rootRun (dart:async/zone.dart:1190:13)
+#24     _CustomZone.run (dart:async/zone.dart:1093:19)
+#25     _CustomZone.runGuarded (dart:async/zone.dart:997:7)
+#26     _CustomZone.bindCallbackGuarded.<anonymous closure> (dart:async/zone.dart:1037:23)
+#27     _microtaskLoop (dart:async/schedule_microtask.dart:41:21)
+#28     _startMicrotaskLoop (dart:async/schedule_microtask.dart:50:5)
+#29     _runPendingImmediateCallback (dart:isolate-patch/isolate_patch.dart:118:13)
+#30     _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:169:5)
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel stable, 1.22.4, on Mac OS X 10.15.7 19H2 darwin-x64, locale zh-Hans-CN)
+    • Flutter version 1.22.4 at /Users/guoxiaoqian/flutter
+    • Framework revision 1aafb3a8b9 (7 周前), 2020-11-13 09:59:28 -0800
+    • Engine revision 2c956a31c0
+    • Dart version 2.10.4
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 30.0.3)
+    • Android SDK at /Users/guoxiaoqian/Library/Android/sdk
+    • Platform android-30, build-tools 30.0.3
+    • Java binary at: /Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/bin/java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_242-release-1644-b3-6915495)
+    • All Android licenses accepted.
+
+[✓] Xcode - develop for iOS and macOS (Xcode 12.0.1)
+    • Xcode at /Applications/Xcode_12.1.app/Contents/Developer
+    • Xcode 12.0.1, Build version 12A7300
+    • CocoaPods version 1.9.3
+
+[!] Android Studio (version 4.1)
+    • Android Studio at /Applications/Android Studio.app/Contents
+    ✗ Flutter plugin not installed; this adds Flutter specific functionality.
+    ✗ Dart plugin not installed; this adds Dart specific functionality.
+    • Java version OpenJDK Runtime Environment (build 1.8.0_242-release-1644-b3-6915495)
+
+[✓] VS Code (version 1.31.1)
+    • VS Code at /Applications/Visual Studio Code.app/Contents
+    • Flutter extension version 2.25.1
+
+[✓] Connected device (1 available)
+    • iPhone 11 (mobile) • E3BF177C-E056-4C30-848F-BD55502A0D8B • ios •
+      com.apple.CoreSimulator.SimRuntime.iOS-14-0 (simulator)
+
+! Doctor found issues in 1 category.
+```

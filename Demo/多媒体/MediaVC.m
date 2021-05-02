@@ -43,11 +43,11 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self playSoundEffect];
-    
+
     [self setupAVAudioPlayerWithURL:nil];
-    
+
     self.moviePlayer.view.frame = CGRectMake(200,400, 100, 100);
-    [self.view addSubview:self.moviePlayer.view];
+    [self.view addSubview:self.moviePlayer.view];    
 }
 
 - (void)didReceiveMemoryWarning {

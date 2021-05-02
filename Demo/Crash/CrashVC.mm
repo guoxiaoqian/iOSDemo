@@ -75,7 +75,9 @@ using namespace std;
     
 //    [self testCrash_WKWebview];
     
-    [self testCrash_WildPointer];
+//    [self testCrash_WildPointer];
+    
+    [self testCrash_CPPStringWithNULL];
 }
 
 #pragma mark - 多线程
@@ -248,6 +250,14 @@ void cppString(const string& value) {
         obj = tmpObj;
     }
     NSLog(@"dealloced obj = %@",obj.description);
+}
+
+#pragma mark - String
+
+- (void)testCrash_CPPStringWithNULL {
+    
+    string s(nil);
+    NSLog(@"cpp string = %s",s.c_str());
 }
 
 @end

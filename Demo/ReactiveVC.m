@@ -29,18 +29,40 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+//
+//    RACSignal* signalA = [self signalWithTag:@"A"];
+//    RACSignal* signalB = [self signalWithTag:@"B"];
+//
+//    [[RACSignal merge:@[signalA,signalB]] subscribeCompleted:^{
+//        NSLog(@"all completed");
+//    }];
     
-    RACSignal* signalA = [self signalWithTag:@"A"];
-    RACSignal* signalB = [self signalWithTag:@"B"];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.view.backgroundColor = [UIColor whiteColor];
     
-    [[RACSignal merge:@[signalA,signalB]] subscribeCompleted:^{
-        NSLog(@"all completed");
-    }];
+//    [self testIconFont];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - 字体矢量图
+
+- (void)testIconFont {
+
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(50, 50, 300, 40)];
+    label.backgroundColor = [UIColor greenColor];
+    
+    label.font = [UIFont fontWithName:@"iconfont" size:35];
+//   &#xe62f 转换 \U0000e618  &#xe614;  &#xe618;
+    label.text = @"\U0000e614哈哈哈\U0000e618";
+    
+    label.textColor = [UIColor redColor]; //改变字体颜色就是改变图片颜色
+    
+    [self.view addSubview:label];
+    
 }
 
 /*

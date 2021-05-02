@@ -7,6 +7,7 @@
 //
 
 #import "MRCTest.h"
+#import "ARCTest.h"
 
 //#if ! __has_feature(objc_arc)
 //#error This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
@@ -18,25 +19,36 @@
 
 @interface MRCTest ()
 @property (retain) NSNumber* num;
+@property (retain) NSString* str;
 @end
 
 @implementation MRCTest
 
 +(void)testMRC{
-    __block id block_obj = [[NSObject alloc]init];
-    id obj = [[NSObject alloc]init];
+//    __block id block_obj = [[NSObject alloc]init];
+//    id obj = [[NSObject alloc]init];
+//
+//    NSLog(@"***Block前****block_obj = [%p , %lu] , obj = [%p , %lu]", &block_obj ,(unsigned long)[block_obj retainCount] , &obj,(unsigned long)[obj retainCount]);
+//
+//    void (^myBlock)(void) = ^{
+//        NSLog(@"***Block中****block_obj = [%p , %lu] , obj = [%p , %lu]", &block_obj ,(unsigned long)[block_obj retainCount] , &obj,(unsigned long)[obj retainCount]);
+//    };
+//
+//    myBlock();
+//
+//    void (^myBlockCopy)(void) = [myBlock copy];
+//    NSLog(@"***BlockCopy前****block_obj = [%p , %lu] , obj = [%p , %lu]", &block_obj ,(unsigned long)[block_obj retainCount] , &obj,(unsigned long)[obj retainCount]);
+//    myBlockCopy();
     
-    NSLog(@"***Block前****block_obj = [%p , %lu] , obj = [%p , %lu]", &block_obj ,(unsigned long)[block_obj retainCount] , &obj,(unsigned long)[obj retainCount]);
     
-    void (^myBlock)(void) = ^{
-        NSLog(@"***Block中****block_obj = [%p , %lu] , obj = [%p , %lu]", &block_obj ,(unsigned long)[block_obj retainCount] , &obj,(unsigned long)[obj retainCount]);
-    };
+    ARCTest* obj = nil;
     
-    myBlock();
+    @autoreleasepool {
+        obj = [ARCTest createObject];
+        NSLog(@"count=========%d",obj.retainCount);
+    }
     
-    void (^myBlockCopy)(void) = [myBlock copy];
-    NSLog(@"***BlockCopy前****block_obj = [%p , %lu] , obj = [%p , %lu]", &block_obj ,(unsigned long)[block_obj retainCount] , &obj,(unsigned long)[obj retainCount]);
-    myBlockCopy();
+    NSLog(@"count=========%d",obj.retainCount);
 }
 
 - (void)testMRCObj{
@@ -47,6 +59,18 @@
     NSLog(@"retainCount %zd",self.num.retainCount);
     [self.num release];
     NSLog(@"retainCount %zd",self.num.retainCount);
+    
+    @autoreleasepool {
+        _str = @"";
+        [_str release];
+        NSLog(@"str retainCount %zd",_str.retainCount);
+    }
+    NSLog(@"str retainCount %zd",_str.retainCount);
+}
+- (void)dealloc {
+    [_str release];
+    
+    [super dealloc];
 }
 
 @end

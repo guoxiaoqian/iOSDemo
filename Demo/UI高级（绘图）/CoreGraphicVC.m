@@ -132,17 +132,19 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    // Do any additional setup after loading the view from its nib.
-    Quartz2DView* testView = [[Quartz2DView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
-    testView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:testView];
+//    // Do any additional setup after loading the view from its nib.
+//    Quartz2DView* testView = [[Quartz2DView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
+//    testView.backgroundColor = [UIColor whiteColor];
+//    [self.view addSubview:testView];
+//
+//    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 400, 100, 100)];
+//    [self.view addSubview:imageView];
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        UIImage* image = [testView captureView];
+//        imageView.image = image;
+//    });
     
-    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 400, 100, 100)];
-    [self.view addSubview:imageView];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        UIImage* image = [testView captureView];
-        imageView.image = image;
-    });
+    self.view.clipsToBounds = YES;
 }
 
 - (void)didReceiveMemoryWarning {

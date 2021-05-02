@@ -3,3 +3,5 @@
 *.lo
 *.o
 */.deps
+my_flutter/build
+my_flutter/.dart_tool/flutter_build

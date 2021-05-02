@@ -117,7 +117,7 @@
     
 //    [MRCTest testMRC];
     
-//    [[MRCTest new] testMRCObj];
+    [[MRCTest new] testMRCObj];
     
 //    [DebugTool testDebugTool];
     
@@ -127,7 +127,7 @@
     
 //    [self testCollectionEqual];
     
-    [self testNSStringClass];
+//    [self testNSStringClass];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
