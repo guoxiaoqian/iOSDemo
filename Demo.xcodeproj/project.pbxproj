@@ -53,6 +53,12 @@
 		88439EFB1EA79D62007DDA1B /* SystemInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88439EF91EA79D62007DDA1B /* SystemInfoVC.m */; };
 		88439EFC1EA79D62007DDA1B /* SystemInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88439EFA1EA79D62007DDA1B /* SystemInfoVC.xib */; };
 		88439EFE1EA79F4F007DDA1B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88439EFD1EA79F4F007DDA1B /* AdSupport.framework */; };
+		8847702D263E3D76005F53F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8847702C263E3D76005F53F5 /* AppDelegate.m */; };
+		8847702F263E3D79005F53F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8847702E263E3D79005F53F5 /* Assets.xcassets */; };
+		88477032263E3D79005F53F5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88477030263E3D79005F53F5 /* MainMenu.xib */; };
+		88477035263E3D79005F53F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88477034263E3D79005F53F5 /* main.m */; };
+		8847703D263E3E09005F53F5 /* ImageProcessVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8847703C263E3E09005F53F5 /* ImageProcessVC.m */; };
+		8847705B263E45B6005F53F5 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8847705A263E45B6005F53F5 /* CoreImage.framework */; };
 		88486C881EA624A800AA842F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C871EA624A800AA842F /* MessageUI.framework */; };
 		88486C8A1EA6341300AA842F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C891EA6341300AA842F /* AddressBook.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		88486C8F1EA63DCF00AA842F /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C8E1EA63DCF00AA842F /* EventKit.framework */; };
@@ -513,6 +519,17 @@
 		88439EF91EA79D62007DDA1B /* SystemInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemInfoVC.m; sourceTree = "<group>"; };
 		88439EFA1EA79D62007DDA1B /* SystemInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemInfoVC.xib; sourceTree = "<group>"; };
 		88439EFD1EA79F4F007DDA1B /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		88477029263E3D76005F53F5 /* DemoMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8847702B263E3D76005F53F5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8847702C263E3D76005F53F5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8847702E263E3D79005F53F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		88477031263E3D79005F53F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		88477033263E3D79005F53F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88477034263E3D79005F53F5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		88477036263E3D79005F53F5 /* DemoMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DemoMac.entitlements; sourceTree = "<group>"; };
+		8847703B263E3E09005F53F5 /* ImageProcessVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageProcessVC.h; sourceTree = "<group>"; };
+		8847703C263E3E09005F53F5 /* ImageProcessVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageProcessVC.m; sourceTree = "<group>"; };
+		8847705A263E45B6005F53F5 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreImage.framework; sourceTree = DEVELOPER_DIR; };
 		88486C871EA624A800AA842F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		88486C891EA6341300AA842F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		88486C8B1EA6344100AA842F /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
@@ -1081,6 +1098,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		88477026263E3D76005F53F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8847705B263E45B6005F53F5 /* CoreImage.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		88A617351E53100C00EF8AFC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1282,6 +1307,22 @@
 				882739341FCC64440011BC0B /* TNWCameraScanView.m */,
 			);
 			path = "硬件特性";
+			sourceTree = "<group>";
+		};
+		8847702A263E3D76005F53F5 /* DemoMac */ = {
+			isa = PBXGroup;
+			children = (
+				8847702B263E3D76005F53F5 /* AppDelegate.h */,
+				8847702C263E3D76005F53F5 /* AppDelegate.m */,
+				8847703B263E3E09005F53F5 /* ImageProcessVC.h */,
+				8847703C263E3E09005F53F5 /* ImageProcessVC.m */,
+				8847702E263E3D79005F53F5 /* Assets.xcassets */,
+				88477030263E3D79005F53F5 /* MainMenu.xib */,
+				88477033263E3D79005F53F5 /* Info.plist */,
+				88477034263E3D79005F53F5 /* main.m */,
+				88477036263E3D79005F53F5 /* DemoMac.entitlements */,
+			);
+			path = DemoMac;
 			sourceTree = "<group>";
 		};
 		8859608A1E701FA300760090 /* UI高级（动画） */ = {
@@ -1829,6 +1870,7 @@
 				8887A3A21EAB58B4005EEFAE /* ShareExtension */,
 				88D7EA2C255BD95F00129B50 /* SwiftUITest */,
 				88D7EA4A255CE76C00129B50 /* SwiftTest */,
+				8847702A263E3D76005F53F5 /* DemoMac */,
 				88A617391E53100C00EF8AFC /* Products */,
 				88A617791E53EED000EF8AFC /* Frameworks */,
 				CEEEDA49D3D873FF52AD5D0B /* Pods */,
@@ -1843,6 +1885,7 @@
 				88A6175C1E53100C00EF8AFC /* DemoUITests.xctest */,
 				88D7EA2B255BD95F00129B50 /* SwiftUITest.app */,
 				88D7EA49255CE76C00129B50 /* SwiftTest.app */,
+				88477029263E3D76005F53F5 /* DemoMac.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1924,6 +1967,7 @@
 		88A617791E53EED000EF8AFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8847705A263E45B6005F53F5 /* CoreImage.framework */,
 				88DBB8EC23C70CE4006C4338 /* JavaScriptCore.framework */,
 				8827392C1FCB07030011BC0B /* LocalAuthentication.framework */,
 				8887A3B51EAED15B005EEFAE /* WebKit.framework */,
@@ -2319,6 +2363,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		88477028263E3D76005F53F5 /* DemoMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8847703A263E3D79005F53F5 /* Build configuration list for PBXNativeTarget "DemoMac" */;
+			buildPhases = (
+				88477025263E3D76005F53F5 /* Sources */,
+				88477026263E3D76005F53F5 /* Frameworks */,
+				88477027263E3D76005F53F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DemoMac;
+			productName = DemoMac;
+			productReference = 88477029263E3D76005F53F5 /* DemoMac.app */;
+			productType = "com.apple.product-type.application";
+		};
 		88A617371E53100C00EF8AFC /* Demo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88A617651E53100C00EF8AFC /* Build configuration list for PBXNativeTarget "Demo" */;
@@ -2426,6 +2487,9 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "郭晓倩";
 				TargetAttributes = {
+					88477028263E3D76005F53F5 = {
+						CreatedOnToolsVersion = 11.3;
+					};
 					88A617371E53100C00EF8AFC = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = N9MGHU8KN7;
@@ -2491,6 +2555,7 @@
 				88A6175B1E53100C00EF8AFC /* DemoUITests */,
 				88D7EA2A255BD95F00129B50 /* SwiftUITest */,
 				88D7EA48255CE76B00129B50 /* SwiftTest */,
+				88477028263E3D76005F53F5 /* DemoMac */,
 			);
 		};
 /* End PBXProject section */
@@ -2520,6 +2585,15 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		88477027263E3D76005F53F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8847702F263E3D79005F53F5 /* Assets.xcassets in Resources */,
+				88477032263E3D79005F53F5 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		88A617361E53100C00EF8AFC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2713,6 +2787,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		88477025263E3D76005F53F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88477035263E3D79005F53F5 /* main.m in Sources */,
+				8847703D263E3E09005F53F5 /* ImageProcessVC.m in Sources */,
+				8847702D263E3D76005F53F5 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		88A617341E53100C00EF8AFC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3036,6 +3120,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		88477030263E3D79005F53F5 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88477031263E3D79005F53F5 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
 		8887A3921EA98CBF005EEFAE /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -3103,6 +3195,73 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		88477037263E3D79005F53F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = DemoMac/DemoMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = DemoMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.qdimsdk.DemoMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		88477038263E3D79005F53F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = DemoMac/DemoMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = DemoMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.qdimsdk.DemoMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		88A617631E53100C00EF8AFC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3505,6 +3664,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8847703A263E3D79005F53F5 /* Build configuration list for PBXNativeTarget "DemoMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88477037263E3D79005F53F5 /* Debug */,
+				88477038263E3D79005F53F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		88A617331E53100C00EF8AFC /* Build configuration list for PBXProject "Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
