@@ -1,17 +1,9 @@
 PODS:
-  - Flutter (1.0.0)
-  - FlutterPluginRegistrant (0.0.1):
-    - Flutter
   - LookinServer (1.0.0)
-  - my_flutter (0.0.1):
-    - Flutter
   - WeexSDK (0.26.0)
 
 DEPENDENCIES:
-  - Flutter (from `my_flutter/.ios/Flutter/engine`)
-  - FlutterPluginRegistrant (from `my_flutter/.ios/Flutter/FlutterPluginRegistrant`)
   - LookinServer
-  - my_flutter (from `my_flutter/.ios/Flutter`)
   - WeexSDK
 
 SPEC REPOS:
@@ -19,21 +11,10 @@ SPEC REPOS:
     - LookinServer
     - WeexSDK
 
-EXTERNAL SOURCES:
-  Flutter:
-    :path: my_flutter/.ios/Flutter/engine
-  FlutterPluginRegistrant:
-    :path: my_flutter/.ios/Flutter/FlutterPluginRegistrant
-  my_flutter:
-    :path: my_flutter/.ios/Flutter
-
 SPEC CHECKSUMS:
-  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  FlutterPluginRegistrant: 2afd5ea46d3a949472c9b7da6462d8fbf7d8b16e
   LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
-  my_flutter: 5f71a42a61a499a9f322f2c0f62fc185a5807c9b
   WeexSDK: 55b67d1c411eb28ec1e356f763a335d0ddcc5324
 
-PODFILE CHECKSUM: edc123a2052ef90bd597f8feb890b3335b4e1600
+PODFILE CHECKSUM: 4fc067604ec6b5a9085c0efc0d50815611d9d1c0
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.8.4

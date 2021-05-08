@@ -5,8 +5,10 @@
 //  Created by gavinxqguo on 2020/11/26.
 //  Copyright © 2020 郭晓倩. All rights reserved.
 //
-
+#if ENABLE_FLUTTER
 @import Flutter;
+#endif
+
 #import "FlutterTestVC.h"
 #import "AppDelegate.h"
 
@@ -24,17 +26,19 @@
 }
 
 - (void)showFlutter {
+#if ENABLE_FLUTTER
     FlutterEngine *flutterEngine =
         ((AppDelegate *)UIApplication.sharedApplication.delegate).flutterEngine;
-    
+
     if (flutterEngine == nil) {
         flutterEngine = [[FlutterEngine alloc] initWithName:@"my flutter engine"];
         [flutterEngine run];
         ((AppDelegate *)UIApplication.sharedApplication.delegate).flutterEngine = flutterEngine;
     }
-    
+
     FlutterViewController *flutterViewController =
         [[FlutterViewController alloc] initWithEngine:flutterEngine nibName:nil bundle:nil];
     [self presentViewController:flutterViewController animated:YES completion:nil];
+#endif
 }
 @end
