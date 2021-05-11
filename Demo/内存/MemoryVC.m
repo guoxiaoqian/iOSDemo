@@ -12,6 +12,7 @@
 @interface MemoryVC ()
 
 @property (strong,nonatomic) UIImageView* imageView;
+@property (strong,nonatomic) UIImageView* imageView2;
 
 @end
 
@@ -22,8 +23,11 @@
     // Do any additional setup after loading the view.
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 60, 500, 500)];
     [self.view addSubview:self.imageView];
+    self.imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.imageView.frame), 500, 500)];
+    [self.view addSubview:self.imageView2];
+    
     [self testAllocMemory];
-    [self testVMAlloc];
+    [self testAllocVM];
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self testImageFile];
@@ -77,34 +81,7 @@
     [self logMemorySize];
 }
 
-- (void)testImageFile {
-    LOG_FUNCTION;
-    [self logMemorySize];
-    NSURL* imageUrl = [[NSBundle mainBundle] URLForResource:@"Demo2@3x" withExtension:@"png"];
-    UIImage* image = [UIImage imageWithContentsOfFile:imageUrl.path];
-    [self logMemorySize];
-    self.imageView.image = image;
-    [self logMemorySize];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self logMemorySize];
-    });
-
-}
-
-- (void)testImageNamed {
-    LOG_FUNCTION;
-    [self logMemorySize];
-    UIImage* image = [UIImage imageNamed:@"Demo2"];
-    [self logMemorySize];
-    self.imageView.image = image;
-    [self logMemorySize];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self logMemorySize];
-    });
-
-}
-
-- (void)testVMAlloc {
+- (void)testAllocVM {
     LOG_FUNCTION;
     [self logMemorySize];
 
@@ -116,6 +93,31 @@
     // vm_allocate((vm_map_t)mach_task_self(), &address, size, VM_MAKE_TAG(VM_MEMORY_MALLOC_HUGE) | VM_FLAGS_ANYWHERE);
     
     [self logMemorySize];
+}
+
+- (void)testImageFile {
+    LOG_FUNCTION;
+    [self logMemorySize];
+    NSURL* imageUrl = [[NSBundle mainBundle] URLForResource:@"big_pic" withExtension:@"png"];
+    UIImage* image = [UIImage imageWithContentsOfFile:imageUrl.path];
+    [self logMemorySize];
+    self.imageView.image = image;
+    [self logMemorySize];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self logMemorySize];
+    });
+}
+
+- (void)testImageNamed {
+    LOG_FUNCTION;
+    [self logMemorySize];
+    UIImage* image = [UIImage imageNamed:@"big_pic2"];
+    [self logMemorySize];
+    self.imageView2.image = image;
+    [self logMemorySize];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self logMemorySize];
+    });
 }
 
 @end
