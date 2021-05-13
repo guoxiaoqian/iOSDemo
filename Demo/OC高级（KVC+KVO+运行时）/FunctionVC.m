@@ -12,6 +12,19 @@
 #import "DebugTool.h"
 #import "Singleton.h"
 
+@interface MyCopyObj : NSObject <NSCopying>
+
+@end
+
+@implementation MyCopyObj
+
+- (id)copyWithZone:(NSZone *)zone {
+    LOG_FUNCTION;
+    return self;
+}
+
+@end
+
 @interface MyEqualObj : NSObject
 
 @property (nonatomic,assign) int value;
@@ -117,7 +130,7 @@
     
 //    [MRCTest testMRC];
     
-    [[MRCTest new] testMRCObj];
+//    [[MRCTest new] testMRCObj];
     
 //    [DebugTool testDebugTool];
     
@@ -128,6 +141,8 @@
 //    [self testCollectionEqual];
     
 //    [self testNSStringClass];
+    
+    [self testCopy];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -331,6 +346,16 @@
     NSLog(@"str3(%@<%p>: %p): %@", [str3 class], &str3, str3, str3);
     NSLog(@"str4(%@<%p>: %p): %@", [str4 class], &str4, str4, str4);
     NSLog(@"str5(%@<%p>: %p): %@", [str5 class], &str5, str5, str5);
+}
+
+#pragma mark - Copy
+
+- (void)testCopy {
+    MyCopyObj* obj = [MyCopyObj new];
+    MyCopyObj* objCopy =  [obj copy];
+    NSArray* arr = @[obj];
+    NSArray* arrCopy = [arr copy];
+    NSMutableArray* arrCopy2 = [arr mutableCopy];
 }
 
 @end
