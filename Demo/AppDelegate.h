@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#if ENABLE_FLUTTER
 @import Flutter;
-
 @interface AppDelegate : FlutterAppDelegate <UIApplicationDelegate>
-
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic,strong) FlutterEngine *flutterEngine;
-
-
 @end
+#else
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@property (strong, nonatomic) UIWindow *window;
+@end
+#endif
 

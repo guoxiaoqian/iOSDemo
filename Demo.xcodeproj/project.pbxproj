@@ -217,7 +217,7 @@
 		88920A8823E47D0400CA94D5 /* TQDFMElementMsgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88920A8723E47D0400CA94D5 /* TQDFMElementMsgView.m */; };
 		8892E9D9224B6025000746C9 /* AutoCodingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8892E9D8224B6025000746C9 /* AutoCodingModel.m */; };
 		8892E9DD224B640F000746C9 /* AutoMD5Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 8892E9DC224B640F000746C9 /* AutoMD5Model.m */; };
-		889B2E961E89E98700ACD1A0 /* Demo2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 889B2E941E89E98700ACD1A0 /* Demo2@2x.png */; };
+		8899BDC92646ED7300713B7A /* MemoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8899BDC82646ED7300713B7A /* MemoryVC.m */; };
 		889B2E971E89E98700ACD1A0 /* Demo2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 889B2E951E89E98700ACD1A0 /* Demo2@3x.png */; };
 		889B2E9B1E8A978300ACD1A0 /* CubeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889B2E991E8A978300ACD1A0 /* CubeVC.m */; };
 		889B2E9C1E8A978300ACD1A0 /* CubeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889B2E9A1E8A978300ACD1A0 /* CubeVC.xib */; };
@@ -284,6 +284,8 @@
 		889DBA851E7E724500520C77 /* CoreGraphicVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889DBA831E7E724500520C77 /* CoreGraphicVC.xib */; };
 		889DBA891E7EBBA700520C77 /* CoreAnimationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889DBA871E7EBBA700520C77 /* CoreAnimationVC.m */; };
 		889DBA8A1E7EBBA700520C77 /* CoreAnimationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889DBA881E7EBBA700520C77 /* CoreAnimationVC.xib */; };
+		88A2BB0E264AC562008A3841 /* big_pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 88A2BB0C264AC561008A3841 /* big_pic.png */; };
+		88A2BB10264AC834008A3841 /* big_pic2.png in Resources */ = {isa = PBXBuildFile; fileRef = 88A2BB0F264AC834008A3841 /* big_pic2.png */; };
 		88A3F69D21EEC2AF009B619A /* libprotobuf-lite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CDF01021EC909D00CD0C7F /* libprotobuf-lite.a */; };
 		88A6173D1E53100C00EF8AFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A6173C1E53100C00EF8AFC /* main.m */; };
 		88A617401E53100C00EF8AFC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A6173F1E53100C00EF8AFC /* AppDelegate.m */; };
@@ -845,7 +847,8 @@
 		8892E9D8224B6025000746C9 /* AutoCodingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoCodingModel.m; sourceTree = "<group>"; };
 		8892E9DB224B640F000746C9 /* AutoMD5Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoMD5Model.h; sourceTree = "<group>"; };
 		8892E9DC224B640F000746C9 /* AutoMD5Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoMD5Model.m; sourceTree = "<group>"; };
-		889B2E941E89E98700ACD1A0 /* Demo2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Demo2@2x.png"; sourceTree = "<group>"; };
+		8899BDC72646ED7300713B7A /* MemoryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoryVC.h; sourceTree = "<group>"; };
+		8899BDC82646ED7300713B7A /* MemoryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoryVC.m; sourceTree = "<group>"; };
 		889B2E951E89E98700ACD1A0 /* Demo2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Demo2@3x.png"; sourceTree = "<group>"; };
 		889B2E981E8A978300ACD1A0 /* CubeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CubeVC.h; sourceTree = "<group>"; };
 		889B2E991E8A978300ACD1A0 /* CubeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CubeVC.m; sourceTree = "<group>"; };
@@ -955,6 +958,8 @@
 		889DBA861E7EBBA700520C77 /* CoreAnimationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreAnimationVC.h; sourceTree = "<group>"; };
 		889DBA871E7EBBA700520C77 /* CoreAnimationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreAnimationVC.m; sourceTree = "<group>"; };
 		889DBA881E7EBBA700520C77 /* CoreAnimationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoreAnimationVC.xib; sourceTree = "<group>"; };
+		88A2BB0C264AC561008A3841 /* big_pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = big_pic.png; sourceTree = "<group>"; };
+		88A2BB0F264AC834008A3841 /* big_pic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = big_pic2.png; sourceTree = "<group>"; };
 		88A617381E53100C00EF8AFC /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A6173C1E53100C00EF8AFC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		88A6173E1E53100C00EF8AFC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1328,7 +1333,6 @@
 		8859608A1E701FA300760090 /* UI高级（动画） */ = {
 			isa = PBXGroup;
 			children = (
-				889B2E941E89E98700ACD1A0 /* Demo2@2x.png */,
 				889B2E951E89E98700ACD1A0 /* Demo2@3x.png */,
 				885960CA1E70222000760090 /* Animations */,
 				885960C31E7020DD00760090 /* TestGeneralAnimationVC.h */,
@@ -1740,6 +1744,17 @@
 			path = ShareExtension;
 			sourceTree = "<group>";
 		};
+		8899BDC52646ED4E00713B7A /* 内存 */ = {
+			isa = PBXGroup;
+			children = (
+				88A2BB0C264AC561008A3841 /* big_pic.png */,
+				88A2BB0F264AC834008A3841 /* big_pic2.png */,
+				8899BDC72646ED7300713B7A /* MemoryVC.h */,
+				8899BDC82646ED7300713B7A /* MemoryVC.m */,
+			);
+			path = "内存";
+			sourceTree = "<group>";
+		};
 		889B2E9F1E8DDA7000ACD1A0 /* 多媒体 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1893,6 +1908,7 @@
 		88A6173A1E53100C00EF8AFC /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				8899BDC52646ED4E00713B7A /* 内存 */,
 				88DA0748259B00B200D13365 /* DemoDebug.entitlements */,
 				88DA073B259AF89B00D13365 /* Flutter */,
 				887184B52512388200351ED3 /* 安全加密 */,
@@ -2385,7 +2401,6 @@
 			buildConfigurationList = 88A617651E53100C00EF8AFC /* Build configuration list for PBXNativeTarget "Demo" */;
 			buildPhases = (
 				1C1AF59B8F7F3BD55507DC30 /* [CP] Check Pods Manifest.lock */,
-				F170F697D1DADF4FFFF54C91 /* [CP-User] Run Flutter Build my_flutter Script */,
 				88A617341E53100C00EF8AFC /* Sources */,
 				88A617351E53100C00EF8AFC /* Frameworks */,
 				88A617361E53100C00EF8AFC /* Resources */,
@@ -2632,7 +2647,6 @@
 				889DBA4A1E7AC65700520C77 /* 概念.txt in Resources */,
 				8825CF031ED3BA1F00C59E4E /* DesignPatternVC.xib in Resources */,
 				882C996D1E8BC39100BFDAC7 /* EventVC.xib in Resources */,
-				889B2E961E89E98700ACD1A0 /* Demo2@2x.png in Resources */,
 				887601A223E4367100B12706 /* Demo.xml in Resources */,
 				88920A8223E46D8200CA94D5 /* longmsgfail@2x.png in Resources */,
 				882C99751E8D0CE300BFDAC7 /* RemoteEnvetVC.xib in Resources */,
@@ -2642,6 +2656,7 @@
 				88920A8123E46D8200CA94D5 /* longmsgloading@2x.png in Resources */,
 				887184AC2512384800351ED3 /* page.js in Resources */,
 				889C4A9F1E9C743000EB2C68 /* NetworkVC.xib in Resources */,
+				88A2BB0E264AC562008A3841 /* big_pic.png in Resources */,
 				889B2EA91E8DE13B00ACD1A0 /* msg.wav in Resources */,
 				887184B42512386300351ED3 /* BlurEffectVC.xib in Resources */,
 				88439EF11E9D1466007DDA1B /* SpecialLayerVC.xib in Resources */,
@@ -2649,6 +2664,7 @@
 				889C4A9E1E9C743000EB2C68 /* file.png in Resources */,
 				889B2EA41E8DDAB500ACD1A0 /* MediaVC.xib in Resources */,
 				889DBA801E7E71F900520C77 /* Ship.png in Resources */,
+				88A2BB10264AC834008A3841 /* big_pic2.png in Resources */,
 				8825CF081ED3BA3500C59E4E /* DataStructureVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2768,22 +2784,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F170F697D1DADF4FFFF54C91 /* [CP-User] Run Flutter Build my_flutter Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/./my_flutter/.metadata",
-				"${SRCROOT}/my_flutter/.ios/Flutter/App.framework/App",
-				"${SRCROOT}/my_flutter/.ios/Flutter/engine/Flutter.framework/Flutter",
-				"${SRCROOT}/my_flutter/.ios/Flutter/flutter_export_environment.sh",
-			);
-			name = "[CP-User] Run Flutter Build my_flutter Script";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/my_flutter/.ios/Flutter/flutter_export_environment.sh\"\n\"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh build";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -2891,6 +2891,7 @@
 				886860E72172453000C88C1A /* UISlider+RACSignalSupport.m in Sources */,
 				887184BB251238D000351ED3 /* SelfSizingVC.m in Sources */,
 				8825CF2D1ED8707500C59E4E /* BridgePattern_RedColor.m in Sources */,
+				8899BDC92646ED7300713B7A /* MemoryVC.m in Sources */,
 				886860A02172453000C88C1A /* NSObject+RACLifting.m in Sources */,
 				886860D72172453000C88C1A /* RACTupleSequence.m in Sources */,
 				889DBA7F1E7E71F900520C77 /* QuartzView.m in Sources */,

@@ -418,7 +418,7 @@ void soundCompleteCallback(SystemSoundID soundID,void * clientData){
 #pragma mark - MPMoviePlayerController 支持本地视频和网络视频播放,通过通知回调
 
 -(NSURL *)getNetworkMovieUrl{
-    NSString *urlStr=@"http://192.168.1.161/The New Look of OS X Yosemite.mp4";
+    NSString *urlStr=@"http://v.cctv.com/flash/mp4video6/TMS/2011/01/05/cf752b1c12ce452b3040cab2f90bc265_h264818000nero_aac32-1.mp4";
     urlStr=[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *url=[NSURL URLWithString:urlStr];
     return url;
