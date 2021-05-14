@@ -26,13 +26,13 @@
     self.imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.imageView.frame), 500, 500)];
     [self.view addSubview:self.imageView2];
     
-    [self testAllocMemory];
-    [self testAllocVM];
+//    [self testAllocMemory];
+//    [self testAllocVM];
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self testImageFile];
-    });
-    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [self testImageFile];
+//    });
+//
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
          [self testImageNamed];
      });
@@ -86,7 +86,7 @@
     [self logMemorySize];
 
     vm_address_t address;
-    vm_size_t size = 100*1024*1024;
+    vm_size_t size = 10*1024*1024;
     // VM Tracker中显示Memory Tag 200
     vm_allocate((vm_map_t)mach_task_self(), &address, size, VM_MAKE_TAG(200) | VM_FLAGS_ANYWHERE);
     // VM Tracker中显示VM_MEMORY_MALLOC_HUGE
