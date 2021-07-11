@@ -12,7 +12,7 @@
 		<key>DemoMac.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>12</integer>
+			<integer>14</integer>
 		</dict>
 		<key>NotificationContentExtension.xcscheme</key>
 		<dict>
@@ -37,7 +37,7 @@
 		<key>SwiftUITest.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>14</integer>
+			<integer>12</integer>
 		</dict>
 		<key>TodayExtension.xcscheme</key>
 		<dict>

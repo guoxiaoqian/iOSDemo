@@ -29,13 +29,13 @@
 //    [self testAllocMemory];
 //    [self testAllocVM];
 
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [self testImageFile];
-//    });
-//
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-         [self testImageNamed];
-     });
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self testImageFile];
+    });
+
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//         [self testImageNamed];
+//     });
 }
 
 - (int64_t)memoryVirtualSize {
