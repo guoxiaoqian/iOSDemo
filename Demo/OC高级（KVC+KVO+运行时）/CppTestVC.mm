@@ -17,7 +17,9 @@ using namespace std;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self testString];
+//    [self testString];
+    
+    [self testSharedPtr];
 }
 
 - (void)testString {
@@ -32,6 +34,15 @@ using namespace std;
     NSString* str2 = [NSString stringWithUTF8String:xml_template.c_str()];
     
     NSLog(@"testString: str1=%@ str2=%@",str1,str2);
+}
+
+- (void)testSharedPtr {
+    std::shared_ptr<std::string> sp2= nullptr;
+    std::shared_ptr<std::string> sp = std::make_shared<std::string>("hello world");
+    NSLog(@"testSharedPtr: size=%ld",sizeof(sp));
+    NSLog(@"testSharedPtr: use_count1=%ld",sp.use_count());
+    sp2= std::shared_ptr<std::string>(sp.get());
+    NSLog(@"testSharedPtr: use_count1=%ld use_count2=%ld ",sp.use_count(),sp2.use_count());
 }
 
 @end

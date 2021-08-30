@@ -359,6 +359,7 @@
 		88EA7A891EB2247500165B37 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EA7A7B1EB2247500165B37 /* View+MASAdditions.m */; };
 		88EA7A8A1EB2247500165B37 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EA7A7E1EB2247500165B37 /* ViewController+MASAdditions.m */; };
 		88EA7A8B1EB2247500165B37 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 88EA7A7F1EB2247500165B37 /* README.md */; };
+		88F697AD26DCA5DB00DCF881 /* file.html in Resources */ = {isa = PBXBuildFile; fileRef = 88F697AC26DCA5DB00DCF881 /* file.html */; };
 		88FE73DA22EA94A000E48078 /* CrashVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 88FE73D922EA94A000E48078 /* CrashVC.mm */; };
 		88FF5185263BB4A8009238CA /* ImageDecodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FF5184263BB4A8009238CA /* ImageDecodeVC.m */; };
 		88FF5188263BB4D8009238CA /* sendingBmp@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 88FF5187263BB4D7009238CA /* sendingBmp@2x.gif */; };
@@ -1110,6 +1111,7 @@
 		88EA7A7D1EB2247500165B37 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		88EA7A7E1EB2247500165B37 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		88EA7A7F1EB2247500165B37 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		88F697AC26DCA5DB00DCF881 /* file.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = file.html; sourceTree = "<group>"; };
 		88FE73D822EA94A000E48078 /* CrashVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CrashVC.h; sourceTree = "<group>"; };
 		88FE73D922EA94A000E48078 /* CrashVC.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CrashVC.mm; sourceTree = "<group>"; };
 		88FF5183263BB4A8009238CA /* ImageDecodeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageDecodeVC.h; sourceTree = "<group>"; };
@@ -2214,6 +2216,7 @@
 			children = (
 				887184A82512384800351ED3 /* H5VC.h */,
 				887184A62512384800351ED3 /* H5VC.m */,
+				88F697AC26DCA5DB00DCF881 /* file.html */,
 				887184A72512384800351ED3 /* H5VC.xib */,
 				887184A92512384800351ED3 /* page.js */,
 			);
@@ -2717,6 +2720,7 @@
 				887184B42512386300351ED3 /* BlurEffectVC.xib in Resources */,
 				88439EF11E9D1466007DDA1B /* SpecialLayerVC.xib in Resources */,
 				889DBA3A1E6BFBA200520C77 /* CoreLocationVC.xib in Resources */,
+				88F697AD26DCA5DB00DCF881 /* file.html in Resources */,
 				889C4A9E1E9C743000EB2C68 /* file.png in Resources */,
 				889B2EA41E8DDAB500ACD1A0 /* MediaVC.xib in Resources */,
 				889DBA801E7E71F900520C77 /* Ship.png in Resources */,
@@ -3422,8 +3426,8 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Demo/DemoDebug.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Yang Li (GHRTP6V39W)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yang Li (GHRTP6V39W)";
+				CODE_SIGN_IDENTITY = "Apple Development: Yang Li (GHRTP6V39W)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: Yang Li (GHRTP6V39W)";
 				DEVELOPMENT_TEAM = N9MGHU8KN7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3441,10 +3445,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Demo/Third",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.iosdemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.qidian.dailybuild4dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4a57f1da-9a55-4802-8c6a-625c5d6a806f";
-				PROVISIONING_PROFILE_SPECIFIER = 20200210iOS;
+				PROVISIONING_PROFILE_SPECIFIER = 20200712iOS4ShareDev;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Demo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -3464,7 +3468,7 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Demo/Demo.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: Yang Li (GHRTP6V39W)";
 				DEVELOPMENT_TEAM = N9MGHU8KN7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

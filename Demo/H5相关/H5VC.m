@@ -39,18 +39,28 @@
     //
     //    [self UIWebViewWithJS];
     //
-    //    [self showWKWebView];
+        [self showWKWebView];
     //
     //    [self WKWebViewWithJS];
     
 //    [self testWKWebView];
     
-    [self testJSCoreDemo];
+//    [self testJSCoreDemo];
+    
+    [self wkLoadLocalHtmlFile];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - 加载本地HTML
+
+- (void)wkLoadLocalHtmlFile {
+    NSURL* url = [[NSBundle mainBundle] URLForResource:@"file" withExtension:@"html"];
+    [self.wkWebView loadFileURL:url allowingReadAccessToURL:url];
 }
 
 

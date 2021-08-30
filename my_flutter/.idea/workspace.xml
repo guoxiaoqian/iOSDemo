@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd09dd68-ceea-4aeb-8745-de598270b14e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Demo/DemoDebug.entitlements" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Demo.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Demo/Flutter/FlutterTestVC.m" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo/Flutter/FlutterTestVC.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Demo/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Demo/ViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo/ViewController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ios/Flutter/Generated.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.ios/Flutter/Generated.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ios/Flutter/flutter_export_environment.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.ios/Flutter/flutter_export_environment.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/.ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Demo.xcodeproj/xcuserdata/guoxiaoqian.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo.xcodeproj/xcuserdata/guoxiaoqian.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Demo/OC高级（KVC+KVO+运行时）/CppTestVC.mm" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo/OC高级（KVC+KVO+运行时）/CppTestVC.mm" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
