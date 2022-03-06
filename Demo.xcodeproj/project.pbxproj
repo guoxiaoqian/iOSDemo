@@ -63,16 +63,12 @@
 		88486C881EA624A800AA842F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C871EA624A800AA842F /* MessageUI.framework */; };
 		88486C8A1EA6341300AA842F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C891EA6341300AA842F /* AddressBook.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		88486C8F1EA63DCF00AA842F /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88486C8E1EA63DCF00AA842F /* EventKit.framework */; };
-		8849AE2C1EC2BBAE001F3218 /* FunctionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8849AE261EC2BBAE001F3218 /* FunctionVC.m */; };
+		8849AE2C1EC2BBAE001F3218 /* FunctionVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8849AE261EC2BBAE001F3218 /* FunctionVC.mm */; };
 		8849AE2D1EC2BBAE001F3218 /* FunctionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8849AE281EC2BBAE001F3218 /* FunctionVC.xib */; };
 		8849AE2E1EC2BBAE001F3218 /* RuntimeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8849AE291EC2BBAE001F3218 /* RuntimeVC.m */; };
 		8849AE2F1EC2BBAE001F3218 /* RuntimeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8849AE2B1EC2BBAE001F3218 /* RuntimeVC.xib */; };
 		8849AE331EC30260001F3218 /* RunloopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8849AE311EC30260001F3218 /* RunloopVC.m */; };
 		8849AE341EC30260001F3218 /* RunloopVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8849AE321EC30260001F3218 /* RunloopVC.xib */; };
-		884E2348269B29CB00154D03 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = 884E2338269B29CA00154D03 /* sqlite3.c */; };
-		884E2349269B29CB00154D03 /* wwdb_base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 884E233B269B29CA00154D03 /* wwdb_base.cpp */; };
-		884E234A269B29CB00154D03 /* wwdb_core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 884E233D269B29CA00154D03 /* wwdb_core.cpp */; };
-		884E234B269B29CB00154D03 /* wwdb_performance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 884E233F269B29CA00154D03 /* wwdb_performance.cpp */; };
 		885559291F1A468B000EA0C4 /* algorithm_divide.m in Sources */ = {isa = PBXBuildFile; fileRef = 885559281F1A468B000EA0C4 /* algorithm_divide.m */; };
 		885692351F0FBA61001CECBA /* structure_list.mm in Sources */ = {isa = PBXBuildFile; fileRef = 885692331F0FBA61001CECBA /* structure_list.mm */; };
 		885692381F0FC396001CECBA /* structure_tree.mm in Sources */ = {isa = PBXBuildFile; fileRef = 885692361F0FC396001CECBA /* structure_tree.mm */; };
@@ -544,7 +540,7 @@
 		88486C891EA6341300AA842F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		88486C8B1EA6344100AA842F /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		88486C8E1EA63DCF00AA842F /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
-		8849AE261EC2BBAE001F3218 /* FunctionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionVC.m; sourceTree = "<group>"; };
+		8849AE261EC2BBAE001F3218 /* FunctionVC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FunctionVC.mm; sourceTree = "<group>"; };
 		8849AE271EC2BBAE001F3218 /* FunctionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionVC.h; sourceTree = "<group>"; };
 		8849AE281EC2BBAE001F3218 /* FunctionVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FunctionVC.xib; sourceTree = "<group>"; };
 		8849AE291EC2BBAE001F3218 /* RuntimeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuntimeVC.m; sourceTree = "<group>"; };
@@ -553,20 +549,6 @@
 		8849AE301EC30260001F3218 /* RunloopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunloopVC.h; sourceTree = "<group>"; };
 		8849AE311EC30260001F3218 /* RunloopVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunloopVC.m; sourceTree = "<group>"; };
 		8849AE321EC30260001F3218 /* RunloopVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RunloopVC.xib; sourceTree = "<group>"; };
-		884E2338269B29CA00154D03 /* sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sqlite3.c; sourceTree = "<group>"; };
-		884E2339269B29CA00154D03 /* sqlite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqlite3.h; sourceTree = "<group>"; };
-		884E233B269B29CA00154D03 /* wwdb_base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wwdb_base.cpp; sourceTree = "<group>"; };
-		884E233C269B29CA00154D03 /* wwdb_meta.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = wwdb_meta.hpp; sourceTree = "<group>"; };
-		884E233D269B29CA00154D03 /* wwdb_core.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wwdb_core.cpp; sourceTree = "<group>"; };
-		884E233E269B29CA00154D03 /* wwdb.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = wwdb.hpp; sourceTree = "<group>"; };
-		884E233F269B29CA00154D03 /* wwdb_performance.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wwdb_performance.cpp; sourceTree = "<group>"; };
-		884E2340269B29CA00154D03 /* wwdb_config.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = wwdb_config.hpp; sourceTree = "<group>"; };
-		884E2341269B29CA00154D03 /* wwdb_core.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = wwdb_core.hpp; sourceTree = "<group>"; };
-		884E2342269B29CA00154D03 /* wwdb_performance.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = wwdb_performance.hpp; sourceTree = "<group>"; };
-		884E2343269B29CA00154D03 /* wwdb_internal.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = wwdb_internal.hpp; sourceTree = "<group>"; };
-		884E2344269B29CA00154D03 /* wwdb_protobuf.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = wwdb_protobuf.hpp; sourceTree = "<group>"; };
-		884E2345269B29CA00154D03 /* wwdb_base.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = wwdb_base.hpp; sourceTree = "<group>"; };
-		884E2346269B29CA00154D03 /* wwdb_impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = wwdb_impl.hpp; sourceTree = "<group>"; };
 		885559271F1A468B000EA0C4 /* algorithm_divide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = algorithm_divide.h; sourceTree = "<group>"; };
 		885559281F1A468B000EA0C4 /* algorithm_divide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = algorithm_divide.m; sourceTree = "<group>"; };
 		885692331F0FBA61001CECBA /* structure_list.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = structure_list.mm; sourceTree = "<group>"; };
@@ -1353,43 +1335,6 @@
 			path = DemoMac;
 			sourceTree = "<group>";
 		};
-		884E2336269B29CA00154D03 /* WWDB */ = {
-			isa = PBXGroup;
-			children = (
-				884E2337269B29CA00154D03 /* sqlite3 */,
-				884E233A269B29CA00154D03 /* wwdb */,
-			);
-			path = WWDB;
-			sourceTree = "<group>";
-		};
-		884E2337269B29CA00154D03 /* sqlite3 */ = {
-			isa = PBXGroup;
-			children = (
-				884E2338269B29CA00154D03 /* sqlite3.c */,
-				884E2339269B29CA00154D03 /* sqlite3.h */,
-			);
-			path = sqlite3;
-			sourceTree = "<group>";
-		};
-		884E233A269B29CA00154D03 /* wwdb */ = {
-			isa = PBXGroup;
-			children = (
-				884E233B269B29CA00154D03 /* wwdb_base.cpp */,
-				884E2345269B29CA00154D03 /* wwdb_base.hpp */,
-				884E2340269B29CA00154D03 /* wwdb_config.hpp */,
-				884E233D269B29CA00154D03 /* wwdb_core.cpp */,
-				884E2341269B29CA00154D03 /* wwdb_core.hpp */,
-				884E2346269B29CA00154D03 /* wwdb_impl.hpp */,
-				884E2343269B29CA00154D03 /* wwdb_internal.hpp */,
-				884E233C269B29CA00154D03 /* wwdb_meta.hpp */,
-				884E233F269B29CA00154D03 /* wwdb_performance.cpp */,
-				884E2342269B29CA00154D03 /* wwdb_performance.hpp */,
-				884E2344269B29CA00154D03 /* wwdb_protobuf.hpp */,
-				884E233E269B29CA00154D03 /* wwdb.hpp */,
-			);
-			path = wwdb;
-			sourceTree = "<group>";
-		};
 		8859608A1E701FA300760090 /* UI高级（动画） */ = {
 			isa = PBXGroup;
 			children = (
@@ -2094,7 +2039,6 @@
 		88C32E321E66BFF1002753FC /* 存储（数据库+CoreData+文件） */ = {
 			isa = PBXGroup;
 			children = (
-				884E2336269B29CA00154D03 /* WWDB */,
 				88A8C9A321EB379900B70032 /* Serialize */,
 				88C32E331E66BFF1002753FC /* CoreData */,
 				88C32E381E66BFF1002753FC /* FileManager */,
@@ -2242,7 +2186,7 @@
 				882739181FCAF78E0011BC0B /* Singleton.h */,
 				882739161FCAF78E0011BC0B /* Singleton.m */,
 				8849AE271EC2BBAE001F3218 /* FunctionVC.h */,
-				8849AE261EC2BBAE001F3218 /* FunctionVC.m */,
+				8849AE261EC2BBAE001F3218 /* FunctionVC.mm */,
 				8849AE281EC2BBAE001F3218 /* FunctionVC.xib */,
 				8849AE2A1EC2BBAE001F3218 /* RuntimeVC.h */,
 				8849AE291EC2BBAE001F3218 /* RuntimeVC.m */,
@@ -2868,14 +2812,13 @@
 			files = (
 				88C32E861E66BFF1002753FC /* FileManagerVC.m in Sources */,
 				886860AB2172453000C88C1A /* RACBehaviorSubject.m in Sources */,
-				8849AE2C1EC2BBAE001F3218 /* FunctionVC.m in Sources */,
+				8849AE2C1EC2BBAE001F3218 /* FunctionVC.mm in Sources */,
 				88E8F7B71ED5A23100FE93B4 /* LightCommand_Off.m in Sources */,
 				8876018423E3FED400B12706 /* TQDFMElementText.m in Sources */,
 				889DBA7C1E7E71F900520C77 /* QuartzPolyViewController.m in Sources */,
 				886860A52172453000C88C1A /* NSString+RACKeyPathUtilities.m in Sources */,
 				887184B82512388200351ED3 /* MakeFuzzyVC.m in Sources */,
 				889DBA701E7E71F900520C77 /* QuartzBlending.m in Sources */,
-				884E2348269B29CB00154D03 /* sqlite3.c in Sources */,
 				886860D32172453000C88C1A /* RACSubscriptionScheduler.m in Sources */,
 				88439EF01E9D1466007DDA1B /* SpecialLayerVC.m in Sources */,
 				88A617431E53100C00EF8AFC /* ViewController.m in Sources */,
@@ -2953,7 +2896,6 @@
 				8876019723E42A0C00B12706 /* TQDFMEvent.m in Sources */,
 				886860B72172453000C88C1A /* RACEmptySignal.m in Sources */,
 				882739351FCC64440011BC0B /* TNWCameraScanView.m in Sources */,
-				884E234A269B29CB00154D03 /* wwdb_core.cpp in Sources */,
 				887184A52512383400351ED3 /* CppTestVC.mm in Sources */,
 				8856923B1F1060CC001CECBA /* structure_stack_queue.mm in Sources */,
 				886860E72172453000C88C1A /* UISlider+RACSignalSupport.m in Sources */,
@@ -3025,7 +2967,6 @@
 				886860DA2172453000C88C1A /* RACValueTransformer.m in Sources */,
 				886860CE2172453000C88C1A /* RACStream.m in Sources */,
 				88FF5185263BB4A8009238CA /* ImageDecodeVC.m in Sources */,
-				884E2349269B29CB00154D03 /* wwdb_base.cpp in Sources */,
 				88EA7A891EB2247500165B37 /* View+MASAdditions.m in Sources */,
 				88920A8523E4715500CA94D5 /* TQDFMElementLoadingHolderView.m in Sources */,
 				8876018C23E3FED400B12706 /* TQDFMElementImageView.m in Sources */,
@@ -3075,7 +3016,6 @@
 				8892E9D9224B6025000746C9 /* AutoCodingModel.m in Sources */,
 				889C4AA41E9C743000EB2C68 /* AFSecurityPolicy.m in Sources */,
 				885692441F123794001CECBA /* algorithm_traverse.m in Sources */,
-				884E234B269B29CB00154D03 /* wwdb_performance.cpp in Sources */,
 				88A8C9AA21EB379A00B70032 /* Person.proto in Sources */,
 				88920A8823E47D0400CA94D5 /* TQDFMElementMsgView.m in Sources */,
 				8876018523E3FED400B12706 /* TQDFMLayoutTree.m in Sources */,

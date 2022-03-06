@@ -13,6 +13,7 @@
 @interface CoreDataVC ()
 
 @property (strong,nonatomic) NSManagedObjectContext* context;
+@property (strong,nonatomic) NSManagedObjectContext* privateContext;
 @property (strong,nonatomic) NSManagedObjectModel* model;
 
 @end
@@ -42,6 +43,8 @@
     [self predicateQuery];
     
     [self regularExpressionQuery];
+    
+    [self testConcurrentRW];
 }
 
 -(void)initCoreData{
@@ -202,5 +205,80 @@
  // Pass the selected object to the new view controller.
  }
  */
+
+#pragma mark - 多线程
+
+//参考文章：https://segmentfault.com/a/1190000014827901
+-(void)initPrivateCoreData{
+    self.privateContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    self.privateContext.parentContext = self.context;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(privateContextWillSave:) name:NSManagedObjectContextWillSaveNotification object:self.privateContext];
+}
+
+- (void)privateContextWillSave:(NSNotification*)noti {
+    NSManagedObjectContext* context = noti.object;
+    NSSet* insertedObjecs = [context insertedObjects];
+    if ([insertedObjecs count]) {
+        NSError* error = nil;
+        BOOL succsess = [context obtainPermanentIDsForObjects:insertedObjecs.allObjects error:&error];
+    }
+}
+
+- (void)saveContextRecursive:(NSManagedObjectContext*)context {
+    if (!context) {
+        return;
+    }
+    NSError* error = nil;
+    if ([context hasChanges] && ![context save:&error]) {
+        NSAssert(YES, @"save error");
+    }
+    if (context.parentContext) {
+        [self saveContextRecursive:context.parentContext];
+    }
+}
+
+- (void)testConcurrentRW {
+    
+    [self initPrivateCoreData];
+    
+    for (int i=0; i < 10;  ++i ) {
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            [self addUserInPrivateContext];
+        });
+    }
+}
+
+- (void)addUserInPrivateContext {
+    NSManagedObjectContext* context = self.privateContext;
+    static int userCount = 10;
+    static int addTimes = 0;
+
+    [context performBlock:^{
+        NSEntityDescription* description = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
+        for (int i=0; i<10; ++i) {
+            userCount ++;
+            User* user = [[User alloc] initWithEntity:description insertIntoManagedObjectContext:context];
+            user.name = [NSString stringWithFormat:@"郭晓倩%d",userCount];
+        }
+        
+        NSLog(@"===========addTimes %d",addTimes);
+        addTimes ++;
+        [self saveContextRecursive:context];
+        
+        [self fetchUserInMainContext];
+    }];
+}
+
+- (void)fetchUserInMainContext {
+    static int fetchTimes = 0;
+
+    [self.context performBlock:^{
+        
+        NSLog(@"===========fetchTimes %d",fetchTimes);
+        fetchTimes ++;
+
+        [self fetchUser];
+    }];
+}
 
 @end

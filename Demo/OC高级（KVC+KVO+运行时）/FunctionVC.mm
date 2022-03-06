@@ -11,6 +11,7 @@
 #import "MRCTest.h"
 #import "DebugTool.h"
 #import "Singleton.h"
+#include <string>
 
 @interface MyCopyObj : NSObject <NSCopying>
 
@@ -143,6 +144,9 @@
 //    [self testNSStringClass];
     
     [self testCopy];
+    
+    
+    [self testNull];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -358,21 +362,28 @@
     NSMutableArray* arrCopy2 = [arr mutableCopy];
 }
 
+#pragma mark - Null
+
+- (void)testNull {
+    NSString* str = nil;
+    std::string s = [str UTF8String];
+}
+
 // MARK:- 视图查找
 
-+ (id)findNextObjectOfClass:(Class)class fromObject:(id)fromObj byNextBlock:(id(^)(id fromObj))nextBlock {
-    if ([fromObj isKindOfClass:class]) {
++ (id)findNextObjectOfClass:(Class)class_ fromObject:(id)fromObj byNextBlock:(id(^)(id fromObj))nextBlock {
+    if ([fromObj isKindOfClass:class_]) {
         return fromObj;
     }
     id nextObj = nextBlock(fromObj);
-    while (nextObj && [nextObj isKindOfClass:class] == NO) {
+    while (nextObj && [nextObj isKindOfClass:class_] == NO) {
         nextObj = nextBlock(nextObj);
     }
     return nextObj;
 }
 
-+ (UIView*)findSuperViewOfClass:(Class)class fromView:(UIView*)fromView {
-    return [self findNextObjectOfClass:class fromObject:fromView byNextBlock:^id(id fromObj) {
++ (UIView*)findSuperViewOfClass:(Class)class_ fromView:(UIView*)fromView {
+    return [self findNextObjectOfClass:class_ fromObject:fromView byNextBlock:^id(id fromObj) {
         if ([fromObj isKindOfClass:[UIView class]]) {
             return ((UIView*)fromObj).superview;
         } else {
@@ -381,8 +392,8 @@
     }];
 }
 
-+ (UIView*)findNextResponderOfClass:(Class)class fromResponder:(UIResponder*)fromResponder {
-    return [self findNextObjectOfClass:class fromObject:fromResponder byNextBlock:^id(id fromObj) {
++ (UIView*)findNextResponderOfClass:(Class)class_ fromResponder:(UIResponder*)fromResponder {
+    return [self findNextObjectOfClass:class_ fromObject:fromResponder byNextBlock:^id(id fromObj) {
         if ([fromObj isKindOfClass:[UIResponder class]]) {
             return ((UIResponder*)fromObj).nextResponder;
         } else {
