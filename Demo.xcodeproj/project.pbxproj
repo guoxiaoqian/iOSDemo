@@ -10,6 +10,7 @@
 		1D7CAC040BEB63FD91C84A1D /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387D0A6F100DA97810BE7164 /* Pods_Demo.framework */; };
 		8801319D1E8F7CB40087EBBD /* FreeStreamer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8801319A1E8F7C8B0087EBBD /* FreeStreamer.framework */; };
 		8801319E1E8F7CB40087EBBD /* FreeStreamer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8801319A1E8F7C8B0087EBBD /* FreeStreamer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8806D4A027D4C499003A1EF5 /* TestLockVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8806D49F27D4C499003A1EF5 /* TestLockVC.m */; };
 		880D8DB521D7708F00B3FE2C /* UnixSignalVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 880D8DB421D7708F00B3FE2C /* UnixSignalVC.mm */; };
 		8825CF021ED3BA1F00C59E4E /* DesignPatternVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF001ED3BA1F00C59E4E /* DesignPatternVC.m */; };
 		8825CF031ED3BA1F00C59E4E /* DesignPatternVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8825CF011ED3BA1F00C59E4E /* DesignPatternVC.xib */; };
@@ -454,6 +455,8 @@
 		387D0A6F100DA97810BE7164 /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61F58CF9EC640CA0AC757F1F /* Pods-SwiftUITest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUITest.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftUITest/Pods-SwiftUITest.release.xcconfig"; sourceTree = "<group>"; };
 		880131951E8F7C8B0087EBBD /* FreeStreamer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FreeStreamer.xcodeproj; path = FreeStreamer/FreeStreamer.xcodeproj; sourceTree = "<group>"; };
+		8806D49D27D4C499003A1EF5 /* TestLockVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestLockVC.h; sourceTree = "<group>"; };
+		8806D49F27D4C499003A1EF5 /* TestLockVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestLockVC.m; sourceTree = "<group>"; };
 		880D8DB321D7708F00B3FE2C /* UnixSignalVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnixSignalVC.h; sourceTree = "<group>"; };
 		880D8DB421D7708F00B3FE2C /* UnixSignalVC.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = UnixSignalVC.mm; sourceTree = "<group>"; };
 		8825CEFF1ED3BA1F00C59E4E /* DesignPatternVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignPatternVC.h; sourceTree = "<group>"; };
@@ -2169,6 +2172,8 @@
 		88C32E501E66BFF1002753FC /* 多线程 */ = {
 			isa = PBXGroup;
 			children = (
+				8806D49D27D4C499003A1EF5 /* TestLockVC.h */,
+				8806D49F27D4C499003A1EF5 /* TestLockVC.m */,
 				889B2EB51E9077DB00ACD1A0 /* ConcurrencyVC.h */,
 				889B2EB61E9077DB00ACD1A0 /* ConcurrencyVC.m */,
 				889B2EB71E9077DB00ACD1A0 /* ConcurrencyVC.xib */,
@@ -2878,6 +2883,7 @@
 				889C4AAA1E9C743000EB2C68 /* README.md in Sources */,
 				8825CF331ED878B400C59E4E /* DecoratorPattern_AbstractLight.m in Sources */,
 				886860A82172453000C88C1A /* NSURLConnection+RACSupport.m in Sources */,
+				8806D4A027D4C499003A1EF5 /* TestLockVC.m in Sources */,
 				8876018623E3FED400B12706 /* TQDFMElementBase.m in Sources */,
 				889DBA781E7E71F900520C77 /* QuartzImages.m in Sources */,
 				886860D92172453000C88C1A /* RACUnit.m in Sources */,

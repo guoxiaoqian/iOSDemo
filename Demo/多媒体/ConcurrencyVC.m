@@ -171,6 +171,12 @@ typedef enum : NSUInteger {
 
 @property (strong,nonatomic) NSOperationQueue* operationQueue;
 
+@property (assign,nonatomic) int  int_nolock;
+@property (assign,atomic) int  int_atomic;
+@property (strong,nonatomic) NSMutableArray* array_nolock;
+@property (strong,nonatomic) NSString* string_nolock;
+@property (strong,atomic) NSString* string_lock;
+
 @end
 
 @implementation ConcurrencyVC
@@ -572,5 +578,77 @@ dispatch_source_t MonitorNameChangesToFile(const char* filename)
 - (void)delayToShowLoginUIWithType:(int)type {
     NSLog(@"delayToShowLoginUIWithType");
 }
+
+#pragma mark - Crash
+
+- (void)testMultiThreadCrash {
+    int  test_loop_count = 100000;
+    int  test_thread_count = 10;
+    self.array_nolock = [NSMutableArray new];
+
+    
+//    for (int j=0; j<test_thread_count; ++j) {
+//        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//            for (int i=0; i < test_loop_count; ++i) {
+//                self.int_nolock = i;
+//            }
+//        });
+//    }
+    
+//    for (int j=0; j<test_thread_count; ++j) {
+//        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//            for (int i=0; i < test_loop_count; ++i) {
+//                self.string_nolock = [NSString stringWithFormat:@"string_nolock%d",i];
+//            }
+//        });
+//    }
+//
+//    for (int j=0; j<test_thread_count; ++j) {
+//        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//            for (int i=0; i < test_loop_count; ++i) {
+//                self.string_lock = [NSString stringWithFormat:@"string_nolock%d",i];
+//            }
+//        });
+//    }
+    
+    
+    
+//    for (int j=0; j<test_thread_count; ++j) {
+//        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//            for (int i=0; i < test_loop_count; ++i) {
+//                NSString* str = [NSString stringWithFormat:@"string_nolock%d",i];
+//                [self.array_nolock addObject:str];
+//            }
+//        });
+//    }
+//
+    
+    
+//    for (int i=0; i < test_loop_count; ++i) {
+//        NSString* str = [NSString stringWithFormat:@"string_nolock%d",i];
+//        [self.array_nolock addObject:str];
+//    }
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        for (int i=0; i < test_loop_count; ++i) {
+//            [self.array_nolock removeObjectAtIndex:0];
+//        }
+//    });
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        for (int i=0; i < test_loop_count; ++i) {
+//            for (int j=0; j<self.array_nolock.count; ++j) {
+//                NSString* str = self.array_nolock[j];
+//            }
+//        }
+//    });
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        for (int i=0; i < test_loop_count; ++i) {
+//            [self.array_nolock enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//                NSString* str = obj;
+//            }];
+//        }
+//    });
+    
+}
+
 
 @end

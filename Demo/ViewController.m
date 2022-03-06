@@ -51,6 +51,7 @@
 #import "FlexMessageVC.h"
 #import "FlutterTestVC.h"
 #import "MemoryVC.h"
+#import "TestLockVC.h"
 
 @interface EntryModel : NSObject
 
@@ -130,6 +131,7 @@
                        [EntryModel modelWithClass:[FlexMessageVC class]],
                        [EntryModel modelWithClass:[FlutterTestVC class]],
                        [EntryModel modelWithClass:[MemoryVC class]],
+                       [EntryModel modelWithClass:[TestLockVC class]],
                        nil];
 }
 
