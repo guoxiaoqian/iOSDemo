@@ -16,13 +16,13 @@ static NSMutableDictionary* g_monitorDic = nil;
     if (g_monitorDic == nil) {
         g_monitorDic = [NSMutableDictionary new];
     }
-    g_monitorDic[name] = @(CFAbsoluteTimeGetCurrent());
+    g_monitorDic[name] = @(CACurrentMediaTime());
 }
 
 + (void)endMonitor:(NSString*)name {
     NSNumber* beginTime = g_monitorDic[name];
-    CFAbsoluteTime diff = CFAbsoluteTimeGetCurrent() - beginTime.doubleValue;
-    NSLog(@"Event %@ spend %fs",name,diff);
+    CFTimeInterval diff = CACurrentMediaTime() - beginTime.doubleValue;
+    NSLog(@"[TimeMonitor] Event %@ spend %.2fs",name,diff);
 }
 
 @end

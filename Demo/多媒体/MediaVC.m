@@ -484,7 +484,7 @@ void soundCompleteCallback(SystemSoundID soundID,void * clientData){
 #pragma mark - UIImagePickerController拍照和视频录制
 
 -(IBAction)startImagePicker:(id)sender{
-    self.isVideo = YES;
+    self.isVideo = NO;
     [self presentViewController:self.imagePicker animated:YES completion:^{
         
     }];
@@ -499,7 +499,7 @@ void soundCompleteCallback(SystemSoundID soundID,void * clientData){
             _imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
             
             if (self.isVideo) {
-                _imagePicker.cameraFlashMode = UIImagePickerControllerCameraCaptureModeVideo; //拍照 或 视频
+                _imagePicker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModeVideo; //拍照 或 视频
                 _imagePicker.mediaTypes = @[(__bridge id)kUTTypeVideo];//默认kUTTypeImage;kUTTypeMovie带声音,kUTTypeVideo不带
                 _imagePicker.videoQuality = UIImagePickerControllerQualityTypeMedium;
                 _imagePicker.videoMaximumDuration = 10; //最大录制时长

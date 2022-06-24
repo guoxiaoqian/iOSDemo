@@ -12,6 +12,8 @@
 		8801319E1E8F7CB40087EBBD /* FreeStreamer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8801319A1E8F7C8B0087EBBD /* FreeStreamer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8806D4A027D4C499003A1EF5 /* TestLockVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8806D49F27D4C499003A1EF5 /* TestLockVC.m */; };
 		880D8DB521D7708F00B3FE2C /* UnixSignalVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 880D8DB421D7708F00B3FE2C /* UnixSignalVC.mm */; };
+		882365CB284F0B87007F969A /* TimeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 882365CA284F0B87007F969A /* TimeVC.m */; };
+		882365CE284F115D007F969A /* BaseViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 882365CC284F115C007F969A /* BaseViewController.mm */; };
 		8825CF021ED3BA1F00C59E4E /* DesignPatternVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF001ED3BA1F00C59E4E /* DesignPatternVC.m */; };
 		8825CF031ED3BA1F00C59E4E /* DesignPatternVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8825CF011ED3BA1F00C59E4E /* DesignPatternVC.xib */; };
 		8825CF071ED3BA3500C59E4E /* DataStructureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8825CF051ED3BA3500C59E4E /* DataStructureVC.m */; };
@@ -455,6 +457,10 @@
 		8806D49F27D4C499003A1EF5 /* TestLockVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestLockVC.m; sourceTree = "<group>"; };
 		880D8DB321D7708F00B3FE2C /* UnixSignalVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnixSignalVC.h; sourceTree = "<group>"; };
 		880D8DB421D7708F00B3FE2C /* UnixSignalVC.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = UnixSignalVC.mm; sourceTree = "<group>"; };
+		882365C9284F0B87007F969A /* TimeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeVC.h; sourceTree = "<group>"; };
+		882365CA284F0B87007F969A /* TimeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeVC.m; sourceTree = "<group>"; };
+		882365CC284F115C007F969A /* BaseViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BaseViewController.mm; sourceTree = "<group>"; };
+		882365CD284F115C007F969A /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		8825CEFF1ED3BA1F00C59E4E /* DesignPatternVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignPatternVC.h; sourceTree = "<group>"; };
 		8825CF001ED3BA1F00C59E4E /* DesignPatternVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignPatternVC.m; sourceTree = "<group>"; };
 		8825CF011ED3BA1F00C59E4E /* DesignPatternVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignPatternVC.xib; sourceTree = "<group>"; };
@@ -1201,6 +1207,15 @@
 			path = "Unix API";
 			sourceTree = "<group>";
 		};
+		882365C8284F0B5F007F969A /* 基础(时间) */ = {
+			isa = PBXGroup;
+			children = (
+				882365C9284F0B87007F969A /* TimeVC.h */,
+				882365CA284F0B87007F969A /* TimeVC.m */,
+			);
+			path = "基础(时间)";
+			sourceTree = "<group>";
+		};
 		8825CEFC1ED3B9F900C59E4E /* 设计模式 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1913,6 +1928,7 @@
 		88A6173A1E53100C00EF8AFC /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				882365C8284F0B5F007F969A /* 基础(时间) */,
 				8899BDC52646ED4E00713B7A /* 内存 */,
 				88DA0748259B00B200D13365 /* DemoDebug.entitlements */,
 				88DA073B259AF89B00D13365 /* Flutter */,
@@ -1950,6 +1966,8 @@
 				88A8CB3121EB4D3300B70032 /* TimeMonitor.m */,
 				88A617411E53100C00EF8AFC /* ViewController.h */,
 				88A617421E53100C00EF8AFC /* ViewController.m */,
+				882365CD284F115C007F969A /* BaseViewController.h */,
+				882365CC284F115C007F969A /* BaseViewController.mm */,
 				88A617441E53100C00EF8AFC /* Main.storyboard */,
 				88A617471E53100C00EF8AFC /* Assets.xcassets */,
 				88A617491E53100C00EF8AFC /* LaunchScreen.storyboard */,
@@ -2821,6 +2839,7 @@
 				889DBA701E7E71F900520C77 /* QuartzBlending.m in Sources */,
 				886860D32172453000C88C1A /* RACSubscriptionScheduler.m in Sources */,
 				88439EF01E9D1466007DDA1B /* SpecialLayerVC.m in Sources */,
+				882365CB284F0B87007F969A /* TimeVC.m in Sources */,
 				88A617431E53100C00EF8AFC /* ViewController.m in Sources */,
 				886E65321ED3D4FB00C13E29 /* algorithm_sort.m in Sources */,
 				889C4AAA1E9C743000EB2C68 /* README.md in Sources */,
@@ -2912,6 +2931,7 @@
 				889C4AB11E9C743000EB2C68 /* UIRefreshControl+AFNetworking.m in Sources */,
 				886860E02172453000C88C1A /* UIControl+RACSignalSupport.m in Sources */,
 				88C32E8B1E66BFF1002753FC /* FMDatabaseAdditions.m in Sources */,
+				882365CE284F115D007F969A /* BaseViewController.mm in Sources */,
 				885960C61E7020DD00760090 /* TestGeneralAnimationVC.m in Sources */,
 				886860A92172453000C88C1A /* NSUserDefaults+RACSupport.m in Sources */,
 				886860E42172453000C88C1A /* UIImagePickerController+RACSignalSupport.m in Sources */,
@@ -3372,9 +3392,9 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Demo/DemoDebug.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development: Yang Li (GHRTP6V39W)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: Yang Li (GHRTP6V39W)";
-				DEVELOPMENT_TEAM = N9MGHU8KN7;
+				CODE_SIGN_IDENTITY = "Apple Development: 429267703@qq.com (8D53MA5YKU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: 429267703@qq.com (8D53MA5YKU)";
+				DEVELOPMENT_TEAM = 2SJ2FS469G;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Demo/多媒体",
@@ -3394,7 +3414,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.qidian.dailybuild4dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4a57f1da-9a55-4802-8c6a-625c5d6a806f";
-				PROVISIONING_PROFILE_SPECIFIER = 20200712iOS4ShareDev;
+				PROVISIONING_PROFILE_SPECIFIER = 20211025ShareDev;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Demo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
